@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- GUI -->
+	<resource type="image" id="GUI_BUTTON_NORMAL">res/images/gui/button.png</resource>
+	<resource type="image" id="GUI_ICON_CHECK">res/images/gui/checkicon.png</resource>
+	<resource type="image" id="GUI_BOTTOM_BACKGROUND">res/images/gui/bottom_menu_background.png</resource>
+	<resource type="image" id="GUI_TOP_BACKGROUND">res/images/gui/top_menu_background.png</resource>
+	<resource type="image" id="GUI_VALUEBAR_LIGHT">res/images/gui/valuebar_light.png</resource>
+	<resource type="image" id="GUI_TOPSHADOW">res/images/gui/topshadow.png</resource>
+	<resource type="image" id="ICON_SAVE">res/images/gui/icon_save.png</resource>
+	<resource type="image" id="ICON_LOAD">res/images/gui/icon_load.png</resource>
+	<resource type="image" id="ICON_QUIT">res/images/gui/icon_quit.png</resource>
+	<resource type="image" id="GUI_MAP_SELECTED">res/images/gui/map_selected.png</resource>
+		
+	<!-- Intro -->
+	<resource type="image" id="INTRO_MYREALITY_LOGO">res/images/logos/myreality_logo.png</resource>
+	<resource type="image" id="INTRO_JAVA_LOGO">res/images/logos/java_logo.png</resource>
+	<resource type="image" id="INTRO_SLICK_LOGO">res/images/logos/slick_logo.png</resource>	
+		
+	<!-- Menu -->
+	<resource type="image" id="MENU_BACKGROUND">res/images/gui/main_background.png</resource>
+	<resource type="image" id="MENU_HEADER">res/images/gui/game_header.png</resource>
+		
+	<!-- Credits -->
+	<resource type="image" id="ARTWORK_01">res/images/artworks/artwork_01.png</resource>
+	<resource type="image" id="ARTWORK_02">res/images/artworks/artwork_02.png</resource>
+	<resource type="image" id="ARTWORK_03">res/images/artworks/artwork_03.png</resource>
+	
+	<!-- Map Selection Images -->
+	<resource type="image" id="SECTOR_TRIAL_WORLD_EX-035">res/images/sectors/trial_sector/EX-035.png</resource>
+	<resource type="image" id="SECTOR_TRIAL_WORLD_TALDRA">res/images/sectors/trial_sector/taldra.png</resource>
+	
+	
+	<!-- Path images -->
+	<resource type="image" id="GUI_PATH_ARROW">res/images/gui/paths/arrow.png</resource>
+	<resource type="image" id="GUI_PATH_STRAIGHT">res/images/gui/paths/straight.png</resource>
+	<resource type="image" id="GUI_PATH_CURVE">res/images/gui/paths/curve.png</resource>
+	
+</resources>

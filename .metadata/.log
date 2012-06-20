@@ -1,0 +1,12 @@
+!SESSION 2012-03-17 13:46:11.974 -----------------------------------------------
+eclipse.buildId=M20110210-1200
+java.version=1.6.0_30
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:\Entwicklung\Java\LittleWars
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2012-03-17 13:46:21.074
+!MESSAGE No search provider was registed. Tasks search is not available.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2012-03-17 13:46:28.165
+!MESSAGE DDMS files not found: D:\Anwendungen\Programme\eclipse-SDK-3.6.2-win32\eclipse\platform-tools\adb.exe D:\Anwendungen\Programme\eclipse-SDK-3.6.2-win32\eclipse\tools\hprof-conv.exe D:\Anwendungen\Programme\eclipse-SDK-3.6.2-win32\eclipse\tools\traceview.bat 

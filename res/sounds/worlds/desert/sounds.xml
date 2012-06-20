@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- Map Background Sounds -->
+	<resource type="sound" id="SOUND_MAP_DESERT">res/sounds/worlds/desert/dark_desert.OGG</resource>	
+</resources>

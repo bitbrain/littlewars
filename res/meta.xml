@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- General settings -->
+	<resource type="text" id="TXT_GAME_NAME">LittleWars</resource>
+	<resource type="text" id="TXT_GAME_AUTHOR">my Reality Development</resource>
+	<resource type="text" id="TXT_GAME_VER">0.6</resource>
+	<resource type="text" id="TXT_GAME_PHASE">dev</resource>
+</resources>

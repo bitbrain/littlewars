@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patchnotes>
+    <patch caption="Version 0.6 dev">
+        <item>"Melde Fehler"-Menü wurde eingefügt</item>
+        <item>Spiel wird jetzt beim Spielstart automatisch auf Aktualisierungen geprüft</item>
+        <item>Rundensystem wurde implementiert</item>
+        <item>Es können nun Screenshots gemacht werden</item>
+        <item>Neue GUI-Elemente wurden implementiert, um die Benutzerfreundlichkeit zu erhöhen</item>
+        <item>Einheiten bewegen sich jetzt nach Pfaden</item>
+        <item>Es erscheint jetzt ein Pfeil, der die Bewegungsrichtung der Einheit angibt</item>
+        <item>Einfaches Kampfsystem wurde implementiert</item>
+        <item>Bei Statusveränderungen erscheint über der Einheit jetzt eine Information</item>
+        <item>Radius wurde implementiert, in dem Einheiten gebaut werden können</item>
+        <item>Weiterhin wurden 8 schwere Fehler behoben</item>
+    </patch>
+    <patch caption="Version 0.5 dev">
+		<item>Ein neue Weltenauswahl wurde eingeführt</item>
+		<item>Es wird vor dem Start auf Aktualisierungen geprüft</item>
+		<item>Popup-Menüs können jetzt erscheinen, wenn man die Maus über ein Objekt bewegt</item>
+		<item>Kurze Nachrichten können nun eingeblendet werden, um den Nutzer zu informieren</item>
+		<item>Umgebungslicht der Welt ändert sich nun dynamisch mit der Tageszeit</item>
+		<item>Ein fundamentales Rundensystem wurde implementiert</item>
+		<item>Es wurden einige Optimierungen getroffen, um die Bildrate zu erhöhen</item>
+		<item>Es wurde ein Fehler behoben, der dafür sorgte, dass Positionen falsch berechnet wurden</item>
+		<item>Erhält eine Einheit Erfahrungspunkte, wird dies ab sofort von einem Geräusch begleitet</item>
+		<item>Vorbereitungs- sowie Initialisierungsphase wurde implementiert</item>
+	</patch>
+	<patch caption="Version 0.4 dev">
+		<item>Menüs im Spiel wurden hinzugefügt</item>
+		<item>Man kann jetzt Karten laden und spielen</item>
+		<item>Lebensanzeige von Einheiten ist nun animiert</item>
+		<item>Jede Welt hat jetzt Hintergrundgeräusche</item>
+		<item>Ladebildschirm wurde eingeführt</item>
+		<item>Minimap mit implementierter Kamera-Steuerung wurde eingefügt</item>
+	</patch>
+	<patch caption="Version 0.3 dev">
+		<item>Kollisionsbug behoben</item>
+		<item>Jede Welt hat jetzt verschiedene Tageszeiten</item>		
+	</patch>
+	<patch caption="Version 0.2 dev">
+		<item>Schrift wurde implementiert</item>
+		<item>Einstellungen sind jetzt möglich</item>
+		<item>GUI-Elemente wurden erzeugt</item>
+	</patch>
+	<patch caption="Version 0.1 dev">
+		<item>Kollisionserkennung wurde eingefügt</item>
+		<item>Javadoc wurde erstellt</item>
+		<item>Menüstruktur wurde erstellt</item>
+	</patch>
+</patchnotes>

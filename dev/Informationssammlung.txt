@@ -1,0 +1,134 @@
+################################## UNIT  #########################################
+
+Loaded images from XML:
+
+   <units>
+      <unit>         
+         <imageAvatar>type_name_avatar</imageAvatar>
+         <imageTitle>type_name_tile</imageTitle>
+         <imageScene>->type_name_scene</imageScene>
+         <sounds>
+            <item>type_name_description</item>
+            <item>type_name_description</item>
+            <item>type_name_description</item>
+      </unit>
+   </units>
+
+Properties:
+
+   life       - Life and current life of the unit
+   weapon     - The current weapon of the unit
+   items      - A list of all items in bagpack
+   strength   - Strength of the unit
+   defense    - Defense of the unit
+   speed      - Speed and lightradius of the unit
+   expirience - current expirience
+   level      - level of the unit
+
+################################## INTRO #########################################
+
+1. MYREALITY_BANNER
+2. JAVA_BANNER
+3. SLICK_BANNER
+4. GAME_INTRO
+      GameScene
+	SceneElement (Time, Text, Effects)
+	SceneElement (Time, Text, Effects)
+	SceneElement (Time, Text, Effects)
+
+################################### MENU #########################################
+
+New Game
+   Show a world map with all maps
+      - Hover a Location
+        Show Map information
+      - Click on a location
+        Lock the map to play
+   Select Settings
+      PlayerName
+      Color
+      Fraction
+      Handicap
+      Enemies
+      Difficulty
+      Game-Mode    
+Settings
+   Graphics
+   Resolution
+   Sound & Music Volume
+   Language
+     Deutsch
+     English   
+Credits
+   ArtworkGallery
+   GameCredits
+Close
+
+############################### MAIN GAME #######################################
+
+Initialization Phase
+      - Set the player's properties
+      - Load available units to the unit pool
+      - Jump to each of your slots (smoothy with the camera)and open a popup menu 
+        with the unit pool in it. Select a unit and then the game jumps to 
+        the next slot until no more slots are free.
+      - Set time to 0 and start the counter            
+
+1. Round starts
+      - Free Camera
+      - Select an unit
+      - Save the game to autosave
+
+2. Unit selection
+      - Show its radius on the map
+      - Show unit statistics in the bottom menu
+      - Fields on the map are visible now:
+           No color: out of range
+	   Green: empty field in range
+           Unit color: Color of the player
+   2.0 Mouse Hover a unit
+     - While mouse is over, show unit statistics in the bottom menu
+     - show a additional popup menu with unit properties
+   2.1 Click on a empty field
+      - Move the unit to the selected field (units can walk through friend units!)
+      - Jump to the end turn
+   2.2 Hover a game object
+      - Show Object statistics in the bottom
+      - Show a popupmenu with statistics and information
+      - Show a hud with options to do
+      2.2.1 Allie Object
+         - Stand by (only the same army type) -> Open Unit switch menu         
+      2.2.2 Enemy Object
+         - Attack
+         - Speak (not always)
+      2.2.3 ObstacleObject
+         - Attack (when it hasn't infinite life)
+      2.2.4 GiftObject
+         - gather in
+   2.3 Click on a specific field:
+      Do the first option of the hud. When no options are available, do some error sounds.
+3. Main Phase
+   3.1 Conversation
+      - Create a game scene with a conversation between the two units
+      - After the scene, do some event like a battle or map changes
+   3.2 Battle
+      - Attack the selected unit with current weapon or power
+
+4. Tyding up
+   4.1 Update expirience, life, level and other stats
+   4.2 Remove defeated  or gathered units
+   4.3 Update player's state
+
+############################### LEVEL GOALS #######################################
+
+Mode: The strongest will survive -> Defeat all enemies with your army.
+Mode: The survivor -> Survive a specific amount of rounds or a specific time       
+Mode: Haste -> Defeat all units within a specific amount of rounds
+
+
+
+
+
+
+
+

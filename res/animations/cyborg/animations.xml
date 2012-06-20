@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>	
+<!-- Cyborg -->		
+	<!-- Center -->
+		<!-- Die -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DIE" id="ANIMATION_CYBORG_CENTER_DIE" />
+		<!-- Move -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_MOVE" id="ANIMATION_CYBORG_CENTER_MOVE" />	
+		<!-- Attack -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_ATTACK" id="ANIMATION_CYBORG_CENTER_ATTACK" />	
+		<!-- Default -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DEFAULT" id="ANIMATION_CYBORG_CENTER_DEFAULT" />	
+		<!-- Defend -->				
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DEFEND" id="ANIMATION_CYBORG_CENTER_DEFEND" />	
+	<!-- Annihilator -->
+		<!-- Die -->
+		<resource type="animation" duration="1000" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DIE" id="ANIMATION_CYBORG_ANNIHILATOR_DIE" />
+		<!-- Move -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_MOVE" id="ANIMATION_CYBORG_ANNIHILATOR_MOVE" />	
+		<!-- Attack -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_ATTACK" id="ANIMATION_CYBORG_ANNIHILATOR_ATTACK" />	
+		<!-- Default -->
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFAULT" id="ANIMATION_CYBORG_ANNIHILATOR_DEFAULT" />	
+		<!-- Defend -->				
+		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFEND" id="ANIMATION_CYBORG_ANNIHILATOR_DEFEND" />				
+			
+	<!-- Butcher -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- cp-0x01 -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- cp-0x02 -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- cp-0x03 -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- Grinder -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- Ionbreaker -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- Seeker -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+	<!-- Technobot -->
+		<!-- Die -->
+
+		<!-- Move -->
+			
+		<!-- Attack -->
+			
+		<!-- Default -->
+			
+		<!-- Defend -->				
+			
+</resources>	

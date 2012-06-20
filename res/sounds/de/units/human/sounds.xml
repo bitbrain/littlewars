@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<!-- Human -->
+	<!-- Soldier -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+	<!-- Plasma-Tank -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+	<!-- Neron-Tank -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+	<!-- EMP-Gun -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+	<!-- EMP-Grenadier -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+	<!-- Crystallizer -->
+		<!-- Die -->
+		<!-- Move -->
+		<!-- Attack -->
+		<!-- Defend -->
+		<!-- onClick -->
+</resources>

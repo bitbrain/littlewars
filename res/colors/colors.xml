@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>	
+	<resource type="color" id="COLOR_MAIN">#c0ff00</resource>
+	<resource type="color" id="COLOR_MAP_HOVER">#cccccc</resource>
+	
+	<!-- Player Colors -->
+	<resource type="color" id="COLOR_PLAYER1">#ff3600</resource>
+	<resource type="color" id="COLOR_PLAYER2">#00a2ff</resource>
+	<resource type="color" id="COLOR_PLAYER3">#c0ff00</resource>
+	<resource type="color" id="COLOR_PLAYER4">#ffcc00</resource>
+	<resource type="color" id="COLOR_PLAYER5">#7200ff</resource>
+	<resource type="color" id="COLOR_PLAYER6">#ff00a8</resource>
+	
+	<!-- Unit Colors -->
+	<resource type="color" id="UNIT_LIFE_FULL">#c0ff00</resource>
+	<resource type="color" id="UNIT_LIFE_MEDIUM">#ffa800</resource>
+	<resource type="color" id="UNIT_LIFE_EMPTY">#d90000</resource>
+	<resource type="color" id="UNIT_EXP">#47abff</resource>
+	
+	<!-- Tile Colors -->
+	<resource type="color" id="TILE_ENEMY">#e30000</resource>
+	<resource type="color" id="TILE_WALKABLE">#b4dfe8</resource>
+	<resource type="color" id="TILE_FRIEND">#c0ff00</resource>	
+</resources>

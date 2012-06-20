@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>	
+	<!-- Menu strings -->
+	<resource type="text" id="TXT_MENU_SINGLEPLAYER">Einzelspieler</resource>
+	<resource type="text" id="TXT_MENU_PREFERENCES">Einstellungen</resource>
+	<resource type="text" id="TXT_MENU_SETUP_MAP">Wähle eine Karte</resource>
+	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Bearbeite Spieler</resource>
+	<resource type="text" id="TXT_MENU_BUGREPORT">Melde Fehler</resource>
+	<resource type="text" id="TXT_MENU_PREFERENCES">Einstellungen</resource>
+	<resource type="text" id="TXT_MENU_CREDITS">Credits</resource>
+	<resource type="text" id="TXT_MENU_CLOSE">Beenden</resource>
+	
+	<!-- Credit Caption -->
+	<resource type="text" id="TXT_CREDIT_PROGRAMMING">Programmierung</resource>
+	<resource type="text" id="TXT_CREDIT_DESIGN">Spiel und Weltdesign</resource>
+	<resource type="text" id="TXT_CREDIT_MUSIC">Musik</resource>
+	<resource type="text" id="TXT_CREDIT_BETA">Beta-Tester</resource>
+	<resource type="text" id="TXT_CREDIT_THANKS">Besonderen Dank an</resource>
+	<resource type="text" id="TXT_CREDIT_DEV">eine myReality Produktion</resource>
+	
+	<!-- Setting Strings -->
+	<resource type="text" id="TXT_SETTINGS_RESOLUTION">Auflösung</resource>
+	<resource type="text" id="TXT_SETTINGS_MUSIC">Musik</resource>
+	<resource type="text" id="TXT_SETTINGS_SOUND">Sound</resource>
+	<resource type="text" id="TXT_SETTINGS_VSYNC">Vsync</resource>
+	<resource type="text" id="TXT_SETTINGS_LOCATION">Sprache</resource>	
+	
+	<resource type="text" id="TXT_GAME_BACK">Zurück</resource>
+	<resource type="text" id="TXT_GAME_SAVE">Speichern</resource>
+	<resource type="text" id="TXT_GAME_SEND">Senden</resource>
+	<resource type="text" id="TXT_GAME_LOAD">Laden</resource>
+	<resource type="text" id="TXT_GAME_NEXT">Weiter</resource>
+	<resource type="text" id="TXT_GAME_TRUE">Ein</resource>
+	<resource type="text" id="TXT_GAME_FALSE">Aus</resource>
+	<resource type="text" id="TXT_GAME_START">Starten!</resource>
+	<resource type="text" id="TXT_GAME_QUIT">Beenden</resource>
+	<resource type="text" id="TXT_GAME_LOADING">Lädt</resource>
+	<resource type="text" id="TXT_GAME_SEARCHING">Suche Aktualisierungen</resource>
+	<resource type="text" id="TXT_GAME_UPDATING">Aktualisiere</resource>
+	<resource type="text" id="TXT_GAME_CALC_UPDATING">Berechne Download</resource>
+	<resource type="text" id="TXT_GAME_BUGREPORT_INFO">Beschreibe das Problem</resource>
+	
+	<!-- MapSetup Strings -->	
+	<resource type="text" id="TXT_SETUP_PLAYERS">Spieler</resource>
+	<resource type="text" id="TXT_SETUP_PLAYER">Spieler</resource>
+	<resource type="text" id="TXT_SETUP_SLOTS">Starteinheiten</resource>
+	
+	<!-- Weather Types -->
+	<resource type="text" id="TXT_WEATHER_CAPTION">Wetter</resource>
+	<resource type="text" id="TXT_WEATHER_NORMAL">normal</resource>
+	<resource type="text" id="TXT_WEATHER_RAINING">verregnet</resource>
+	<resource type="text" id="TXT_WEATHER_STORMING">stürmisch</resource>
+	<resource type="text" id="TXT_WEATHER_SNOWING">schneiend</resource>
+	
+	<!-- Daytime Types -->
+	<resource type="text" id="TXT_DAYTIME_CAPTION">Tageszeit</resource>
+	<resource type="text" id="TXT_DAYTIME_MORNING">morgens</resource>
+	<resource type="text" id="TXT_DAYTIME_DAY">mittags</resource>
+	<resource type="text" id="TXT_DAYTIME_EVENING">abends</resource>
+	<resource type="text" id="TXT_DAYTIME_NIGHT">nachts</resource>
+	
+	<!-- Fractions -->
+	<resource type="text" id="TXT_FRACTION_HUMAN">Mensch</resource>
+	<resource type="text" id="TXT_FRACTION_CYBORG">Roboter</resource>
+	
+	<!-- PlayerSetting captions -->
+	<resource type="text" id="TXT_SETUP_NAME">Name</resource>
+	<resource type="text" id="TXT_SETUP_FRACTION">Fraktion</resource>
+	<resource type="text" id="TXT_SETUP_DIFFICULTY">Schwierigkeit</resource>
+	<resource type="text" id="TXT_SETUP_COLOR">Farbe</resource>
+	
+	<!-- Difficulties -->
+	<resource type="text" id="TXT_DIFFICULTY_NONE">...</resource>
+	<resource type="text" id="TXT_DIFFICULTY_EASY">leicht</resource>
+	<resource type="text" id="TXT_DIFFICULTY_MEDIUM">mittel</resource>
+	<resource type="text" id="TXT_DIFFICULTY_HARD">schwer</resource>
+	<resource type="text" id="TXT_DIFFICULTY_EXTREME">extrem</resource>
+	
+	<!-- Map Names -->	
+	<resource type="text" id="TXT_WORLD_TRIAL_SECTOR">Trialer Sektor</resource>
+	<resource type="text" id="TXT_MAP_PLAINS_OF_DESPAIR">Tal der Verzweiflung</resource>
+	<resource type="text" id="TXT_MAP_NORTH_TALDRA">Nördliches Taldra</resource>
+	<resource type="text" id="TXT_MAP_SOUTH_TALDRA">Südliches Taldra</resource>
+	
+	<!-- Unit names -->
+	<resource type="text" id="UNIT_DEAD">tot</resource>
+	<resource type="text" id="UNIT_RANK">Rang</resource>
+	
+	<!-- Units -->
+		
+		<!-- Cyborg -->		
+		 	<!-- Center -->		 	
+		 	<resource type="text" id="UNIT_CYBORG_CENTER">Kommandozentrale</resource>
+			<!-- Annihilator -->
+			<resource type="text" id="UNIT_CYBORG_ANNIHILATOR">Vernichter</resource>
+			<!-- Butcher -->
+			<!-- cp-0x01 -->
+			<!-- cp-0x02 -->
+			<!-- cp-0x03 -->
+			<!-- Grinder -->
+			<!-- Ionbreaker -->
+			<!-- Seeker -->
+			<!-- Technobot -->
+			
+		<!-- Human -->
+			<!-- Soldier -->
+			<!-- Plasma-Tank -->
+			<!-- Neron-Tank -->
+			<!-- EMP-Gun -->
+			<!-- EMP-Grenadier -->
+			<!-- Crystallizer -->
+</resources>

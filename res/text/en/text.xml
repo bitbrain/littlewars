@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>	
+	<!-- Menu strings -->
+	<resource type="text" id="TXT_MENU_SINGLEPLAYER">Singleplayer</resource>
+	<resource type="text" id="TXT_MENU_PREFERENCES">Settings</resource>
+	<resource type="text" id="TXT_MENU_SETUP_MAP">Select a map</resource>
+	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Player settings</resource>
+	<resource type="text" id="TXT_MENU_BUGREPORT">Report bug</resource>	
+	<resource type="text" id="TXT_MENU_CREDITS">Credits</resource>
+	<resource type="text" id="TXT_MENU_CLOSE">Close</resource>
+	
+	<!-- Credit Caption -->
+	<resource type="text" id="TXT_CREDIT_PROGRAMMING">Programming</resource>
+	<resource type="text" id="TXT_CREDIT_DESIGN">Game and Leveldesign</resource>
+	<resource type="text" id="TXT_CREDIT_MUSIC">Music</resource>
+	<resource type="text" id="TXT_CREDIT_BETA">Beta Test</resource>
+	<resource type="text" id="TXT_CREDIT_THANKS">Special Thanks to</resource>
+	<resource type="text" id="TXT_CREDIT_DEV">A myReality Production</resource>
+	
+	<!-- Setting Strings -->
+	<resource type="text" id="TXT_SETTINGS_RESOLUTION">Resolution</resource>
+	<resource type="text" id="TXT_SETTINGS_MUSIC">Music</resource>
+	<resource type="text" id="TXT_SETTINGS_SOUND">Sound</resource>
+	<resource type="text" id="TXT_SETTINGS_VSYNC">Vsync</resource>
+	<resource type="text" id="TXT_SETTINGS_LOCATION">Language</resource>	
+
+	<resource type="text" id="TXT_GAME_BACK">Back</resource>
+	<resource type="text" id="TXT_GAME_SAVE">Save</resource>
+	<resource type="text" id="TXT_GAME_SEND">Send</resource>
+	<resource type="text" id="TXT_GAME_LOAD">Load</resource>
+	<resource type="text" id="TXT_GAME_NEXT">Next</resource>
+	<resource type="text" id="TXT_GAME_TRUE">Enabled</resource>
+	<resource type="text" id="TXT_GAME_FALSE">Disabled</resource>
+	<resource type="text" id="TXT_GAME_START">Start!</resource>
+	<resource type="text" id="TXT_GAME_QUIT">Quit</resource>
+	<resource type="text" id="TXT_GAME_LOADING">Loading</resource>
+	<resource type="text" id="TXT_GAME_SEARCHING">Searching for updates</resource>
+	<resource type="text" id="TXT_GAME_UPDATING">Updating</resource>
+	<resource type="text" id="TXT_GAME_CALC_UPDATING">Calculate download</resource>
+	<resource type="text" id="TXT_GAME_BUGREPORT_INFO">Describe the problem</resource>
+	
+	<!-- MapSetup Strings -->
+	<resource type="text" id="TXT_SETUP_PLAYERS">Players</resource>
+	<resource type="text" id="TXT_SETUP_PLAYER">Player</resource>
+	<resource type="text" id="TXT_SETUP_SLOTS">Slots</resource>
+	
+	<!-- Weather Types -->
+	<resource type="text" id="TXT_WEATHER_CAPTION">Weather</resource>
+	<resource type="text" id="TXT_WEATHER_NORMAL">normal</resource>
+	<resource type="text" id="TXT_WEATHER_RAINING">raining</resource>
+	<resource type="text" id="TXT_WEATHER_STORMING">storming</resource>
+	<resource type="text" id="TXT_WEATHER_SNOWING">snowing</resource>
+	
+	<!-- Daytime Types -->
+	<resource type="text" id="TXT_DAYTIME_CAPTION">Daytime</resource>
+	<resource type="text" id="TXT_DAYTIME_MORNING">morning</resource>
+	<resource type="text" id="TXT_DAYTIME_DAY">day</resource>
+	<resource type="text" id="TXT_DAYTIME_EVENING">evening</resource>
+	<resource type="text" id="TXT_DAYTIME_NIGHT">night</resource>
+	
+	<!-- Fractions -->
+	<resource type="text" id="TXT_FRACTION_HUMAN">Human</resource>
+	<resource type="text" id="TXT_FRACTION_CYBORG">Cyborg</resource>
+	
+	<!-- PlayerSetting captions -->
+	<resource type="text" id="TXT_SETUP_NAME">Name</resource>
+	<resource type="text" id="TXT_SETUP_FRACTION">Fraction</resource>
+	<resource type="text" id="TXT_SETUP_DIFFICULTY">Difficulty</resource>
+	<resource type="text" id="TXT_SETUP_COLOR">Color</resource>
+	
+	<!-- Difficulties -->
+	<resource type="text" id="TXT_DIFFICULTY_NONE">...</resource>
+	<resource type="text" id="TXT_DIFFICULTY_EASY">easy</resource>
+	<resource type="text" id="TXT_DIFFICULTY_MEDIUM">medium</resource>
+	<resource type="text" id="TXT_DIFFICULTY_HARD">hard</resource>
+	<resource type="text" id="TXT_DIFFICULTY_EXTREME">extreme</resource>
+	
+	<!-- Map Names -->
+	<resource type="text" id="TXT_WORLD_TRIAL_SECTOR">Trial Sector</resource>
+	<resource type="text" id="TXT_MAP_PLAINS_OF_DESPAIR">Plains of Despair</resource>
+	<resource type="text" id="TXT_MAP_NORTH_TALDRA">North Taldra</resource>
+	<resource type="text" id="TXT_MAP_SOUTH_TALDRA">South Taldra</resource>
+	
+	
+	<!-- Unit names -->
+	<resource type="text" id="UNIT_DEAD">dead</resource>
+	<resource type="text" id="UNIT_RANK">Rank</resource>
+	
+	<!-- Units -->
+		
+		<!-- Cyborg -->		
+			<!-- Center -->		 	
+		 	<resource type="text" id="UNIT_CYBORG_CENTER">Commando Center</resource>
+			<!-- Annihilator -->
+			<resource type="text" id="UNIT_CYBORG_ANNIHILATOR">Annihilator</resource>
+			<!-- Butcher -->
+			<!-- cp-0x01 -->
+			<!-- cp-0x02 -->
+			<!-- cp-0x03 -->
+			<!-- Grinder -->
+			<!-- Ionbreaker -->
+			<!-- Seeker -->
+			<!-- Technobot -->
+			
+		<!-- Human -->
+			<!-- Soldier -->
+			<!-- Plasma-Tank -->
+			<!-- Neron-Tank -->
+			<!-- EMP-Gun -->
+			<!-- EMP-Grenadier -->
+			<!-- Crystallizer -->
+</resources>

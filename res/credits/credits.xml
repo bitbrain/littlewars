@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<credits>		
+	<credit caption="TXT_CREDIT_PROGRAMMING">
+		<item>Miguel Gonzalez</item>
+	</credit>
+	<credit caption="TXT_CREDIT_DESIGN">
+		<item>Miguel Gonzalez</item>
+	</credit>
+	<credit caption="TXT_CREDIT_MUSIC">
+		<item>Tobias Mecklenfeld</item>
+	</credit>
+	<credit caption="TXT_CREDIT_BETA">
+		<item>Tobias Mecklenfeld</item>
+		<item>Kevin Zywitzki</item>
+		<item>Mike Wappelhorst</item>
+	</credit>
+	<credit caption="TXT_CREDIT_THANKS">
+		<item>The Slick Community</item>
+		<item>Ralf Bensmann</item>
+	</credit>	
+	<credit caption="TXT_CREDIT_DEV">
+		<item>www.dev.my-reality.de</item>
+	</credit>
+</credits>

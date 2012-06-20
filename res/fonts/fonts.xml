@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- General settings -->
+	<resource type="font" id="FONT_MENU">res/fonts/menu.fnt</resource>
+	<resource type="font" id="FONT_CAPTION">res/fonts/caption.fnt</resource>
+	<resource type="font" id="FONT_SMALL">res/fonts/small.fnt</resource>
+</resources>

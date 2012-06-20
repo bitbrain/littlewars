@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<!-- Cyborg -->		
+	<!-- Center -->
+	<resource type="image" id="CYBORG_CENTER_AVATAR">res/images/units/cyborg/commando_center/avatar.png</resource>
+		<!-- Die -->
+		<resource type="image" id="CYBORG_CENTER_DIE">res/images/units/cyborg/commando_center/center_default.png</resource>
+		<!-- Move -->
+		<resource type="image" id="CYBORG_CENTER_MOVE">res/images/units/cyborg/commando_center/center_default.png</resource>		
+		<!-- Attack -->
+		<resource type="image" id="CYBORG_CENTER_ATTACK">res/images/units/cyborg/commando_center/center_default.png</resource>		
+		<!-- Default -->
+		<resource type="image" id="CYBORG_CENTER_DEFAULT">res/images/units/cyborg/commando_center/center_default.png</resource>		
+		<!-- Defend -->
+		<resource type="image" id="CYBORG_CENTER_DEFEND">res/images/units/cyborg/commando_center/center_default.png</resource>	
+	<!-- Annihilator -->
+	<resource type="image" id="CYBORG_ANNIHILATOR_AVATAR">res/images/units/cyborg/annihilator/avatar.png</resource>
+		<!-- Die -->
+		<resource type="image" id="CYBORG_ANNIHILATOR_DIE">res/images/units/cyborg/annihilator/annihilator_die.png</resource>
+		<!-- Move -->
+		<resource type="image" id="CYBORG_ANNIHILATOR_MOVE">res/images/units/cyborg/annihilator/annihilator_default.png</resource>		
+		<!-- Attack -->
+		<resource type="image" id="CYBORG_ANNIHILATOR_ATTACK">res/images/units/cyborg/annihilator/annihilator_default.png</resource>		
+		<!-- Default -->
+		<resource type="image" id="CYBORG_ANNIHILATOR_DEFAULT">res/images/units/cyborg/annihilator/annihilator_default.png</resource>		
+		<!-- Defend -->
+		<resource type="image" id="CYBORG_ANNIHILATOR_DEFEND">res/images/units/cyborg/annihilator/annihilator_default.png</resource>	
+</resources>

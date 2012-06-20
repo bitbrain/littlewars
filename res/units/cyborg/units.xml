@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<!-- Cyborgs -->
+	<!-- CENTER -->	
+	<resource type="unit" fraction="cyborg" id="COMMANDO_CENTER_CYBORG">         
+	    <imageAvatar>CYBORG_CENTER_AVATAR</imageAvatar>
+	    <spriteAnimation>
+	    	<default>ANIMATION_CYBORG_CENTER_DEFAULT</default>
+	    	<move>ANIMATION_CYBORG_CENTER_MOVE</move>
+	    	<attack>ANIMATION_CYBORG_CENTER_ATTACK</attack>
+	    	<die>ANIMATION_CYBORG_CENTER_DIE</die>
+	    	<defend>ANIMATION_CYBORG_CENTER_DEFEND</defend>  	    		
+	    </spriteAnimation>
+	    <name>UNIT_CYBORG_CENTER</name>
+	    <sounds>
+		</sounds>
+    </resource>
+    
+    
+	<resource type="unit" fraction="cyborg" id="ANNIHILATOR">         
+	    <imageAvatar>CYBORG_ANNIHILATOR_AVATAR</imageAvatar>
+	    <spriteAnimation>
+	    	<default>ANIMATION_CYBORG_ANNIHILATOR_DEFAULT</default>
+	    	<move>ANIMATION_CYBORG_ANNIHILATOR_MOVE</move>
+	    	<attack>ANIMATION_CYBORG_ANNIHILATOR_ATTACK</attack>
+	    	<die>ANIMATION_CYBORG_ANNIHILATOR_DIE</die>
+	    	<defend>ANIMATION_CYBORG_ANNIHILATOR_DEFEND</defend>  	    		
+	    </spriteAnimation>
+	    <name>UNIT_CYBORG_ANNIHILATOR</name>
+	    <sounds>
+		   <!--  <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_1</sound>
+		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_1</sound>
+		    <sound type="onAttack">CYBORG_ANNIHILATOR_ATTACK_1</sound>
+		    <sound type="onDamage">CYBORG_ANNIHILATOR_DAMAGE_1</sound> -->
+		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_1</sound>
+		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_2</sound>
+		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_3</sound>
+		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_1</sound>
+		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_2</sound>
+		</sounds>
+    </resource>
+</resources>	

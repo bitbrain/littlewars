@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<resource type="sound" id="SOUND_HOVER">res/sounds/gui/button_01.wav</resource>
+	<resource type="sound" id="SOUND_ONCLICK">res/sounds/gui/button_02.wav</resource>
+	<resource type="sound" id="SOUND_MONEY">res/sounds/gui/button_01.wav</resource>
+	<resource type="sound" id="SOUND_EXP">res/sounds/gui/unit_exp_up.wav</resource>
+</resources>

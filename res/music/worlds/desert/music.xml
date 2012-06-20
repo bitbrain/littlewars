@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<resource type="music" id="WORLD_DESERT_MORNING">res/music/worlds/desert/desert_day.OGG</resource>
+	<resource type="music" id="WORLD_DESERT_DAY">res/music/worlds/desert/desert_day.OGG</resource>
+	<resource type="music" id="WORLD_DESERT_EVENING">res/music/worlds/desert/desert_day.OGG</resource>
+	<resource type="music" id="WORLD_DESERT_NIGHT">res/music/worlds/desert/desert_day.OGG</resource>
+</resources>
