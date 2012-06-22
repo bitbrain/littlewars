@@ -7,6 +7,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.world.Player;
 
 public class CommandoCenter extends ArmyUnit {
 	
@@ -28,8 +29,21 @@ public class CommandoCenter extends ArmyUnit {
 	}
 
 	@Override
+	public void setPlayer(Player player) {
+		if (this.player != null) {
+			this.player.getSpawnArea().removeArea(this);
+		}		
+		super.setPlayer(player);
+		if (this.player != null && this.player.getSpawnArea() != null) {
+			this.player.getSpawnArea().writeArea(this);
+		}
+	}
+
+
+
+	@Override
 	public void update(int delta) {
-		super.update(delta);
+		super.update(delta);		
 	}
 	
 	

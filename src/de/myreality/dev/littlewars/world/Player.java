@@ -62,18 +62,11 @@ public class Player {
 	
 	public void setGame(IngameState game) {
 		this.game = game;
-		spawnArea = new SpawnArea(game);		
+		spawnArea = new SpawnArea(game, this);		
 	}	
 	
 	public SpawnArea getSpawnArea() {
 		return spawnArea;
-	}
-	
-	public void refreshSpawnArea() {
-		spawnArea.clear();
-		for (CommandoCenter center: centers) {
-			spawnArea.writeArea(center);
-		}
 	}
 	
 	public boolean isCPU() {
@@ -228,6 +221,14 @@ public class Player {
 			if (select != null) {
 				select.setOnClicked(true);
 				world.focusCameraOnObject(select, gc);
+			}
+		}
+	}
+	
+	public void writeSpawnArea() {
+		for (CommandoCenter center: getCommandoCenters()) {
+			if (center.hasMoved()) {
+				spawnArea.writeArea(center);
 			}
 		}
 	}

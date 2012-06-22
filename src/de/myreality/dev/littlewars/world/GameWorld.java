@@ -249,7 +249,6 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	    				player.getMoney().addCredits(Integer.valueOf(getObjectProperty(i, count, "money", "0")));
 	    				break;
 	    			}
-	    			player.refreshSpawnArea();
 	    		}
 	    	}
 		}
@@ -494,7 +493,6 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 		boolean isEnabled = (game.getPhase() == IngameState.PREPERATION || game.getPhase() == IngameState.INIT) && game.isPreviewSelected();
 							 
 		spawnArea.setVisible(isEnabled);
-		spawnArea.update(delta);
 	}
 	
 	

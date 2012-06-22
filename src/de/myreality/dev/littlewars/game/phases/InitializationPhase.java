@@ -55,6 +55,7 @@ public class InitializationPhase extends BasicGamePhase {
 				game.setPhase(IngameState.INIT);
 				currentPlayer.activateUnits();
 				Player next = game.getNextPlayer();
+				currentPlayer.writeSpawnArea();
 				next.getMoney().addCredits(500);
 				game.setCurrentPlayer(next, gc);
 				

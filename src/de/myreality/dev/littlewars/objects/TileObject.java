@@ -77,7 +77,7 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 		this.veloVector = new Vector2d(0f, 0f);
 		this.targetPos = new  Vector2d(-1f, -1f);
 		this.velocity = 0.0f;
-		this.currentDirection = Movable.TOP;		
+		this.currentDirection = Movable.TOP;
 		width = map.getTileWidth();
 		height = map.getTileHeight();
 		lastX = x;
@@ -297,6 +297,8 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 	}
 	
 	
-	
+	public boolean hasMoved() {
+		return lastX != x || lastY != y;
+	}
 
 }
