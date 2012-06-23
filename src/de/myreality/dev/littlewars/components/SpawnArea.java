@@ -53,10 +53,11 @@ public class SpawnArea {
 			queryRadiusRange(center.getTileX(), center.getTileY(), center.getSpawnRange(), center);			
 		}
 	}
-	
+		
 	public void removeArea(CommandoCenter center) {
-		if (area != null && center.getPlayer() == null) {
-			// TODO: Remove area
+		if (area != null) {
+			// Remove the area
+			queryRadiusRange(center.getTileX(), center.getTileY(), center.getSpawnRange(), center, true);
 		}
 	}
 	
@@ -122,12 +123,17 @@ public class SpawnArea {
 			owners = new ArrayList<CommandoCenter>();
 		}
 		
-		public void addOwner(CommandoCenter center) {
+		public void addOwner(CommandoCenter center) {			
+			for (CommandoCenter owner : owners) {
+				if (owner.equals(center)) {
+					return;
+				}
+			}
 			owners.add(center);
 		}
 		
 		public void removeOwner(CommandoCenter center) {
-			owners.add(center);
+			owners.remove(center);
 		}
 		
 		public boolean hasOwner() {
@@ -137,7 +143,11 @@ public class SpawnArea {
 	
 	private void radiusCall(int tileX, int tileY, CommandoCenter center, boolean deleting) {
 		if (tileX > -1 && tileY > -1 && tileX < game.getWorld().getWidth() && tileY < game.getWorld().getHeight()) {
-			area[tileX][tileY].addOwner(center);
+			if (!deleting) { 
+				area[tileX][tileY].addOwner(center);
+			} else {
+				area[tileX][tileY].removeOwner(center);
+			}
 		}
 	}
 	

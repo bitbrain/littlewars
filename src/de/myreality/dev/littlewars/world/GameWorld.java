@@ -42,6 +42,7 @@ import de.myreality.dev.littlewars.examples.light.Light;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;
+import de.myreality.dev.littlewars.objects.CommandoCenter;
 import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.objects.Movable;
 import de.myreality.dev.littlewars.objects.TileObject;
@@ -248,7 +249,7 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	    		// Add the commando center
 	    		for (Player player : game.getPlayers()) {
 	    			if (player.getId() == playerID) {
-	    				ArmyUnit center = new CyborgCommandoCenter(getObjectX(i, count), getObjectY(i, count), gc, cam, game);
+	    				CommandoCenter center = new CyborgCommandoCenter(getObjectX(i, count), getObjectY(i, count), gc, cam, game);
 	    				player.addArmyUnit(center);
 	    				player.addCommandoCenter(center);
 	    				player.getMoney().addCredits(Integer.valueOf(getObjectProperty(i, count, "money", "0")));
@@ -441,7 +442,7 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 				}
 				
 				if (unit.onClick()) {
-					unit.addExperience(50);
+					unit.addDamage(5000);
 				}
 				
 				if (!target.isTargetArrived()) {

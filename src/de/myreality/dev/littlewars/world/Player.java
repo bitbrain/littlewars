@@ -88,7 +88,7 @@ public class Player {
 			game.getWorld().addRenderTarget(unit, gc);
 			unit.setPlayer(this);			
 			if (unit.getID().equals(UnitGenerator.UNIT_CENTER)) {				
-				addCommandoCenter(unit);
+				addCommandoCenter((CommandoCenter)unit);
 			}
 		}
 	}
@@ -97,6 +97,11 @@ public class Player {
 		if (game.getWorld() != null) {
 			units.remove(unit);
 			game.getWorld().removeRenderTarget(unit);
+			
+			// Delete commando center as well
+			if (unit instanceof CommandoCenter) {
+				removeCommandoCenter((CommandoCenter) unit);
+			}
 		}
 	}
 	
@@ -229,17 +234,19 @@ public class Player {
 		return centers;
 	}
 
-	public void addCommandoCenter(ArmyUnit commandoCenter) {
+	public void addCommandoCenter(CommandoCenter commandoCenter) {
 		centers.add((CommandoCenter)commandoCenter);
 	}
 	
-	public void removeCommandoCenter(ArmyUnit commandoCenter) {
+	public void removeCommandoCenter(CommandoCenter commandoCenter) {
+		System.out.println("Remoooove!");
+		spawnArea.removeArea(commandoCenter);
 		centers.remove(commandoCenter);
 	}
 	
 	public boolean hasAvailableUnits() {		
 		for (ArmyUnit unit : units) {
-			if (unit.isReady() && !unit.getID().equals(UnitGenerator.UNIT_CENTER)) {
+			if (unit.isReady() && !(unit instanceof CommandoCenter)) {
 				return true;
 			}
 		}
