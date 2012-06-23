@@ -17,16 +17,16 @@ public class CyborgGenerator extends UnitGenerator {
 	}
 
 	@Override
-	public ArmyUnit generateUnitByID(int id) {
+	public ArmyUnit generateUnitByID(int id, float x, float y) {
 		ArmyUnit unit = null;
 		try {
 			switch (id) {
 				case UNIT_1:		
-					unit = new Annihilator(0, 0, gc, game.getWorld().getCamera(), game);
+					unit = new Annihilator((int)x, (int)y, gc, game.getWorld().getCamera(), game);
 					unit.setPlayer(player);
 					break;
 				case UNIT_CENTER:					
-					unit = new CyborgCommandoCenter(0, 0, gc, game.getWorld().getCamera(), game);
+					unit = new CyborgCommandoCenter((int)x, (int)y, gc, game.getWorld().getCamera(), game);
 					unit.setPlayer(player);					
 					break;
 			}

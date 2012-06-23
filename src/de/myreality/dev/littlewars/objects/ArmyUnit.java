@@ -550,7 +550,6 @@ public abstract class ArmyUnit extends TileObject {
 	
 	public void attack(ArmyUnit target) {
 		if (!equals(target)) {
-			System.out.println("Attack ->" + target.getName());
 			// Damage calculation 
 			int damage = (int) ((int) (11 * (Math.random() * 1124 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
 			target.addDamage(damage);

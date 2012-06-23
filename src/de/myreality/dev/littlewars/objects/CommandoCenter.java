@@ -22,20 +22,18 @@ public class CommandoCenter extends ArmyUnit {
 	@Override
 	public void draw(Graphics g) {
 		super.draw(g);
-		if (player == null) {
-			// TODO: Draw center radius when no player belongs to it
-			//spawnRadius.draw(g);
-		}
 	}
 
 	@Override
-	public void setPlayer(Player player) {
-		if (this.player != null) {
-			this.player.getSpawnArea().removeArea(this);
-		}		
-		super.setPlayer(player);
-		if (this.player != null && this.player.getSpawnArea() != null) {
-			this.player.getSpawnArea().writeArea(this);
+	public void setPlayer(Player player) {		
+		if (!player.equals(this.player)) {
+			if (this.player != null) {
+				this.player.getSpawnArea().removeArea(this);
+			}		
+			super.setPlayer(player);
+			if (this.player != null && this.player.getSpawnArea() != null) {
+				this.player.getSpawnArea().writeArea(this);
+			}		
 		}
 	}
 

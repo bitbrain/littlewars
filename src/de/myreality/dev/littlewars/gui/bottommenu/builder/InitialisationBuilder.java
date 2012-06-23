@@ -33,7 +33,7 @@ public class InitialisationBuilder extends BasicUnitBuilder {
 	protected void clickAction(float x, float y) {
 		if (player.getMoney().reduceCredits(selected.getCredits())) {
 			// TODO: Implement object cloning
-			ArmyUnit unit = generator.generateUnitByID(selected.getUnit().getID());
+			ArmyUnit unit = generator.generateUnitByID(selected.getUnit().getID(), x, y);
 			unit.setX(x);
 			unit.setY(y);
 			player.addArmyUnit(unit);

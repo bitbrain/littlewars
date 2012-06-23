@@ -36,6 +36,7 @@ import org.newdawn.slick.util.pathfinding.TileBasedMap;
 
 import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.MovementCalculator;
+import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.examples.light.Light;
 import de.myreality.dev.littlewars.game.IngameState;
@@ -96,7 +97,7 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	
 	// PathFinder
 	AStarPathFinder pathFinder;
-	Path testPath;
+	Path unitPath;
 	
 	// GameContainer
 	GameContainer gc;
@@ -140,6 +141,10 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	public void finalize() {
 		close();		
 		System.out.println("World deleted.");
+	}
+	
+	public AStarPathFinder getPathFinder() {
+		return pathFinder;
 	}
 	
 	public void close() {
@@ -317,10 +322,10 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	public void render(GameContainer gc, Graphics g) {			
 		drawLayers((int)cam.getX(), (int)cam.getY(), cam.getWidth(), cam.getHeight(), g, gc);	
 		daytime.draw(gc, g);
-		if (testPath != null && focusObject != null) {
+		if (unitPath != null && focusObject != null) {
 			ArmyUnit unit = (ArmyUnit)focusObject;
 			if (!unit.isDead()) {
-				MovementCalculator.drawUnitPath(g, unit, testPath, game);
+				MovementCalculator.drawUnitPath(g, unit, unitPath, game);
 			}
 		}
 		
@@ -579,7 +584,7 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	    				}
 	    			}
 	    			
-	    			if (game.getPhase() == IngameState.PREPERATION || (testPath == null && (focusObject == null)) || foundFocusObject) {
+	    			if (game.getPhase() == IngameState.PREPERATION || (unitPath == null && (focusObject == null)) || foundFocusObject) {
 		    			if (!collisionExists(curTotalX, curTotalY)) {
 			    			Color bg = new Color(0, 255, 0, 50);
 			    			g.setColor(bg);
@@ -601,17 +606,17 @@ public class GameWorld extends TiledMap implements TileBasedMap {
 	    			ArmyUnit obj = (ArmyUnit) focusObject;
 	    			if (xT > 0 && yT > 0 && xT < getWidth() && yT < getHeight()) {
 	    				try {
-	    					testPath = pathFinder.findPath(obj, obj.getTileX(), obj.getTileY(), xT, yT);
+	    					unitPath = pathFinder.findPath(obj, obj.getTileX(), obj.getTileY(), xT, yT);
 	    					if (obj.canMove() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-		    					obj.moveAlongPath(testPath);
+		    					obj.moveAlongPath(unitPath);
 		    				}
 	    				} catch (ArrayIndexOutOfBoundsException e) {
 	    					Debugger.getInstance().write("Error: Path is out of world");
-	    					testPath = null;
+	    					unitPath = null;
 	    					obj.stop();	    					
 	    				}	    				
 	    			} 
-	    		} else testPath = null;
+	    		} else unitPath = null;
 	    	}
 	    }
 	    

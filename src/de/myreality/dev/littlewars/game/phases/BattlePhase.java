@@ -19,7 +19,6 @@ public class BattlePhase extends BasicGamePhase {
 		if (!currentPlayer.hasAvailableUnits()) {
 			game.setPhase(IngameState.INIT);
 			currentPlayer.activateUnits();
-			currentPlayer.writeSpawnArea();
 			Player next = game.getNextPlayer();
 			next.getMoney().addCredits(500);				
 			game.setCurrentPlayer(next, gc);

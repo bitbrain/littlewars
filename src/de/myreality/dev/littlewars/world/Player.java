@@ -18,6 +18,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Sound;
 
+import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
@@ -85,9 +86,8 @@ public class Player {
 		if (game != null && game.getWorld() != null) {
 			units.add(unit);
 			game.getWorld().addRenderTarget(unit, gc);
-			unit.setPlayer(this);
-			
-			if (unit.getID().equals(UnitGenerator.UNIT_CENTER)) {
+			unit.setPlayer(this);			
+			if (unit.getID().equals(UnitGenerator.UNIT_CENTER)) {				
 				addCommandoCenter(unit);
 			}
 		}
@@ -221,14 +221,6 @@ public class Player {
 			if (select != null) {
 				select.setOnClicked(true);
 				world.focusCameraOnObject(select, gc);
-			}
-		}
-	}
-	
-	public void writeSpawnArea() {
-		for (CommandoCenter center: getCommandoCenters()) {
-			if (center.hasMoved()) {
-				spawnArea.writeArea(center);
 			}
 		}
 	}

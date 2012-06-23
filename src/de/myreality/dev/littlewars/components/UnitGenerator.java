@@ -27,7 +27,10 @@ public abstract class UnitGenerator {
 		this.gc = gc;
 	}
 	
-	public abstract ArmyUnit generateUnitByID(int layer);
+	public ArmyUnit generateUnitByID(int layer) {
+		return generateUnitByID(layer, 0, 0);
+	}
+	public abstract ArmyUnit generateUnitByID(int layer, float x, float y);
 	
 	public int getUnitCount() {
 		return ResourceManager.getInstance().getAllUnitResources(fraction.getKey()).size();
