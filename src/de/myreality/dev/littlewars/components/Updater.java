@@ -96,7 +96,7 @@ public class Updater implements Runnable {
 				// Update!	
 				found = true;				
 				calculate();				
-				update("http://" + server + "/svn/trunk/", onlineVersion);
+				update("http://" + server + "/master/", onlineVersion);
 			}
 		} else {
 			Debugger.getInstance().write("Server 'www." + server + "' is not reachable.");		
@@ -227,7 +227,7 @@ public class Updater implements Runnable {
               if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
             	  URI uri;
 				try {
-					uri = new URI("http://dev.my-reality.de/littlewars/patchnotes/");
+					uri = new URI("http://www.dev.my-reality.de/littlewars/patchnotes/");
 					desktop.browse(uri);
 				} catch (URISyntaxException e) {
 					e.printStackTrace();
