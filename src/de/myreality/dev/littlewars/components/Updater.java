@@ -50,7 +50,7 @@ public class Updater implements Runnable {
 	private boolean preperationPhase;
 	private boolean reachable;
 	public static final String server = "raw.github.com/MyRealityCoding/LittleWars";
-	public static final String serverPath = "https://raw.github.com/MyRealityCoding/LittleWars/master";
+	public static final String serverPath = "https://raw.github.com/MyRealityCoding/LittleWars/master/";
 	public static final String tempDir = ".temp";
 	
 	// Files to update
@@ -96,7 +96,7 @@ public class Updater implements Runnable {
 				// Update!	
 				found = true;				
 				calculate();				
-				update("http://" + server + "/master/", onlineVersion);
+				update("https://" + server + "/master/", onlineVersion);
 			}
 		} else {
 			Debugger.getInstance().write("Server 'www." + server + "' is not reachable.");		
