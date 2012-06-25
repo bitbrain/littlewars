@@ -7,9 +7,9 @@ import org.newdawn.slick.GameContainer;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.world.Fraction;
-import de.myreality.dev.littlewars.world.Player;
 
 public abstract class UnitGenerator {
 

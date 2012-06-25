@@ -53,7 +53,7 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29399" size="355"></file>
+    <file src="res\meta.xml" sum="29400" size="355"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -99,5 +99,5 @@
     <file src="res\tilemaps\tiles\tileset_test.png" sum="245357416" size="127653"></file>
     <file src="res\units\cyborg\units.xml" sum="131727" size="1803"></file>
     <file src="res\units\human\units.xml" sum="5323" size="66"></file>
-    <file src="config\settings.cfg" sum="30083" size="364"></file>
+    <file src="config\settings.cfg" sum="30082" size="364"></file>
 </files>

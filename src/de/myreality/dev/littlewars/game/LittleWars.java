@@ -11,13 +11,7 @@
 
 package de.myreality.dev.littlewars.game;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.lwjgl.LWJGLException;
 import org.newdawn.slick.AppGameContainer;
@@ -94,9 +88,6 @@ public class LittleWars extends StateBasedGame {
 		Configuration.getInstance().apply(container);
 		container.setShowFPS(false);
 		//Debugger.getInstance().setEnabled(false);	
-		if (Debugger.getInstance().isEnabled()) {
-			generatePathImage("config/");
-		}
 		container.start();		
 	}
 
@@ -112,51 +103,4 @@ public class LittleWars extends StateBasedGame {
 		// TODO: Implement emitters
 		//ResourceManager.getInstance().loadResources("res/particles/particles.xml", true);   // Emitters
 	}	
-	
-	
-	private static void generatePathImage(String path) {
-		// Initialize the comparison
-		List<File> AllLocalFiles = new ArrayList<File>();
-		
-		String[] paths = {"res/", "config/"};
-		
-		// Get all local files
-		for (String s : paths) {
-			Updater.addFilesRecursively(new File(s), AllLocalFiles);
-		}
-		
-		FileWriter fstream;
-		try {
-			
-			StringWriter writer = new StringWriter();	
-			// Write header
-			writer.write("<?xml version=" + (char)34 + "1.0" + (char)34 + " encoding=" + (char)34 + "UTF-8" + (char)34 + " ?>");
-			writer.write("\n");
-			writer.write("<files>");
-			writer.write("\n");
-			for (File f : AllLocalFiles) {				
-				if (f.isFile() && !f.getPath().equals("config\\files.xml")) {
-					writer.write("    <file src=" + 
-								(char)34 + f.getPath() + (char)34 + " sum=" + 
-							    (char)34 + Updater.getFileCharSize(f.getPath()) + (char)34 + " size=" + 
-								(char)34 + f.length() + (char)34 + "></file>");
-					writer.write("\n");					
-				}
-			}
-			//Close the output stream
-			writer.write("</files>");
-			
-			fstream = new FileWriter(path + "files.xml");
-			BufferedWriter out = new BufferedWriter(fstream);
-			out.write(writer.toString());
-			out.close();	
-			fstream.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
-	
 }

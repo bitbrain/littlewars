@@ -29,7 +29,7 @@ import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.components.resources.SpriteAnimationData;
 import de.myreality.dev.littlewars.components.resources.UnitResource;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public abstract class ArmyUnit extends TileObject {
 	

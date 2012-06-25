@@ -3,8 +3,7 @@ package de.myreality.dev.littlewars.game.phases;
 import org.newdawn.slick.GameContainer;
 
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Difficulty;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public class BattlePhase extends BasicGamePhase {
 
@@ -27,17 +26,7 @@ public class BattlePhase extends BasicGamePhase {
 			}
 		}
 		if (currentPlayer.isCPU()) {
-			// Check difficulty
-			switch (currentPlayer.getDifficulty().getState()) {
-				case Difficulty.EASY:
-					break;
-				case Difficulty.MEDIUM:
-					break;
-				case Difficulty.HARD:
-					break;
-				case Difficulty.EXTREME:
-					break;
-			}
+			currentPlayer.doBattle(delta);
 		} else {
 			// Client Player
 			if (game.getTopMenu().getBtnPhaseQuit().onClick()) {

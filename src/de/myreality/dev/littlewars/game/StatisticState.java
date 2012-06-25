@@ -15,8 +15,8 @@ import de.myreality.dev.littlewars.components.statistic.StatisticGraph;
 import de.myreality.dev.littlewars.gui.Button;
 import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.gui.ZoomButton;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.GUIObject;
-import de.myreality.dev.littlewars.world.Player;
 
 public class StatisticState extends CustomGameState {	
 	

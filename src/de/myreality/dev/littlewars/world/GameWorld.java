@@ -40,6 +40,7 @@ import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.examples.light.Light;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;
 import de.myreality.dev.littlewars.objects.CommandoCenter;

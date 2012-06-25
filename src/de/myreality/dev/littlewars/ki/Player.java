@@ -9,7 +9,7 @@
  * @author 		Miguel Gonzalez		
  */
 
-package de.myreality.dev.littlewars.world;
+package de.myreality.dev.littlewars.ki;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,9 @@ import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
+import de.myreality.dev.littlewars.world.Difficulty;
+import de.myreality.dev.littlewars.world.Fraction;
+import de.myreality.dev.littlewars.world.GameWorld;
 
 public class Player {
 
@@ -31,25 +34,25 @@ public class Player {
 	
 	private int id;
 	
-	private Difficulty difficulty;
+	protected Difficulty difficulty;
 	
-	private Fraction fraction;
+	protected Fraction fraction;
 	
-	private Color color;
+	protected Color color;
 	
 	private List<ArmyUnit> units;
 	
 	private List<CommandoCenter> centers;
 	
-	private SpawnArea spawnArea;
+	protected SpawnArea spawnArea;
 	
-	private GameContainer gc;
+	protected GameContainer gc;
 	
-	private IngameState game;
+	protected IngameState game;
 	
-	private String name;
+	protected String name;
 	
-	private Money money;
+	protected Money money;
 	
 	public Player(int id, GameContainer gc) {
 		this.setId(id);
@@ -68,6 +71,10 @@ public class Player {
 	
 	public SpawnArea getSpawnArea() {
 		return spawnArea;
+	}
+	
+	public GameContainer getGameContainer() {
+		return gc;
 	}
 	
 	public boolean isCPU() {
@@ -338,7 +345,22 @@ public class Player {
 				}
 			}
 		}
+	}
+	
+	// Empty methods in order to overwrite it
+	public void doPreperation(int delta) {
 		
+	}
+	
+	public void doInitialisation(int delta) {
 		
+	}
+	
+	public void doBattle(int delta) {
+		
+	}
+	
+	public boolean isPrepared() {
+		return true;
 	}
 }

@@ -18,8 +18,7 @@ import org.newdawn.slick.GameContainer;
 
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Difficulty;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public class PreperationPhase extends BasicGamePhase {
 	
@@ -45,25 +44,13 @@ public class PreperationPhase extends BasicGamePhase {
 		
 		if (currentPlayer.isCPU()) {
 			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
-			if (!isDone()) { // TODO: Implement KI
+			if (currentPlayer.isPrepared() && !isDone()) { // TODO: Implement KI
 				preparedPlayers.add(currentPlayer);
 				game.setCurrentPlayer(game.getNextPlayer(), gc);
 			}
-			// Check difficulty
-			switch (currentPlayer.getDifficulty().getState()) {
-				case Difficulty.EASY:
-					break;
-				case Difficulty.MEDIUM:
-					break;
-				case Difficulty.HARD:
-					break;
-				case Difficulty.EXTREME:
-					break;
-			}
+			currentPlayer.doPreperation(delta);
 		} else {
-			// Client Player			
-			
-			// TODO: Check if current player has been prepared
+			// Client Player
 			if (game.getBottomMenu().getPreperationBuilder().size() == 0 && !isDone()) {
 				preparedPlayers.add(currentPlayer);
 				game.setCurrentPlayer(game.getNextPlayer(), gc);

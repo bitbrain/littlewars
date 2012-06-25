@@ -6,6 +6,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Rectangle;
 
+import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
@@ -54,6 +55,7 @@ public class UnitShortcut extends GUIObject {
 		lifeBar.setY(offset);
 		rankText.setY(offset - rankText.getHeight());
 		hoverSound = ResourceManager.getInstance().getSound("SOUND_HOVER");
+		PopupHelper.getInstance().addPopup(this, sibling.getName(), gc);
 	}
 
 	@Override

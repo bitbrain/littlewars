@@ -4,8 +4,7 @@ import org.newdawn.slick.GameContainer;
 
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Difficulty;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public class InitializationPhase extends BasicGamePhase {
 
@@ -36,17 +35,7 @@ public class InitializationPhase extends BasicGamePhase {
 			if (next.isClientPlayer()) {
 				game.getTracker().record();
 			}
-			// Check difficulty
-			switch (currentPlayer.getDifficulty().getState()) {
-				case Difficulty.EASY:
-					break;
-				case Difficulty.MEDIUM:
-					break;
-				case Difficulty.HARD:
-					break;
-				case Difficulty.EXTREME:
-					break;
-			}
+			currentPlayer.doInitialisation(delta);
 		} else {
 			game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 			// Client Player

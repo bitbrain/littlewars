@@ -22,10 +22,10 @@ import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.BasicUnitBuilder;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.InitialisationBuilder;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.PreperationBuilder;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.GameWorld;
-import de.myreality.dev.littlewars.world.Player;
 
 public class BottomMenu extends GUIObject {
 	

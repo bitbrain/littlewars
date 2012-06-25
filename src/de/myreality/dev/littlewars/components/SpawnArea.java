@@ -17,10 +17,10 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.Camera;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
 import de.myreality.dev.littlewars.world.GameWorld;
-import de.myreality.dev.littlewars.world.Player;
 
 public class SpawnArea {
 

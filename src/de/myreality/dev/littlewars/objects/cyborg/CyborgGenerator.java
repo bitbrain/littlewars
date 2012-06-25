@@ -5,9 +5,9 @@ import org.newdawn.slick.SlickException;
 
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.world.Fraction;
-import de.myreality.dev.littlewars.world.Player;
 
 public class CyborgGenerator extends UnitGenerator {
 	

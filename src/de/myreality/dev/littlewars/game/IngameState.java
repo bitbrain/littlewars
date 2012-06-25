@@ -34,13 +34,13 @@ import de.myreality.dev.littlewars.game.phases.BasicGamePhase;
 import de.myreality.dev.littlewars.game.phases.BattlePhase;
 import de.myreality.dev.littlewars.game.phases.InitializationPhase;
 import de.myreality.dev.littlewars.game.phases.PreperationPhase;
+import de.myreality.dev.littlewars.gui.TopMenu;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
-import de.myreality.dev.littlewars.gui.topmenu.TopMenu;
 import de.myreality.dev.littlewars.gui.unit.UnitTileInfo;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.world.Difficulty;
 import de.myreality.dev.littlewars.world.GameWorld;
-import de.myreality.dev.littlewars.world.Player;
 import de.myreality.dev.littlewars.world.Weather;
 
 public class IngameState extends CustomGameState {
@@ -115,27 +115,6 @@ public class IngameState extends CustomGameState {
 		if (phases.get(phase) != null) {
 			phases.get(phase).update(gc, delta);
 		}
-		
-		/*if (gc.getInput().isKeyPressed(Input.KEY_ENTER)) {
-			currentPlayer = getNextPlayer();
-			if (!currentPlayer.getUnits().isEmpty()) {
-				ArmyUnit unit = currentPlayer.getUnits().get(0);
-				world.focusCameraOnObject(unit, gc);
-			}
-			
-			flashBox = new FlashBox(new GameText(0, 0, currentPlayer.getName() + " ist an der Reihe.", ResourceManager.getInstance().getFont("FONT_MENU"), gc), gc);			
-		}
-		
-		if (gc.getInput().isKeyPressed(Input.KEY_A)) {
-			currentPlayer.addCredits(1250);
-			int x = (int) (world.getCamera().getX() + gc.getInput().getMouseX());
-			int y = (int) (world.getCamera().getY() + gc.getInput().getMouseY());;
-			currentPlayer.addArmyUnit(new Annihilator(world.tileIndexX(x) * world.getTileWidth(), world.tileIndexY(y) * world.getTileHeight(), gc, world.getCamera(), world));
-		}
-		
-		if (gc.getInput().isKeyPressed(Input.KEY_S)) {
-			currentPlayer.reduceCredits(1250);
-		} */
 	}
 
 	public List<Player> getPlayers() {

@@ -16,8 +16,8 @@ import de.myreality.dev.littlewars.components.config.Configuration;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.gui.LoadingBar;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.world.Fraction;
-import de.myreality.dev.littlewars.world.Player;
 
 public class LoadingState extends CustomGameState {
 	

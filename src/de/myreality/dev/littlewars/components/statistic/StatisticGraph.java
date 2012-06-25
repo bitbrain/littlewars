@@ -7,8 +7,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.GUIObject;
-import de.myreality.dev.littlewars.world.Player;
 
 public class StatisticGraph extends GUIObject {
 

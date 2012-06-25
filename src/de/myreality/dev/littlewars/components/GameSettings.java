@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.myreality.dev.littlewars.gui.MapSelector.MapConfig;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.world.Weather;
 
 public class GameSettings {

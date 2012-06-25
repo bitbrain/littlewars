@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public class RoundTracker {
 

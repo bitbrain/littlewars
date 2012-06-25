@@ -1,4 +1,4 @@
-package de.myreality.dev.littlewars.gui.topmenu;
+package de.myreality.dev.littlewars.gui;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,9 +9,6 @@ import org.newdawn.slick.geom.Rectangle;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.gui.Button;
-import de.myreality.dev.littlewars.gui.GameText;
-import de.myreality.dev.littlewars.gui.IconButton;
 import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class TopMenu extends GUIObject {
@@ -59,7 +56,7 @@ public class TopMenu extends GUIObject {
 		area = new Rectangle(getX(), getY(), getWidth(), getHeight());
 		background = ResourceManager.getInstance().getImage("GUI_TOP_BACKGROUND");
 		txtMapName = new GameText(padding, padding, "Welt 1", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
-		txtPlayerName = new GameText(padding, padding, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtPlayerName = new GameText(padding * 2 + size, padding, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
 		txtPlayerCredits = new GameText((int) (txtPlayerName.getX() + txtPlayerName.getWidth() + padding * 4), padding, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
 		txtPlayerCredits.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		txtMapName.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
@@ -68,7 +65,7 @@ public class TopMenu extends GUIObject {
 			btnQuit = new IconButton(getWidth() - size - padding, padding, size, ResourceManager.getInstance().getImage("ICON_QUIT"), gc);
 			btnLoad = new IconButton(getWidth() - 2 * size - 2 * padding, padding, size, ResourceManager.getInstance().getImage("ICON_LOAD"), gc);
 			btnSave = new IconButton(getWidth() - 3 * size - 3 * padding, padding, size, ResourceManager.getInstance().getImage("ICON_SAVE"), gc);			
-			btnQuitPhase = new IconButton(30, 30 +padding, size, ResourceManager.getInstance().getImage("ICON_QUIT"), gc);
+			btnQuitPhase = new IconButton(padding, padding, size, ResourceManager.getInstance().getImage("ICON_QUIT"), gc);
 			btnSave.attachTo(this);
 			PopupHelper.getInstance().addPopup(btnSave, "Save the game", gc);
 			btnLoad.attachTo(this);

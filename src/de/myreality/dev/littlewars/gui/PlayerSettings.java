@@ -24,10 +24,12 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.ki.CPU;
+import de.myreality.dev.littlewars.ki.ManualPlayer;
+import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.Difficulty;
 import de.myreality.dev.littlewars.world.Fraction;
-import de.myreality.dev.littlewars.world.Player;
 
 public class PlayerSettings extends GUIObject {
 
@@ -233,15 +235,16 @@ public class PlayerSettings extends GUIObject {
 		public SingleSetting(int x, int y, int playerID, boolean isCPU, GameContainer gc) {
 			super(x, y, gc);
 			height = 50;
-			player = new Player(playerID, gc);
 			try {
 				// Name of the player
 				String name = "";
 				
 				if (isCPU) {
 					name = "CPU " + (playerID - 1);
+					player = new CPU(playerID, gc);					
 				} else {
 					name = ResourceManager.getInstance().getText("TXT_SETUP_PLAYER");
+					player = new ManualPlayer(playerID, gc);		
 				}
 				
 				player.setName(name);

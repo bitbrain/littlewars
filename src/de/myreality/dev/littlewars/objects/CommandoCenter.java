@@ -7,7 +7,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.world.Player;
+import de.myreality.dev.littlewars.ki.Player;
 
 public class CommandoCenter extends ArmyUnit {
 	
