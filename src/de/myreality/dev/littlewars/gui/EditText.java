@@ -5,6 +5,11 @@ import org.newdawn.slick.GameContainer;
 
 public class EditText extends TextBox {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public EditText(int x, int y, int width, String text, Font font, GameContainer gc) {
 		super(x, y, width,  font.getLineHeight() + 40, gc);	
 		this.font = font;	

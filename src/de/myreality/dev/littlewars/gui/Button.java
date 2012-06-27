@@ -25,6 +25,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class Button extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// background image
 	protected Image background;
 	

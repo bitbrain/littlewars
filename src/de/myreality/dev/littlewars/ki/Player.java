@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.ki;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,12 @@ import de.myreality.dev.littlewars.world.Difficulty;
 import de.myreality.dev.littlewars.world.Fraction;
 import de.myreality.dev.littlewars.world.GameWorld;
 
-public class Player {
+public class Player implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static final int PL1 = 1, PL2 = 2, PL3 = 3, PL4 = 4, PL5 = 5, PL6 = 6, NONE = 0;	
 	
@@ -40,9 +46,9 @@ public class Player {
 	
 	protected Color color;
 	
-	private List<ArmyUnit> units;
+	protected List<ArmyUnit> units;
 	
-	private List<CommandoCenter> centers;
+	protected List<CommandoCenter> centers;
 	
 	protected SpawnArea spawnArea;
 	

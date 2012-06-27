@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.components.resources;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +23,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 
-public class UnitResource {
+public class UnitResource implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String fraction;
 	private String name;
 	private String avatar;

@@ -10,6 +10,10 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class LoadingBar extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private float percent;
 	private Image shader;
 	private boolean unsized;

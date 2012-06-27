@@ -53,6 +53,10 @@ import de.myreality.dev.littlewars.objects.Movable;
 
 public class CreditsShow extends GameObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// List of all credits
 	List<Credit> credits;
 	
@@ -62,6 +66,11 @@ public class CreditsShow extends GameObject {
 	 * @author Miguel Gonzalez
 	 */
 	class Credit extends GameObject implements Movable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		// Caption element
 		Caption caption;
@@ -76,6 +85,13 @@ public class CreditsShow extends GameObject {
 		 * @author Miguel Gonzalez
 		 */
 		class Caption extends GameText implements Movable {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
 
 			/**
 			 * Constructor of Caption
@@ -141,6 +157,13 @@ public class CreditsShow extends GameObject {
 		 * @author Miguel Gonzalez
 		 */
 		class Content extends GameText implements Movable {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
 
 			/**
 			 * Constructor of Content

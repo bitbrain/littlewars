@@ -10,6 +10,7 @@
  */
 package de.myreality.dev.littlewars.components.statistic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +20,12 @@ import java.util.Map.Entry;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
 
-public class RoundTracker {
+public class RoundTracker implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	// Game reference
 	@SuppressWarnings("unused")

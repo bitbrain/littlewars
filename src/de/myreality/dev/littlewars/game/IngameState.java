@@ -11,6 +11,11 @@
 
 package de.myreality.dev.littlewars.game;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,8 +48,10 @@ import de.myreality.dev.littlewars.world.Difficulty;
 import de.myreality.dev.littlewars.world.GameWorld;
 import de.myreality.dev.littlewars.world.Weather;
 
-public class IngameState extends CustomGameState {
+public class IngameState extends CustomGameState implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	// Game phases
 	public static final int PREPERATION = 0, INIT = 1, BATTLE = 2;
 	
@@ -360,6 +367,42 @@ public class IngameState extends CustomGameState {
 	
 	public void setPreviewSelected(boolean value) {
 		previewSelected = value;
+	}
+	
+	
+	/**
+	 * Function in order to save the game
+	 */
+	public boolean saveToFile(String filePath) {
+		// TODO: Fix serialization problem
+		final String FOLDER = "saves/";
+		// Check if folder exists
+		File folder = new File(FOLDER);	
+		File file = new File(FOLDER + filePath);	
+		try {
+			if (!folder.exists()) {
+				folder.mkdirs();
+			}
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			FileOutputStream fileOut = new FileOutputStream(FOLDER + filePath);
+	        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	        out.writeObject(world);
+	        out.close();
+	        fileOut.close();
+	        return true;
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+		return false;
+	}
+	
+	/**
+	 * Function in order to load a game
+	 */
+	public boolean loadFromFile(String file) {
+		return true;
 	}
 	
 }

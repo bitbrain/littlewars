@@ -19,6 +19,12 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class GameInfo extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	// texts
 	private GameText authorText, versionText;
 	
@@ -29,7 +35,7 @@ public class GameInfo extends GUIObject {
 	static {
 		// Load the resources at the beginning
 		authorResource = ResourceManager.getInstance().getText("TXT_GAME_AUTHOR");
-		versionResource = "Version " + ResourceManager.getInstance().getText("TXT_GAME_VER");
+		versionResource = "Version " + ResourceManager.getInstance().getText("TXT_GAME_VER") + " " + ResourceManager.getInstance().getText("TXT_GAME_PHASE");
 	}
 	
 	

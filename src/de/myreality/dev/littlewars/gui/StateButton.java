@@ -22,6 +22,11 @@ import de.myreality.dev.littlewars.components.Pair;
 
 public class StateButton<T> extends ZoomButton {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Current state
 	protected Entry<Integer, Pair<String, T>> currentEntry;
 	

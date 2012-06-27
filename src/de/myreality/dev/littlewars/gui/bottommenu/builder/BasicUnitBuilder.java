@@ -30,6 +30,10 @@ import de.myreality.dev.littlewars.world.Fraction;
 
 public abstract class BasicUnitBuilder extends GUIObject {	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected Player player;
 	protected IngameState game;
 	protected UnitGenerator generator;
@@ -110,9 +114,9 @@ public abstract class BasicUnitBuilder extends GUIObject {
 		BuyPreview preview = new BuyPreview(this, unit, credits, gc);
 		
 		if (credits > 0) {
-			PopupHelper.getInstance().addPopup(preview, String.valueOf(credits) + "$", gc);
+			PopupHelper.getInstance().addPopup(preview, unit.getName(), " " + String.valueOf(credits) + "$", gc);
 		} else {
-			PopupHelper.getInstance().addPopup(preview, "Click to place", gc);
+			PopupHelper.getInstance().addPopup(preview, unit.getName(), " Click to place", gc);
 		}
 		previews.add(preview);
 		changedSize = true;

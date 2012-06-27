@@ -134,6 +134,10 @@ public class ContextMenuHelper {
 	
 	public class ContextMenu extends GUIObject {		
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private Button btnAbort, btnAccept;
 		private GameText message, caption;
 		private Color backgroundColor, borderColor;

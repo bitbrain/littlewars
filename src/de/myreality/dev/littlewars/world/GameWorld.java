@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.world;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,7 +50,12 @@ import de.myreality.dev.littlewars.objects.Movable;
 import de.myreality.dev.littlewars.objects.TileObject;
 import de.myreality.dev.littlewars.objects.cyborg.CyborgCommandoCenter;
 
-public class GameWorld extends TiledMap implements TileBasedMap {
+public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	// Hover tileObject
 	private TileObject hoverObject;

@@ -6,6 +6,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
+import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
@@ -13,6 +14,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class TopMenu extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Background image
 	private Image background;
 	
@@ -72,7 +78,6 @@ public class TopMenu extends GUIObject {
 			PopupHelper.getInstance().addPopup(btnLoad, "Load another game", gc);
 			btnQuit.attachTo(this);
 			PopupHelper.getInstance().addPopup(btnQuit, "Quit to title", gc);
-			btnSave.setEnabled(false);
 			btnLoad.setEnabled(false);
 			btnSave.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
 			btnLoad.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
@@ -128,6 +133,14 @@ public class TopMenu extends GUIObject {
 			
 			txtPlayerCredits.setX((int) (txtPlayerName.getX() + txtPlayerName.getWidth() + padding * 4));
 			txtPlayerCredits.setText(String.valueOf(game.getClientPlayer().getMoney().getCredits()) + "$");
+		}
+		
+		if (btnSave.onClick()) {
+			if (game.saveToFile("save.dat")) {
+				FlashHelper.getInstance().flash("Game has been saved successfully.", 1000, gc);
+			} else {
+				FlashHelper.getInstance().flash("Error occured while saving the game.", 1000, gc);
+			}
 		}
 	}
 

@@ -22,6 +22,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class GameText extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Text to display on the screen
 	private String text;
 	

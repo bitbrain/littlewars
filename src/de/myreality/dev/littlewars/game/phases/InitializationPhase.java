@@ -8,6 +8,11 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public class InitializationPhase extends BasicGamePhase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public InitializationPhase(IngameState game) {
 		super(game);
 

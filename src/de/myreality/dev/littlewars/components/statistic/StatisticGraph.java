@@ -12,6 +12,10 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class StatisticGraph extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private RoundTracker tracker;
 	private Color clrBackground;
 	private static int padding = 30;

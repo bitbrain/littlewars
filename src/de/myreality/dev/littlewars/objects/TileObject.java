@@ -32,6 +32,11 @@ import de.myreality.dev.littlewars.world.GameWorld;
  */
 public abstract class TileObject extends GameObject implements Movable, Mover {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Animations
 	protected Animation[][] animations;
 	
@@ -299,6 +304,16 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 	
 	public boolean hasMoved() {
 		return lastX != x || lastY != y;
+	}
+	
+	
+	
+	public float distanceTo(TileObject object) {
+		float x1 = getX();
+		float y1 = getY();
+		float x2 = object.getX();
+		float y2 = object.getY();
+		return (float) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 	}
 
 }

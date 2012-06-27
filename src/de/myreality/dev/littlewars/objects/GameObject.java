@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,12 @@ import org.newdawn.slick.geom.Shape;
  * @author Miguel Gonzalez
  *
  */
-public abstract class GameObject {
+public abstract class GameObject implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	// coordinates
 	protected float x, y, lastX, lastY; 

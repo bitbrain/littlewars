@@ -11,13 +11,19 @@
 
 package de.myreality.dev.littlewars.world;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 
-public class Fraction {
+public class Fraction implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final int HUMAN = 1, CYBORG = 2;
 	
 	private int type;

@@ -11,12 +11,18 @@
 
 package de.myreality.dev.littlewars.game.phases;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.GameContainer;
 
 import de.myreality.dev.littlewars.game.IngameState;
 
-public abstract class BasicGamePhase {
+public abstract class BasicGamePhase implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected IngameState game;
 	
 	public BasicGamePhase(IngameState game) {

@@ -42,6 +42,12 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 public class MapSelector extends GUIObject {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	// Selected map
 	private MapConfig selected, hover;	
 	
@@ -168,6 +174,10 @@ public class MapSelector extends GUIObject {
 	
 	public class WorldConfig extends Button {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private List<MapConfig> maps;
 		private MapConfig clicked;
 		private String name;
@@ -297,6 +307,11 @@ public class MapSelector extends GUIObject {
 
 	public class MapConfig extends Button {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		// Source of the tilemap
 		private String mapSource;
 		

@@ -11,6 +11,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class InitialisationBuilder extends BasicUnitBuilder {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public InitialisationBuilder(GUIObject left, GUIObject right, BottomMenu parent, Player player,
 			GameContainer gc) {
 		super(left, right, parent, player, gc);

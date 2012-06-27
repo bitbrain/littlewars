@@ -25,6 +25,11 @@ import de.myreality.dev.littlewars.objects.GameObject;
 
 public class FadeShow extends GameObject {	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// List of all images to fade
 	private List<FadeImage> sequences = null;
 	
@@ -56,6 +61,11 @@ public class FadeShow extends GameObject {
 	 */
 	class FadeImage extends GameObject implements Fadable {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		// State of playing or not
 		private boolean playing;
 		

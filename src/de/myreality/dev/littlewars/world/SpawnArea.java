@@ -10,13 +10,20 @@
  */
 package de.myreality.dev.littlewars.world;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.objects.Camera;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
 
-public class SpawnArea {
+public class SpawnArea implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private boolean area[][];
 	

@@ -9,7 +9,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class PopupBox extends GUIObject {
 	
-	private GameText text;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private GameText text, additionalText;
 	private Color clrBackground, clrBorder;
 	private boolean visible;
 	private static final int CUR_SIZE = 25;
@@ -21,6 +25,25 @@ public class PopupBox extends GUIObject {
 		text.attachTo(this);
 		text.setColor(new Color(255, 255, 255, 0.0f));
 		width = text.getWidth() + margin * 2;
+		height = text.getHeight() + margin * 2;
+		clrBackground = new Color(0, 0, 0, 0.0f);
+		clrBorder = new Color(0, 0, 0, 0.0f);
+		visible = false;
+		additionalText = null;
+	}
+	
+	public PopupBox(String content, String addContent, GameContainer gc) {
+		super(0, 0, gc);
+		setMargin(5);
+		text = new GameText(0, 0, content, ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		
+		text.setColor(new Color(255, 255, 255, 0.0f));
+		additionalText = new GameText(text.getWidth(), 0, addContent, ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		Color addColor = ResourceManager.getInstance().getColor("COLOR_MAIN");
+		additionalText.setColor(new Color(addColor.r, addColor.g, addColor.b, 0.0f));
+		text.attachTo(this);
+		additionalText.attachTo(this);
+		width = text.getWidth() + additionalText.getWidth() + margin * 2;
 		height = text.getHeight() + margin * 2;
 		clrBackground = new Color(0, 0, 0, 0.0f);
 		clrBorder = new Color(0, 0, 0, 0.0f);
@@ -40,6 +63,9 @@ public class PopupBox extends GUIObject {
 					g.setColor(clrBorder);
 					g.drawRoundRect(getX() - margin, getY() - margin, getWidth(), getHeight(), 5);
 					text.draw(g);
+					if (additionalText != null) {
+						additionalText.draw(g);
+					}
 				}
 			}
 		}
@@ -56,7 +82,10 @@ public class PopupBox extends GUIObject {
 					clrBackground.a += 0.005f * delta;					
 				}
 				if (text.getColor().a < 1.0f) {
-					text.getColor().a += 0.01f * delta;			
+					text.getColor().a += 0.01f * delta;	
+					if (additionalText != null) {
+						additionalText.getColor().a += 0.01f * delta;
+					}
 				}
 			} else if (clrBackground.a <= 0.0f && text.getColor().a <= 0.0f) {
 				visible = false;
@@ -64,6 +93,9 @@ public class PopupBox extends GUIObject {
 				if (clrBackground.a > 0.0f || text.getColor().a > 0.0f) {
 					clrBackground.a -= 0.005f * delta;
 					text.getColor().a -= 0.01f * delta;
+					if (additionalText != null) {
+						additionalText.getColor().a -= 0.01f * delta;
+					}
 				}
 			}
 			if (gc.getInput().getMouseX() < gc.getWidth() / 2) {

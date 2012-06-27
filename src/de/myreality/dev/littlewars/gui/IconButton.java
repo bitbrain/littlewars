@@ -19,6 +19,11 @@ import org.newdawn.slick.SlickException;
 
 public class IconButton extends Button {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Icon in the middle
 	private Image icon;
 	

@@ -11,6 +11,10 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class ValueBar extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Color color;
 	private float percent;
 	private int border;

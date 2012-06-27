@@ -29,6 +29,11 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class BottomMenu extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Background image
 	private Image background;
 	

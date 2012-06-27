@@ -7,6 +7,11 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public class BattlePhase extends BasicGamePhase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public BattlePhase(IngameState game) {
 		super(game);
 	}

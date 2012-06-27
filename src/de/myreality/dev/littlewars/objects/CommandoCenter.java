@@ -11,6 +11,11 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public class CommandoCenter extends ArmyUnit {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected CommandoCenter(String resourceID, int x, int y,
 			GameContainer gc, Camera cam, IngameState game) throws SlickException {
 		super(UnitGenerator.UNIT_CENTER, resourceID, x, y, gc, cam, game);

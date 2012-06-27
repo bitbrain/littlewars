@@ -7,6 +7,10 @@ import org.newdawn.slick.SlickException;
 
 public class ColorButton extends StateButton<Color> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Color lastColor;
 	
 	public ColorButton(int x, int y, int width, int height, GameContainer gc)

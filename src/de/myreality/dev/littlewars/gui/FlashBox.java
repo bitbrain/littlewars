@@ -9,6 +9,10 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class FlashBox extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private GUIObject content;
 	private Color clrBackground, clrBorder;
 	private Timer timer;

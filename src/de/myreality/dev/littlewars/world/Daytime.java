@@ -11,6 +11,8 @@
 
 package de.myreality.dev.littlewars.world;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -20,7 +22,12 @@ import de.myreality.dev.littlewars.components.config.Configuration;
 import de.myreality.dev.littlewars.components.fading.FadeColor;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 
-public class Daytime {
+public class Daytime implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static final int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
 	

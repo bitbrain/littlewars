@@ -30,6 +30,11 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class MiniMap extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Target game world to render
 	private GameWorld targetWorld;
 	

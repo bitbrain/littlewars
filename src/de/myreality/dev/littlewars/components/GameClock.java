@@ -11,7 +11,7 @@ public class GameClock {
 	public GameClock(int format) {
 		this.format = format;				
 		hours = 12;
-		pm = true;
+		pm = false;
 		minutes = 0;
 		counter = new Timer();
 	}

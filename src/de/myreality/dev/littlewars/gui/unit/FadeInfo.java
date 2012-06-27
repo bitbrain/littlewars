@@ -12,6 +12,11 @@ import de.myreality.dev.littlewars.objects.GameObject;
 
 public class FadeInfo extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Text
 	GameText content;
 	

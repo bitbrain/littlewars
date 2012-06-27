@@ -19,6 +19,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class DescriptionField extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Target GUIOBject
 	GUIObject guiObject;
 	

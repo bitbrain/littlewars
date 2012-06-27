@@ -14,6 +14,10 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class UnitTileInfo extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArmyUnit unit;
 	private ValueBar lifeBar;
 	private ValueBar expBar;

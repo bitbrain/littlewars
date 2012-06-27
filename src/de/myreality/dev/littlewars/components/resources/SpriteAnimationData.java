@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.components.resources;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +20,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class SpriteAnimationData {
+public class SpriteAnimationData implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Animation states
 	public static final int DEFAULT = 0, MOVE = 1, ATTACK = 2, DIE = 3;
 

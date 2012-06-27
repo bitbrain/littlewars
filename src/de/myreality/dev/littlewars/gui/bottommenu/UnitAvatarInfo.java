@@ -13,6 +13,10 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class UnitAvatarInfo extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private GameWorld targetWorld;
 	private static int borderPadding = 12;
 	private GameText unitName;

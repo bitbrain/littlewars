@@ -58,6 +58,19 @@ public class PopupHelper {
 		}
 	}
 	
+	public void addPopup(GameObject target, String text, String addText, GameContainer gc) {
+		GameState state = CustomGameState.current;
+		// Check gamestate
+		if (targets.get(state) == null) {
+			targets.put(state, new HashMap<GameObject, PopupBox>());
+		}
+		if (targets.get(state).get(target) == null) {
+			PopupBox box = new PopupBox(text, addText, gc);
+			box.attachTo(target);
+			targets.get(state).put(target, box);
+		}
+	}
+	
 	public void update(int delta) {
 		if (currentState != null && targets.get(currentState) != null) {
 			for (Entry<GameObject, PopupBox> target : targets.get(currentState).entrySet()) {

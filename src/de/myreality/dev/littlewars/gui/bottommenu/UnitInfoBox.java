@@ -12,6 +12,10 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class UnitInfoBox extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private GameWorld targetWorld;
 	private GameText txtLife, txtExp, txtStrength, txtDefense, txtSpeed, txtStrengthAdd, txtDefenseAdd, txtSpeedAdd;
 	private GameText txtLifeDescription, txtExpDescription, txtStrengthDescription, txtDefenseDescription, txtSpeedDescription;

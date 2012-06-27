@@ -20,6 +20,11 @@ import de.myreality.dev.littlewars.components.Vector2d;
 
 public class Camera extends GameObject implements Movable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Parent tiled map
 	@SuppressWarnings("unused")
 	private TiledMap parentMap;

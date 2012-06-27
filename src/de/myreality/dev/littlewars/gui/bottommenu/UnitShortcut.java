@@ -15,6 +15,10 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class UnitShortcut extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArmyUnit sibling;
 	private GameWorld world;
 	private Color clrHover, clrFocus;
@@ -56,6 +60,10 @@ public class UnitShortcut extends GUIObject {
 		rankText.setY(offset - rankText.getHeight());
 		hoverSound = ResourceManager.getInstance().getSound("SOUND_HOVER");
 		PopupHelper.getInstance().addPopup(this, sibling.getName(), gc);
+	}
+	
+	public void finalize() {
+		PopupHelper.getInstance().removePopup(this);
 	}
 
 	@Override

@@ -11,11 +11,18 @@
 
 package de.myreality.dev.littlewars.components.config;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 
-public class ConfigMusic extends Music {
+public class ConfigMusic extends Music implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructor of ConfigMusic

@@ -87,7 +87,7 @@ public class LittleWars extends StateBasedGame {
 		container.setUpdateOnlyWhenVisible(true);	
 		Configuration.getInstance().apply(container);
 		container.setShowFPS(false);
-		//Debugger.getInstance().setEnabled(false);	
+		Debugger.getInstance().setEnabled(false);	
 		container.start();		
 	}
 

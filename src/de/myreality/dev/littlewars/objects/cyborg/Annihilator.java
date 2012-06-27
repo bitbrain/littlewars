@@ -23,6 +23,11 @@ public class Annihilator extends ArmyUnit {
 	
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Constructor of Redeemer
 	 * 
 	 * @param x

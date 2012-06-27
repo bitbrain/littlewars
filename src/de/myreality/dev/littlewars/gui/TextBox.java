@@ -31,6 +31,11 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class TextBox extends GUIObject implements KeyListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Colors
 	protected Color textColor, backgroundColor, backgroundColorHover, borderColor, focusBorderColor, currentBackground;
 	
@@ -252,6 +257,10 @@ public class TextBox extends GUIObject implements KeyListener {
 	 */
 	class Cursor extends GUIObject {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private Timer timer;
 		private long interval;
 		private Color color;

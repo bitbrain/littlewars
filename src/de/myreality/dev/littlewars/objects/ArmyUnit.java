@@ -33,6 +33,11 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public abstract class ArmyUnit extends TileObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Percent of life loosing / Experience changing
 	protected static float changeFactor = 0.05f;
 	

@@ -33,6 +33,11 @@ import de.myreality.dev.littlewars.world.Fraction;
 
 public class PlayerSettings extends GUIObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// All Settings
 	private Map<Integer, SingleSetting> settings;
 	
@@ -206,6 +211,11 @@ public class PlayerSettings extends GUIObject {
 	}
 
 	public class SingleSetting extends GUIObject {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		// Player state
 		Player player;

@@ -17,6 +17,11 @@ import org.newdawn.slick.Graphics;
 
 public abstract class GUIObject extends GameObject {	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Padding
 	protected int paddingLeft, paddingRight, paddingTop, paddingBottom, padding;
 	

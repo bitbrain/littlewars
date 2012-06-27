@@ -14,6 +14,10 @@ import de.myreality.dev.littlewars.world.GameWorld;
 
 public class UnitOverview extends GUIObject {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Player player;
 	private GameWorld targetWorld;
 	private List<UnitShortcut> shortcuts;
@@ -28,7 +32,7 @@ public class UnitOverview extends GUIObject {
 	
 	private void reAlignList(int rows) {
 		
-		for (UnitShortcut shortcut : shortcuts) {
+		for (UnitShortcut shortcut : shortcuts) {			
 			removeChild(shortcut);
 		}
 		

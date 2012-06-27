@@ -22,6 +22,10 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public class PreperationPhase extends BasicGamePhase {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Player> preparedPlayers;
 
 	public PreperationPhase(IngameState game) {

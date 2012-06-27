@@ -11,13 +11,19 @@
 
 package de.myreality.dev.littlewars.world;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 
-public class Difficulty {
+public class Difficulty implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final int NONE = 0, EASY = 1, MEDIUM = 2, HARD = 3, EXTREME = 4, PLAYER = 5;
 	
 	private int state;

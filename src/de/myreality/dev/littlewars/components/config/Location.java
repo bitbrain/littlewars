@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,8 +31,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 
-public class Location {
+public class Location implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Single instance of the location
 	private static Location _instance;
 	

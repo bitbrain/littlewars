@@ -9,6 +9,11 @@ import de.myreality.dev.littlewars.objects.CommandoCenter;
 
 public class CyborgCommandoCenter extends CommandoCenter {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CyborgCommandoCenter(int x, int y, GameContainer gc,
 			Camera cam, IngameState game) throws SlickException {
 		super("COMMANDO_CENTER_CYBORG", x, y, gc, cam, game);		

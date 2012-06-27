@@ -19,6 +19,10 @@ import de.myreality.dev.littlewars.objects.GameObject;
 
 public class BouncingImage extends GameObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Target image
 	private Image image;
 	// Factor of bouncing

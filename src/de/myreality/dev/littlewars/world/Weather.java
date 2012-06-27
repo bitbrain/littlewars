@@ -12,6 +12,7 @@
 package de.myreality.dev.littlewars.world;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,12 @@ import de.myreality.dev.littlewars.components.Pair;
 import de.myreality.dev.littlewars.components.config.Configuration;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 
-public class Weather {
+public class Weather implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static final int NORMAL = 0, RAINING = 1, SNOWING = 2, STORMING = 3;
 	

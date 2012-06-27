@@ -18,6 +18,11 @@ import org.newdawn.slick.SlickException;
 
 public class ZoomButton extends Button {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// Zoom and zoom range
 	private double zoom, limit;
 	
