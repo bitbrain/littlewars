@@ -259,7 +259,7 @@ public class Player implements Serializable {
 	
 	public boolean hasAvailableUnits() {		
 		for (ArmyUnit unit : units) {
-			if (unit.isReady() && !(unit instanceof CommandoCenter)) {
+			if (unit.getRemainingSpeed() > 0 && !(unit instanceof CommandoCenter)) {
 				return true;
 			}
 		}
@@ -368,5 +368,9 @@ public class Player implements Serializable {
 	
 	public boolean isPrepared() {
 		return true;
+	}
+	
+	public boolean isDefeated() {
+		return getCommandoCenters().isEmpty();
 	}
 }

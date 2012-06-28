@@ -154,12 +154,12 @@ public class ContextMenuHelper {
 			area = new Rectangle(getX(), getY(), getWidth(), getHeight());	
 			try {
 				if (acceptButton) {					
-					btnAccept = new Button(getWidth() - (200 + innerPadding), getHeight() - (60 + innerPadding), 200, 60, "Accept", gc);
+					btnAccept = new Button(getWidth() - (220 + innerPadding), getHeight() - (60 + innerPadding), 220, 60, ResourceManager.getInstance().getText("TXT_GAME_ACCEPT"), gc);
 					btnAccept.attachTo(this);
 				}
 				
 				if (abortButton) {
-					btnAbort = new Button(innerPadding, getHeight() - (60 + innerPadding), 200, 60, "Abort", gc);	
+					btnAbort = new Button(innerPadding, getHeight() - (60 + innerPadding), 220, 60, ResourceManager.getInstance().getText("TXT_GAME_ABORT"), gc);	
 					btnAbort.attachTo(this);
 				}
 			} catch (SlickException e) {

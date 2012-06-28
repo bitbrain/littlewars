@@ -590,4 +590,8 @@ public abstract class ArmyUnit extends TileObject {
 			movementCalculator.setMovement(path);
 		}
 	}
+	
+	public IngameState getGame() {
+		return game;
+	}
 }

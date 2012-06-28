@@ -8,8 +8,10 @@ import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
+import de.myreality.dev.littlewars.objects.CommandoCenter;
 import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.GameWorld;
 
@@ -80,21 +82,31 @@ public class UnitShortcut extends GUIObject {
 				}
 			}
 		}
+		
+		// Check, if the current sibling can move
+		Color drawColor = sibling.getPlayer().getColor();
+		
+		// Exceptions are Commando Centers, because they've to be generally gray
+		boolean isCenterInBattle = sibling.getGame().getPhase() == IngameState.BATTLE && sibling instanceof CommandoCenter;
+		
+		if (sibling.getRemainingSpeed() < 1 && (!(sibling instanceof CommandoCenter)) || isCenterInBattle) {
+			drawColor = Color.gray;
+		}
 
 		if (isHover() && !sibling.equals(world.getFocusObject())) {
 			g.setColor(clrHover);
 			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
-			sibling.getImgAvatar().draw(getX() + 1, getY() + 1, getWidth() - 2, getHeight() - 2, sibling.getPlayer().getColor());
+			sibling.getImgAvatar().draw(getX() + 1, getY() + 1, getWidth() - 2, getHeight() - 2, drawColor);
 		} else if (sibling.equals(world.getFocusObject())) {
 			g.setColor(Color.black);
 			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
 			g.setColor(clrFocus);
 			g.fillRoundRect(getX() + 1, getY() + 1, getWidth() - 2, getHeight() - 2, 2);
-			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, sibling.getPlayer().getColor());
+			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, drawColor);
 		} else {
 			g.setColor(Color.black);
 			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
-			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, sibling.getPlayer().getColor());
+			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, drawColor);
 		}
 		
 		if (!sibling.isDead()) {

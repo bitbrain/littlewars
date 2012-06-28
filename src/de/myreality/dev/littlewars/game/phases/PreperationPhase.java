@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.game.IngameState;
@@ -34,7 +35,7 @@ public class PreperationPhase extends BasicGamePhase {
 	}
 
 	@Override
-	public void update(GameContainer gc, int delta) {
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		Player currentPlayer = game.getCurrentPlayer();	
 		
 		if (isDone()) {

@@ -38,6 +38,13 @@
 	<resource type="text" id="TXT_GAME_UPDATING">Updating</resource>
 	<resource type="text" id="TXT_GAME_CALC_UPDATING">Calculate download</resource>
 	<resource type="text" id="TXT_GAME_BUGREPORT_INFO">Describe the problem</resource>
+	<resource type="text" id="TXT_GAME_ABORT">Abort</resource>
+	<resource type="text" id="TXT_GAME_ACCEPT">Accept</resource>
+	
+	<!-- Descriptions -->
+	<resource type="text" id="TXT_DESCR_SAVEGAME">Save the game</resource>
+	<resource type="text" id="TXT_DESCR_LOADGAME">Load a game</resource>
+	<resource type="text" id="TXT_DESCR_QUITGAME">Quit the game</resource>
 	
 	<!-- MapSetup Strings -->
 	<resource type="text" id="TXT_SETUP_PLAYERS">Players</resource>

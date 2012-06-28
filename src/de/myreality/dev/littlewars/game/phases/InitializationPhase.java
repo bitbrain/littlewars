@@ -1,6 +1,7 @@
 package de.myreality.dev.littlewars.game.phases;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.game.IngameState;
@@ -19,7 +20,7 @@ public class InitializationPhase extends BasicGamePhase {
 	}
 
 	@Override
-	public void update(GameContainer gc, int delta) {
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		Player currentPlayer = game.getCurrentPlayer();
 		if (currentPlayer.isUnitMoving()) {
 			FlashHelper.getInstance().flash("Phase: Kampf", 500, gc);

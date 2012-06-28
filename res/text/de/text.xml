@@ -39,6 +39,13 @@
 	<resource type="text" id="TXT_GAME_UPDATING">Aktualisiere</resource>
 	<resource type="text" id="TXT_GAME_CALC_UPDATING">Berechne Download</resource>
 	<resource type="text" id="TXT_GAME_BUGREPORT_INFO">Beschreibe das Problem</resource>
+	<resource type="text" id="TXT_GAME_ABORT">Abbrechen</resource>
+	<resource type="text" id="TXT_GAME_ACCEPT">Akzeptieren</resource>
+	
+	<!-- Descriptions -->
+	<resource type="text" id="TXT_DESCR_SAVEGAME">Spiel speichern</resource>
+	<resource type="text" id="TXT_DESCR_LOADGAME">Spiel laden</resource>
+	<resource type="text" id="TXT_DESCR_QUITGAME">Spiel beenden</resource>
 	
 	<!-- MapSetup Strings -->	
 	<resource type="text" id="TXT_SETUP_PLAYERS">Spieler</resource>

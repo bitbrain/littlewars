@@ -612,7 +612,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    			int xT = tileIndexX(gc.getInput().getMouseX() + cam.getX());
 	    			int yT = tileIndexY(gc.getInput().getMouseY() + cam.getY());
 	    			ArmyUnit obj = (ArmyUnit) focusObject;
-	    			if (xT > 0 && yT > 0 && xT < getWidth() && yT < getHeight()) {
+	    			if (xT > 0 && yT > 0 && xT < getWidth() && yT < getHeight() && obj.getPlayer().equals(game.getClientPlayer())) {
 	    				try {
 	    					unitPath = pathFinder.findPath(obj, obj.getTileX(), obj.getTileY(), xT, yT);
 	    					if (obj.canMove() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
@@ -623,7 +623,9 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    					unitPath = null;
 	    					obj.stop();	    					
 	    				}	    				
-	    			} 
+	    			} else if (!obj.getPlayer().equals(game.getClientPlayer())) {
+	    				unitPath = null;
+	    			}
 	    		} else unitPath = null;
 	    	}
 	    }

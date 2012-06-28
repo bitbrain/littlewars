@@ -1,5 +1,6 @@
 package de.myreality.dev.littlewars.objects;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -46,7 +47,12 @@ public class CommandoCenter extends ArmyUnit {
 
 	@Override
 	public void update(int delta) {
-		super.update(delta);		
+		super.update(delta);	
+		if (game.getPhase() == IngameState.BATTLE) {
+			color = Color.gray;
+		} else {
+			color = player.getColor();
+		}
 	}
 	
 	

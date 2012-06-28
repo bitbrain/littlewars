@@ -120,7 +120,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		}
 		
 		if (phases.get(phase) != null) {
-			phases.get(phase).update(gc, delta);
+			phases.get(phase).update(gc, sbg, delta);
 		}
 	}
 
@@ -188,15 +188,7 @@ public class IngameState extends CustomGameState implements Serializable {
 				@Override
 				public void onAccept(GameContainer gc, StateBasedGame sbg,
 						int delta) {
-					world.close();
-					GameSettings.getInstance().clear();	
-					sbg.addState(new StatisticState(LittleWars.STATISTIC_STATE, tracker));
-					try {
-						sbg.getState(LittleWars.STATISTIC_STATE).init(gc, sbg);
-					} catch (SlickException e) {
-						e.printStackTrace();
-					}
-					sbg.enterState(LittleWars.STATISTIC_STATE);					
+					endGame(sbg, gc);					
 				}				
 			});
 		}
@@ -403,6 +395,35 @@ public class IngameState extends CustomGameState implements Serializable {
 	 */
 	public boolean loadFromFile(String file) {
 		return true;
+	}
+	
+	public void endGame(StateBasedGame game, GameContainer gc, Player winner) {
+		if (winner != null) {
+			FlashHelper.getInstance().flash(winner.getName() + " has won!", 1000, gc);
+		} 
+		world.close();
+		GameSettings.getInstance().clear();	
+		game.addState(new StatisticState(LittleWars.STATISTIC_STATE, tracker));
+		try {
+			game.getState(LittleWars.STATISTIC_STATE).init(gc, game);
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		game.enterState(LittleWars.STATISTIC_STATE);
+		
+	}
+	
+	public void endGame(StateBasedGame game, GameContainer gc) {
+		endGame(game, gc, null);
+	}
+	
+	public void removePlayer(Player player) {
+		for (int i = 0; i < players.size(); ++i) {
+			if (players.get(i).equals(player)) {
+				players.remove(i);
+				break;
+			}
+		}
 	}
 	
 }

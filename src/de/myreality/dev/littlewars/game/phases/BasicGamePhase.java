@@ -14,6 +14,7 @@ package de.myreality.dev.littlewars.game.phases;
 import java.io.Serializable;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.game.IngameState;
 
@@ -32,5 +33,5 @@ public abstract class BasicGamePhase implements Serializable {
 	public void setDone(boolean value) {
 	}
 	
-	public abstract void update(GameContainer gc, int delta);
+	public abstract void update(GameContainer gc, StateBasedGame sbg, int delta);
 }
