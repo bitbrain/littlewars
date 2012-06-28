@@ -34,6 +34,7 @@ import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper;
 import de.myreality.dev.littlewars.components.helpers.UnitInfoHelper;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper.ContextMenuEvent;
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.components.statistic.RoundTracker;
 import de.myreality.dev.littlewars.game.phases.BasicGamePhase;
 import de.myreality.dev.littlewars.game.phases.BattlePhase;
@@ -122,6 +123,26 @@ public class IngameState extends CustomGameState implements Serializable {
 		if (phases.get(phase) != null) {
 			phases.get(phase).update(gc, sbg, delta);
 		}
+		
+		for (Player p: getPlayers()) {
+			if (p.isDefeated()) {				
+				FlashHelper.getInstance().flash(p.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_KILLED"), 1000, gc); 
+				if (p.equals(currentPlayer)) {
+					Player next = getNextPlayer(p);
+					next.getMoney().addCredits(500);				
+					setCurrentPlayer(next, gc);
+					if (next.isClientPlayer()) {
+						getTracker().record();
+					}
+				}
+				removePlayer(p);
+				break;
+			}
+			
+			if (getPlayers().size() == 1) {
+				endGame(sbg, gc, p);
+			}
+		}
 	}
 
 	public List<Player> getPlayers() {
@@ -129,7 +150,7 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	
-	public Player getNextPlayer() {
+	public Player getNextPlayer(Player current) {
 
 		Player player = null;
 		boolean found = false;
@@ -140,7 +161,7 @@ public class IngameState extends CustomGameState implements Serializable {
 				break;
 			}
 
-			if (p.equals(currentPlayer)) {
+			if (p.equals(current)) {
 				found = true;				
 				continue;
 			}
@@ -177,7 +198,8 @@ public class IngameState extends CustomGameState implements Serializable {
 		topMenu.update(delta);
 		
 		if (topMenu.getBtnQuit().onClick()) {
-			ContextMenuHelper.getInstance().show(gc, "Achtung", "Sie verlassen nun das Spiel.", new ContextMenuEvent() {
+			ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 
+											     ResourceManager.getInstance().getText("TXT_INFO_LEAVE"), new ContextMenuEvent() { 
 
 				@Override
 				public void onAbort(GameContainer gc, StateBasedGame sbg,
@@ -292,7 +314,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		setCurrentPlayer(currentPlayer, container);
 		// Set the current game phase
 		phase = PREPERATION;
-		FlashHelper.getInstance().flash("Phase: Vorbereitung", 2500, container);
+		FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_PREPERATION"), 2500, container); 
 		setCurrentPlayer(currentPlayer, container);
 	}
 	
@@ -311,7 +333,7 @@ public class IngameState extends CustomGameState implements Serializable {
 			world.focusCameraOnObject(unit, gc);
 		}
 		
-		FlashHelper.getInstance().flash(currentPlayer.getName() + " ist an der Reihe.", 500, gc);		
+		FlashHelper.getInstance().flash(currentPlayer.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_NEWTURN"), 500, gc); 
 	}
 	
 	
@@ -399,7 +421,7 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	public void endGame(StateBasedGame game, GameContainer gc, Player winner) {
 		if (winner != null) {
-			FlashHelper.getInstance().flash(winner.getName() + " has won!", 1000, gc);
+			FlashHelper.getInstance().flash(winner.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_WIN"), 1000, gc);
 		} 
 		world.close();
 		GameSettings.getInstance().clear();	
@@ -420,6 +442,9 @@ public class IngameState extends CustomGameState implements Serializable {
 	public void removePlayer(Player player) {
 		for (int i = 0; i < players.size(); ++i) {
 			if (players.get(i).equals(player)) {
+				for (ArmyUnit unit : players.get(i).getUnits()) {
+					removeUnitInfo(unit);
+				}
 				players.remove(i);
 				break;
 			}

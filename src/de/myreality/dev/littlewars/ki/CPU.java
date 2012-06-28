@@ -65,13 +65,9 @@ public class CPU extends Player {
 			timer.start();
 			Random randomGenerator = new Random();
 			// Select a random opponent
-			while (opponent == null) {
-				for (Player player: game.getPlayers()) {
-					if (!equals(player) && randomGenerator.nextInt(20) % 7 == 0) {
-						opponent = player;
-						break;
-					}
-				}
+			while (opponent == null || equals(opponent)) {
+				int randomIndex = randomGenerator.nextInt(game.getPlayers().size());
+				opponent = game.getPlayers().get(randomIndex);
 			}
 			switch (fraction.getType()) {
 				case Fraction.CYBORG:

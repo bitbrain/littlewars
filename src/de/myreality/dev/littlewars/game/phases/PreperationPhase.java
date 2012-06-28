@@ -18,6 +18,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
 
@@ -42,23 +43,23 @@ public class PreperationPhase extends BasicGamePhase {
 			for (Player player : preparedPlayers) {
 				player.activateUnits();
 			}
-			FlashHelper.getInstance().flash("Phase: Initialisierung", 1000, gc);
+			FlashHelper.getInstance().flash("Phase: "  + ResourceManager.getInstance().getText("TXT_GAME_PHASE_INITIALISATION"), 1000, gc);
 			game.setPhase(IngameState.INIT);
 			game.getTracker().record();
 		}
 		
 		if (currentPlayer.isCPU()) {
 			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
-			if (currentPlayer.isPrepared() && !isDone()) { // TODO: Implement KI
+			if (currentPlayer.isPrepared() && !isDone()) { 
 				preparedPlayers.add(currentPlayer);
-				game.setCurrentPlayer(game.getNextPlayer(), gc);
+				game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
 			}
 			currentPlayer.doPreperation(delta);
 		} else {
 			// Client Player
 			if (game.getBottomMenu().getPreperationBuilder().size() == 0 && !isDone()) {
 				preparedPlayers.add(currentPlayer);
-				game.setCurrentPlayer(game.getNextPlayer(), gc);
+				game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
 			}			
 		}
 	}

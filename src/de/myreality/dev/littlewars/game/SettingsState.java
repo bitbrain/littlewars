@@ -219,8 +219,7 @@ public class SettingsState extends CustomGameState {
 			} catch (SlickException e) {
 				e.printStackTrace();
 			}
-			// TODO: Implement language dependence
-			FlashHelper.getInstance().flash("Settings have been saved.", 1000, gc);
+			FlashHelper.getInstance().flash(ResourceManager.getInstance().getText("TXT_INFO_SAVED_SETTINGS"), 1000, gc); 
 			sbg.enterState(LittleWars.SETTINGS_STATE);
 		}		
 	}

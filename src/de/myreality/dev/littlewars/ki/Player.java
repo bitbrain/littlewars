@@ -248,13 +248,21 @@ public class Player implements Serializable {
 	}
 
 	public void addCommandoCenter(CommandoCenter commandoCenter) {
+		for (CommandoCenter center: centers) {
+			if (center.equals(commandoCenter)) {
+				return;
+			}
+		}
 		centers.add((CommandoCenter)commandoCenter);
 	}
 	
 	public void removeCommandoCenter(CommandoCenter commandoCenter) {
-		System.out.println("Remoooove!");
 		spawnArea.removeArea(commandoCenter);
-		centers.remove(commandoCenter);
+		for (int i = 0; i < centers.size(); ++i) {
+			if (centers.get(i).equals(commandoCenter)) {
+				centers.remove(i);
+			}
+		}
 	}
 	
 	public boolean hasAvailableUnits() {		

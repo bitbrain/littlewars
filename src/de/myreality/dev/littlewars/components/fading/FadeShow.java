@@ -94,7 +94,6 @@ public class FadeShow extends GameObject {
 		/**
 		 * Constructor of FadeImage
 		 * 
-		 * TODO Create javadoc here
 		 * @param counter
 		 * @param gc
 		 * @param image

@@ -61,7 +61,6 @@ public class BugReportState extends CustomGameState {
 		backButton = new ZoomButton(60, gc.getHeight() - 110, 250, 70, ResourceManager.getInstance().getText("TXT_GAME_BACK") , gc);	
 		sendButton = new ZoomButton(gc.getWidth() - 310, gc.getHeight() - 110, 250, 70, ResourceManager.getInstance().getText("TXT_GAME_SEND") , gc);
 		backgroundImage = ResourceManager.getInstance().getImage("MENU_BACKGROUND");
-		// TODO: Make text multi language
 		caption = new GameText(60, 50, ResourceManager.getInstance().getText("TXT_MENU_BUGREPORT"),
 				   ResourceManager.getInstance().getFont("FONT_CAPTION"), gc);
 		infoText  = new GameText(60, 160, ResourceManager.getInstance().getText("TXT_GAME_BUGREPORT_INFO") + ":",

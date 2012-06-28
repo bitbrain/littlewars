@@ -58,7 +58,6 @@ public class SpawnRadius extends GUIObject {
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO: Move draw method into world layer rendering
 		if (radius != null && isVisible()) {
 			g.setColor(color);
 			for (int x = 0; x < radius.length; ++x) {

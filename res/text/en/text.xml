@@ -40,11 +40,21 @@
 	<resource type="text" id="TXT_GAME_BUGREPORT_INFO">Describe the problem</resource>
 	<resource type="text" id="TXT_GAME_ABORT">Abort</resource>
 	<resource type="text" id="TXT_GAME_ACCEPT">Accept</resource>
+	<resource type="text" id="TXT_GAME_WARNING">Warning</resource>
+	<resource type="text" id="TXT_GAME_PHASE_PREPERATION">Preperation</resource>
+	<resource type="text" id="TXT_GAME_PHASE_INITIALISATION">Initialisation</resource>
+	<resource type="text" id="TXT_GAME_PHASE_BATTLE">Battle</resource>
 	
-	<!-- Descriptions -->
-	<resource type="text" id="TXT_DESCR_SAVEGAME">Save the game</resource>
-	<resource type="text" id="TXT_DESCR_LOADGAME">Load a game</resource>
-	<resource type="text" id="TXT_DESCR_QUITGAME">Quit the game</resource>
+	<!-- Descriptions and Messages -->
+	<resource type="text" id="TXT_INFO_SAVEGAME">Save the game</resource>
+	<resource type="text" id="TXT_INFO_LOADGAME">Load a game</resource>
+	<resource type="text" id="TXT_INFO_QUITGAME">Quit the game</resource>
+	<resource type="text" id="TXT_INFO_SCREENSHOT">Screenshot has been saved successfully.</resource>
+	<resource type="text" id="TXT_INFO_KILLED">has been defeated</resource>
+	<resource type="text" id="TXT_INFO_LEAVE">The game will be closed</resource>
+	<resource type="text" id="TXT_INFO_NEWTURN">, it's your turn</resource>
+	<resource type="text" id="TXT_INFO_WIN">has won the game!</resource>
+	<resource type="text" id="TXT_INFO_SAVED_SETTINGS">Settings has been saved successfully.</resource>
 	
 	<!-- MapSetup Strings -->
 	<resource type="text" id="TXT_SETUP_PLAYERS">Players</resource>

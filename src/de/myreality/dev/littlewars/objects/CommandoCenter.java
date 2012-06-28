@@ -87,7 +87,6 @@ public class CommandoCenter extends ArmyUnit {
 	}
 	
 	public int getSpawnRange() {
-		// TODO: Implement spawn range algorithm
 		return 9;		
 	}
 }

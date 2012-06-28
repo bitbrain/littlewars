@@ -97,7 +97,6 @@ public class LoadingState extends CustomGameState {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			

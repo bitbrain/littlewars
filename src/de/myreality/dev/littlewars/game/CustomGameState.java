@@ -26,6 +26,7 @@ import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper;
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.objects.GameObject;
 
 public abstract class CustomGameState extends BasicGameState {
@@ -137,7 +138,7 @@ public abstract class CustomGameState extends BasicGameState {
 	            screenShot = new File(screenShotFileName);
 	         }
 	         Debugger.getInstance().write("Screenshot outputting to: " + screenShotFileName);
-	         FlashHelper.getInstance().flash("Screenshot has been saved successfully.", 500, container);
+	         FlashHelper.getInstance().flash(ResourceManager.getInstance().getText("TXT_INFO_SCREENSHOT"), 500, container);
 
 	         target = new Image(container.getWidth(), container.getHeight());
 

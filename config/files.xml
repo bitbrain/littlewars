@@ -53,7 +53,7 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29401" size="355"></file>
+    <file src="res\meta.xml" sum="29402" size="355"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -89,8 +89,8 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="463351" size="5702"></file>
-    <file src="res\text\en\text.xml" sum="445572" size="5534"></file>
+    <file src="res\text\de\text.xml" sum="534834" size="6530"></file>
+    <file src="res\text\en\text.xml" sum="514668" size="6342"></file>
     <file src="res\tilemaps\north_taldra.tmx" sum="176084" size="2228"></file>
     <file src="res\tilemaps\plains_of_despair.tmx" sum="208199" size="2599"></file>
     <file src="res\tilemaps\south_taldra.tmx" sum="168509" size="2116"></file>

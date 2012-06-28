@@ -58,8 +58,8 @@ public abstract class BasicUnitBuilder extends GUIObject {
 				generator = new CyborgGenerator(gc, game, player);
 				break;
 			case Fraction.HUMAN:
-				// TODO: Implement Human generator
-				//generator = new CyborgGenerator(gc, game, player);
+				// TODO: Implement human generator
+				//generator = new HumanGenerator(gc, game, player);
 				break;
 		}
 	}

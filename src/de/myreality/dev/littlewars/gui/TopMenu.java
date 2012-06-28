@@ -73,11 +73,11 @@ public class TopMenu extends GUIObject {
 			btnSave = new IconButton(getWidth() - 3 * size - 3 * padding, padding, size, ResourceManager.getInstance().getImage("ICON_SAVE"), gc);			
 			btnQuitPhase = new IconButton(padding, padding, size, ResourceManager.getInstance().getImage("ICON_QUIT"), gc);
 			btnSave.attachTo(this);
-			PopupHelper.getInstance().addPopup(btnSave, ResourceManager.getInstance().getText("TXT_DESCR_SAVEGAME"), gc);
+			PopupHelper.getInstance().addPopup(btnSave, ResourceManager.getInstance().getText("TXT_INFO_SAVEGAME"), gc);
 			btnLoad.attachTo(this);
-			PopupHelper.getInstance().addPopup(btnLoad, ResourceManager.getInstance().getText("TXT_DESCR_LOADGAME"), gc);
+			PopupHelper.getInstance().addPopup(btnLoad, ResourceManager.getInstance().getText("TXT_INFO_LOADGAME"), gc);
 			btnQuit.attachTo(this);
-			PopupHelper.getInstance().addPopup(btnQuit, ResourceManager.getInstance().getText("TXT_DESCR_QUITGAME"), gc);
+			PopupHelper.getInstance().addPopup(btnQuit, ResourceManager.getInstance().getText("TXT_INFO_QUITGAME"), gc);
 			btnLoad.setEnabled(false);
 			btnSave.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
 			btnLoad.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
