@@ -45,6 +45,7 @@
 	<resource type="text" id="TXT_GAME_PHASE_PREPERATION">Vorbereitung</resource>
 	<resource type="text" id="TXT_GAME_PHASE_INITIALISATION">Initialisierung</resource>
 	<resource type="text" id="TXT_GAME_PHASE_BATTLE">Kampf</resource>
+	<resource type="text" id="TXT_GAME_DAMAGE">Schaden</resource>
 	
 	<!-- Descriptions and Messages -->
 	<resource type="text" id="TXT_INFO_SAVEGAME">Spiel speichern</resource>
@@ -95,9 +96,7 @@
 	
 	<!-- Map Names -->	
 	<resource type="text" id="TXT_WORLD_TRIAL_SECTOR">Trialer Sektor</resource>
-	<resource type="text" id="TXT_MAP_PLAINS_OF_DESPAIR">Tal der Verzweiflung</resource>
-	<resource type="text" id="TXT_MAP_NORTH_TALDRA">Nördliches Taldra</resource>
-	<resource type="text" id="TXT_MAP_SOUTH_TALDRA">Südliches Taldra</resource>
+	<resource type="text" id="TXT_MAP_DESERT_1">Brennende Steppe</resource>
 	
 	<!-- Unit names -->
 	<resource type="text" id="UNIT_DEAD">tot</resource>

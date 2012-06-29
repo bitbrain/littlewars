@@ -448,9 +448,9 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 					break;
 				}
 				
-				if (unit.onClick()) {
-					unit.addDamage(5000);
-				}
+				//if (unit.onClick()) {
+				//	unit.addDamage(5000);
+				//}
 				
 				if (!target.isTargetArrived()) {
 					movingObject = target;

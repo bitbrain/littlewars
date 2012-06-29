@@ -36,6 +36,7 @@ public class PreperationBuilder extends BasicUnitBuilder {
 
 	@Override
 	protected void clickAction(float x, float y) {
+		selected.getUnit().playRandomSound("onClick");
 		player.addArmyUnit(selected.getUnit());
 		previews.remove(selected);
 		selected = getNextPreview();

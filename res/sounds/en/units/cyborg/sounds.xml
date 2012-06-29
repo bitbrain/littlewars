@@ -7,6 +7,7 @@
 		<resource type="sound" id="CYBORG_ANNIHILATOR_DIE_2">res/sounds/en/units/cyborg/annihilator/die/cyborg_annihilator_die_2.wav</resource>
 		<!-- Move -->
 		<!-- Attack -->
+		<resource type="sound" id="CYBORG_ANNIHILATOR_ONATTACK_1">res/sounds/de/units/cyborg/annihilator/attack/cyborg_annihilator_attack_1.wav</resource>
 		<!-- Defend -->
 		<!-- onClick -->		
 		<resource type="sound" id="CYBORG_ANNIHILATOR_ONCLICK_1">res/sounds/en/units/cyborg/annihilator/onclick/cyborg_annihilator_onclick_1.wav</resource>

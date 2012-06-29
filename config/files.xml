@@ -20,6 +20,8 @@
     <file src="res\images\artworks\artwork_01.png" sum="2931056" size="2031"></file>
     <file src="res\images\artworks\artwork_02.png" sum="54665899" size="27817"></file>
     <file src="res\images\artworks\artwork_03.png" sum="37918526" size="16326"></file>
+    <file src="res\images\gui\bordershadow_bottom.png" sum="26977882" size="14098"></file>
+    <file src="res\images\gui\bordershadow_top.png" sum="26053056" size="14291"></file>
     <file src="res\images\gui\bottom_menu_background.png" sum="2774394" size="1911"></file>
     <file src="res\images\gui\button.png" sum="11008636" size="5074"></file>
     <file src="res\images\gui\checkicon.png" sum="1310394" size="935"></file>
@@ -36,24 +38,23 @@
     <file src="res\images\gui\topshadow.png" sum="1157128" size="707"></file>
     <file src="res\images\gui\top_menu_background.png" sum="2150342" size="1874"></file>
     <file src="res\images\gui\valuebar_light.png" sum="412303" size="345"></file>
-    <file src="res\images\images.xml" sum="195332" size="2294"></file>
+    <file src="res\images\images.xml" sum="202504" size="2372"></file>
     <file src="res\images\logos\java_logo.png" sum="79318812" size="47247"></file>
     <file src="res\images\logos\myreality_logo.png" sum="26113810" size="17289"></file>
     <file src="res\images\logos\slick_logo.png" sum="90751730" size="50665"></file>
-    <file src="res\images\sectors\trial_sector\EX-035.png" sum="23921401" size="13164"></file>
-    <file src="res\images\sectors\trial_sector\Taldra.png" sum="8292733" size="5152"></file>
-    <file src="res\images\units\cyborg\annihilator\annihilator_default.png" sum="1086773" size="786"></file>
+    <file src="res\images\sectors\trial_sector\EX-035.png" sum="23352560" size="11866"></file>
+    <file src="res\images\units\cyborg\annihilator\annihilator_default.png" sum="2278347" size="1162"></file>
     <file src="res\images\units\cyborg\annihilator\annihilator_die.png" sum="5928173" size="3233"></file>
     <file src="res\images\units\cyborg\annihilator\avatar.png" sum="121947455" size="63080"></file>
     <file src="res\images\units\cyborg\commando_center\avatar.png" sum="35423815" size="18132"></file>
-    <file src="res\images\units\cyborg\commando_center\center_default.png" sum="1030035" size="786"></file>
+    <file src="res\images\units\cyborg\commando_center\center_default.png" sum="2436806" size="1253"></file>
     <file src="res\images\units\cyborg\resources.xml" sum="149665" size="1786"></file>
     <file src="res\images\units\default.png" sum="2295540" size="1373"></file>
     <file src="res\images\units\human\resources.xml" sum="6250" size="82"></file>
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29402" size="355"></file>
+    <file src="res\meta.xml" sum="29501" size="357"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -64,14 +65,15 @@
     <file src="res\particles\particles.xml" sum="29294" size="333"></file>
     <file src="res\particles\system\default.xml" sum="8146" size="98"></file>
     <file src="res\patchnotes.xml" sum="248041" size="2787"></file>
-    <file src="res\sectors\trial_sector.xml" sum="68214" size="938"></file>
+    <file src="res\sectors\trial_sector.xml" sum="29301" size="402"></file>
     <file src="res\sounds\de\sounds.xml" sum="34343" size="395"></file>
+    <file src="res\sounds\de\units\cyborg\annihilator\attack\cyborg_annihilator_attack_1.wav" sum="184279603" size="194200"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\die\cyborg_annihilator_die_1.wav" sum="383067050" size="376780"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\die\cyborg_annihilator_die_2.wav" sum="76015631" size="61804"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_1.wav" sum="365095691" size="362060"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_2.wav" sum="358285629" size="358252"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_3.wav" sum="289619075" size="310876"></file>
-    <file src="res\sounds\de\units\cyborg\sounds.xml" sum="124864" size="1796"></file>
+    <file src="res\sounds\de\units\cyborg\sounds.xml" sum="138395" size="1946"></file>
     <file src="res\sounds\de\units\default.png" sum="2295540" size="1373"></file>
     <file src="res\sounds\de\units\human\sounds.xml" sum="43216" size="759"></file>
     <file src="res\sounds\en\sounds.xml" sum="34343" size="395"></file>
@@ -80,7 +82,7 @@
     <file src="res\sounds\en\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_1.wav" sum="319424365" size="308844"></file>
     <file src="res\sounds\en\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_2.wav" sum="346596425" size="345224"></file>
     <file src="res\sounds\en\units\cyborg\annihilator\onclick\cyborg_annihilator_onclick_3.wav" sum="334919642" size="314768"></file>
-    <file src="res\sounds\en\units\cyborg\sounds.xml" sum="124914" size="1796"></file>
+    <file src="res\sounds\en\units\cyborg\sounds.xml" sum="138445" size="1946"></file>
     <file src="res\sounds\en\units\default.png" sum="2295540" size="1373"></file>
     <file src="res\sounds\gui\button_01-backup1.wav" sum="0" size="0"></file>
     <file src="res\sounds\gui\button_01.wav" sum="20045673" size="37656"></file>
@@ -89,15 +91,15 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="534834" size="6530"></file>
-    <file src="res\text\en\text.xml" sum="514668" size="6342"></file>
-    <file src="res\tilemaps\north_taldra.tmx" sum="176084" size="2228"></file>
-    <file src="res\tilemaps\plains_of_despair.tmx" sum="208199" size="2599"></file>
-    <file src="res\tilemaps\south_taldra.tmx" sum="168509" size="2116"></file>
+    <file src="res\text\de\text.xml" sum="525106" size="6422"></file>
+    <file src="res\text\en\text.xml" sum="506332" size="6244"></file>
+    <file src="res\tilemaps\burning_steps.tmx" sum="449771" size="5634"></file>
+    <file src="res\tilemaps\tiles\adds1.png" sum="657118940" size="345647"></file>
     <file src="res\tilemaps\tiles\desert\tile_ground.png" sum="144767531" size="74386"></file>
-    <file src="res\tilemaps\tiles\snow\tile_ground.png" sum="363651988" size="188210"></file>
-    <file src="res\tilemaps\tiles\tileset_test.png" sum="245357416" size="127653"></file>
-    <file src="res\units\cyborg\units.xml" sum="131727" size="1803"></file>
+    <file src="res\tilemaps\tiles\future1.png" sum="90882344" size="52248"></file>
+    <file src="res\tilemaps\tiles\ground1.png" sum="702121989" size="350074"></file>
+    <file src="res\tilemaps\tiles\ground2.png" sum="669239419" size="346446"></file>
+    <file src="res\units\cyborg\units.xml" sum="132030" size="1811"></file>
     <file src="res\units\human\units.xml" sum="5323" size="66"></file>
-    <file src="config\settings.cfg" sum="30082" size="364"></file>
+    <file src="config\settings.cfg" sum="30084" size="364"></file>
 </files>

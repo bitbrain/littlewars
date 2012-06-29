@@ -11,6 +11,8 @@
 	<resource type="image" id="ICON_LOAD">res/images/gui/icon_load.png</resource>
 	<resource type="image" id="ICON_QUIT">res/images/gui/icon_quit.png</resource>
 	<resource type="image" id="GUI_MAP_SELECTED">res/images/gui/map_selected.png</resource>
+	<resource type="image" id="GUI_SHADOW_TOP">res/images/gui/bordershadow_top.png</resource>
+	<resource type="image" id="GUI_SHADOW_BOTTOM">res/images/gui/bordershadow_bottom.png</resource>
 		
 	<!-- Intro -->
 	<resource type="image" id="INTRO_MYREALITY_LOGO">res/images/logos/myreality_logo.png</resource>
@@ -27,9 +29,7 @@
 	<resource type="image" id="ARTWORK_03">res/images/artworks/artwork_03.png</resource>
 	
 	<!-- Map Selection Images -->
-	<resource type="image" id="SECTOR_TRIAL_WORLD_EX-035">res/images/sectors/trial_sector/EX-035.png</resource>
-	<resource type="image" id="SECTOR_TRIAL_WORLD_TALDRA">res/images/sectors/trial_sector/taldra.png</resource>
-	
+	<resource type="image" id="SECTOR_TRIAL_WORLD_EX-035">res/images/sectors/trial_sector/EX-035.png</resource>	
 	
 	<!-- Path images -->
 	<resource type="image" id="GUI_PATH_ARROW">res/images/gui/paths/arrow.png</resource>

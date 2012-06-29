@@ -29,14 +29,14 @@
 	    <name>UNIT_CYBORG_ANNIHILATOR</name>
 	    <sounds>
 		   <!--  <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_1</sound>
-		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_1</sound>
-		    <sound type="onAttack">CYBORG_ANNIHILATOR_ATTACK_1</sound>
+		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_1</sound>		    
 		    <sound type="onDamage">CYBORG_ANNIHILATOR_DAMAGE_1</sound> -->
 		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_1</sound>
 		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_2</sound>
 		    <sound type="onClick">CYBORG_ANNIHILATOR_ONCLICK_3</sound>
 		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_1</sound>
 		    <sound type="onDead">CYBORG_ANNIHILATOR_DIE_2</sound>
+		    <sound type="onAttack">CYBORG_ANNIHILATOR_ONATTACK_1</sound>
 		</sounds>
     </resource>
 </resources>	

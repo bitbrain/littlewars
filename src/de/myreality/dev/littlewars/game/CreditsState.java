@@ -33,7 +33,7 @@ import de.myreality.dev.littlewars.gui.ZoomButton;
 public class CreditsState extends CustomGameState {	
 	
 	// Background image
-	Image backgroundImage;
+	Image backgroundImage, shadowTop, shadowBottom;
 	
 	// Credits show
 	CreditsShow credits;
@@ -78,6 +78,8 @@ public class CreditsState extends CustomGameState {
 		// Load and Initialize data
 		backButton = new ZoomButton(60, gc.getHeight() - 110, 250, 70, ResourceManager.getInstance().getText("TXT_GAME_BACK") , gc);		
 		backgroundImage = ResourceManager.getInstance().getImage("MENU_BACKGROUND");
+		shadowTop = ResourceManager.getInstance().getImage("GUI_SHADOW_TOP");
+		shadowBottom = ResourceManager.getInstance().getImage("GUI_SHADOW_BOTTOM");
 		int fadeHeight = 250;
 		animatedImages = new FadeShow(60, gc.getHeight() / 2 - fadeHeight / 2, fadeHeight, fadeHeight, gc);
 		animatedImages.addSequence(ResourceManager.getInstance().getImage("ARTWORK_01"), 9000);
@@ -103,6 +105,8 @@ public class CreditsState extends CustomGameState {
 		// Render the output
 		backgroundImage.draw(0, 0, gc.getWidth(), gc.getHeight());		
 		credits.draw(g);
+		shadowTop.draw(0, 0, gc.getWidth(), shadowBottom.getHeight());
+		shadowBottom.draw(0, gc.getHeight() - shadowBottom.getHeight(), gc.getWidth(), shadowBottom.getHeight());
 		animatedImages.draw(g);		
 		g.setColor(Color.white);
 		caption.draw(g);

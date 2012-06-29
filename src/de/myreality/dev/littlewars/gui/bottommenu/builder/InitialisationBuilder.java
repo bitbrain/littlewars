@@ -38,6 +38,7 @@ public class InitialisationBuilder extends BasicUnitBuilder {
 	protected void clickAction(float x, float y) {
 		if (player.getMoney().reduceCredits(selected.getCredits())) {
 			ArmyUnit unit = generator.generateUnitByID(selected.getUnit().getID(), x, y);
+			unit.playRandomSound("onClick");
 			unit.setX(x);
 			unit.setY(y);
 			player.addArmyUnit(unit);

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="ground1" tilewidth="32" tileheight="32">
+  <image source="tiles/ground1.png" width="512" height="384"/>
+  <tile id="146">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="147">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="162">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="163">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="178">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="179">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="193" name="ground2" tilewidth="32" tileheight="32">
+  <image source="tiles/ground2.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="385" name="future1" tilewidth="32" tileheight="32">
+  <image source="tiles/future1.png" width="512" height="512"/>
+  <tile id="161">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="162">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="176">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="177">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="178">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="179">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="219">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="220">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="221">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="222">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="223">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="235">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="236">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="237">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="238">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="239">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="252">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="253">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="254">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="641" name="adds1" tilewidth="32" tileheight="32">
+  <image source="tiles/adds1.png" width="512" height="512"/>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Kachelebene 1" width="30" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC52XS24DMQxDff+d5wrtBeT2gE2AGmBfSHnShTGOP5JIUTKyxhjzMdbv9zku8/uSc895yf6UvWXWp/HBc9vmJT6S/73OGE7+ecb5UP969r+43Dl+1S/j6jCdYnMcP9c+HuMTvsgF79bvWDKfxgbzp5i+HuNb9q/xGm/iiLG4GN0gLsXnYtChPHV2T9xvP+RMOZ0y3zwV1k8YqW2163TFvNX4G/syaycdFuasK9ZvquuCfdZG2ld9uxy90x9OfNM+89ZpxNW6i6+CnXQ/YeS5MvOTzibOVXMmYd/8urxzb46/NaiacliZF2KhPt3dva+9qtPNNfo+4e67ucN24nPH6Goi8efehHS309MJq8amfusGTvaMO3y6vLK/TbNHvdzF+s7dkn2NSWPWsx0vbv3UmxPXjrMKX75fK9zb/pKu0u+Eo4bHnjCf8qD601iS5shD4jBpcw/XI2hzGf8Jr7u760BzonWo+Igrcdb1thPv5FjPJj734Fva+avxin01c/0qL4kLYqN+GKPrCXwnWCcJX+KPPNZ41TO5dDnp+D3lnOc4v8Jel/tqbCpG8naF7ztYpskRNZJsuni6mi3YYo66nud0sRrf1GnSrcuLeycdXoe109bOc+rXjHGN117EfKRamo2v7l3dc+aGmE9YmRvqYJl1l1Py0emYftkvCzbJt+Pk9AYl39Rll3Mdeoc+3VvNODuOCufplzmiVtybkrhSWy7PFWy4PJA/rYvORnqLnZ9kh+taF+/aW+bcHS2tsH4a7rx7j08cnPbYIx1O/m+7E3uHWd88asm9h6fapo+7fTPpzPXmOsRxp4ZTjNt/ii/1jf8Mx4ti5P4PqMftX3AXAAA=
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="30" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2XS1LCQBCGR/eKqFugBJY+0aUoB+B1AAQP4OsC6gE8gkfwCJ7Nx+duSDk96WSAkOSv+qpSqe4/nU7XzMSY7Op9c9UV+PXmqPFjRbV/LuC5od7F9qlyvQt7sO/wD/Uuts8B101oQdu67/qOUSWdyTPyOnAOF2sw10WRNIdxZ0LSn8d/M+OawxCS6i7nMJnytJ4vS2XP5vW1Ycw3/IDx1DgXm1JbPGsbKrDjwY5NqxoedWjE8NLESjok/wiO4QROBT9NrE+X5HbhCq6hJ3hpYn3qkzuAIYxgLHhpYn2akHsDU5jBreClifXpjtx7eIBHeBK8NLFx9Ez+C7w6fOx91xdbdKXdG6JnqrhntWXtDSHOjkWXpofaeYrGJ/2v085TVs8mpfKlLK0/ef0PCNVjqT+L7J3Un3Vcp7I08y79ArL0+h5wFwAA
+  </data>
+ </layer>
+ <objectgroup name="Objektebene 1" width="30" height="50">
+  <object name="Spawn" type="player1" x="480" y="192" width="32" height="32">
+   <properties>
+    <property name="money" value="12000"/>
+   </properties>
+  </object>
+  <object name="Spawn" type="player2" x="480" y="1280" width="32" height="32">
+   <properties>
+    <property name="money" value="12000"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

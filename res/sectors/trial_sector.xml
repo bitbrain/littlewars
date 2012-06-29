@@ -3,23 +3,10 @@
 	<world x="0" y="0" name="EX-035">
 		<image>SECTOR_TRIAL_WORLD_EX-035</image>		
 		<maps>
-			<map x="20" y ="35" src="res/tilemaps/plains_of_despair.tmx" players="2" slots="1" name="TXT_MAP_PLAINS_OF_DESPAIR">
+			<map x="20" y ="35" src="res/tilemaps/burning_steps.tmx" players="2" slots="1" name="TXT_MAP_DESERT_1">
 				<music>WORLD_DESERT_MORNING</music>	
 				<sound>SOUND_MAP_DESERT</sound>	
 			</map>
 		</maps>
-	</world>	
-	<world x="200" y="40" name="TALDRA">
-		<image>SECTOR_TRIAL_WORLD_TALDRA</image>		
-		<maps>
-			<map x="28" y ="10" src="res/tilemaps/north_taldra.tmx" players="4" slots="1" name="TXT_MAP_NORTH_TALDRA">
-				<music>WORLD_DESERT_MORNING</music>	
-				<sound>SOUND_MAP_DESERT</sound>	
-			</map>
-			<map x="17" y ="35" src="res/tilemaps/south_taldra.tmx" players="4" slots="1" name="TXT_MAP_SOUTH_TALDRA">
-				<music>WORLD_DESERT_MORNING</music>	
-				<sound>SOUND_MAP_DESERT</sound>	
-			</map>
-		</maps>
-	</world>	
+	</world>
 </sector>
