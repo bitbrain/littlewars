@@ -21,7 +21,7 @@ public class InitialisationBuilder extends BasicUnitBuilder {
 		super(left, right, parent, player, gc);
 		for (Pair<ArmyUnit, Integer> pair : generator.generateDefaultUnits()) {
 			addPreview(pair.getFirst(), pair.getSecond());
-		}		
+		}	
 	}
 
 	@Override

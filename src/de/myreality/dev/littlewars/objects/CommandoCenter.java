@@ -48,7 +48,7 @@ public class CommandoCenter extends ArmyUnit {
 	@Override
 	public void update(int delta) {
 		super.update(delta);	
-		if (game.getPhase() == IngameState.BATTLE) {
+		if (game.getPhase() == IngameState.BATTLE && game.getCurrentPlayer().isClientPlayer()) {
 			color = Color.gray;
 		} else {
 			color = player.getColor();

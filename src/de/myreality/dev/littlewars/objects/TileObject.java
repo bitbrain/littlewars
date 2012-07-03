@@ -293,13 +293,7 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 	 * 
 	 * @param delta frame's delta
 	 */
-	public float getTileVelocity(int delta) {
-		float tileVelocity = (float)map.getTileWidth() / (1.0f / (float)(velocity));
-		if (tileVelocity > 1.0f) {
-			tileVelocity = 1.0f;
-		}
-		return tileVelocity;
-	}
+	public abstract float getTileVelocity(int delta); 
 	
 	
 	public boolean hasMoved() {

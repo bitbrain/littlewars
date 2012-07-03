@@ -39,7 +39,7 @@ public class Annihilator extends ArmyUnit {
 	 */
 	public Annihilator(int x, int y, GameContainer gc, Camera cam, IngameState game) throws SlickException {
 		super(CyborgGenerator.UNIT_1, "ANNIHILATOR", x, y, gc, cam, game);
-		velocity = 0.032f;
+		velocity = 8f;
 		this.area = new Rectangle(getX(), getY(), getWidth(), getHeight());
 	}
 

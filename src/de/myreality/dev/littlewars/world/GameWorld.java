@@ -496,8 +496,12 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 			clickedObject = null;	    			
     	}
 		
-		if (input.isKeyDown(Input.KEY_ESCAPE)) {
+		if (input.isKeyDown(Input.KEY_ESCAPE) && game.getCurrentPlayer().isClientPlayer()) {
 			focusObject = null;
+		}
+		
+		if (focusObject != null && !focusObject.isTargetArrived()) {
+			game.getWorld().focusCameraOnObject(focusObject, gc, true);
 		}
 		
 		cam.update(delta);
@@ -705,7 +709,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	}
 
 
-	public void focusCameraOnObject(TileObject obj, GameContainer gc) {
+	public void focusCameraOnObject(TileObject obj, GameContainer gc, boolean instantly) {
 		// Align camera to the first object (TEST)
 	   	float camOffsetX = cam.getWidth() / 2, camOffsetY = cam.getHeight() / 2;
 	    			
@@ -728,7 +732,16 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    }
 	    
 	    setFocusObject(obj);
-	    cam.moveTo(obj.getX() - camOffsetX, obj.getY() - camOffsetY);	   	    
+	    if (instantly) {
+	    	cam.setX(obj.getX() - camOffsetX);
+	    	cam.setY(obj.getY() - camOffsetY);
+	    } else {
+	    	cam.moveTo(obj.getX() - camOffsetX, obj.getY() - camOffsetY);	   	 
+	    }
+	}
+	
+	public void focusCameraOnObject(TileObject obj, GameContainer gc) {
+		focusCameraOnObject(obj, gc, false);
 	}
 
 
@@ -822,6 +835,10 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	@Override
 	public void pathFinderVisited(int x, int y) {
 		
+	}
+	
+	public IngameState getParentGame() {
+		return game;
 	}
 
 

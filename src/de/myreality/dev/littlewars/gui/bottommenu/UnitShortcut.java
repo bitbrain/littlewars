@@ -149,6 +149,14 @@ public class UnitShortcut extends GUIObject {
 			}
 		}
 		
+		
+		// Fade popup out
+		if (onClick() && sibling instanceof CommandoCenter && world.getParentGame().getPhase() != IngameState.BATTLE) {
+			setVisible(false);
+		} else {
+			setVisible(true);
+		}
+		
 		lifeBar.update(delta);
 		lifeBar.setPercent(sibling.getLifePercent());
 		if (!sibling.isDead()) {

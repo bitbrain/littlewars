@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.util.pathfinding.Path;
 
 import de.myreality.dev.littlewars.components.Pair;
 import de.myreality.dev.littlewars.components.PathLine;
@@ -39,13 +40,16 @@ public class CPU extends Player {
 	private Timer timer;
 	
 	// Wait time
-	private final static long WAIT = 300;
+	private final static long WAIT = 50;
 	
 	// StartUnits
 	private List<Pair<ArmyUnit, Integer> > startUnits;
 	
 	// Current opponent
 	private Player opponent;
+	
+	// Current unit
+	private ArmyUnit currentUnit;
 
 	public CPU(int id, GameContainer gc) {
 		super(id, gc);
@@ -139,6 +143,18 @@ public class CPU extends Player {
 	public boolean isComplete() {
 		return opponent != null && generator != null && startUnits != null;
 	}
+	
+	public void attackNearestUnit() {
+		while (currentUnit instanceof CommandoCenter || currentUnit == null || currentUnit.getRemainingSpeed() < 1) {
+			if (currentUnit == null) {
+				currentUnit = units.get(0);
+			} else {
+				currentUnit = getNextUnit(currentUnit);
+			}
+		}
+		Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), 0, 0);
+		currentUnit.moveAlongPath(movePath);		
+	}
 
 	@Override
 	public void doInitialisation(int delta) {
@@ -146,6 +162,9 @@ public class CPU extends Player {
 		timer.update(delta);
 		if (timer.getMiliseconds() > WAIT) {
 			timer.reset();
+			if (!isUnitMoving() && hasAvailableUnits()) {				
+				attackNearestUnit();
+			}
 		}
 	}
 
@@ -155,6 +174,15 @@ public class CPU extends Player {
 		timer.update(delta);
 		if (timer.getMiliseconds() > WAIT) {
 			timer.reset();
+			
+			// TODO: Attack the nearest unit of the enemy
+			if (!isUnitMoving() && hasAvailableUnits()) {
+				attackNearestUnit();				
+			}
+		}
+		
+		if (currentUnit != null && !currentUnit.isTargetArrived()) {
+			game.getWorld().focusCameraOnObject(currentUnit, gc, true);
 		}
 	}
 

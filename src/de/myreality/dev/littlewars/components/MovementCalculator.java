@@ -15,14 +15,30 @@ import de.myreality.dev.littlewars.objects.Movable;
 
 public class MovementCalculator {
 	
+	// Current path
 	private Path path;
+	
+	// Current unit to move
 	private ArmyUnit target;
+	
+	// Map full of directions
 	Map<Integer, Integer> movements;
+	
+	// direction length of each index
+	Map<Integer, Integer> lengths;
+	
+	// Current Game State
 	private IngameState game;
+	
+	// Selected enemy in order to attack
 	private ArmyUnit enemy;
+	
+	// Length
+	private int length;
 
 	public MovementCalculator(ArmyUnit target, IngameState game) {
 		movements = new TreeMap<Integer, Integer>();
+		lengths = new TreeMap<Integer, Integer>();
 		this.target = target;
 		this.game = game;
 		this.enemy = null;
@@ -33,12 +49,21 @@ public class MovementCalculator {
 		return enemy;
 	}
 	
+	public Integer getCurrentPosition() {
+		if (path != null) {
+			return length - movements.size();
+		} else {
+			return -1;
+		}
+	}
+	
 	public void setMovement(Path path) {
-		enemy = null;
+		reset();
 		if (path != null) {
 			this.path = path;
 			int lastX = -1, lastY = -1;
 
+			// Calculate path
 			for (int i = 0; i < path.getLength(); ++i) {
 				if (i > target.getRemainingSpeed()) {
 					break;
@@ -56,6 +81,13 @@ public class MovementCalculator {
 				lastX = path.getX(i);
 				lastY = path.getY(i);
 			}
+			
+			// Calculate direction lengths
+			for (int i = 0; i < movements.size(); ++i) {
+				lengths.put(i, calculateDirectionLength(i));
+			}
+			
+			length = movements.size();
 		}
 	}
 	
@@ -63,12 +95,14 @@ public class MovementCalculator {
 	public boolean isDone() {
 		return movements.isEmpty();
 	}
-	
+
 	
 	
 	public void reset() {
 		movements.clear();
+		lengths.clear();
 		enemy = null;
+		length = 0;
 	}
 	
 	
@@ -103,8 +137,39 @@ public class MovementCalculator {
 		
 		return -1;
 	}
-
 	
+	public Integer getDirectionLength(int index) {
+		return lengths.get(index);
+	}
+	
+	private Integer calculateDirectionLength(int index) {	
+		
+		int length = 0;
+		
+		// 1. Go to the first appearance of the direction
+		if (index > 0 && index < movements.size()) {
+			while (movements.get(index).equals(movements.get(index - 1))) {
+				--index;
+			}
+		}
+		
+		// 2. Count the length
+		while (index < movements.size() && movements.get(index).equals(movements.get(index + 1))) {
+			++index; ++length;
+			// TODO: Fix length bug
+		}
+		
+		if (!movements.isEmpty()) {
+			++length;
+		}
+		
+		return length;
+	}
+	
+	public int getLength() {
+		return movements.size();
+	}
+		
 	/**
 	 * Draws a fancy path
 	 * 
@@ -227,6 +292,8 @@ public class MovementCalculator {
 			target.setRemainingSpeed(0);
 		} else if (path == null) {
 			movements.clear();
+			lengths.clear();
+			length = 0;
 		}
 	}
 	

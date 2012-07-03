@@ -70,20 +70,16 @@ public abstract class ArmyUnit extends TileObject {
 	// Element name
 	protected String name;
 	
-	protected int id;
-	
-	protected MovementCalculator movementCalculator;
-	
-	// Tile Info
-	//UnitTileInfo info;
+	protected int id;	
 	
 	// Sounds of the unit
 	protected List<Sound> dyingSounds;	
 	protected List<Sound> clickSounds;
 	protected List<Sound> attackSounds;
 	
-	protected boolean dead, deadFirst;
+	protected boolean dead, deadFirst;	
 	
+	protected MovementCalculator movementCalculator;	
 	
 	// Additional values to strengthen the unit
 	private int lifeAdd, strengthAdd, defenseAdd, speedAdd;	
@@ -119,7 +115,6 @@ public abstract class ArmyUnit extends TileObject {
 		//info = new UnitTileInfo(this, cam, 0, 0, gc);
 		//info.attachTo(this);
 		movementCalculator = new MovementCalculator(this, game);
-		
 		if (animations[SpriteAnimationData.DIE] != null) {
 			for (int i = 0; i < animations[SpriteAnimationData.DIE].length; ++i) {
 				animations[SpriteAnimationData.DIE][i].setLooping(false);
@@ -424,7 +419,7 @@ public abstract class ArmyUnit extends TileObject {
 			instantClick = false;
 		}
 		
-		if (!canMove() && isTargetArrived() && !getID().equals(UnitGenerator.UNIT_CENTER)) {
+		if (!canMove() && isTargetArrived() && !getID().equals(UnitGenerator.UNIT_CENTER) && game.getCurrentPlayer().isClientPlayer()) {
 			color = Color.gray;
 		} else {
 			color = player.getColor();
@@ -601,5 +596,16 @@ public abstract class ArmyUnit extends TileObject {
 	
 	public IngameState getGame() {
 		return game;
+	}
+	
+	public float getTileVelocity(int delta) {
+		// 1. Get current direction length		
+		System.out.println(movementCalculator.getCurrentPosition() + "/" + movementCalculator.getLength());
+		int directionLength = movementCalculator.getDirectionLength(movementCalculator.getCurrentPosition());
+
+		
+		float tileVelocity = (float) directionLength / (float)(delta * velocity); // TODO: Find algorithm
+
+		return tileVelocity;
 	}
 }

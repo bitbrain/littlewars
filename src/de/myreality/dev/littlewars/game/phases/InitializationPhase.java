@@ -26,37 +26,16 @@ public class InitializationPhase extends BasicGamePhase {
 		if (currentPlayer.isUnitMoving()) {
 			FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_BATTLE"), 500, gc);
 			game.setPhase(IngameState.BATTLE);
-		} 
-		
-		
+		}
 		
 		if (currentPlayer.isCPU()) {
-			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
-			// TODO: Implement KI
-			FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_INITIALISATION"), 500, gc);
-			game.setPhase(IngameState.INIT);
-			currentPlayer.activateUnits();			
-			Player next = game.getNextPlayer(currentPlayer);
-			next.getMoney().addCredits(500);
-			game.setCurrentPlayer(next, gc);
-			if (next.isClientPlayer()) {
-				game.getTracker().record();
-			}
-			currentPlayer.doInitialisation(delta);
+			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);			
+			currentPlayer.doInitialisation(delta);			
 		} else {
 			game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 			// Client Player
-			if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
-				FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_INITIALISATION"), 500, gc);
-				game.setPhase(IngameState.INIT);
-				currentPlayer.activateUnits();
-				Player next = game.getNextPlayer(currentPlayer);
-				next.getMoney().addCredits(500);
-				game.setCurrentPlayer(next, gc);
-				
-				if (next.isClientPlayer()) {
-					game.getTracker().record();
-				}
+			if (game.getTopMenu().getBtnPhaseQuit().onClick()) {				
+				nextPlayerTurn(currentPlayer, gc);				
 			}
 		}
 	}

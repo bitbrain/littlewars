@@ -99,7 +99,12 @@ public class Player implements Serializable {
 		if (game != null && game.getWorld() != null) {
 			units.add(unit);
 			game.getWorld().addRenderTarget(unit, gc);
-			unit.setPlayer(this);			
+			unit.setPlayer(this);	
+			
+			// Focus, when it's not client players turn
+			if (!game.getClientPlayer().isCurrentPlayer()) {
+				game.getWorld().focusCameraOnObject(unit, gc);
+			}
 			if (unit.getID().equals(UnitGenerator.UNIT_CENTER)) {				
 				addCommandoCenter((CommandoCenter)unit);
 			}
@@ -359,6 +364,31 @@ public class Player implements Serializable {
 				}
 			}
 		}
+	}
+	
+	public ArmyUnit getNextUnit(ArmyUnit current) {
+		
+		if (units.isEmpty()) {
+			return null;
+		}
+		
+		boolean found = false;
+		ArmyUnit next = null;
+		for (ArmyUnit unit: units) {
+			if (found) {
+				return unit;
+			}
+			if (unit.equals(current)) {
+				found = true;
+				continue;
+			}
+		}
+		
+		if (!found) {
+			return units.get(0);
+		}
+			
+		return next;
 	}
 	
 	// Empty methods in order to overwrite it

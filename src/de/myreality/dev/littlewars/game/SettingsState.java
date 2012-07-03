@@ -143,6 +143,8 @@ public class SettingsState extends CustomGameState {
 		for (Resolution res : Resolution.getAvailableResolutions()) {
 			btnResolution.addState(res.toString(), res);
 		}
+		
+		btnResolution.setEnabled(false); // TODO: Fix resolution bugs
 
 		// Append
 		fieldResolution.append(btnResolution);
