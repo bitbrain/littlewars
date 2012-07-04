@@ -791,6 +791,10 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 			return false;
 		}	
 		
+		if (game.getCurrentPlayer().isCPU()) {
+			return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y));
+		}
+		
 		return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y) && isTileMouseOver(x, y));
 	}
 	

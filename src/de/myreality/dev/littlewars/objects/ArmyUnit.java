@@ -600,11 +600,12 @@ public abstract class ArmyUnit extends TileObject {
 	
 	public float getTileVelocity(int delta) {
 		// 1. Get current direction length		
-		System.out.println(movementCalculator.getCurrentPosition() + "/" + movementCalculator.getLength());
-		int directionLength = movementCalculator.getDirectionLength(movementCalculator.getCurrentPosition());
+		//float speed = delta * velocity;
 
+		//int directionLength = movementCalculator.getDirectionLength(movementCalculator.getCurrentPosition());
 		
-		float tileVelocity = (float) directionLength / (float)(delta * velocity); // TODO: Find algorithm
+		// 2. Calculate specific velocity
+		float tileVelocity = 1;//(float)(speed) / (float) directionLength; // TODO: Find algorithm
 
 		return tileVelocity;
 	}

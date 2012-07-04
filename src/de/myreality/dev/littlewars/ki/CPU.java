@@ -145,6 +145,7 @@ public class CPU extends Player {
 	}
 	
 	public void attackNearestUnit() {
+		// Select next unit
 		while (currentUnit instanceof CommandoCenter || currentUnit == null || currentUnit.getRemainingSpeed() < 1) {
 			if (currentUnit == null) {
 				currentUnit = units.get(0);
@@ -152,7 +153,15 @@ public class CPU extends Player {
 				currentUnit = getNextUnit(currentUnit);
 			}
 		}
-		Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), 0, 0);
+		
+		// Detect nearest enemy
+		ArmyUnit enemyUnit = opponent.getUnits().get(0);
+		for (ArmyUnit unit : opponent.getUnits()) {
+			if (currentUnit.distanceTo(unit) < currentUnit.distanceTo(enemyUnit)) {
+				enemyUnit = unit;
+			}
+		}
+		Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), enemyUnit.getTileX(), enemyUnit.getTileY());
 		currentUnit.moveAlongPath(movePath);		
 	}
 
