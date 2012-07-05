@@ -12,6 +12,9 @@ import de.myreality.dev.littlewars.ki.Player;
 
 public class CommandoCenter extends ArmyUnit {
 	
+	// Is already at final position?
+	private boolean finalPosition;
+	
 	/**
 	 * 
 	 */
@@ -88,5 +91,17 @@ public class CommandoCenter extends ArmyUnit {
 	
 	public int getSpawnRange() {
 		return 9;		
+	}
+
+
+
+	public boolean isFinalPosition() {
+		return finalPosition;
+	}
+
+
+
+	public void setFinalPosition(boolean finalPosition) {
+		this.finalPosition = finalPosition;
 	}
 }

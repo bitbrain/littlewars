@@ -54,7 +54,7 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29404" size="355"></file>
+    <file src="res\meta.xml" sum="29405" size="355"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -91,8 +91,8 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="525106" size="6422"></file>
-    <file src="res\text\en\text.xml" sum="506332" size="6244"></file>
+    <file src="res\text\de\text.xml" sum="531645" size="6498"></file>
+    <file src="res\text\en\text.xml" sum="512280" size="6315"></file>
     <file src="res\tilemaps\burning_steps.tmx" sum="449771" size="5634"></file>
     <file src="res\tilemaps\tiles\adds1.png" sum="657118940" size="345647"></file>
     <file src="res\tilemaps\tiles\desert\tile_ground.png" sum="144767531" size="74386"></file>
@@ -101,5 +101,5 @@
     <file src="res\tilemaps\tiles\ground2.png" sum="669239419" size="346446"></file>
     <file src="res\units\cyborg\units.xml" sum="132030" size="1811"></file>
     <file src="res\units\human\units.xml" sum="5323" size="66"></file>
-    <file src="config\settings.cfg" sum="30084" size="364"></file>
+    <file src="config\settings.cfg" sum="30083" size="364"></file>
 </files>

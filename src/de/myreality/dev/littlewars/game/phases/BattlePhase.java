@@ -5,6 +5,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
+import de.myreality.dev.littlewars.objects.ArmyUnit;
 
 public class BattlePhase extends BasicGamePhase {
 
@@ -22,11 +23,11 @@ public class BattlePhase extends BasicGamePhase {
 		Player currentPlayer = game.getCurrentPlayer();
 		
 	
-		if (!currentPlayer.hasAvailableUnits() && !currentPlayer.isUnitMoving()) {
+		if (!currentPlayer.hasAvailableUnits() && !ArmyUnit.isUnitMoving()) {
 			game.setPhase(IngameState.INIT);
 			currentPlayer.activateUnits();
 			Player next = game.getNextPlayer(currentPlayer);
-			next.getMoney().addCredits(500);				
+			next.addPeriodMoney();				
 			game.setCurrentPlayer(next, gc);
 			if (next.isClientPlayer()) {
 				game.getTracker().record();
@@ -41,7 +42,7 @@ public class BattlePhase extends BasicGamePhase {
 				game.setPhase(IngameState.INIT);
 				currentPlayer.activateUnits();
 				Player next = game.getNextPlayer(currentPlayer);
-				next.getMoney().addCredits(500);				
+				next.addPeriodMoney();	
 				game.setCurrentPlayer(next, gc);
 				if (next.isClientPlayer()) {
 					game.getTracker().record();

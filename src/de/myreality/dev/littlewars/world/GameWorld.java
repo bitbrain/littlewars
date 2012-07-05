@@ -362,6 +362,10 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	}
 	
 	public void update(GameContainer gc, int delta) throws SlickException {		
+		// Unit state reset (each frame)
+		ArmyUnit.setUnitMoving(false);
+		ArmyUnit.setUnitDying(false);
+		ArmyUnit.setUnitLoosingLife(false);
 		daytime.update(gc, delta);
 		Input input = gc.getInput();
 		int padding = 40;	

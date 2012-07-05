@@ -40,10 +40,10 @@ public class CPU extends Player {
 	private Timer timer;
 	
 	// Wait time
-	private final static long WAIT = 50;
+	private final static long WAIT = 200;
 	
 	// StartUnits
-	private List<Pair<ArmyUnit, Integer> > startUnits;
+	private List<Pair<ArmyUnit, Integer> > startUnits, defaultUnits;
 	
 	// Current opponent
 	private Player opponent;
@@ -61,6 +61,35 @@ public class CPU extends Player {
 	public void setFraction(Fraction fraction) {
 		super.setFraction(fraction);		
 	}
+	
+	
+	/**
+	 * Buys the best unit
+	 */
+	public ArmyUnit buyUnit() {
+		// 1. Select the best unit
+		Pair<ArmyUnit, Integer> selected = null;
+		for (int i = 0; i < defaultUnits.size(); ++i) {
+			if (selected == null) {
+				selected = defaultUnits.get(i);
+				continue;
+			} else {
+				if (defaultUnits.get(i).getSecond() > selected.getSecond() && getMoney().getRealCredits() - defaultUnits.get(i).getSecond() >= 0) {
+					selected = defaultUnits.get(i);
+				}
+			}
+		}
+		ArmyUnit unit = null;
+		// 2. Buy the unit		
+		if (getMoney().reduceCredits(selected.getSecond())) {
+			unit = generator.generateUnitByID(selected.getFirst().getID(), 0, 0);
+			unit.setX(0);
+			unit.setY(0);
+			addArmyUnit(unit);
+		} else return null;
+		
+		return unit;
+	}
 
 	@Override
 	public void doPreperation(int delta) {
@@ -77,6 +106,7 @@ public class CPU extends Player {
 				case Fraction.CYBORG:
 					generator = new CyborgGenerator(gc, game, this);
 					startUnits = generator.generateStartUnits();
+					defaultUnits = generator.generateDefaultUnits();
 					break;
 				case Fraction.HUMAN:
 					break;
@@ -118,7 +148,7 @@ public class CPU extends Player {
 				nearestCenter = center;
 				continue;
 			}
-			if (center.distanceTo(opponentCenter) < nearestCenter.distanceTo(opponentCenter)) {
+			if (center.distanceTo(opponentCenter) < nearestCenter.distanceTo(opponentCenter) && center.isFinalPosition()) {
 				nearestCenter = center;
 			}
 		}
@@ -126,6 +156,10 @@ public class CPU extends Player {
 		// Create a straight line between both centers and find the nearest cell
 		PathLine line = new PathLine(game, this, nearestCenter, opponentCenter);
 		line.findPathPosition(unit);
+		
+		if (unit instanceof CommandoCenter) {
+			((CommandoCenter)unit).setFinalPosition(true);
+		}
 	}
 	
 	/**
@@ -166,15 +200,30 @@ public class CPU extends Player {
 	}
 
 	@Override
-	public void doInitialisation(int delta) {
+	public boolean doInitialisation(int delta) {
 		super.doInitialisation(delta);
 		timer.update(delta);
 		if (timer.getMiliseconds() > WAIT) {
 			timer.reset();
-			if (!isUnitMoving() && hasAvailableUnits()) {				
+			
+			ArmyUnit bought = buyUnit();
+			
+			if (bought == null && !ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying()) {				
 				attackNearestUnit();
+			} else if (bought != null) {
+				setUnitPosition(bought);
+			}
+			
+			if (bought == null && getCommandoCenters().size() == getUnits().size()) {
+				return false;
 			}
 		}
+		
+		if (currentUnit != null && !currentUnit.isTargetArrived()) {
+			game.getWorld().focusCameraOnObject(currentUnit, gc, true);
+		}
+		
+		return true;
 	}
 
 	@Override
@@ -184,8 +233,7 @@ public class CPU extends Player {
 		if (timer.getMiliseconds() > WAIT) {
 			timer.reset();
 			
-			// TODO: Attack the nearest unit of the enemy
-			if (!isUnitMoving() && hasAvailableUnits()) {
+			if (!ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying()) {
 				attackNearestUnit();				
 			}
 		}

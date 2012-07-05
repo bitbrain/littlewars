@@ -23,7 +23,7 @@ public class GameClock {
 	public void tick(int delta) {
 		counter.update(delta);
 		if (counter != null) {
-			if (counter.getMiliseconds() > 100) {
+			if (counter.getMiliseconds() > 1000) {
 				++minutes;
 				counter.reset();
 			}

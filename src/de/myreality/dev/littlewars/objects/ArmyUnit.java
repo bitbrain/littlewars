@@ -83,6 +83,39 @@ public abstract class ArmyUnit extends TileObject {
 	
 	// Additional values to strengthen the unit
 	private int lifeAdd, strengthAdd, defenseAdd, speedAdd;	
+	
+	// Static members for game control
+	static protected boolean unitMoving, unitDying, unitLoosingLife;
+	
+	static {
+		unitMoving = false;
+		unitDying = false;
+		unitLoosingLife = false;
+	}
+	
+	static public void setUnitMoving(boolean value) {
+		unitMoving = value;
+	}
+	
+	static public boolean isUnitMoving() {
+		return unitMoving;
+	}
+	
+	static public void setUnitDying(boolean value) {
+		unitDying = value;
+	}
+	
+	static public boolean isUnitDying() {
+		return unitDying;
+	}
+	
+	static public void setUnitLoosingLife(boolean value) {
+		unitLoosingLife = value;
+	}
+	
+	static public boolean isUnitLoosingLife() {
+		return unitLoosingLife;
+	}
 
 	/**
 	 * Constructor of ArmyUnit
@@ -432,9 +465,21 @@ public abstract class ArmyUnit extends TileObject {
 			if (enemy != null) {
 				attack(enemy);
 				if (!enemy.isDead()) {
-					enemy.attack(this);
+					//enemy.attack(this); // TODO: Fix reaction bug
 				}				
 			}			
+		}
+		
+		if (!isTargetArrived()) {
+			setUnitMoving(true);
+		}
+		
+		if (isDying()) {
+			setUnitDying(true);
+		}
+		
+		if (lifeSeq > 0) {
+			setUnitLoosingLife(true);
 		}
 	}
 
@@ -589,7 +634,7 @@ public abstract class ArmyUnit extends TileObject {
 	}
 	
 	public void moveAlongPath(Path path) {
-		if (!player.isUnitMoving()) {
+		if (!isUnitMoving()) {
 			movementCalculator.setMovement(path);
 		}
 	}

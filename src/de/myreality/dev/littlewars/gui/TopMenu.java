@@ -78,6 +78,7 @@ public class TopMenu extends GUIObject {
 			PopupHelper.getInstance().addPopup(btnLoad, ResourceManager.getInstance().getText("TXT_INFO_LOADGAME"), gc);
 			btnQuit.attachTo(this);
 			PopupHelper.getInstance().addPopup(btnQuit, ResourceManager.getInstance().getText("TXT_INFO_QUITGAME"), gc);
+			PopupHelper.getInstance().addPopup(btnQuitPhase, ResourceManager.getInstance().getText("TXT_INFO_QUITPHASE"), gc);
 			btnLoad.setEnabled(false);
 			btnSave.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
 			btnLoad.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));

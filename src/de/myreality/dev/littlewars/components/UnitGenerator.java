@@ -18,6 +18,8 @@ public abstract class UnitGenerator {
 	protected Player player;
 	protected Fraction fraction;
 	
+	public final static int START_COUNT = 4;
+	
 	public static final int UNIT_1 = 0, UNIT_CENTER = 1;
 	
 	public UnitGenerator(Fraction fraction, GameContainer gc, IngameState game, Player player) {
@@ -60,7 +62,7 @@ public abstract class UnitGenerator {
 	public List<Pair<ArmyUnit, Integer> > generateStartUnits() {
 		List<Pair<ArmyUnit, Integer> > units = new ArrayList<Pair<ArmyUnit, Integer> >();
 		for (int i = 0; i < getUnitCount() - 1; ++i) {		
-			for (int count = 0; count < 5; ++count) {
+			for (int count = 0; count < START_COUNT; ++count) {
 				units.add(new Pair<ArmyUnit, Integer>(generateUnitByID(i), getUnitCredits(i)));
 			}
 		}		

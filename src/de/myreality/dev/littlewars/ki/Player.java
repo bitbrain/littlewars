@@ -285,16 +285,6 @@ public class Player implements Serializable {
 		}
 	}
 	
-	public boolean isUnitMoving() {
-		
-		for (ArmyUnit unit : units) {
-			if (!unit.isTargetArrived()) {
-				return true;
-			}
-		}		
-		return false;		
-	}
-	
 	public void setCenterRadiusEnabled(boolean value) {
 		spawnArea.setVisible(value);
 	}
@@ -366,6 +356,28 @@ public class Player implements Serializable {
 		}
 	}
 	
+	public void addPeriodMoney() {
+		Money money = getMoney();
+		final int BASE_VALUE = 1000;
+		switch (difficulty.getState()) {
+			case Difficulty.PLAYER:
+				money.addCredits(BASE_VALUE);
+				break;
+			case Difficulty.EASY:
+				money.addCredits(BASE_VALUE / 2);
+				break;
+			case Difficulty.MEDIUM:
+				money.addCredits(BASE_VALUE);
+				break;
+			case Difficulty.HARD:
+				money.addCredits(BASE_VALUE * 2);
+				break;
+			case Difficulty.EXTREME:
+				money.addCredits(BASE_VALUE * 4);
+				break;
+		}
+	}
+	
 	public ArmyUnit getNextUnit(ArmyUnit current) {
 		
 		if (units.isEmpty()) {
@@ -396,8 +408,8 @@ public class Player implements Serializable {
 		
 	}
 	
-	public void doInitialisation(int delta) {
-		
+	public boolean doInitialisation(int delta) {
+		return true;
 	}
 	
 	public void doBattle(int delta) {

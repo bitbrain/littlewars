@@ -50,6 +50,7 @@
 	<resource type="text" id="TXT_INFO_SAVEGAME">Save the game</resource>
 	<resource type="text" id="TXT_INFO_LOADGAME">Load a game</resource>
 	<resource type="text" id="TXT_INFO_QUITGAME">Quit the game</resource>
+	<resource type="text" id="TXT_INFO_QUITPHASE">End of turn</resource>
 	<resource type="text" id="TXT_INFO_SCREENSHOT">Screenshot has been saved successfully.</resource>
 	<resource type="text" id="TXT_INFO_KILLED">has been defeated</resource>
 	<resource type="text" id="TXT_INFO_LEAVE">The game will be closed</resource>

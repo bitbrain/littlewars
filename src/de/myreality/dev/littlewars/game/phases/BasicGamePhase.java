@@ -43,7 +43,7 @@ public abstract class BasicGamePhase implements Serializable {
 		game.setPhase(IngameState.INIT);
 		current.activateUnits();
 		Player next = game.getNextPlayer(current);
-		next.getMoney().addCredits(500);
+		next.addPeriodMoney();	
 		game.setCurrentPlayer(next, gc);
 		if (next.isClientPlayer()) {
 			game.getTracker().record();

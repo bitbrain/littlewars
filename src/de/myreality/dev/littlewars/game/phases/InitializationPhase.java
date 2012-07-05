@@ -7,6 +7,7 @@ import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
+import de.myreality.dev.littlewars.objects.ArmyUnit;
 
 public class InitializationPhase extends BasicGamePhase {
 
@@ -23,14 +24,18 @@ public class InitializationPhase extends BasicGamePhase {
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		Player currentPlayer = game.getCurrentPlayer();
-		if (currentPlayer.isUnitMoving()) {
+		if (ArmyUnit.isUnitMoving()) {
 			FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_BATTLE"), 500, gc);
 			game.setPhase(IngameState.BATTLE);
 		}
 		
 		if (currentPlayer.isCPU()) {
-			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);			
-			currentPlayer.doInitialisation(delta);			
+			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);		
+			
+			// End the turn when nothing to do
+			if (!currentPlayer.doInitialisation(delta)) {
+				nextPlayerTurn(currentPlayer, gc);			
+			}
 		} else {
 			game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 			// Client Player
