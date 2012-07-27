@@ -189,14 +189,22 @@ public class CPU extends Player {
 		}
 		
 		// Detect nearest enemy
-		ArmyUnit enemyUnit = opponent.getUnits().get(0);
-		for (ArmyUnit unit : opponent.getUnits()) {
-			if (currentUnit.distanceTo(unit) < currentUnit.distanceTo(enemyUnit)) {
-				enemyUnit = unit;
+		if (!opponent.isDefeated()) {
+			ArmyUnit enemyUnit = opponent.getUnits().get(0);
+			for (ArmyUnit unit : opponent.getUnits()) {
+				if (currentUnit.distanceTo(unit) < currentUnit.distanceTo(enemyUnit)) {
+					enemyUnit = unit;
+				}
+			}
+			Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), enemyUnit.getTileX(), enemyUnit.getTileY());
+			
+			if (movePath != null) {
+				currentUnit.moveAlongPath(movePath);	
+			} else {
+				// Enemy is not reachable, wait at the current position
+				currentUnit.setRemainingSpeed(0);
 			}
 		}
-		Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), enemyUnit.getTileX(), enemyUnit.getTileY());
-		currentUnit.moveAlongPath(movePath);		
 	}
 
 	@Override
@@ -248,6 +256,9 @@ public class CPU extends Player {
 		return isComplete() && startUnits.isEmpty();
 	}
 	
+	public void setOpponent(Player newOpponent) {
+		opponent = newOpponent;
+	}
 	
-	
+		
 }

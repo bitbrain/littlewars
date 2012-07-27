@@ -24,9 +24,6 @@ public class MovementCalculator {
 	// Map full of directions
 	Map<Integer, Integer> movements;
 	
-	// direction length of each index
-	Map<Integer, Integer> lengths;
-	
 	// Current Game State
 	private IngameState game;
 	
@@ -38,7 +35,6 @@ public class MovementCalculator {
 
 	public MovementCalculator(ArmyUnit target, IngameState game) {
 		movements = new TreeMap<Integer, Integer>();
-		lengths = new TreeMap<Integer, Integer>();
 		this.target = target;
 		this.game = game;
 		this.enemy = null;
@@ -81,13 +77,6 @@ public class MovementCalculator {
 				lastX = path.getX(i);
 				lastY = path.getY(i);
 			}
-			
-			// Calculate direction lengths
-			for (int i = 0; i < movements.size(); ++i) {
-				lengths.put(i, calculateDirectionLength(i));
-			}
-			
-			length = movements.size();
 		}
 	}
 	
@@ -100,7 +89,6 @@ public class MovementCalculator {
 	
 	public void reset() {
 		movements.clear();
-		lengths.clear();
 		enemy = null;
 		length = 0;
 	}
@@ -137,34 +125,7 @@ public class MovementCalculator {
 		
 		return -1;
 	}
-	
-	public Integer getDirectionLength(int index) {
-		return lengths.get(index);
-	}
-	
-	private Integer calculateDirectionLength(int index) {	
-		
-		int length = 0;
-		
-		// 1. Go to the first appearance of the direction
-		if (index > 0 && index < movements.size()) {
-			while (movements.get(index).equals(movements.get(index - 1))) {
-				--index;
-			}
-		}
-		
-		// 2. Count the length
-		while (index < movements.size() && movements.get(index).equals(movements.get(index + 1))) {
-			++index; ++length;
-			// TODO: Fix length bug
-		}
-		
-		if (!movements.isEmpty()) {
-			++length;
-		}
-		
-		return length;
-	}
+
 	
 	public int getLength() {
 		return movements.size();
@@ -279,22 +240,57 @@ public class MovementCalculator {
 	
 	
 	public void update(int delta) {
+		correctUnitPosition();
 		if (!movements.isEmpty() && path != null && target != null) {
-			if (target.isTargetArrived()) {
+			if (target.isTargetArrived()) { 
 				for (Entry<Integer, Integer> entry : movements.entrySet()) {
 					target.move(entry.getValue(), delta);
 					movements.remove(entry.getKey());
 					break;
 				}				
-			}
+			}			
 		} else if (movements.isEmpty() && path != null) {
 			path = null;
 			target.setRemainingSpeed(0);
 		} else if (path == null) {
 			movements.clear();
-			lengths.clear();
 			length = 0;
 		}
+	}
+	
+	
+	/**
+	 * Correct the positions at the corners of the path
+	 */
+	private void correctUnitPosition() {
+					
+		switch (target.getCurrentDirection()) {
+			case Movable.LEFT:
+				if (target.getX() < target.getTargetX()) {
+					target.setX(target.getTargetX());	
+					target.setToTarget();
+				}
+				break;
+			case Movable.RIGHT:
+				if (target.getX() > target.getTargetX()) {
+					target.setX(target.getTargetX());
+					target.setToTarget();
+				}
+				break;
+			case Movable.BOTTOM:
+				if (target.getY() > target.getTargetY()) {
+					target.setY(target.getTargetY());
+					target.setToTarget();
+				}
+				break;
+			case Movable.TOP:
+				if (target.getY() < target.getTargetY()) {
+					target.setY(target.getTargetY());
+					target.setToTarget();
+				}
+				break;
+		}			
+		
 	}
 	
 }

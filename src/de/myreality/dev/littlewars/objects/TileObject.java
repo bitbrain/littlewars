@@ -146,6 +146,15 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 		return area.contains(camera.getX() + gc.getInput().getMouseX(), camera.getY() + gc.getInput().getMouseY());
 	}
 	
+	
+	
+	public float getTargetX() {
+		return targetPos.x;
+	}
+	
+	public float getTargetY() {
+		return targetPos.y;
+	}
 
 
 	@Override
@@ -158,38 +167,37 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 			targetPos.y = getY();
 		}
 		
-		if (isTargetArrived()) {
-			switch (direction) {
-				case Movable.TOP:					
-					veloVector.x = 0f;
-					veloVector.y = -getTileVelocity(delta);		
-					targetPos.x = map.tileIndexX(getX()) * map.getTileWidth();
-					targetPos.y = map.tileIndexY(getY()) * map.getTileHeight() - map.getTileHeight();		
-					moveRequest = true;
-					break;
-				case Movable.BOTTOM:
-					veloVector.x = 0f;
-					veloVector.y = getTileVelocity(delta);
-					targetPos.x = map.tileIndexX(getX()) * map.getTileWidth();
-					targetPos.y = map.tileIndexY(getY()) * map.getTileHeight() + map.getTileHeight();
-					moveRequest = true;
-					break;
-				case Movable.LEFT:
-					veloVector.x = -getTileVelocity(delta);
-					veloVector.y = 0f;
-					targetPos.x = map.tileIndexX(getX()) * map.getTileWidth() - map.getTileHeight();
-					targetPos.y = map.tileIndexY(getY()) * map.getTileHeight();
-					moveRequest = true;
-					break;
-				case Movable.RIGHT:
-					veloVector.x = getTileVelocity(delta);
-					veloVector.y = 0f;
-					targetPos.x = map.tileIndexX(getX()) * map.getTileWidth() + map.getTileHeight();
-					targetPos.y =map.tileIndexY(getY()) * map.getTileHeight();
-					moveRequest = true;
-					break;
-				}	
-			}
+		switch (direction) {
+			case Movable.TOP:					
+				veloVector.x = 0f;
+				veloVector.y = -getTileVelocity(delta);		
+				targetPos.x = map.tileIndexX(getX()) * map.getTileWidth();
+				targetPos.y = map.tileIndexY(getY()) * map.getTileHeight() - map.getTileHeight();		
+				moveRequest = true;
+				break;
+			case Movable.BOTTOM:
+				veloVector.x = 0f;
+				veloVector.y = getTileVelocity(delta);
+				targetPos.x = map.tileIndexX(getX()) * map.getTileWidth();
+				targetPos.y = map.tileIndexY(getY()) * map.getTileHeight() + map.getTileHeight();
+				moveRequest = true;
+				break;
+			case Movable.LEFT:
+				veloVector.x = -getTileVelocity(delta);
+				veloVector.y = 0f;
+				targetPos.x = map.tileIndexX(getX()) * map.getTileWidth() - map.getTileHeight();
+				targetPos.y = map.tileIndexY(getY()) * map.getTileHeight();
+				moveRequest = true;
+				break;
+			case Movable.RIGHT:
+				veloVector.x = getTileVelocity(delta);
+				veloVector.y = 0f;
+				targetPos.x = map.tileIndexX(getX()) * map.getTileWidth() + map.getTileHeight();
+				targetPos.y =map.tileIndexY(getY()) * map.getTileHeight();
+				moveRequest = true;
+				break;
+			}	
+			
 		
 		if (targetPos.x < 0) {
 			targetPos.x = 0;
@@ -285,6 +293,30 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 	}
 	
 	
+	public void setTargetX(float x) {
+		targetPos.x = x;
+	}
+	
+	public void setTargetY(float y) {
+		targetPos.y = y;
+	}
+	
+	
+	
+	/**
+	 * Set the current position to target
+	 */
+	public void setToTarget() {
+		lastX = x;
+		lastY = y;
+		x = targetPos.x;
+		y = targetPos.y;
+		moveRequest = false;
+		veloVector.x = 0;
+		veloVector.y = 0;
+	}
+	
+	
 	
 	/**
 	 * Function that calculates a correct velocity in order to move
@@ -308,6 +340,11 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 		float x2 = object.getX();
 		float y2 = object.getY();
 		return (float) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+	}
+	
+	
+	public int getCurrentDirection() {
+		return currentDirection;
 	}
 
 }

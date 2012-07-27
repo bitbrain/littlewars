@@ -29,6 +29,7 @@ import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.components.resources.SpriteAnimationData;
 import de.myreality.dev.littlewars.components.resources.UnitResource;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.ki.CPU;
 import de.myreality.dev.littlewars.ki.Player;
 
 public abstract class ArmyUnit extends TileObject {
@@ -612,6 +613,12 @@ public abstract class ArmyUnit extends TileObject {
 				addExperience((damage / 10) * (target.getRank() / getRank()));
 			}
 			movementCalculator.reset();
+			
+			// Set owner as new opponent
+			if (target.getPlayer() instanceof CPU) {
+				CPU cpu = (CPU)target.getPlayer();
+				cpu.setOpponent(getPlayer());
+			}
 		}
 	}
 	
@@ -644,14 +651,6 @@ public abstract class ArmyUnit extends TileObject {
 	}
 	
 	public float getTileVelocity(int delta) {
-		// 1. Get current direction length		
-		//float speed = delta * velocity;
-
-		//int directionLength = movementCalculator.getDirectionLength(movementCalculator.getCurrentPosition());
-		
-		// 2. Calculate specific velocity
-		float tileVelocity = 1;//(float)(speed) / (float) directionLength; // TODO: Find algorithm
-
-		return tileVelocity;
+		return velocity * delta;
 	}
 }

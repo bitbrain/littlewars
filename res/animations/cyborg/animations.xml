@@ -3,26 +3,26 @@
 <!-- Cyborg -->		
 	<!-- Center -->
 		<!-- Die -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DIE" id="ANIMATION_CYBORG_CENTER_DIE" />
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_CENTER_DIE" id="ANIMATION_CYBORG_CENTER_DIE" />
 		<!-- Move -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_MOVE" id="ANIMATION_CYBORG_CENTER_MOVE" />	
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_CENTER_MOVE" id="ANIMATION_CYBORG_CENTER_MOVE" />	
 		<!-- Attack -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_ATTACK" id="ANIMATION_CYBORG_CENTER_ATTACK" />	
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_CENTER_ATTACK" id="ANIMATION_CYBORG_CENTER_ATTACK" />	
 		<!-- Default -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DEFAULT" id="ANIMATION_CYBORG_CENTER_DEFAULT" />	
+		<resource type="animation" duration="100" tW="32" tH="32" src="CYBORG_CENTER_DEFAULT" id="ANIMATION_CYBORG_CENTER_DEFAULT" />	
 		<!-- Defend -->				
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_CENTER_DEFEND" id="ANIMATION_CYBORG_CENTER_DEFEND" />	
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_CENTER_DEFEND" id="ANIMATION_CYBORG_CENTER_DEFEND" />	
 	<!-- Annihilator -->
 		<!-- Die -->
-		<resource type="animation" duration="1000" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DIE" id="ANIMATION_CYBORG_ANNIHILATOR_DIE" />
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DIE" id="ANIMATION_CYBORG_ANNIHILATOR_DIE" />
 		<!-- Move -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_MOVE" id="ANIMATION_CYBORG_ANNIHILATOR_MOVE" />	
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_ANNIHILATOR_MOVE" id="ANIMATION_CYBORG_ANNIHILATOR_MOVE" />	
 		<!-- Attack -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_ATTACK" id="ANIMATION_CYBORG_ANNIHILATOR_ATTACK" />	
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_ANNIHILATOR_ATTACK" id="ANIMATION_CYBORG_ANNIHILATOR_ATTACK" />	
 		<!-- Default -->
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFAULT" id="ANIMATION_CYBORG_ANNIHILATOR_DEFAULT" />	
+		<resource type="animation" duration="100" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFAULT" id="ANIMATION_CYBORG_ANNIHILATOR_DEFAULT" />	
 		<!-- Defend -->				
-		<resource type="animation" duration="150" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFEND" id="ANIMATION_CYBORG_ANNIHILATOR_DEFEND" />				
+		<resource type="animation" duration="10" tW="32" tH="32" src="CYBORG_ANNIHILATOR_DEFEND" id="ANIMATION_CYBORG_ANNIHILATOR_DEFEND" />				
 			
 	<!-- Butcher -->
 		<!-- Die -->
