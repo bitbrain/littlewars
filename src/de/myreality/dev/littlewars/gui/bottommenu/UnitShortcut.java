@@ -60,6 +60,7 @@ public class UnitShortcut extends GUIObject {
 		int offset = getHeight() - (lifeBar.getHeight() + expBar.getHeight());
 		lifeBar.setY(offset);
 		rankText.setY(offset - rankText.getHeight());
+		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 		hoverSound = ResourceManager.getInstance().getSound("SOUND_HOVER");
 		PopupHelper.getInstance().addPopup(this, sibling.getName(), gc);
 	}
@@ -172,7 +173,7 @@ public class UnitShortcut extends GUIObject {
 		expBar.setPercent(sibling.getExperiencePercent());
 		if (!sibling.isDead()) {
 			rankText.setText(String.valueOf(sibling.getRank()));
-			rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
+			rankText.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 		} else {
 			rankText.setText("d");
 			rankText.setColor(Color.red);

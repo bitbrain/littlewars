@@ -16,6 +16,7 @@
 	<resource type="color" id="UNIT_LIFE_MEDIUM">#ffa800</resource>
 	<resource type="color" id="UNIT_LIFE_EMPTY">#d90000</resource>
 	<resource type="color" id="UNIT_EXP">#47abff</resource>
+	<resource type="color" id="COLOR_LEVEL">#c0ff00</resource>
 	
 	<!-- Tile Colors -->
 	<resource type="color" id="TILE_ENEMY">#e30000</resource>

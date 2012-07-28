@@ -20,32 +20,17 @@ public class BattlePhase extends BasicGamePhase {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
-		Player currentPlayer = game.getCurrentPlayer();
-		
+		Player currentPlayer = game.getCurrentPlayer();		
 	
 		if (!currentPlayer.hasAvailableUnits() && !ArmyUnit.isUnitMoving()) {
-			game.setPhase(IngameState.INIT);
-			currentPlayer.activateUnits();
-			Player next = game.getNextPlayer(currentPlayer);
-			next.addPeriodMoney();				
-			game.setCurrentPlayer(next, gc);
-			if (next.isClientPlayer()) {
-				game.getTracker().record();
-			}
-		}
-		
-		if (currentPlayer.isCPU()) {
-			currentPlayer.doBattle(delta);
+			nextPlayerTurn(currentPlayer, gc);	
 		} else {
-			// Client Player
-			if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
-				game.setPhase(IngameState.INIT);
-				currentPlayer.activateUnits();
-				Player next = game.getNextPlayer(currentPlayer);
-				next.addPeriodMoney();	
-				game.setCurrentPlayer(next, gc);
-				if (next.isClientPlayer()) {
-					game.getTracker().record();
+			if (currentPlayer.isCPU()) {
+				currentPlayer.doBattle(delta);
+			} else {
+				// Client Player
+				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
+					nextPlayerTurn(currentPlayer, gc);
 				}
 			}
 		}

@@ -198,12 +198,14 @@ public class CPU extends Player {
 			}
 			Path movePath = game.getWorld().getPathFinder().findPath(currentUnit, currentUnit.getTileX(), currentUnit.getTileY(), enemyUnit.getTileX(), enemyUnit.getTileY());
 			
-			if (movePath != null) {
+			if (movePath != null && movePath.getLength() > 0) {
 				currentUnit.moveAlongPath(movePath);	
 			} else {
 				// Enemy is not reachable, wait at the current position
 				currentUnit.setRemainingSpeed(0);
 			}
+		} else {
+			currentUnit.setRemainingSpeed(0);
 		}
 	}
 

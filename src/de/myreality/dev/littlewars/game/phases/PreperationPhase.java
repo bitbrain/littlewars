@@ -58,9 +58,12 @@ public class PreperationPhase extends BasicGamePhase {
 		} else {
 			// Client Player
 			if (game.getBottomMenu().getPreperationBuilder().size() == 0 && !isDone()) {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 				preparedPlayers.add(currentPlayer);
 				game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
-			}			
+			} else {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
+			}
 		}
 	}
 	

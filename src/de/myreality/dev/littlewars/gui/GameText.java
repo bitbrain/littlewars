@@ -107,9 +107,9 @@ public class GameText extends GUIObject {
 			}
 	
 			if (camera == null) {
-				this.font.drawString(getX(), getY(), text, color);
+				font.drawString(getX(), getY(), text, color);
 			} else {
-				this.font.drawString(getX() - camera.getX(), getY() - camera.getY(), text, color);
+				font.drawString(getX() - camera.getX(), getY() - camera.getY(), text, color);
 			}
 		}
 	}

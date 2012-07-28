@@ -45,6 +45,7 @@ public class UnitTileInfo extends GUIObject {
 		rankText.setY(height - rankText.getHeight());
 		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		rankText.attachTo(this);
+		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 	}
 
 	@Override
@@ -65,7 +66,7 @@ public class UnitTileInfo extends GUIObject {
 		expBar.setPercent(unit.getExperiencePercent());
 		if (!unit.isDead()) {
 			rankText.setText(String.valueOf(unit.getRank()));
-			rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
+			rankText.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 		} else {
 			rankText.setText("d");
 			rankText.setColor(Color.red);

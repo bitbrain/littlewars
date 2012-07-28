@@ -39,7 +39,6 @@ import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.MovementCalculator;
 import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.examples.light.Light;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
@@ -109,11 +108,6 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	
 	// GameContainer
 	GameContainer gc;
-	
-	// Light Test
-	private ArrayList<Light> lights = new ArrayList<Light>();
-	private Light mainLight;
-	private float[][][] lightValue;
 
 	public GameWorld(String name, String ref, GameContainer gc, String mapMusicID, String mapSoundID, IngameState game) throws SlickException {
 		super(ref);
@@ -134,12 +128,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		if (sound != null) {
 			sound.loop(1.0f, 0.5f);
 		}
-
-		lightValue = new float[getWidth() + 1][getHeight() + 1][3];
-		mainLight = new Light(8f,7f,7f,Color.white);
-		// finally update the lighting map for the first time
-		lights.add(mainLight);		
-		//updateLightMap();
+	
 		daytime.start();
 		pathFinder = new AStarPathFinder(this, 100, false);	
 		buildCollisionArray();
@@ -203,38 +192,6 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		return cam;
 	}
 	
-	
-	@SuppressWarnings("unused")
-	private void updateLightMap() {
-		// for every vertex on the map (notice the +1 again accounting for the trailing vertex)
-				for (int y = 0; y < getHeight() + 1; y++) {
-					for (int x = 0; x < getWidth() + 1; x++) {
-						// first reset the lighting value for each component (red, green, blue)
-						lightValue[x][y][0] = ((float)daytime.getColor().r);
-						lightValue[x][y][1] = ((float)daytime.getColor().g);
-						lightValue[x][y][2] = ((float)daytime.getColor().b);
-						
-						// next cycle through all the lights. Ask each light how much effect
-						// it'll have on the current vertex. Combine this value with the currently
-						// existing value for the vertex. This lets us blend coloured lighting and 
-						// brightness
-						for (int i=0;i<lights.size();i++) {
-							float[] effect = ((Light) lights.get(i)).getEffectAt(x, y, true);
-							for (int component=0;component<3;component++) {
-								lightValue[x][y][component] += effect[component];
-							}
-						}
-						
-						// finally clamp the components to 1, since we don't want to 
-						// blow up over the colour values
-						for (int component=0;component<3;component++) {
-							if (lightValue[x][y][component] > 1) {
-								lightValue[x][y][component] = 1;
-							}
-						}
-					}
-				}
-	}
 
 	public void loadConfiguration(GameContainer gc) throws SlickException {		
 
@@ -330,7 +287,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	public void render(GameContainer gc, Graphics g) {			
 		drawLayers((int)cam.getX(), (int)cam.getY(), cam.getWidth(), cam.getHeight(), g, gc);	
 		daytime.draw(gc, g);
-		if (unitPath != null && focusObject != null) {
+		if (unitPath != null && focusObject != null && game.getCurrentPlayer().isPlayer()) {
 			ArmyUnit unit = (ArmyUnit)focusObject;
 			if (!unit.isDead()) {
 				MovementCalculator.drawUnitPath(g, unit, unitPath, game);

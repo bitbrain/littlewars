@@ -56,7 +56,7 @@ public class UnitAvatarInfo extends GUIObject {
 				
 				if (!unit.isDead()) {
 					unitRank.setText(ResourceManager.getInstance().getText("UNIT_RANK") + " " + String.valueOf(unit.getRank()));
-					unitRank.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
+					unitRank.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 				} else {
 					unitRank.setColor(Color.red);
 					unitRank.setText(ResourceManager.getInstance().getText("UNIT_DEAD"));

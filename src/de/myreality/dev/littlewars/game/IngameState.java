@@ -71,7 +71,7 @@ public class IngameState extends CustomGameState implements Serializable {
 	// Top menu
 	private TopMenu topMenu;	
 	
-	private boolean previewSelected;
+	private boolean previewSelected, closed;
 	
 	private int phase = -1;
 	
@@ -83,8 +83,14 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	public IngameState(int stateID) {
 		super(stateID);
+		closed = true;
 	}
 	
+	
+	
+	public boolean isClosed() {
+		return closed;
+	}
 	
 
 	@Override
@@ -114,33 +120,35 @@ public class IngameState extends CustomGameState implements Serializable {
 
 	@Override
 	public void updateContent(GameContainer gc, StateBasedGame sbg, int delta) {
-		try {
-			updateAll(gc, sbg, delta);
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
-		
-		if (phases.get(phase) != null) {
-			phases.get(phase).update(gc, sbg, delta);
-		}
-		
-		for (Player p: getPlayers()) {
-			if (p.isDefeated()) {				
-				FlashHelper.getInstance().flash(p.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_KILLED"), 1000, gc); 
-				if (p.equals(currentPlayer)) {
-					Player next = getNextPlayer(p);
-					next.getMoney().addCredits(500);				
-					setCurrentPlayer(next, gc);
-					if (next.isClientPlayer()) {
-						getTracker().record();
-					}
-				}
-				removePlayer(p);
-				break;
+		if (!isClosed()) {
+			try {
+				updateAll(gc, sbg, delta);
+			} catch (SlickException e) {
+				e.printStackTrace();
 			}
 			
-			if (getPlayers().size() == 1) {
-				endGame(sbg, gc, p);
+			if (phases.get(phase) != null) {
+				phases.get(phase).update(gc, sbg, delta);
+			}
+			
+			for (Player p: getPlayers()) {
+				if (p.isDefeated()) {				
+					FlashHelper.getInstance().flash(p.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_KILLED"), 1000, gc); 
+					if (p.equals(currentPlayer)) {
+						Player next = getNextPlayer(p);
+						next.getMoney().addCredits(500);				
+						setCurrentPlayer(next, gc);
+						if (next.isClientPlayer()) {
+							getTracker().record();
+						}
+					}
+					removePlayer(p);
+					break;
+				}
+				
+				if (getPlayers().size() == 1) {
+					endGame(sbg, gc, p);
+				}
 			}
 		}
 	}
@@ -175,44 +183,46 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	
 	public void updateAll(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-		if (world != null) {
-			world.update(gc, delta);
-		}
-		
-		if (gc.getInput().isKeyPressed(Input.KEY_SPACE)) {
-			clientPlayer.selectNextUnit(world, gc);
-		}	
-		
-		for (UnitTileInfo info : tileInfos) {
-			info.update(delta);			
-		}
-		
-		
-		for (Player p: players) {
-			p.update(delta);
-		}
-		
-		UnitInfoHelper.getInstance().update(delta);
-		
-		bottomMenu.update(delta);
-		topMenu.update(delta);
-		
-		if (topMenu.getBtnQuit().onClick()) {
-			ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 
-											     ResourceManager.getInstance().getText("TXT_INFO_LEAVE"), new ContextMenuEvent() { 
-
-				@Override
-				public void onAbort(GameContainer gc, StateBasedGame sbg,
-						int delta) {
-					
-				}
-
-				@Override
-				public void onAccept(GameContainer gc, StateBasedGame sbg,
-						int delta) {
-					endGame(sbg, gc);					
-				}				
-			});
+		if (!isClosed()) {
+			if (world != null) {
+				world.update(gc, delta);
+			}
+			
+			if (gc.getInput().isKeyPressed(Input.KEY_SPACE)) {
+				clientPlayer.selectNextUnit(world, gc);
+			}	
+			
+			for (UnitTileInfo info : tileInfos) {
+				info.update(delta);			
+			}
+			
+			
+			for (Player p: players) {
+				p.update(delta);
+			}
+			
+			UnitInfoHelper.getInstance().update(delta);
+			
+			bottomMenu.update(delta);
+			topMenu.update(delta);
+			
+			if (topMenu.getBtnQuit().onClick()) {
+				ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 
+												     ResourceManager.getInstance().getText("TXT_INFO_LEAVE"), new ContextMenuEvent() { 
+	
+					@Override
+					public void onAbort(GameContainer gc, StateBasedGame sbg,
+							int delta) {
+						
+					}
+	
+					@Override
+					public void onAccept(GameContainer gc, StateBasedGame sbg,
+							int delta) {
+						endGame(sbg, gc);					
+					}				
+				});
+			}
 		}
 	}
 	
@@ -268,6 +278,7 @@ public class IngameState extends CustomGameState implements Serializable {
 
 	public void newGame(GameContainer container) throws SlickException {
 		// Load the map
+		closed = false;
 		players.clear();		
 		String mapPath = GameSettings.getInstance().getMapConfig().getMapSource();
 		Weather mapWeather = GameSettings.getInstance().getWeather();
@@ -369,7 +380,7 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	public void close() {
 		world.close();
-		players.clear();
+		//players.clear();
 		tileInfos.clear();
 		world = null;	
 	}
@@ -420,17 +431,18 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	public void endGame(StateBasedGame game, GameContainer gc, Player winner) {
+		closed = true;
 		if (winner != null) {
 			FlashHelper.getInstance().flash(winner.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_WIN"), 1000, gc);
 		} 
-		world.close();
-		GameSettings.getInstance().clear();	
+		GameSettings.getInstance().clear();			
 		game.addState(new StatisticState(LittleWars.STATISTIC_STATE, tracker));
 		try {
 			game.getState(LittleWars.STATISTIC_STATE).init(gc, game);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+		close();
 		game.enterState(LittleWars.STATISTIC_STATE);
 		
 	}
