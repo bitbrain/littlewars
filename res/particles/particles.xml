@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<resource type="emitter" id="PARTICLE_SNOW">res/particles/emitters/snow.xml</resource>
-	<resource type="emitter" id="PARTICLE_RAIN">res/particles/emitters/snow.xml</resource>
-	<resource type="emitter" id="PARTICLE_STORM">res/particles/emitters/snow.xml</resource>
+	<resource type="emitter" id="SMOKE">res/particles/emitters/smoke.xml</resource>
 </resources>

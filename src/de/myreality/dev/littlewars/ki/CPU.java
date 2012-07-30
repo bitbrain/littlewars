@@ -46,7 +46,7 @@ public class CPU extends Player {
 	private List<Pair<ArmyUnit, Integer> > startUnits, defaultUnits;
 	
 	// Current opponent
-	private Player opponent;
+	private Player opponent; // TODO: Fix opponent bug
 	
 	// Current unit
 	private ArmyUnit currentUnit;
@@ -61,7 +61,6 @@ public class CPU extends Player {
 	public void setFraction(Fraction fraction) {
 		super.setFraction(fraction);		
 	}
-	
 	
 	/**
 	 * Buys the best unit

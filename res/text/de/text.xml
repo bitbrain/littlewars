@@ -107,7 +107,7 @@
 		
 		<!-- Cyborg -->		
 		 	<!-- Center -->		 	
-		 	<resource type="text" id="UNIT_CYBORG_CENTER">Kommandozentrale</resource>
+		 	<resource type="text" id="UNIT_CYBORG_CENTER">Zentrum</resource>
 			<!-- Annihilator -->
 			<resource type="text" id="UNIT_CYBORG_ANNIHILATOR">Vernichter</resource>
 			<!-- Butcher -->

@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.UnitGenerator;
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
 
@@ -24,6 +25,7 @@ public class CommandoCenter extends ArmyUnit {
 			GameContainer gc, Camera cam, IngameState game) throws SlickException {
 		super(UnitGenerator.UNIT_CENTER, resourceID, x, y, gc, cam, game);
 		this.area = new Rectangle(getX(), getY(), getWidth(), getHeight());
+		setDefaultEmitter(ResourceManager.getInstance().getNewEmitter("SMOKE"));
 	}
 	
 	

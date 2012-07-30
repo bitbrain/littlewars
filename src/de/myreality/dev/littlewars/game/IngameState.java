@@ -115,7 +115,7 @@ public class IngameState extends CustomGameState implements Serializable {
 
 	@Override
 	public void renderContent(GameContainer gc, StateBasedGame sbg, Graphics g) {
-		renderAll(gc, sbg, g);
+		renderAll(gc, sbg, g);		
 	}
 
 	@Override
@@ -151,6 +151,8 @@ public class IngameState extends CustomGameState implements Serializable {
 				}
 			}
 		}
+		
+		ArmyUnit.updateParticles(delta);
 	}
 
 	public List<Player> getPlayers() {
@@ -230,7 +232,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		if (world != null) {
 			world.render(gc, g);
 		}
-		
+		ArmyUnit.renderParticles();
 		// Render infos
 		for (UnitTileInfo info : tileInfos) {
 			Rectangle rect = (Rectangle) world.getCamera().getArea();
@@ -248,8 +250,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		}
 		UnitInfoHelper.getInstance().render(g);
 		bottomMenu.draw(g);	
-		topMenu.draw(g);
-	
+		topMenu.draw(g);		
 	}
 
 
@@ -379,10 +380,12 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	public void close() {
-		world.close();
-		//players.clear();
+		world.close();		
 		tileInfos.clear();
 		world = null;	
+		for (Player p : players) {
+			p.clear();
+		}
 	}
 	
 	
@@ -453,10 +456,11 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	public void removePlayer(Player player) {
 		for (int i = 0; i < players.size(); ++i) {
-			if (players.get(i).equals(player)) {
+			if (players.get(i).equals(player)) {			
 				for (ArmyUnit unit : players.get(i).getUnits()) {
 					removeUnitInfo(unit);
 				}
+				players.get(i).clear();				
 				players.remove(i);
 				break;
 			}

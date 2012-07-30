@@ -87,7 +87,7 @@ public class ResourceManager {
 	
 	// List of all animation images
 	private List<String> animationSource;
-	
+
 	
 	/**
 	 * Constructor of ResourceManager
@@ -237,6 +237,7 @@ public class ResourceManager {
 			loadResources("res/meta.xml");   // Meta
 			loadResources("res/text/" + Configuration.getInstance().getLocale() + "/text.xml");   // Texts
 			loadResources("res/fonts/fonts.xml");   // Fonts
+			loadResources("res/particles/particles.xml");   // Particles
 			loadResources("res/images/images.xml"); // Images
 			loadResources("res/sounds/" + Configuration.getInstance().getLocale() + "/sounds.xml"); // Sounds
 			loadResources("res/music/music.xml");  // Music
@@ -576,11 +577,12 @@ public class ResourceManager {
 	 * @param ID resource ID
 	 * @return resource emitter
 	 */ 
-	public final ConfigurableEmitter getNewEmitter(String ID) {		
-		return emitterMap.get(ID).duplicate();
+	public final ConfigurableEmitter getNewEmitter(String ID) {	
+		ConfigurableEmitter emitter  = emitterMap.get(ID).duplicate();
+		Debugger.getInstance().write("New emitter created [ID: " + ID + "]");
+		return emitter;
 	}
-	
-	
+
 	
 	/**
 	 * Returns the unit resource with the resource ID

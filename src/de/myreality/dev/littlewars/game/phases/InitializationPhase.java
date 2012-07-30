@@ -27,20 +27,20 @@ public class InitializationPhase extends BasicGamePhase {
 		if (ArmyUnit.isUnitMoving()) {
 			FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_BATTLE"), 500, gc);
 			game.setPhase(IngameState.BATTLE);
-		}
-		
-		if (currentPlayer.isCPU()) {
-			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);		
-			
-			// End the turn when nothing to do
-			if (!currentPlayer.doInitialisation(delta)) {
-				nextPlayerTurn(currentPlayer, gc);			
-			}
-		} else {
-			game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
-			// Client Player
-			if (game.getTopMenu().getBtnPhaseQuit().onClick()) {				
-				nextPlayerTurn(currentPlayer, gc);				
+		} else {		
+			if (currentPlayer.isCPU()) {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);		
+				
+				// End the turn when nothing to do
+				if (!currentPlayer.doInitialisation(delta)) {
+					nextPlayerTurn(currentPlayer, gc);			
+				}
+			} else {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
+				// Client Player
+				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {				
+					nextPlayerTurn(currentPlayer, gc);				
+				}
 			}
 		}
 	}

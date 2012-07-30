@@ -49,19 +49,19 @@ public abstract class CustomGameState extends BasicGameState {
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
-			throws SlickException {
+			throws SlickException {		
 		if (!ContextMenuHelper.getInstance().isWorking()) {
 			renderContent(container, game, g);
 			PopupHelper.getInstance().render(g);
 		}
 		ContextMenuHelper.getInstance().render(container, g);		
 		FlashHelper.getInstance().render(g);
-		Debugger.getInstance().drawGameInfo(container,  g);
+		Debugger.getInstance().drawGameInfo(container,  g);		
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
-			throws SlickException {				
+			throws SlickException {	
 		ContextMenuHelper.getInstance().update(container, game, delta);	
 		if (!ContextMenuHelper.getInstance().isWorking()) {
 			updateContent(container, game, delta);
@@ -87,7 +87,7 @@ public abstract class CustomGameState extends BasicGameState {
 			game.addState(new BugReportState(LittleWars.BUG_REPORT_STATE, getID()));
 			game.getState(LittleWars.BUG_REPORT_STATE).init(container, game);
 			game.enterState(LittleWars.BUG_REPORT_STATE);
-		}
+		}	
 	}
 	
 	

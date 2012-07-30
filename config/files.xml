@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <files>
-    <file src="res\animations\cyborg\animations.xml" sum="165321" size="2730"></file>
+    <file src="res\animations\cyborg\animations.xml" sum="164844" size="2721"></file>
     <file src="res\animations\human\animations.xml" sum="152631" size="3011"></file>
-    <file src="res\colors\colors.xml" sum="85901" size="1087"></file>
+    <file src="res\colors\colors.xml" sum="90824" size="1148"></file>
     <file src="res\credits\credits.xml" sum="53407" size="671"></file>
     <file src="res\cursors\cur_target.png" sum="398778" size="391"></file>
     <file src="res\cursors\pointer.png" sum="2871643" size="1549"></file>
     <file src="res\fonts\caption.fnt" sum="1578715" size="23332"></file>
     <file src="res\fonts\caption.png" sum="367034566" size="194054"></file>
-    <file src="res\fonts\fonts.xml" sum="26019" size="308"></file>
+    <file src="res\fonts\fonts.xml" sum="32036" size="377"></file>
     <file src="res\fonts\menu.fnt" sum="1571629" size="23218"></file>
     <file src="res\fonts\menu.png" sum="185513918" size="100672"></file>
     <file src="res\fonts\small.fnt" sum="1558726" size="22973"></file>
     <file src="res\fonts\small.png" sum="105377946" size="58360"></file>
+    <file src="res\fonts\tiny.fnt" sum="1551662" size="22826"></file>
+    <file src="res\fonts\tiny.png" sum="49592611" size="25989"></file>
     <file src="res\icon\16x16.tga" sum="800960" size="1068"></file>
     <file src="res\icon\24x24.tga" sum="984173" size="2348"></file>
     <file src="res\icon\32x32.ico" sum="1316617" size="4286"></file>
@@ -30,7 +32,7 @@
     <file src="res\images\gui\icon_quit.png" sum="1523726" size="1128"></file>
     <file src="res\images\gui\icon_save.png" sum="1159230" size="750"></file>
     <file src="res\images\gui\loading.png" sum="7220795" size="5102"></file>
-    <file src="res\images\gui\main_background.png" sum="241756888" size="132199"></file>
+    <file src="res\images\gui\main_background.png" sum="1198162459" size="610850"></file>
     <file src="res\images\gui\map_selected.png" sum="280846" size="351"></file>
     <file src="res\images\gui\paths\arrow.png" sum="703649" size="687"></file>
     <file src="res\images\gui\paths\curve.png" sum="450087" size="277"></file>
@@ -54,18 +56,21 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29405" size="355"></file>
+    <file src="res\meta.xml" sum="29446" size="356"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\desert_day.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\music.xml" sum="40296" size="463"></file>
+    <file src="res\particles\emitters\smoke.png" sum="1014950" size="718"></file>
+    <file src="res\particles\emitters\smoke.xml" sum="124470" size="1653"></file>
     <file src="res\particles\emitters\snow.xml" sum="121351" size="1623"></file>
     <file src="res\particles\emitters\snowflake.png" sum="258627" size="366"></file>
-    <file src="res\particles\particles.xml" sum="29294" size="333"></file>
+    <file src="res\particles\particles.xml" sum="12744" size="147"></file>
     <file src="res\particles\system\default.xml" sum="8146" size="98"></file>
+    <file src="res\particles\system\smoke.xml" sum="128965" size="1705"></file>
     <file src="res\patchnotes.xml" sum="248041" size="2787"></file>
-    <file src="res\sectors\trial_sector.xml" sum="29301" size="402"></file>
+    <file src="res\sectors\trial_sector.xml" sum="29703" size="409"></file>
     <file src="res\sounds\de\sounds.xml" sum="34343" size="395"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\attack\cyborg_annihilator_attack_1.wav" sum="184279603" size="194200"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\die\cyborg_annihilator_die_1.wav" sum="383067050" size="376780"></file>
@@ -91,15 +96,13 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="531645" size="6498"></file>
-    <file src="res\text\en\text.xml" sum="512280" size="6315"></file>
-    <file src="res\tilemaps\burning_steps.tmx" sum="449771" size="5634"></file>
-    <file src="res\tilemaps\tiles\adds1.png" sum="657118940" size="345647"></file>
-    <file src="res\tilemaps\tiles\desert\tile_ground.png" sum="144767531" size="74386"></file>
-    <file src="res\tilemaps\tiles\future1.png" sum="90882344" size="52248"></file>
-    <file src="res\tilemaps\tiles\ground1.png" sum="702121989" size="350074"></file>
-    <file src="res\tilemaps\tiles\ground2.png" sum="669239419" size="346446"></file>
+    <file src="res\text\de\text.xml" sum="530711" size="6489"></file>
+    <file src="res\text\en\text.xml" sum="511434" size="6306"></file>
+    <file src="res\tilemaps\EX-035\burning_steps.tmx" sum="423253" size="5330"></file>
+    <file src="res\tilemaps\EX-035\tiles\adds1.png" sum="657118940" size="345647"></file>
+    <file src="res\tilemaps\EX-035\tiles\future1.png" sum="90882344" size="52248"></file>
+    <file src="res\tilemaps\EX-035\tiles\tile_ground.png" sum="299187385" size="155297"></file>
     <file src="res\units\cyborg\units.xml" sum="132030" size="1811"></file>
     <file src="res\units\human\units.xml" sum="5323" size="66"></file>
-    <file src="config\settings.cfg" sum="30083" size="364"></file>
+    <file src="config\settings.cfg" sum="30084" size="364"></file>
 </files>

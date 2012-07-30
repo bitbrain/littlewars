@@ -115,7 +115,7 @@ public class Player implements Serializable {
 		if (game.getWorld() != null) {
 			units.remove(unit);
 			game.getWorld().removeRenderTarget(unit);
-			
+			unit.free();
 			// Delete commando center as well
 			if (unit instanceof CommandoCenter) {
 				removeCommandoCenter((CommandoCenter) unit);
@@ -195,7 +195,9 @@ public class Player implements Serializable {
 	
 	
 	public void clear() {
-		units.clear();
+		for (ArmyUnit unit : units) {
+			removeArmyUnit(unit);
+		}
 	}
 	
 

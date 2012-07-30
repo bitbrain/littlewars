@@ -11,6 +11,7 @@
 
 package de.myreality.dev.littlewars.objects;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.newdawn.slick.Animation;
@@ -19,8 +20,12 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.particles.ConfigurableEmitter;
+import org.newdawn.slick.particles.ParticleIO;
+import org.newdawn.slick.particles.ParticleSystem;
 import org.newdawn.slick.util.pathfinding.Path;
 
+import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.components.MovementCalculator;
 import de.myreality.dev.littlewars.components.UnitGenerator;
@@ -80,6 +85,9 @@ public abstract class ArmyUnit extends TileObject {
 	
 	protected boolean dead, deadFirst;	
 	
+	// Emitters
+	ConfigurableEmitter defaultEmitter, attackingEmitter, dyingEmitter, damageEmitter;
+	
 	protected MovementCalculator movementCalculator;	
 	
 	// Additional values to strengthen the unit
@@ -88,10 +96,17 @@ public abstract class ArmyUnit extends TileObject {
 	// Static members for game control
 	static protected boolean unitMoving, unitDying, unitLoosingLife;
 	
+	static ParticleSystem unitSystem;
+	
 	static {
 		unitMoving = false;
 		unitDying = false;
 		unitLoosingLife = false;
+		try {
+			unitSystem = ParticleIO.loadConfiguredSystem("res/particles/system/default.xml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	static public void setUnitMoving(boolean value) {
@@ -482,16 +497,70 @@ public abstract class ArmyUnit extends TileObject {
 		if (lifeSeq > 0) {
 			setUnitLoosingLife(true);
 		}
+		
+		
+		if (defaultEmitter != null) {
+			defaultEmitter.setEnabled(isTargetArrived() && !isDying() && player != null);
+			defaultEmitter.setPosition(getX(), getY());
+		}
+		
+		if (attackingEmitter != null) {
+			
+		}
+		
+		if (damageEmitter != null) {
+			
+		}
+		
+		if (dyingEmitter != null) {
+			dyingEmitter.setEnabled(isDying());
+		}
 	}
 
 	public int getDefense() {
 		return getRankDefense(rank) + defenseAdd;
 	}
 	
+	public void finalize() {
+		free();
+	}
+	
 	
 	
 	public int getSpeed() {
 		return getRankSpeed(rank) + speedAdd;
+	}
+	
+	public static void renderParticles() {
+		unitSystem.render(0, 0);
+	}
+	
+	public static void updateParticles(int delta) {
+		unitSystem.update(delta);
+	}
+	
+	
+	public void free() {
+		if (dyingEmitter != null) {
+			unitSystem.removeEmitter(dyingEmitter);
+			dyingEmitter = null;
+		}
+		
+		if (defaultEmitter != null) {
+			unitSystem.removeEmitter(defaultEmitter);
+			Debugger.getInstance().write("Default emitter has been removed.");
+			defaultEmitter = null;
+		}
+		
+		if (attackingEmitter != null) {
+			unitSystem.removeEmitter(attackingEmitter);
+			attackingEmitter = null;
+		}
+		
+		if (damageEmitter != null) {
+			unitSystem.removeEmitter(damageEmitter);
+			damageEmitter = null;
+		}
 	}
 	
 	
@@ -652,5 +721,70 @@ public abstract class ArmyUnit extends TileObject {
 	
 	public float getTileVelocity(int delta) {
 		return velocity * delta;
+	}
+	
+	public ConfigurableEmitter getDefaultEmitter() {
+		return defaultEmitter;
+	}
+
+
+	public void setDefaultEmitter(ConfigurableEmitter defaultEmitter) {
+		this.defaultEmitter = defaultEmitter;
+		if (defaultEmitter != null) {
+			unitSystem.removeEmitter(defaultEmitter);
+		}
+		unitSystem.addEmitter(defaultEmitter);
+		defaultEmitter.setPosition(getX(), getY());
+		defaultEmitter.setEnabled(true);
+		
+	}
+
+
+	public ConfigurableEmitter getAttackingEmitter() {
+		return attackingEmitter;
+	}
+
+
+	public void setAttackingEmitter(ConfigurableEmitter attackingEmitter) {
+		this.attackingEmitter = attackingEmitter;
+		if (attackingEmitter != null) {
+			unitSystem.removeEmitter(attackingEmitter);
+		}
+		unitSystem.addEmitter(attackingEmitter);
+
+		attackingEmitter.setPosition(getX(), getY());
+		attackingEmitter.setEnabled(true);
+	}
+
+
+	public ConfigurableEmitter getDyingEmitter() {
+		return dyingEmitter;
+	}
+
+
+	public void setDyingEmitter(ConfigurableEmitter dyingEmitter) {
+		this.dyingEmitter = dyingEmitter;
+		if (dyingEmitter != null) {
+			unitSystem.removeEmitter(dyingEmitter);
+		}
+		unitSystem.addEmitter(dyingEmitter);
+		dyingEmitter.setPosition(getX(), getY());
+		dyingEmitter.setEnabled(true);
+	}
+
+
+	public ConfigurableEmitter getDamageEmitter() {
+		return damageEmitter;
+	}
+
+
+	public void setDamageEmitter(ConfigurableEmitter damageEmitter) {
+		this.damageEmitter = damageEmitter;
+		if (damageEmitter != null) {
+			unitSystem.removeEmitter(damageEmitter);
+		}
+		unitSystem.addEmitter(damageEmitter);
+		damageEmitter.setPosition(getX(), getY());
+		damageEmitter.setEnabled(true);
 	}
 }

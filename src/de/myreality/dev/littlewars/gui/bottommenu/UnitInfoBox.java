@@ -28,40 +28,40 @@ public class UnitInfoBox extends GUIObject {
 		height = parent.getHeight();
 		
 		int distance = 80;
-		int rowPadding = 3;
+		int rowPadding = 8;
 		
 		// Life
-		txtLifeDescription = new GameText(10, 5, "Life", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtLifeDescription = new GameText(10, 7, "Life", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtLifeDescription.attachTo(this);
-		txtLife = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtLife = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtLife.attachTo(txtLifeDescription);
 		// Experience
-		txtExpDescription = new GameText(0, txtLifeDescription.getHeight() + rowPadding, "EXP", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtExpDescription = new GameText(0, txtLifeDescription.getHeight() + rowPadding, "EXP", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtExpDescription.attachTo(txtLifeDescription);
-		txtExp  = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtExp  = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtExp.attachTo(txtExpDescription);
 		// Strength
-		txtStrengthDescription = new GameText(0, txtExpDescription.getHeight() + rowPadding, "Str", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtStrengthDescription = new GameText(0, txtExpDescription.getHeight() + rowPadding, "Str", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtStrengthDescription.attachTo(txtExpDescription);
-		txtStrength = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtStrength = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtStrength.attachTo(txtStrengthDescription);
-		txtStrengthAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtStrengthAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtStrengthAdd.attachTo(txtStrength);
 		txtStrengthAdd.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		// Defense
-		txtDefenseDescription = new GameText(0, txtStrengthDescription.getHeight() + rowPadding, "Def", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtDefenseDescription = new GameText(0, txtStrengthDescription.getHeight() + rowPadding, "Def", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtDefenseDescription.attachTo(txtStrengthDescription);
-		txtDefense = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtDefense = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtDefense.attachTo(txtDefenseDescription);
-		txtDefenseAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtDefenseAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtDefenseAdd.attachTo(txtDefense);
 		txtDefenseAdd.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		// Speed
-		txtSpeedDescription = new GameText(0, txtDefenseDescription.getHeight() + rowPadding, "Speed", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtSpeedDescription = new GameText(0, txtDefenseDescription.getHeight() + rowPadding, "Speed", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtSpeedDescription.attachTo(txtDefenseDescription);
-		txtSpeed = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtSpeed = new GameText(distance, 0, "-", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtSpeed.attachTo(txtSpeedDescription);
-		txtSpeedAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		txtSpeedAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtSpeedAdd.attachTo(txtSpeed);
 		txtSpeedAdd.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		

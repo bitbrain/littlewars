@@ -4,4 +4,5 @@
 	<resource type="font" id="FONT_MENU">res/fonts/menu.fnt</resource>
 	<resource type="font" id="FONT_CAPTION">res/fonts/caption.fnt</resource>
 	<resource type="font" id="FONT_SMALL">res/fonts/small.fnt</resource>
+	<resource type="font" id="FONT_TINY">res/fonts/tiny.fnt</resource>
 </resources>

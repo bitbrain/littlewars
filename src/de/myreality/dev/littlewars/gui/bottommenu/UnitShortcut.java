@@ -52,7 +52,7 @@ public class UnitShortcut extends GUIObject {
 		expBar.setColor(ResourceManager.getInstance().getColor("UNIT_EXP"));
 		expBar.setBorder(1);
 		// Rank text
-		rankText = new GameText(0, height, "0",	ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		rankText = new GameText(0, height, "0",	ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		rankText.setY(height - rankText.getHeight());
 		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		rankText.attachTo(this);

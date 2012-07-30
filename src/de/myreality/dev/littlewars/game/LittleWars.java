@@ -87,7 +87,7 @@ public class LittleWars extends StateBasedGame {
 		container.setUpdateOnlyWhenVisible(true);	
 		Configuration.getInstance().apply(container);
 		container.setShowFPS(false);
-		Debugger.getInstance().setEnabled(false);	
+		//Debugger.getInstance().setEnabled(false);	
 		container.start();		
 	}
 
@@ -100,7 +100,5 @@ public class LittleWars extends StateBasedGame {
 		gc.setMouseCursor(new Image("res/cursors/pointer.png"), 0, 0);
 		gc.setIcons(new String[] {"res/icon/32x32.tga", "res/icon/24x24.tga", "res/icon/16x16.tga"});
 		Debugger.getInstance().write("Starting Game " + Debugger.getInstance().getFullGameInfo() + "..");
-		// TODO: Implement emitters
-		//ResourceManager.getInstance().loadResources("res/particles/particles.xml", true);   // Emitters
 	}	
 }

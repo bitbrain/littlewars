@@ -62,7 +62,7 @@ public class UpdatingState extends CustomGameState {
 			percentText.draw(g);
 			sizeText.draw(g);
 		}
-		bar.draw(g);
+		bar.draw(g);		
 	}
 	
 	public String getSizeString() {
@@ -72,7 +72,6 @@ public class UpdatingState extends CustomGameState {
 	@Override
 	public void updateContent(GameContainer gc, StateBasedGame sbg, int delta) {		
 		bar.update(delta);
-		
 		try {
 			if (updater.hasFoundUpdate()) {
 				sizeText.setText(getSizeString());
@@ -113,6 +112,6 @@ public class UpdatingState extends CustomGameState {
 		if (updater.hasFoundUpdate()) {
 			percentText.setText(String.valueOf(Math.round(updater.getPercent())) + "%");
 			bar.setPercent(updater.getPercent());
-		}		
+		}			
 	}
 }

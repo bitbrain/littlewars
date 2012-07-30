@@ -29,11 +29,11 @@ public class UnitAvatarInfo extends GUIObject {
 		attachTo(parent);
 		width = parent.getHeight() - borderPadding * 2;
 		height = width;	
-		unitName = new GameText(5, 2, "Name", ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		unitName = new GameText(5, 2, "Name", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		unitName.attachTo(this);
 		unitState = new UnitStateBar(this, 15, 8, gc);
 		topShadow = ResourceManager.getInstance().getImage("GUI_TOPSHADOW");
-		unitRank  = new GameText(5, 0, ResourceManager.getInstance().getText("UNIT_RANK"), ResourceManager.getInstance().getFont("FONT_SMALL"), gc);
+		unitRank  = new GameText(5, 0, ResourceManager.getInstance().getText("UNIT_RANK"), ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		unitRank.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		unitRank.attachTo(this);
 		unitRank.setY(getHeight() - unitState.getHeight() - unitRank.getHeight() - 2);

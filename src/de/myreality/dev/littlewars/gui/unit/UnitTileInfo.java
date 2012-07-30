@@ -41,7 +41,7 @@ public class UnitTileInfo extends GUIObject {
 		height = 32;
 		area = new Rectangle(x, y, 32, 32);
 		// Rank text
-		rankText = new GameText(0, height, "0",	ResourceManager.getInstance().getFont("FONT_SMALL"), gc, camera);
+		rankText = new GameText(0, height, "0",	ResourceManager.getInstance().getFont("FONT_TINY"), gc, camera);
 		rankText.setY(height - rankText.getHeight());
 		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		rankText.attachTo(this);

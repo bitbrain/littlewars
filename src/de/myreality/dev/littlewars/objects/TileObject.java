@@ -69,7 +69,6 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 		return layer;
 	}
 	
-
 	public void setLayer(int layer) {
 		this.layer = layer;
 	}
