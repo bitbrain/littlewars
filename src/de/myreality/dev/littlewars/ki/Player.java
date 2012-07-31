@@ -236,8 +236,9 @@ public class Player implements Serializable {
 					continue;
 				}
 			}
+
 			
-			if (focusFound && select == null) {
+			if (focusFound && select == null || focused == null) {
 				select = units.get(0);
 			}
 			

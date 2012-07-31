@@ -287,10 +287,13 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	public void render(GameContainer gc, Graphics g) {			
 		drawLayers((int)cam.getX(), (int)cam.getY(), cam.getWidth(), cam.getHeight(), g, gc);	
 		daytime.draw(gc, g);
-		if (unitPath != null && focusObject != null && game.getCurrentPlayer().isPlayer()) {
+		if (focusObject != null && focusObject instanceof ArmyUnit) {
 			ArmyUnit unit = (ArmyUnit)focusObject;
-			if (!unit.isDead()) {
-				MovementCalculator.drawUnitPath(g, unit, unitPath, game);
+			if (unitPath != null && unit.getPlayer().isCurrentPlayer()) {
+				
+				if (!unit.isDead()) {
+					MovementCalculator.drawUnitPath(g, unit, unitPath, game);
+				}
 			}
 		}
 		
@@ -323,6 +326,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		ArmyUnit.setUnitMoving(false);
 		ArmyUnit.setUnitDying(false);
 		ArmyUnit.setUnitLoosingLife(false);
+		ArmyUnit.setUnitBusy(false);
 		daytime.update(gc, delta);
 		Input input = gc.getInput();
 		int padding = 40;	
@@ -409,9 +413,9 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 					break;
 				}
 				
-				//if (unit.onClick()) {
-				//	unit.addDamage(5000);
-				//}
+				if (unit.onClick()) {
+					//unit.addExperience(100);
+				}
 				
 				if (!target.isTargetArrived()) {
 					movingObject = target;
@@ -467,6 +471,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		
 		cam.update(delta);
 		SpawnArea spawnArea = game.getCurrentPlayer().getSpawnArea();
+		
 		// Update the render radius of the current player
 		boolean isEnabled = (game.getPhase() == IngameState.PREPERATION || game.getPhase() == IngameState.INIT) && game.isPreviewSelected();
 							 

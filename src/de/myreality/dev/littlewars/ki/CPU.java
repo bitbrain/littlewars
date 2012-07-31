@@ -28,9 +28,6 @@ import de.myreality.dev.littlewars.world.Fraction;
 public class CPU extends Player {
 
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	// Unit generator
@@ -40,7 +37,7 @@ public class CPU extends Player {
 	private Timer timer;
 	
 	// Wait time
-	private final static long WAIT = 200;
+	private final static long WAIT = 400;
 	
 	// StartUnits
 	private List<Pair<ArmyUnit, Integer> > startUnits, defaultUnits;
@@ -125,6 +122,7 @@ public class CPU extends Player {
 				addArmyUnit(currentUnit);
 			}
 		}
+
 	}
 	
 	
@@ -199,6 +197,11 @@ public class CPU extends Player {
 			
 			if (movePath != null && movePath.getLength() > 0) {
 				currentUnit.moveAlongPath(movePath);	
+				
+				if (currentUnit.getRealPathLength() == 0) {
+					currentUnit.attackTargetEnemy();
+					game.getWorld().focusCameraOnObject(currentUnit, gc);
+				}
 			} else {
 				// Enemy is not reachable, wait at the current position
 				currentUnit.setRemainingSpeed(0);
@@ -217,8 +220,8 @@ public class CPU extends Player {
 			
 			ArmyUnit bought = buyUnit();
 			
-			if (bought == null && !ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying()) {				
-				attackNearestUnit();
+			if (bought == null && !ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying() && !ArmyUnit.isUnitBusy()) {				
+				attackNearestUnit();	
 			} else if (bought != null) {
 				setUnitPosition(bought);
 			}
@@ -226,6 +229,9 @@ public class CPU extends Player {
 			if (bought == null && getCommandoCenters().size() == getUnits().size()) {
 				return false;
 			}
+		}
+		if (!hasAvailableUnits()) {
+			return false;
 		}
 		
 		if (currentUnit != null && !currentUnit.isTargetArrived()) {
@@ -242,7 +248,7 @@ public class CPU extends Player {
 		if (timer.getMiliseconds() > WAIT) {
 			timer.reset();
 			
-			if (!ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying()) {
+			if (!ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying() &&  !ArmyUnit.isUnitBusy()) {
 				attackNearestUnit();				
 			}
 		}
@@ -250,6 +256,7 @@ public class CPU extends Player {
 		if (currentUnit != null && !currentUnit.isTargetArrived()) {
 			game.getWorld().focusCameraOnObject(currentUnit, gc, true);
 		}
+
 	}
 
 	@Override

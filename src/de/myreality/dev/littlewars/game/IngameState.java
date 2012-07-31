@@ -190,7 +190,7 @@ public class IngameState extends CustomGameState implements Serializable {
 				world.update(gc, delta);
 			}
 			
-			if (gc.getInput().isKeyPressed(Input.KEY_SPACE)) {
+			if (gc.getInput().isKeyPressed(Input.KEY_SPACE) && clientPlayer.isCurrentPlayer()) {
 				clientPlayer.selectNextUnit(world, gc);
 			}	
 			
@@ -231,8 +231,8 @@ public class IngameState extends CustomGameState implements Serializable {
 	public void renderAll(GameContainer gc, StateBasedGame sbg, Graphics g) {
 		if (world != null) {
 			world.render(gc, g);
-		}
-		ArmyUnit.renderParticles();
+			ArmyUnit.renderParticles(world.getCamera());
+		}		
 		// Render infos
 		for (UnitTileInfo info : tileInfos) {
 			Rectangle rect = (Rectangle) world.getCamera().getArea();
@@ -327,7 +327,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		// Set the current game phase
 		phase = PREPERATION;
 		FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_PREPERATION"), 2500, container); 
-		setCurrentPlayer(currentPlayer, container);
+		setCurrentPlayer(currentPlayer, container, true);
 	}
 	
 	
@@ -339,10 +339,14 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	
 	public void setCurrentPlayer(Player player, GameContainer gc) {
+		setCurrentPlayer(player, gc, false);
+	}
+	
+	public void setCurrentPlayer(Player player, GameContainer gc, boolean instant) {
 		currentPlayer = player;
 		if (!currentPlayer.getUnits().isEmpty()) {
 			ArmyUnit unit = currentPlayer.getUnits().get(0);
-			world.focusCameraOnObject(unit, gc);
+			world.focusCameraOnObject(unit, gc, instant);
 		}
 		
 		FlashHelper.getInstance().flash(currentPlayer.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_NEWTURN"), 500, gc); 

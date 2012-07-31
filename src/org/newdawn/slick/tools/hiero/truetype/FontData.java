@@ -53,22 +53,22 @@ public class FontData {
 	/** True if we're displaying debug en-route */
 	private static boolean DEBUG = true;
 	/** The list of family names */
-	private static ArrayList families = new ArrayList();
+	private static ArrayList<String> families = new ArrayList<String>();
 	/** The list of all the fonts available */
-	private static ArrayList fonts;
+	private static ArrayList<FontData> fonts;
 	/** Plain fonts */
-	private static HashMap plain = new HashMap();
+	private static HashMap<String, FontData> plain = new HashMap<String, FontData>();
 	/** Bold fonts */
-	private static HashMap bold = new HashMap();
+	private static HashMap<String, FontData> bold = new HashMap<String, FontData>();
 	/** Italic fonts */
-	private static HashMap italic = new HashMap();
+	private static HashMap<String, FontData> italic = new HashMap<String, FontData>();
 	/** Bold Italic fonts */
-	private static HashMap bolditalic = new HashMap();
+	private static HashMap<String, FontData> bolditalic = new HashMap<String, FontData>();
 	/** Set the status listener */
 	private static StatusListener statusListener;
 
 	/** The list of processed directories */
-	private static ArrayList processed = new ArrayList();
+	private static ArrayList<File> processed = new ArrayList<File>();
 	
 	/**
 	 * Set the the status listener that will be notified of font loading progress
@@ -168,7 +168,7 @@ public class FontData {
 	 * @param dir The directory of fonts to process
 	 * @param fonts The fonts list to add to
 	 */
-	private static void processFontDirectory(File dir, ArrayList fonts) {
+	private static void processFontDirectory(File dir, ArrayList<FontData> fonts) {
 		if (!dir.exists()) {
 			return;
 		}
@@ -239,7 +239,7 @@ public class FontData {
 	 */
 	public static FontData[] getAllFonts() {
 		if (fonts == null) {
-			fonts = new ArrayList();
+			fonts = new ArrayList<FontData>();
 			
 			String os = System.getProperty("os.name");
 			File[] locs = new File[0];
@@ -346,7 +346,7 @@ public class FontData {
 	/** The UPEM */
 	private int upem;
 	/** The mapping table from TTF */
-	private Map ansiKerning;
+	private Map<?, ?> ansiKerning;
 	/** The width of the characters */
 	private int[] charWidth;
 	/** The name of the font */
@@ -491,7 +491,7 @@ public class FontData {
 	 * @return The amount of kerning to apply between the two characters
 	 */
 	public int getKerning(char first, char second) {
-		Map toMap = (Map) ansiKerning.get(new Integer(first));
+		Map<?, ?> toMap = (Map<?, ?>) ansiKerning.get(new Integer(first));
 		if (toMap == null) {
 			return 0;
 		}

@@ -24,7 +24,7 @@ public class InitializationPhase extends BasicGamePhase {
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		Player currentPlayer = game.getCurrentPlayer();
-		if (ArmyUnit.isUnitMoving()) {
+		if (ArmyUnit.isUnitMoving() || ArmyUnit.isUnitBusy()) {
 			FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_BATTLE"), 500, gc);
 			game.setPhase(IngameState.BATTLE);
 		} else {		
@@ -32,15 +32,17 @@ public class InitializationPhase extends BasicGamePhase {
 				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);		
 				
 				// End the turn when nothing to do
-				if (!currentPlayer.doInitialisation(delta)) {
+				if (!currentPlayer.doInitialisation(delta) && !ArmyUnit.isUnitBusy()) {
 					nextPlayerTurn(currentPlayer, gc);			
 				}
-			} else {
+			} else if (!ArmyUnit.isUnitBusy()) {
 				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 				// Client Player
 				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {				
 					nextPlayerTurn(currentPlayer, gc);				
 				}
+			} else {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
 			}
 		}
 	}

@@ -70,7 +70,7 @@ public class MovementCalculator {
 					break;
 				}
 				
-				if (lastX > -1 && lastY > -1) {
+				if (lastX > -1 && lastY > -1) {					
 					movements.put(movements.size(), movementToDirection(lastX, lastY, path.getX(i), path.getY(i)));
 				}
 				

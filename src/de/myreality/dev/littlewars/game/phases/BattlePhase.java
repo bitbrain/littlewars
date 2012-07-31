@@ -22,16 +22,20 @@ public class BattlePhase extends BasicGamePhase {
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		Player currentPlayer = game.getCurrentPlayer();		
 	
-		if (!currentPlayer.hasAvailableUnits() && !ArmyUnit.isUnitMoving()) {
+		if (!currentPlayer.hasAvailableUnits() && !ArmyUnit.isUnitBusy()) {
 			nextPlayerTurn(currentPlayer, gc);	
 		} else {
 			if (currentPlayer.isCPU()) {
 				currentPlayer.doBattle(delta);
-			} else {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);	
+			} else if (!ArmyUnit.isUnitBusy()) {
 				// Client Player
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);	
 				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
 					nextPlayerTurn(currentPlayer, gc);
 				}
+			} else {
+				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);	
 			}
 		}
 	}

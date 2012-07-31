@@ -28,7 +28,7 @@ public class SpriteAnimationData implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// Animation states
-	public static final int DEFAULT = 0, MOVE = 1, ATTACK = 2, DIE = 3;
+	public static final int DEFAULT = 0, MOVE = 1, ATTACK = 2, DIE = 3, DAMAGED = 4, LEVELUP = 5, EXP = 6;
 
 	// Animation resource maps
 	private Map<Integer, String> data;

@@ -13,6 +13,9 @@ package de.myreality.dev.littlewars.objects;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
@@ -28,7 +31,7 @@ import org.newdawn.slick.util.pathfinding.Path;
 import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.components.MovementCalculator;
-import de.myreality.dev.littlewars.components.UnitGenerator;
+import de.myreality.dev.littlewars.components.UnitEmitter;
 import de.myreality.dev.littlewars.components.helpers.UnitInfoHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.components.resources.SpriteAnimationData;
@@ -86,7 +89,7 @@ public abstract class ArmyUnit extends TileObject {
 	protected boolean dead, deadFirst;	
 	
 	// Emitters
-	ConfigurableEmitter defaultEmitter, attackingEmitter, dyingEmitter, damageEmitter;
+	Map<Integer, UnitEmitter> emitters;
 	
 	protected MovementCalculator movementCalculator;	
 	
@@ -94,7 +97,7 @@ public abstract class ArmyUnit extends TileObject {
 	private int lifeAdd, strengthAdd, defenseAdd, speedAdd;	
 	
 	// Static members for game control
-	static protected boolean unitMoving, unitDying, unitLoosingLife;
+	static protected boolean unitMoving, unitDying, unitLoosingLife, unitBusy;
 	
 	static ParticleSystem unitSystem;
 	
@@ -102,6 +105,7 @@ public abstract class ArmyUnit extends TileObject {
 		unitMoving = false;
 		unitDying = false;
 		unitLoosingLife = false;
+		unitBusy = false;
 		try {
 			unitSystem = ParticleIO.loadConfiguredSystem("res/particles/system/default.xml");
 		} catch (IOException e) {
@@ -132,6 +136,15 @@ public abstract class ArmyUnit extends TileObject {
 	static public boolean isUnitLoosingLife() {
 		return unitLoosingLife;
 	}
+	
+	static public boolean isUnitBusy() {
+		return isUnitLoosingLife() || isUnitDying() || isUnitMoving() || unitBusy;
+	}
+	
+	static public void setUnitBusy(boolean value) {
+		unitBusy = value;
+	}
+
 
 	/**
 	 * Constructor of ArmyUnit
@@ -168,6 +181,26 @@ public abstract class ArmyUnit extends TileObject {
 			for (int i = 0; i < animations[SpriteAnimationData.DIE].length; ++i) {
 				animations[SpriteAnimationData.DIE][i].setLooping(false);
 			}
+		}
+		emitters = new TreeMap<Integer, UnitEmitter>();
+		
+		addUnitEmitter(SpriteAnimationData.EXP, "BLUE_FLAIR");
+		UnitEmitter expEmitter = getUnitEmitter(SpriteAnimationData.EXP);
+		if (expEmitter != null) {
+			expEmitter.setOffsetX(getWidth() / 2);
+			expEmitter.setOffsetY(getHeight() / 2);
+			expEmitter.setEnabled(false);
+		} else {
+			Debugger.getInstance().write("Exp emitter does not exist");
+		}
+		addUnitEmitter(SpriteAnimationData.LEVELUP, "WONDER_EXPLOSION");
+		UnitEmitter levelupEmitter = getUnitEmitter(SpriteAnimationData.LEVELUP);
+		if (levelupEmitter != null) {
+			levelupEmitter.setOffsetX(getWidth() / 2);
+			levelupEmitter.setOffsetY(getHeight() / 2);
+			levelupEmitter.setEnabled(false);
+		} else {
+			Debugger.getInstance().write("Levelup emitter does not exist");
 		}
 	}
 	
@@ -378,6 +411,18 @@ public abstract class ArmyUnit extends TileObject {
 		Animation animDead = animations[SpriteAnimationData.DIE][currentDirection];
 		return isDead() && !animDead.isStopped();
 	}
+	
+	public void attackTargetEnemy() {
+		ArmyUnit enemy = movementCalculator.getEnemy();
+		if (enemy != null) {
+			attack(enemy);
+			setRemainingSpeed(0);
+		}
+	}
+	
+	public int getRealPathLength() {
+		return movementCalculator.getLength();
+	}
 
 	@Override
 	public void update(int delta) {
@@ -459,6 +504,10 @@ public abstract class ArmyUnit extends TileObject {
 			UnitInfoHelper.getInstance().addInfo(this, setting, gc, game);
 		}
 		
+		if (lifeSeq > 0 || expSeq > 0 || isDying()) {
+			unitBusy = true;
+		}
+		
 		if (player.isClientPlayer() && !isDead() && (instantClick || onClick())) {
 			stopSound("onClick");
 			playRandomSound("onClick");
@@ -468,7 +517,7 @@ public abstract class ArmyUnit extends TileObject {
 			instantClick = false;
 		}
 		
-		if (!canMove() && isTargetArrived() && !getID().equals(UnitGenerator.UNIT_CENTER) && game.getCurrentPlayer().isClientPlayer()) {
+		if (getRemainingSpeed() == 0 && isTargetArrived() && !(this instanceof CommandoCenter) && player.isCurrentPlayer()) {
 			color = Color.gray;
 		} else {
 			color = player.getColor();
@@ -479,10 +528,7 @@ public abstract class ArmyUnit extends TileObject {
 		if (movementCalculator.isDone() && isTargetArrived()) {
 			ArmyUnit enemy = movementCalculator.getEnemy();
 			if (enemy != null) {
-				attack(enemy);
-				if (!enemy.isDead()) {
-					//enemy.attack(this); // TODO: Fix reaction bug
-				}				
+				attack(enemy);			
 			}			
 		}
 		
@@ -498,22 +544,41 @@ public abstract class ArmyUnit extends TileObject {
 			setUnitLoosingLife(true);
 		}
 		
-		
-		if (defaultEmitter != null) {
-			defaultEmitter.setEnabled(isTargetArrived() && !isDying() && player != null);
-			defaultEmitter.setPosition(getX(), getY());
-		}
-		
-		if (attackingEmitter != null) {
-			
-		}
-		
-		if (damageEmitter != null) {
-			
-		}
-		
-		if (dyingEmitter != null) {
-			dyingEmitter.setEnabled(isDying());
+		for (Entry<Integer, UnitEmitter> entry : emitters.entrySet()) {
+			UnitEmitter emitter = entry.getValue();
+			switch (entry.getKey()) {
+				case SpriteAnimationData.DEFAULT:
+					emitter.setEnabled(isTargetArrived() && !isDying() && player != null);
+					break;
+				case SpriteAnimationData.ATTACK:
+					break;
+				case SpriteAnimationData.DIE:
+					emitter.setEnabled(isDying() && !emitter.getInner().completed());
+					break;
+				case SpriteAnimationData.MOVE:
+					break;
+				case SpriteAnimationData.DAMAGED:
+					if (isDamageInProcess() && emitter.getInner().completed()) {
+						emitter.getInner().setEnabled(true);
+						emitter.getInner().replay();
+					} else if (!isDamageInProcess() && emitter.getInner().completed()) {
+						emitter.setEnabled(false);
+					} else if (isDamageInProcess() && !emitter.getInner().completed()) {
+						emitter.setEnabled(true);
+					}
+					break;
+				case SpriteAnimationData.EXP:
+					if (emitter.getInner().completed()) {
+						emitter.setEnabled(false);
+					}
+					break;
+				case SpriteAnimationData.LEVELUP:
+					if (emitter.getInner().completed()) {
+						emitter.setEnabled(false);
+					}
+					break;
+			}			
+			emitter.update(delta);
 		}
 	}
 
@@ -531,36 +596,24 @@ public abstract class ArmyUnit extends TileObject {
 		return getRankSpeed(rank) + speedAdd;
 	}
 	
-	public static void renderParticles() {
-		unitSystem.render(0, 0);
+	public static void renderParticles(Camera camera) {
+		unitSystem.render(-camera.getX(), -camera.getY());
 	}
 	
 	public static void updateParticles(int delta) {
 		unitSystem.update(delta);
 	}
 	
+	public boolean isDamageInProcess() {
+		return lifeSeq > 0;
+	}
+	
 	
 	public void free() {
-		if (dyingEmitter != null) {
-			unitSystem.removeEmitter(dyingEmitter);
-			dyingEmitter = null;
+		for (Entry<Integer, UnitEmitter> entry : emitters.entrySet()) {
+			entry.getValue().releaseFromSystem();
 		}
-		
-		if (defaultEmitter != null) {
-			unitSystem.removeEmitter(defaultEmitter);
-			Debugger.getInstance().write("Default emitter has been removed.");
-			defaultEmitter = null;
-		}
-		
-		if (attackingEmitter != null) {
-			unitSystem.removeEmitter(attackingEmitter);
-			attackingEmitter = null;
-		}
-		
-		if (damageEmitter != null) {
-			unitSystem.removeEmitter(damageEmitter);
-			damageEmitter = null;
-		}
+		emitters.clear();
 	}
 	
 	
@@ -626,6 +679,14 @@ public abstract class ArmyUnit extends TileObject {
 		setting.setText("Level up!");
 		setting.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		UnitInfoHelper.getInstance().addInfo(this, setting, gc, game);
+		
+		// Show animation
+		UnitEmitter emitter = emitters.get(SpriteAnimationData.LEVELUP);
+		if (emitter != null) {
+			ConfigurableEmitter inner = emitter.getInner();
+			inner.replay();
+			inner.setEnabled(true);
+		}
 	}
 	
 	
@@ -636,6 +697,14 @@ public abstract class ArmyUnit extends TileObject {
 			setting.setText("+" + String.valueOf(exp) + " EXP");
 			setting.setColor(ResourceManager.getInstance().getColor("UNIT_EXP"));
 			UnitInfoHelper.getInstance().addInfo(this, setting, gc, game);
+			
+			// Particle animation
+			UnitEmitter emitter = emitters.get(SpriteAnimationData.EXP);
+			if (emitter != null) {
+				emitter.getInner().replay();
+				emitter.getInner().setEnabled(true);
+			}
+			
 		}		
 	}
 	
@@ -674,12 +743,12 @@ public abstract class ArmyUnit extends TileObject {
 			playRandomSound("onAttack");
 			
 			// Damage calculation 
-			int damage = (int) ((int) (11 * (Math.random() * 1124 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
+			int damage = (int) ((int) (11 * (Math.random() * 250 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
 			target.addDamage(damage);
 			if (target.isDead()) {
 				addExperience(target.getExperienceValue());
 			} else {
-				addExperience((damage / 10) * (target.getRank() / getRank()));
+				addExperience((damage / 5) * (target.getRank() / getRank()));
 			}
 			movementCalculator.reset();
 			
@@ -723,68 +792,17 @@ public abstract class ArmyUnit extends TileObject {
 		return velocity * delta;
 	}
 	
-	public ConfigurableEmitter getDefaultEmitter() {
-		return defaultEmitter;
-	}
-
-
-	public void setDefaultEmitter(ConfigurableEmitter defaultEmitter) {
-		this.defaultEmitter = defaultEmitter;
-		if (defaultEmitter != null) {
-			unitSystem.removeEmitter(defaultEmitter);
+	public void addUnitEmitter(Integer type, String ID) {
+		if (emitters.get(type) == null) {
+			emitters.put(type, new UnitEmitter(this, ID, unitSystem));
+		} else {
+			emitters.get(type).releaseFromSystem();
+			emitters.remove(type);
+			addUnitEmitter(type, ID);
 		}
-		unitSystem.addEmitter(defaultEmitter);
-		defaultEmitter.setPosition(getX(), getY());
-		defaultEmitter.setEnabled(true);
-		
 	}
-
-
-	public ConfigurableEmitter getAttackingEmitter() {
-		return attackingEmitter;
-	}
-
-
-	public void setAttackingEmitter(ConfigurableEmitter attackingEmitter) {
-		this.attackingEmitter = attackingEmitter;
-		if (attackingEmitter != null) {
-			unitSystem.removeEmitter(attackingEmitter);
-		}
-		unitSystem.addEmitter(attackingEmitter);
-
-		attackingEmitter.setPosition(getX(), getY());
-		attackingEmitter.setEnabled(true);
-	}
-
-
-	public ConfigurableEmitter getDyingEmitter() {
-		return dyingEmitter;
-	}
-
-
-	public void setDyingEmitter(ConfigurableEmitter dyingEmitter) {
-		this.dyingEmitter = dyingEmitter;
-		if (dyingEmitter != null) {
-			unitSystem.removeEmitter(dyingEmitter);
-		}
-		unitSystem.addEmitter(dyingEmitter);
-		dyingEmitter.setPosition(getX(), getY());
-		dyingEmitter.setEnabled(true);
-	}
-
-
-	public ConfigurableEmitter getDamageEmitter() {
-		return damageEmitter;
-	}
-
-
-	public void setDamageEmitter(ConfigurableEmitter damageEmitter) {
-		this.damageEmitter = damageEmitter;
-		if (damageEmitter != null) {
-			unitSystem.removeEmitter(damageEmitter);
-		}
-		unitSystem.addEmitter(damageEmitter);
-		damageEmitter.setPosition(getX(), getY());
-		damageEmitter.setEnabled(true);
+	
+	public UnitEmitter getUnitEmitter(Integer type) {
+		return emitters.get(type);
 	}
 }

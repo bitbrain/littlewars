@@ -56,17 +56,22 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29447" size="356"></file>
+    <file src="res\meta.xml" sum="29450" size="356"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\desert_day.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\music.xml" sum="40296" size="463"></file>
+    <file src="res\particles\emitters\blue-flair.xml" sum="118354" size="1572"></file>
+    <file src="res\particles\emitters\explosion-big.xml" sum="122194" size="1612"></file>
+    <file src="res\particles\emitters\explosion.png" sum="1872685" size="1341"></file>
+    <file src="res\particles\emitters\explosion.xml" sum="122109" size="1610"></file>
     <file src="res\particles\emitters\smoke.png" sum="1014950" size="718"></file>
     <file src="res\particles\emitters\smoke.xml" sum="124470" size="1653"></file>
     <file src="res\particles\emitters\snow.xml" sum="121351" size="1623"></file>
     <file src="res\particles\emitters\snowflake.png" sum="258627" size="366"></file>
-    <file src="res\particles\particles.xml" sum="12744" size="147"></file>
+    <file src="res\particles\emitters\wonder-explosion.xml" sum="119377" size="1589"></file>
+    <file src="res\particles\particles.xml" sum="47992" size="537"></file>
     <file src="res\particles\system\default.xml" sum="8146" size="98"></file>
     <file src="res\particles\system\smoke.xml" sum="128965" size="1705"></file>
     <file src="res\patchnotes.xml" sum="248041" size="2787"></file>

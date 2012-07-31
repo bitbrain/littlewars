@@ -12,9 +12,7 @@ import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class StatisticGraph extends GUIObject {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private RoundTracker tracker;
 	private Color clrBackground;
@@ -30,7 +28,7 @@ public class StatisticGraph extends GUIObject {
 		area = new Rectangle(getX(), getY(), getWidth(), getHeight());
 		this.tracker = tracker;
 		clrBackground = new Color(0, 0, 0, 100);
-		number = ResourceManager.getInstance().getFont("FONT_SMALL");		
+		number = ResourceManager.getInstance().getFont("FONT_TINY");		
 		maxCredits = tracker.getMaxMoney();
 		maxUnits = tracker.getMaxUnits();
 	}

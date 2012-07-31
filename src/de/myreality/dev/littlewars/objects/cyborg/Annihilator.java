@@ -15,6 +15,9 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
+import de.myreality.dev.littlewars.components.Debugger;
+import de.myreality.dev.littlewars.components.UnitEmitter;
+import de.myreality.dev.littlewars.components.resources.SpriteAnimationData;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;
@@ -41,6 +44,24 @@ public class Annihilator extends ArmyUnit {
 		super(CyborgGenerator.UNIT_1, "ANNIHILATOR", x, y, gc, cam, game);
 		velocity = 0.4f;
 		this.area = new Rectangle(getX(), getY(), getWidth(), getHeight());
+		addUnitEmitter(SpriteAnimationData.DAMAGED, "EXPLOSION_SMALL");
+		addUnitEmitter(SpriteAnimationData.DIE, "EXPLOSION_BIG");
+		UnitEmitter damageEmitter = getUnitEmitter(SpriteAnimationData.DAMAGED);
+		if (damageEmitter != null) {
+			damageEmitter.setOffsetX(getWidth() / 2);
+			damageEmitter.setOffsetY(getHeight() / 2);
+			damageEmitter.setEnabled(false);
+		} else {
+			Debugger.getInstance().write("Damage emitter does not exist");
+		}
+		
+		/*UnitEmitter dieEmitter = getUnitEmitter(SpriteAnimationData.DIE);
+		if (dieEmitter != null) {
+			dieEmitter.setOffsetX(getWidth() / 2);
+			dieEmitter.setOffsetY(getHeight() / 2);
+		} else {
+			Debugger.getInstance().write("Die emitter does not exist");
+		}*/
 	}
 
 	@Override
@@ -65,7 +86,7 @@ public class Annihilator extends ArmyUnit {
 
 	@Override
 	protected int getRankSpeed(int rank) {
-		return (int) (16.5 * Math.pow((float)rank, 1.5) + 4);
+		return (int) (2.5 * Math.pow((float)rank, 1.5) + 4);
 	}
 
 	@Override

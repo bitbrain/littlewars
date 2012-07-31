@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<resource type="emitter" id="SMOKE">res/particles/emitters/smoke.xml</resource>
+	<resource type="emitter" id="EXPLOSION_SMALL">res/particles/emitters/explosion.xml</resource>
+	<resource type="emitter" id="EXPLOSION_BIG">res/particles/emitters/explosion-big.xml</resource>
+	<resource type="emitter" id="BLUE_FLAIR">res/particles/emitters/blue-flair.xml</resource>
+	<resource type="emitter" id="WONDER_EXPLOSION">res/particles/emitters/wonder-explosion.xml</resource>
 </resources>
