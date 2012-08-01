@@ -3,8 +3,8 @@
 	<!-- Menu strings -->
 	<resource type="text" id="TXT_MENU_SINGLEPLAYER">Einzelspieler</resource>
 	<resource type="text" id="TXT_MENU_PREFERENCES">Einstellungen</resource>
-	<resource type="text" id="TXT_MENU_SETUP_MAP">Wähle eine Karte</resource>
-	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Bearbeite Spieler</resource>
+	<resource type="text" id="TXT_MENU_SETUP_MAP">Wähle eine Welt</resource>
+	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Spieler</resource>
 	<resource type="text" id="TXT_MENU_BUGREPORT">Melde Fehler</resource>
 	<resource type="text" id="TXT_MENU_PREFERENCES">Einstellungen</resource>
 	<resource type="text" id="TXT_MENU_CREDITS">Credits</resource>
@@ -46,6 +46,7 @@
 	<resource type="text" id="TXT_GAME_PHASE_INITIALISATION">Initialisierung</resource>
 	<resource type="text" id="TXT_GAME_PHASE_BATTLE">Kampf</resource>
 	<resource type="text" id="TXT_GAME_DAMAGE">Schaden</resource>
+	<resource type="text" id="TXT_GAME_ENDTURN">Spielzug beenden</resource>
 	
 	<!-- Descriptions and Messages -->
 	<resource type="text" id="TXT_INFO_SAVEGAME">Spiel speichern</resource>
@@ -55,6 +56,7 @@
 	<resource type="text" id="TXT_INFO_SCREENSHOT">Bild wurde erfolgreich gespeichert</resource>
 	<resource type="text" id="TXT_INFO_KILLED">wurde eliminiert</resource>
 	<resource type="text" id="TXT_INFO_LEAVE">Das Spiel wird jetzt beendet</resource>
+	<resource type="text" id="TXT_INFO_ENDTURN">Sie haben noch kampfbereite Einheiten</resource>
 	<resource type="text" id="TXT_INFO_NEWTURN">ist jetzt an der Reihe</resource>
 	<resource type="text" id="TXT_INFO_WIN">hat das Spiel gewonnen!</resource>
 	<resource type="text" id="TXT_INFO_SAVED_SETTINGS">Einstellungen wurden erfolgreich gespeichert.</resource>

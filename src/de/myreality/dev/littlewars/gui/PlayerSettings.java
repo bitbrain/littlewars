@@ -27,7 +27,6 @@ import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.ki.CPU;
 import de.myreality.dev.littlewars.ki.ManualPlayer;
 import de.myreality.dev.littlewars.ki.Player;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.Difficulty;
 import de.myreality.dev.littlewars.world.Fraction;
 

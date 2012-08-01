@@ -5,7 +5,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.components.Timer;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class FlashBox extends GUIObject {
 	
@@ -54,10 +53,10 @@ public class FlashBox extends GUIObject {
 		
 		if (timer.getMiliseconds() > duration) {
 			if (clrBackground.a > 0.0f) {
-				clrBackground.a -= 0.0003f * delta;
+				clrBackground.a -= 0.0006f * delta;
 			}
 			if (clrBorder.a > 0.0f) {
-				clrBorder.a -= 0.0006f * delta;
+				clrBorder.a -= 0.0012f * delta;
 			}
 			
 			content.setOpacity(clrBorder.a);

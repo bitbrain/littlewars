@@ -21,7 +21,6 @@ import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class Button extends GUIObject {
 
@@ -120,6 +119,10 @@ public class Button extends GUIObject {
 	public void setFont(Font newFont) {
 		font = newFont;
 	}
+	
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	@Override
 	public void draw(Graphics g) {	
@@ -143,6 +146,10 @@ public class Button extends GUIObject {
 						getY() + (getHeight() / 2 - font.getHeight(text) / 2), text);	
 			}
 		}
+	}
+	
+	public String getText() {
+		return text;
 	}
 
 	@Override

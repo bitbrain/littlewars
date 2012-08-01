@@ -19,12 +19,12 @@ import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.BasicUnitBuilder;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.InitialisationBuilder;
 import de.myreality.dev.littlewars.gui.bottommenu.builder.PreperationBuilder;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.GameWorld;
 
 public class BottomMenu extends GUIObject {
@@ -90,9 +90,9 @@ public class BottomMenu extends GUIObject {
 			unitInfoBox.draw(g);
 			unitInfo.draw(g);
 			
-			if (player != null && player.isCurrentPlayer() && game.getPhase() != IngameState.BATTLE && (game.getPhase() == IngameState.INIT || preperationBuilder.size() > 0) && foundFocusObject) {
+			if (player != null && player.isCurrentPlayer() && game.getPhaseID() != IngameState.BATTLE && (game.getPhaseID() == IngameState.INIT || preperationBuilder.size() > 0) && foundFocusObject) {
 				
-				if (game.getPhase() == IngameState.PREPERATION) {
+				if (game.getPhaseID() == IngameState.PREPERATION) {
 					if (preperationBuilder != null) {
 						game.setPreviewSelected(preperationBuilder.hasSelectedPreview());
 						preperationBuilder.setVisible(true);
@@ -129,8 +129,8 @@ public class BottomMenu extends GUIObject {
 				break;
 			}
 		}
-		if (player != null && player.isCurrentPlayer() && game.getPhase() != IngameState.BATTLE && (game.getPhase() == IngameState.INIT || preperationBuilder.size() > 0) && foundFocusObject) {
-			if (game.getPhase() == IngameState.PREPERATION) {
+		if (player != null && player.isCurrentPlayer() && game.getPhaseID() != IngameState.BATTLE && (game.getPhaseID() == IngameState.INIT || preperationBuilder.size() > 0) && foundFocusObject) {
+			if (game.getPhaseID() == IngameState.PREPERATION) {
 				if (preperationBuilder != null) {
 					preperationBuilder.update(delta);
 				}

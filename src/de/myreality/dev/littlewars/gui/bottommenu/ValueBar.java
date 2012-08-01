@@ -6,8 +6,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.objects.Camera;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class ValueBar extends GUIObject {
 

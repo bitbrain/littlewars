@@ -6,7 +6,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class LoadingBar extends GUIObject {
 	

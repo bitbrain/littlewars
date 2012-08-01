@@ -805,4 +805,9 @@ public abstract class ArmyUnit extends TileObject {
 	public UnitEmitter getUnitEmitter(Integer type) {
 		return emitters.get(type);
 	}
+	
+	
+	public static void freeParticleSystem() {
+		unitSystem.removeAllEmitters();
+	}
 }

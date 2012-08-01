@@ -3,8 +3,8 @@
 	<!-- Menu strings -->
 	<resource type="text" id="TXT_MENU_SINGLEPLAYER">Singleplayer</resource>
 	<resource type="text" id="TXT_MENU_PREFERENCES">Settings</resource>
-	<resource type="text" id="TXT_MENU_SETUP_MAP">Select a map</resource>
-	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Player settings</resource>
+	<resource type="text" id="TXT_MENU_SETUP_MAP">Select a world</resource>
+	<resource type="text" id="TXT_MENU_SETUP_PLAYER">Player</resource>
 	<resource type="text" id="TXT_MENU_BUGREPORT">Report bug</resource>	
 	<resource type="text" id="TXT_MENU_CREDITS">Credits</resource>
 	<resource type="text" id="TXT_MENU_CLOSE">Close</resource>
@@ -45,6 +45,7 @@
 	<resource type="text" id="TXT_GAME_PHASE_INITIALISATION">Initialisation</resource>
 	<resource type="text" id="TXT_GAME_PHASE_BATTLE">Battle</resource>
 	<resource type="text" id="TXT_GAME_DAMAGE">Damage</resource>
+	<resource type="text" id="TXT_GAME_ENDTURN">End turn</resource>
 	
 	<!-- Descriptions and Messages -->
 	<resource type="text" id="TXT_INFO_SAVEGAME">Save the game</resource>
@@ -54,6 +55,7 @@
 	<resource type="text" id="TXT_INFO_SCREENSHOT">Screenshot has been saved successfully.</resource>
 	<resource type="text" id="TXT_INFO_KILLED">has been defeated</resource>
 	<resource type="text" id="TXT_INFO_LEAVE">The game will be closed</resource>
+	<resource type="text" id="TXT_INFO_ENDTURN">Your units can fight</resource>
 	<resource type="text" id="TXT_INFO_NEWTURN">, it's your turn</resource>
 	<resource type="text" id="TXT_INFO_WIN">has won the game!</resource>
 	<resource type="text" id="TXT_INFO_SAVED_SETTINGS">Settings has been saved successfully.</resource>

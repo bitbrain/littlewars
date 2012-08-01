@@ -4,10 +4,10 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.components.Pair;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class InitialisationBuilder extends BasicUnitBuilder {
 	

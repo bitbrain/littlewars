@@ -17,6 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.tiled.TiledMap;
 
 import de.myreality.dev.littlewars.components.Vector2d;
+import de.myreality.dev.littlewars.gui.GUIObject;
 
 public class Camera extends GameObject implements Movable {
 	

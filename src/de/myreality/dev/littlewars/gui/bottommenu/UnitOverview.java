@@ -7,9 +7,9 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.GameWorld;
 
 public class UnitOverview extends GUIObject {

@@ -4,8 +4,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class UnitStateBar extends GUIObject {
 	

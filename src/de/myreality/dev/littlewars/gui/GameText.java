@@ -18,7 +18,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.objects.Camera;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class GameText extends GUIObject {
 
@@ -90,7 +89,7 @@ public class GameText extends GUIObject {
 	}
 	
 	public void setColor(Color color) {
-		this.color = color;
+		this.color = new Color(color.r, color.g, color.b, color.a);
 	}
 	
 	public Color getColor() {

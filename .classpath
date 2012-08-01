@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="org/newdawn/slick/tools/hiero/truetype/|org/newdawn/slick/tools/packulike/|org/newdawn/slick/tools/peditor/|org/newdawn/slick/tools/peditor/data/|org/newdawn/slick/tools/scalar/|org/newdawn/slick/tools/|org/newdawn/slick/tools/hiero/|org/newdawn/slick/tools/hiero/distancemap/|org/newdawn/slick/tools/hiero/resources/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/ibxm.jar"/>
 	<classpathentry kind="lib" path="lib/jinput.jar"/>

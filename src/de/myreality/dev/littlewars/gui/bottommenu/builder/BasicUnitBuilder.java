@@ -21,10 +21,10 @@ import org.newdawn.slick.Input;
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.objects.cyborg.CyborgGenerator;
 import de.myreality.dev.littlewars.world.Fraction;
 

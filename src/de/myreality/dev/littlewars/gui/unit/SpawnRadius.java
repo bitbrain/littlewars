@@ -16,8 +16,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.world.GameWorld;
 
 public class SpawnRadius extends GUIObject {

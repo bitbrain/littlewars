@@ -40,6 +40,7 @@ import de.myreality.dev.littlewars.game.phases.BasicGamePhase;
 import de.myreality.dev.littlewars.game.phases.BattlePhase;
 import de.myreality.dev.littlewars.game.phases.InitializationPhase;
 import de.myreality.dev.littlewars.game.phases.PreperationPhase;
+import de.myreality.dev.littlewars.gui.PhaseInfo;
 import de.myreality.dev.littlewars.gui.TopMenu;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
 import de.myreality.dev.littlewars.gui.unit.UnitTileInfo;
@@ -323,10 +324,9 @@ public class IngameState extends CustomGameState implements Serializable {
 		phases.put(PREPERATION, new PreperationPhase(this));
 		phases.put(INIT, new InitializationPhase(this));
 		phases.put(BATTLE, new BattlePhase(this));		
-		setCurrentPlayer(currentPlayer, container);
+		
 		// Set the current game phase
 		phase = PREPERATION;
-		FlashHelper.getInstance().flash("Phase: " + ResourceManager.getInstance().getText("TXT_GAME_PHASE_PREPERATION"), 2500, container); 
 		setCurrentPlayer(currentPlayer, container, true);
 	}
 	
@@ -349,7 +349,14 @@ public class IngameState extends CustomGameState implements Serializable {
 			world.focusCameraOnObject(unit, gc, instant);
 		}
 		
-		FlashHelper.getInstance().flash(currentPlayer.getName() + " " + ResourceManager.getInstance().getText("TXT_INFO_NEWTURN"), 500, gc); 
+		// Flash Message
+		String message = "";
+		
+		if (currentPlayer.isClientPlayer()) {
+			message = "Baue deine Einheiten!";
+		}
+		
+		FlashHelper.getInstance().flash(new PhaseInfo(currentPlayer, getPhase(), message, gc), 1200, gc);		
 	}
 	
 	
@@ -363,8 +370,12 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	
-	public int getPhase() {
+	public int getPhaseID() {
 		return phase;
+	}
+	
+	public BasicGamePhase getPhase() {
+		return phases.get(phase);
 	}
 	
 	public void setPhase(int phase) {
@@ -384,12 +395,15 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	public void close() {
-		world.close();		
-		tileInfos.clear();
-		world = null;	
+		
 		for (Player p : players) {
 			p.clear();
 		}
+		
+		world.close();		
+		tileInfos.clear();
+		world = null;	
+		ArmyUnit.freeParticleSystem();
 	}
 	
 	

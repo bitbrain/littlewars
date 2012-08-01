@@ -40,11 +40,11 @@ import de.myreality.dev.littlewars.components.MovementCalculator;
 import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.objects.Movable;
 import de.myreality.dev.littlewars.objects.TileObject;
 import de.myreality.dev.littlewars.objects.cyborg.CyborgCommandoCenter;
@@ -414,7 +414,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 				}
 				
 				if (unit.onClick()) {
-					//unit.addExperience(100);
+					//unit.addDamage(6000);
 				}
 				
 				if (!target.isTargetArrived()) {
@@ -427,11 +427,13 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    				hover = true;
 	    			}	    
 	    			
-	    			if (!clicked && target.onClick()) {
+	    			// Solved the attack problem: only focus, when target is NOT a potential enemy unit
+	    			if (!clicked && unit.onClick()
+	    			    && unit.getPlayer().equals(game.getClientPlayer())) {
 	    				clicked = true;
-	    				clickedObject = target;
-	    				focusObject = target;
-	    				focusCameraOnObject(target, gc);
+	    				clickedObject = unit;
+	    				focusObject = unit;
+	    				focusCameraOnObject(unit, gc);
 	    			}
 				}
 				
@@ -473,7 +475,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		SpawnArea spawnArea = game.getCurrentPlayer().getSpawnArea();
 		
 		// Update the render radius of the current player
-		boolean isEnabled = (game.getPhase() == IngameState.PREPERATION || game.getPhase() == IngameState.INIT) && game.isPreviewSelected();
+		boolean isEnabled = (game.getPhaseID() == IngameState.PREPERATION || game.getPhaseID() == IngameState.INIT) && game.isPreviewSelected();
 							 
 		spawnArea.setVisible(isEnabled);
 	}
@@ -562,7 +564,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    				}
 	    			}
 	    			
-	    			if (game.getPhase() == IngameState.PREPERATION || (unitPath == null && (focusObject == null)) || foundFocusObject) {
+	    			if (game.getPhaseID() == IngameState.PREPERATION || (unitPath == null && (focusObject == null)) || foundFocusObject) {
 		    			if (!collisionExists(curTotalX, curTotalY)) {
 			    			Color bg = new Color(0, 255, 0, 50);
 			    			g.setColor(bg);
@@ -578,7 +580,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		    			}
 	    			}
 	    		}
-	    		if (!bottomMenu.isHover() && focusObject != null && game.getPhase() != IngameState.PREPERATION) {
+	    		if (!bottomMenu.isHover() && focusObject != null && game.getPhaseID() != IngameState.PREPERATION) {
 	    			int xT = tileIndexX(gc.getInput().getMouseX() + cam.getX());
 	    			int yT = tileIndexY(gc.getInput().getMouseY() + cam.getY());
 	    			ArmyUnit obj = (ArmyUnit) focusObject;

@@ -21,8 +21,8 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.Button;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.GameText;
-import de.myreality.dev.littlewars.objects.GUIObject;
 import de.myreality.dev.littlewars.objects.GameObject;
 
 public class ContextMenuHelper {
@@ -91,6 +91,10 @@ public class ContextMenuHelper {
 		}
 	}
 	
+	public ContextMenu getContextMenu() {
+		return contextMenu;
+	}
+	
 	public void show(GameContainer gc, String caption, String text, boolean acceptButton, ContextMenuEvent event) {
 		show(gc, caption, text, acceptButton, false, event);
 	}
@@ -98,7 +102,7 @@ public class ContextMenuHelper {
 	public void show(GameContainer gc, String caption, String text, ContextMenuEvent event) {
 		show(gc, caption, text, true, true, event);
 	}
-	
+
 	public boolean isWorking() {
 		return contextMenu != null;
 	}
@@ -218,6 +222,36 @@ public class ContextMenuHelper {
 			}
 			
 			return false;
+		}
+		
+		public void setAbortTextID(String ID) {
+			setAbortText(ResourceManager.getInstance().getText(ID));
+		}
+		
+		public void setAcceptTextID(String ID) {
+			setAcceptText(ResourceManager.getInstance().getText(ID));
+		}
+		
+		public void setAbortText(String text) {
+			if (text.length() > 10) {
+				btnAbort.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
+				btnAccept.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
+			} else if (btnAccept.getText().length() < 11) {
+				btnAccept.setFont(ResourceManager.getInstance().getFont("FONT_MENU"));
+				btnAbort.setFont(ResourceManager.getInstance().getFont("FONT_MENU"));
+			}
+			btnAbort.setText(text);			
+		}
+		
+		public void setAcceptText(String text) {
+			if (text.length() > 10) {
+				btnAbort.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
+				btnAccept.setFont(ResourceManager.getInstance().getFont("FONT_SMALL"));
+			} else if (btnAbort.getText().length() < 11) {
+				btnAccept.setFont(ResourceManager.getInstance().getFont("FONT_MENU"));
+				btnAbort.setFont(ResourceManager.getInstance().getFont("FONT_MENU"));
+			}
+			btnAccept.setText(text);
 		}
 		
 		public boolean onAbort() {

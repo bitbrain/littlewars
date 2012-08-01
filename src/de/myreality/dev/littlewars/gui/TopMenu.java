@@ -1,3 +1,11 @@
+/**
+ * This file was written by Miguel Gonzalez and is part of the
+ * game "LittleWars". For more information mail to info@my-reality.de
+ * or visit the game page: http://dev.my-reality.de/littlewars
+ * 
+ * @version 	0.5.4
+ * @author 		Miguel Gonzalez		
+ */
 package de.myreality.dev.littlewars.gui;
 
 import org.newdawn.slick.GameContainer;
@@ -10,7 +18,6 @@ import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class TopMenu extends GUIObject {
 	

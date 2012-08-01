@@ -37,7 +37,6 @@ import org.xml.sax.SAXException;
 
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class MapSelector extends GUIObject {
 	

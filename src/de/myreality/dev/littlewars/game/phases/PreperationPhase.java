@@ -17,8 +17,6 @@ import java.util.List;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
-import de.myreality.dev.littlewars.components.helpers.FlashHelper;
-import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.ki.Player;
 
@@ -31,7 +29,7 @@ public class PreperationPhase extends BasicGamePhase {
 	private List<Player> preparedPlayers;
 
 	public PreperationPhase(IngameState game) {
-		super(game);
+		super(game, "Vorbereitung");
 		preparedPlayers = new ArrayList<Player>();
 	}
 
@@ -42,27 +40,29 @@ public class PreperationPhase extends BasicGamePhase {
 		if (isDone()) {
 			for (Player player : preparedPlayers) {
 				player.activateUnits();
-			}
-			FlashHelper.getInstance().flash("Phase: "  + ResourceManager.getInstance().getText("TXT_GAME_PHASE_INITIALISATION"), 1000, gc);
+			}			
 			game.setPhase(IngameState.INIT);
 			game.getTracker().record();
-		}
-		
-		if (currentPlayer.isCPU()) {
-			game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
-			if (currentPlayer.isPrepared() && !isDone()) { 
-				preparedPlayers.add(currentPlayer);
-				game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
-			}
-			currentPlayer.doPreperation(delta);
-		} else {
-			// Client Player
-			if (game.getBottomMenu().getPreperationBuilder().size() == 0 && !isDone()) {
-				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
-				preparedPlayers.add(currentPlayer);
-				game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
-			} else {
+			nextPlayerTurn(currentPlayer, gc);
+		} else {		
+			if (currentPlayer.isCPU()) {
 				game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
+				if (currentPlayer.isPrepared() && !isDone()) { 
+					preparedPlayers.add(currentPlayer);
+					if (!isDone()) {
+						game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
+					}
+				}
+				currentPlayer.doPreperation(delta);
+			} else {
+				// Client Player
+				if (game.getBottomMenu().getPreperationBuilder().size() == 0 && !isDone()) {
+					game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
+					preparedPlayers.add(currentPlayer);
+					game.setCurrentPlayer(game.getNextPlayer(currentPlayer), gc);
+				} else {
+					game.getTopMenu().getBtnPhaseQuit().setEnabled(false);
+				}
 			}
 		}
 	}

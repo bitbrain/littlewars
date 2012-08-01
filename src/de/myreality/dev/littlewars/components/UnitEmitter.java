@@ -71,6 +71,7 @@ public class UnitEmitter {
 	
 	public void releaseFromSystem() {
 		system.removeEmitter(emitter);
+		Debugger.getInstance().write("Release emitter " + emitter);
 		emitter = null;
 	}
 	

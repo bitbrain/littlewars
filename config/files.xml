@@ -30,13 +30,13 @@
     <file src="res\images\gui\game_header.png" sum="42422371" size="21121"></file>
     <file src="res\images\gui\icon_load.png" sum="5596658" size="2846"></file>
     <file src="res\images\gui\icon_quit.png" sum="1523726" size="1128"></file>
-    <file src="res\images\gui\icon_save.png" sum="1159230" size="750"></file>
+    <file src="res\images\gui\icon_save.png" sum="1891802" size="1306"></file>
     <file src="res\images\gui\loading.png" sum="7220795" size="5102"></file>
     <file src="res\images\gui\main_background.png" sum="1198162459" size="610850"></file>
     <file src="res\images\gui\map_selected.png" sum="280846" size="351"></file>
-    <file src="res\images\gui\paths\arrow.png" sum="703649" size="687"></file>
-    <file src="res\images\gui\paths\curve.png" sum="450087" size="277"></file>
-    <file src="res\images\gui\paths\straight.png" sum="186264" size="255"></file>
+    <file src="res\images\gui\paths\arrow.png" sum="1745646" size="981"></file>
+    <file src="res\images\gui\paths\curve.png" sum="374961" size="272"></file>
+    <file src="res\images\gui\paths\straight.png" sum="86200" size="239"></file>
     <file src="res\images\gui\topshadow.png" sum="1157128" size="707"></file>
     <file src="res\images\gui\top_menu_background.png" sum="2150342" size="1874"></file>
     <file src="res\images\gui\valuebar_light.png" sum="412303" size="345"></file>
@@ -44,7 +44,7 @@
     <file src="res\images\logos\java_logo.png" sum="79318812" size="47247"></file>
     <file src="res\images\logos\myreality_logo.png" sum="26113810" size="17289"></file>
     <file src="res\images\logos\slick_logo.png" sum="90751730" size="50665"></file>
-    <file src="res\images\sectors\trial_sector\EX-035.png" sum="23352560" size="11866"></file>
+    <file src="res\images\sectors\trial_sector\EX-035.png" sum="23675139" size="11436"></file>
     <file src="res\images\units\cyborg\annihilator\annihilator_default.png" sum="2278347" size="1162"></file>
     <file src="res\images\units\cyborg\annihilator\annihilator_die.png" sum="5928173" size="3233"></file>
     <file src="res\images\units\cyborg\annihilator\avatar.png" sum="121947455" size="63080"></file>
@@ -56,7 +56,7 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29450" size="356"></file>
+    <file src="res\meta.xml" sum="29452" size="356"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -101,8 +101,8 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="530711" size="6489"></file>
-    <file src="res\text\en\text.xml" sum="511434" size="6306"></file>
+    <file src="res\text\de\text.xml" sum="544384" size="6647"></file>
+    <file src="res\text\en\text.xml" sum="523005" size="6443"></file>
     <file src="res\tilemaps\EX-035\burning_steps.tmx" sum="423253" size="5330"></file>
     <file src="res\tilemaps\EX-035\tiles\adds1.png" sum="657118940" size="345647"></file>
     <file src="res\tilemaps\EX-035\tiles\future1.png" sum="90882344" size="52248"></file>

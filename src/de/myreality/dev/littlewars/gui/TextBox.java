@@ -27,7 +27,6 @@ import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.Timer;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class TextBox extends GUIObject implements KeyListener {
 	

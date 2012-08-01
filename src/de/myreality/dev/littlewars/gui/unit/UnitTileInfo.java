@@ -6,11 +6,11 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
+import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.gui.bottommenu.ValueBar;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;
-import de.myreality.dev.littlewars.objects.GUIObject;
 
 public class UnitTileInfo extends GUIObject {
 	

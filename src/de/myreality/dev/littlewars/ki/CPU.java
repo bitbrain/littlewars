@@ -151,11 +151,13 @@ public class CPU extends Player {
 		}
 		
 		// Create a straight line between both centers and find the nearest cell
-		PathLine line = new PathLine(game, this, nearestCenter, opponentCenter);
-		line.findPathPosition(unit);
-		
-		if (unit instanceof CommandoCenter) {
-			((CommandoCenter)unit).setFinalPosition(true);
+		if (nearestCenter != null && opponentCenter != null) {
+			PathLine line = new PathLine(game, this, nearestCenter, opponentCenter);
+			line.findPathPosition(unit);
+			
+			if (unit instanceof CommandoCenter) {
+				((CommandoCenter)unit).setFinalPosition(true);
+			}
 		}
 	}
 	
@@ -243,13 +245,15 @@ public class CPU extends Player {
 
 	@Override
 	public void doBattle(int delta) {
-		super.doBattle(delta);
-		timer.update(delta);
-		if (timer.getMiliseconds() > WAIT) {
-			timer.reset();
-			
-			if (!ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying() &&  !ArmyUnit.isUnitBusy()) {
-				attackNearestUnit();				
+		if (!ArmyUnit.isUnitBusy()) {
+			super.doBattle(delta);
+			timer.update(delta);
+			if (timer.getMiliseconds() > WAIT) {
+				timer.reset();
+				
+				if (!ArmyUnit.isUnitLoosingLife() && !ArmyUnit.isUnitMoving() && hasAvailableUnits() && !ArmyUnit.isUnitDying() &&  !ArmyUnit.isUnitBusy()) {
+					attackNearestUnit();				
+				}
 			}
 		}
 		
