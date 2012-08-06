@@ -1,5 +1,5 @@
 /**
- * This file was written by Miguel Gonzalez and is part of the
+504 * This file was written by Miguel Gonzalez and is part of the
  * game "LittleWars". For more information mailto info@my-reality.de
  * or visit the game page: http://dev.my-reality.de/littlewars
  * 

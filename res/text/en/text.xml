@@ -26,7 +26,7 @@
 
 	<resource type="text" id="TXT_GAME_BACK">Back</resource>
 	<resource type="text" id="TXT_GAME_SAVE">Save</resource>
-	<resource type="text" id="TXT_GAME_SEND">Send</resource>
+	<resource type="text" id="TXT_GAME_SEND">Report</resource>
 	<resource type="text" id="TXT_GAME_LOAD">Load</resource>
 	<resource type="text" id="TXT_GAME_NEXT">Next</resource>
 	<resource type="text" id="TXT_GAME_TRUE">Enabled</resource>

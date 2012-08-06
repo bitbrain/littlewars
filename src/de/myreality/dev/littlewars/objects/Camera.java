@@ -14,10 +14,10 @@ package de.myreality.dev.littlewars.objects;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.tiled.TiledMap;
 
 import de.myreality.dev.littlewars.components.Vector2d;
 import de.myreality.dev.littlewars.gui.GUIObject;
+import de.myreality.dev.littlewars.world.GameWorld;
 
 public class Camera extends GameObject implements Movable {
 	
@@ -27,8 +27,7 @@ public class Camera extends GameObject implements Movable {
 	private static final long serialVersionUID = 1L;
 
 	// Parent tiled map
-	@SuppressWarnings("unused")
-	private TiledMap parentMap;
+	private GameWorld world;
 	
 	// Mouse border
 	private int border = 10;
@@ -55,9 +54,9 @@ public class Camera extends GameObject implements Movable {
 	 * @param parent
 	 * @param container
 	 */
-	public Camera(TiledMap parent, GameContainer container) {
+	public Camera(GameWorld world, GameContainer container) {
 		super(container);
-		this.parentMap = parent;
+		this.world = world;
 		this.velocity = 0.7f;
 		area = new Rectangle(0, 0, container.getWidth(), container.getHeight());		
 		targetX = 0; targetY = 0;
@@ -72,10 +71,10 @@ public class Camera extends GameObject implements Movable {
 	 * @param parent
 	 * @param target
 	 */
-	public Camera(GameContainer container, TiledMap parent, GameObject target) {
+	public Camera(GameContainer container, GameWorld world, GameObject target) {
 		super(container);
 		attachTo(target);
-		this.parentMap = parent;
+		this.world = world;
 		targetX = target.getX(); targetY = target.getY();
 		distance = new Vector2d(0, 0);
 	}
@@ -89,9 +88,9 @@ public class Camera extends GameObject implements Movable {
 	 * @param parent
 	 * @param container
 	 */
-	public Camera(int x, int y, TiledMap parent, GameContainer container) {
+	public Camera(int x, int y, GameWorld world, GameContainer container) {
 		super(x, y, container);
-		this.parentMap = parent;
+		this.world = world;
 		this.velocity = 0.2f;
 		targetX = getX();
 		targetY = getY();
@@ -133,8 +132,21 @@ public class Camera extends GameObject implements Movable {
 		
 	}
 	
-	
-	
+	public void correctWorldPosition() {
+		if (getX() < 0) {
+			setX(0);
+		}
+		if (getY() < 0) {
+			setY(0);
+		}
+		if (getX() + getWidth() > world.getWidth() * world.getTileWidth()) {
+			setX(world.getWidth() * world.getTileWidth() - getWidth());
+		}
+		
+		if (getY() > world.getHeight() * world.getTileHeight() - getHeight()) {
+			setY(world.getHeight() * world.getTileHeight() - getHeight());
+		}
+	}	
 
 	@Override
 	public float getX() {
@@ -182,6 +194,7 @@ public class Camera extends GameObject implements Movable {
 			// Check, if elements are equal
 			moveSmooth = Math.ceil(getX()) != Math.ceil(targetX) || Math.ceil(getY()) != Math.ceil(targetY);
 		}
+		correctWorldPosition();
 	}
 
 	@Override
@@ -223,6 +236,7 @@ public class Camera extends GameObject implements Movable {
 		targetX = x;
 		targetY = y;
 		moveSmooth = true;
+		correctWorldPosition();
 	}
 	
 	

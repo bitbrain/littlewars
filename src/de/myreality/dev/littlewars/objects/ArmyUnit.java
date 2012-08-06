@@ -99,7 +99,11 @@ public abstract class ArmyUnit extends TileObject {
 	// Static members for game control
 	static protected boolean unitMoving, unitDying, unitLoosingLife, unitBusy;
 	
+	// General particle system
 	static ParticleSystem unitSystem;
+	
+	// Directly attacking enemy
+	private ArmyUnit attackingEnemy;
 	
 	static {
 		unitMoving = false;
@@ -172,6 +176,7 @@ public abstract class ArmyUnit extends TileObject {
 		deadFirst = false;
 		lifeSeq = 0;
 		expSeq = 0;
+		attackingEnemy = null;
 		remainingSpeed = getSpeed();
 		expSound = ResourceManager.getInstance().getSound("SOUND_EXP");
 		//info = new UnitTileInfo(this, cam, 0, 0, gc);
@@ -204,6 +209,10 @@ public abstract class ArmyUnit extends TileObject {
 		}
 	}
 	
+	public void setAttackingEnemy(ArmyUnit enemy) {
+		attackingEnemy = enemy;
+	}
+	
 	/**
 	 * Change the player that it belongs to
 	 * 
@@ -234,6 +243,13 @@ public abstract class ArmyUnit extends TileObject {
 	
 	@Override
 	public void move(int direction, int delta) {
+		
+		// Return in order to fix camera bug
+		if (game.getWorld().getCamera().isSmoothMoving() && game.getClientPlayer().isCurrentPlayer()) {
+			return;
+		}
+		
+		
 		if (!isDead() && canMove()) {
 			if (isTargetArrived()) {
 				remainingSpeed--;
@@ -523,14 +539,7 @@ public abstract class ArmyUnit extends TileObject {
 			color = player.getColor();
 		}
 		
-		movementCalculator.update(delta);
-		
-		if (movementCalculator.isDone() && isTargetArrived()) {
-			ArmyUnit enemy = movementCalculator.getEnemy();
-			if (enemy != null) {
-				attack(enemy);			
-			}			
-		}
+		movementCalculator.update(delta);		
 		
 		if (!isTargetArrived()) {
 			setUnitMoving(true);
@@ -542,6 +551,24 @@ public abstract class ArmyUnit extends TileObject {
 		
 		if (lifeSeq > 0) {
 			setUnitLoosingLife(true);
+		}
+		
+
+		if (!isUnitBusy() && movementCalculator.isDone() && isTargetArrived()) {
+			ArmyUnit enemy = movementCalculator.getEnemy();
+			if (enemy != null) {
+				attack(enemy);			
+			}			
+		}		
+		
+		// Attack back
+		if (!isUnitBusy() && attackingEnemy != null && !onDead() && !isDead() && !isDying()) {
+			attackingEnemy.addExperience((getExperienceValue() * (getRank() / attackingEnemy.getRank())) / 2);
+			attack(attackingEnemy, false);
+			attackingEnemy = null;
+		} else if (!isUnitBusy() && (onDead() || isDead() || isDying()) && attackingEnemy != null) {
+			attackingEnemy.addExperience(getExperienceValue() * (getRank() / attackingEnemy.getRank()));
+			attackingEnemy = null;
 		}
 		
 		for (Entry<Integer, UnitEmitter> entry : emitters.entrySet()) {
@@ -738,17 +765,27 @@ public abstract class ArmyUnit extends TileObject {
 	}
 	
 	public void attack(ArmyUnit target) {
+		attack(target, true);
+	}
+	
+	public void attack(ArmyUnit target, boolean attackingBack) {
 		if (!equals(target)) {
 			// Play attack sound
 			playRandomSound("onAttack");
 			
 			// Damage calculation 
-			int damage = (int) ((int) (11 * (Math.random() * 250 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
+			int damage = (int) ((int) (11 * (Math.random() * 30 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
 			target.addDamage(damage);
-			if (target.isDead()) {
-				addExperience(target.getExperienceValue());
-			} else {
-				addExperience((damage / 5) * (target.getRank() / getRank()));
+			if (!target.isDead()) {
+				if (attackingBack) {
+					target.setAttackingEnemy(this);
+				} else {
+					if (target.isDying() || target.isDead() || target.onDead()) {
+						addExperience(getExperienceValue() * (target.getRank() / getRank()));
+					} else {
+						addExperience((getExperienceValue() * (target.getRank() / getRank())) / 2);
+					}
+				}
 			}
 			movementCalculator.reset();
 			

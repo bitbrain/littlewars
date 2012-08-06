@@ -27,7 +27,7 @@
 	
 	<resource type="text" id="TXT_GAME_BACK">Zurück</resource>
 	<resource type="text" id="TXT_GAME_SAVE">Speichern</resource>
-	<resource type="text" id="TXT_GAME_SEND">Senden</resource>
+	<resource type="text" id="TXT_GAME_SEND">Melden</resource>
 	<resource type="text" id="TXT_GAME_LOAD">Laden</resource>
 	<resource type="text" id="TXT_GAME_NEXT">Weiter</resource>
 	<resource type="text" id="TXT_GAME_TRUE">Ein</resource>

@@ -134,6 +134,10 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		buildCollisionArray();
 	}
 	
+	public IngameState getGame() {
+		return game;
+	}
+	
 	
 	public void finalize() {
 		close();		
@@ -391,14 +395,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		if (cam.getY() + cam.getHeight() + topHeight > worldHeight) {
 			cam.setY(worldHeight - (gc.getHeight() - bottomHeight - topHeight));
 		} 	
-		
-		
-		// Test proposal for lightning engine
-		//if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
-		//	mainLight.setLocation((cam.getX() + input.getMouseX()-getTileWidth() * 2)/getTileWidth(),(cam.getY() + input.getMouseY()-getTileWidth() * 2)/getTileWidth());
-		//	updateLightMap();
-		//}
-		
+
 		// Objekte updaten
 		boolean hover = false;
 		boolean clicked = false;
@@ -712,10 +709,11 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		focusCameraOnObject(obj, gc, false);
 	}
 
-
 	public String getName() {
 		return name;
 	}
+	
+	
 	
 	
 	

@@ -23,16 +23,26 @@ public class FadeInfo extends GUIObject {
 	// Setting
 	FadeInfoSetting setting;
 	
+	GameObject target;
+	
 
-	public FadeInfo(GameObject target, FadeInfoSetting setting, GameContainer gc, IngameState game) {
+	public FadeInfo(GameObject target, FadeInfoSetting setting, GameContainer gc, FadeInfo last, IngameState game) {
 		super((int)target.getX(), (int)target.getY(), gc);	
+		this.target = target;
 		this.setting = setting;
 		content = new GameText(0, 0, setting.getText(), ResourceManager.getInstance().getFont("FONT_SMALL"), gc, game.getWorld().getCamera());
-		content.attachTo(this);	
-		content.setX(-(content.getWidth() / 2) + target.getWidth() / 2);
 		
+		content.setX(-(content.getWidth() / 2) + target.getWidth() / 2);
+		if (last != null && last.getTarget().equals(target)) {
+			setY(last.getY() + last.getHeight());
+		}
+		content.attachTo(this);	
 		// Set Color		
 		content.setColor(setting.getColor());
+	}
+	
+	public GameObject getTarget() {
+		return target;
 	}
 	
 	public void clear() {
@@ -52,6 +62,26 @@ public class FadeInfo extends GUIObject {
 	
 	public boolean isDone() {
 		return content.getColor().a <= 0;
+	}
+	
+	
+
+	@Override
+	public int getWidth() {
+		if (content != null) {
+			return content.getWidth();
+		} else {
+			return super.getWidth();
+		}
+	}
+
+	@Override
+	public int getHeight() {
+		if (content != null) {
+			return content.getHeight();
+		} else {
+			return super.getHeight();
+		}
 	}
 
 	@Override

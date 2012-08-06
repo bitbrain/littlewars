@@ -91,11 +91,11 @@ public class Annihilator extends ArmyUnit {
 
 	@Override
 	protected int getRankExperience(int rank) {
-		return (int) (25 * Math.pow((float)rank, 1.5) + 400);
+		return (int) (45 * Math.pow((float)rank, 1.5) + 400);
 	}
 
 	@Override
 	protected int getRankExperienceValue(int rank) {
-		return rank * 500;
+		return rank * 150;
 	}
 }

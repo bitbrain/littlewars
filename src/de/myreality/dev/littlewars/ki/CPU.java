@@ -237,7 +237,7 @@ public class CPU extends Player {
 		}
 		
 		if (currentUnit != null && !currentUnit.isTargetArrived()) {
-			game.getWorld().focusCameraOnObject(currentUnit, gc, true);
+			game.getWorld().setFocusObject(currentUnit);
 		}
 		
 		return true;

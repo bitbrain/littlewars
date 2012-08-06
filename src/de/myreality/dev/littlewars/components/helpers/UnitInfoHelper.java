@@ -41,7 +41,14 @@ public class UnitInfoHelper {
 	}
 	
 	public FadeInfo addInfo(GameObject target, FadeInfoSetting setting, GameContainer gc, IngameState game) {
-		FadeInfo info = new FadeInfo(target, setting, gc, game);
+		FadeInfo info = null;
+		if (!infos.isEmpty()) {
+			FadeInfo last = infos.get(infos.size() - 1);
+			info = new FadeInfo(target, setting, gc, last, game);
+		} else {
+			info = new FadeInfo(target, setting, gc, null, game);
+		}
+		 
 		infos.add(info);
 		return info;
 	}
