@@ -50,15 +50,15 @@ public abstract class GUIObject extends GameObject {
 	
 	// TODO Create javadoc here
 	@Override
-	public boolean onClick() {
-		return enabled && super.onClick();
+	public boolean onMouseClick() {
+		return enabled && super.onMouseClick();
 	}
 
 
 	// TODO Create javadoc here
 	@Override
-	public boolean onHover() {
-		return enabled && super.onHover();
+	public boolean onMouseOver() {
+		return enabled && super.onMouseOver();
 	}
 
 	// TODO Create javadoc here
@@ -75,8 +75,8 @@ public abstract class GUIObject extends GameObject {
 
 	// TODO Create javadoc here
 	@Override
-	public boolean isHover() {
-		return enabled && super.isHover();
+	public boolean isMouseOver() {
+		return enabled && super.isMouseOver();
 	}
 
 

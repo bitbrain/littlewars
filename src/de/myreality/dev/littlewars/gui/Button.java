@@ -128,7 +128,7 @@ public class Button extends GUIObject {
 	public void draw(Graphics g) {	
 		if (isVisible()) {
 			if (background != null) {
-				if (isHover() && clrFocus == null) {				
+				if (isMouseOver() && clrFocus == null) {				
 					background.draw(getX(), getY(), width, height, hoverColor);
 				} else if (isEnabled()) {
 					if (clrFocus != null) {
@@ -157,11 +157,11 @@ public class Button extends GUIObject {
 		super.update(delta);
 		
 		if (soundOn) {
-			if (onHover()) {
+			if (onMouseOver()) {
 				hoverSound.play(1.0f, 0.5f);
 			}
 			
-			if (onClick()) {
+			if (onMouseClick()) {
 				clickSound.play(1.0f, 0.5f);
 			}
 		}

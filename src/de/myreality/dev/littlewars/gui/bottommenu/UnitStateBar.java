@@ -26,7 +26,7 @@ public class UnitStateBar extends GUIObject {
 		lifeBar.attachTo(this);
 		lifeBar.setColor(ResourceManager.getInstance().getColor("UNIT_LIFE_FULL"));
 		expBar.attachTo(this);
-		expBar.setColor(ResourceManager.getInstance().getColor("UNIT_EXP"));
+		expBar.setColor(ResourceManager.getInstance().getColor("UNIT_EXP"));		
 		lifeBar.setBorder(1);
 		expBar.setBorder(1);
 	}
@@ -34,7 +34,7 @@ public class UnitStateBar extends GUIObject {
 	@Override
 	public void draw(Graphics g) {		
 		if (unit != null) {
-			lifeBar.draw(g);
+			//lifeBar.draw(g);
 			expBar.draw(g);
 		}
 	}

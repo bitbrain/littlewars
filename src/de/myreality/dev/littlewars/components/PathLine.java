@@ -38,11 +38,12 @@ public class PathLine {
 	public void findPathPosition(TileObject object) {
 		float param = 0.0f;
 		while (param < 1.0f) {
-			param += 0.01;
+			param += 0.001;
 			int tileX = (int) (start.x + param * direction.x);
 			int tileY = (int) (start.y + param * direction.y);
 			// Check position
 			GameWorld world = game.getWorld();
+
 			if (!world.collisionExists(tileX, tileY) && owner.getSpawnArea().isInRange(tileX, tileY)) {				
 				object.setX(tileX * world.getTileWidth());
 				object.setY(tileY * world.getTileHeight());

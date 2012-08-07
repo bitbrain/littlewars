@@ -218,7 +218,7 @@ public class ContextMenuHelper {
 		
 		public boolean onAccept() {
 			if (btnAccept != null) {
-				return btnAccept.onClick();
+				return btnAccept.onMouseClick();
 			}
 			
 			return false;
@@ -256,7 +256,7 @@ public class ContextMenuHelper {
 		
 		public boolean onAbort() {
 			if (btnAbort != null) {
-				return btnAbort.onClick();
+				return btnAbort.onMouseClick();
 			}
 			
 			return false;

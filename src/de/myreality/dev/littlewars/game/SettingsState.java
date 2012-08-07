@@ -185,12 +185,12 @@ public class SettingsState extends CustomGameState {
 		fieldVsync.update(delta);
 		fieldSound.update(delta);
 		btnSave.update(delta);		
-		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE) || btnBack.onClick()) {
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE) || btnBack.onMouseClick()) {
 			gc.getInput().clearMousePressedRecord();
 			sbg.enterState(LittleWars.MAINMENU_STATE);
 		}
 		
-		if (btnSave.onClick()) {
+		if (btnSave.onMouseClick()) {
 			// Apply configuration
 			Configuration config = Configuration.getInstance();
 			try {

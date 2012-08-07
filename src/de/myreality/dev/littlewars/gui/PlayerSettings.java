@@ -162,7 +162,7 @@ public class PlayerSettings extends GUIObject {
 			entry.getValue().update(delta);
 			
 			// Color update	
-			if (entry.getValue().getColorButton().onClick()) {
+			if (entry.getValue().getColorButton().onMouseClick()) {
 				Color lastColor = entry.getValue().getColorButton().getLastColor();	
 				for (Entry<Integer, SingleSetting> target : settings.entrySet()) {
 					try {
@@ -344,15 +344,15 @@ public class PlayerSettings extends GUIObject {
 			
 			// Customize the GUI			
 			try {				
-				if (btnFraction.onClick()) {
+				if (btnFraction.onMouseClick()) {
 					player.setFraction(btnFraction.getCurrentValue());
 				}
 				
-				if (btnDifficulty.onClick()) {
+				if (btnDifficulty.onMouseClick()) {
 					player.setDifficulty(btnDifficulty.getCurrentValue());
 				}
 				
-				if (btnColor.onClick() || btnColor.getCurrentValue() != player.getColor()) {
+				if (btnColor.onMouseClick() || btnColor.getCurrentValue() != player.getColor()) {
 					player.setColor(btnColor.getCurrentValue());					
 				}
 				

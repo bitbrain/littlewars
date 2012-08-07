@@ -68,11 +68,11 @@ public class BugReportState extends CustomGameState {
 			int delta) {
 		backButton.update(delta);
 		sendButton.update(delta);
-		if (backButton.onClick()) {
+		if (backButton.onMouseClick()) {
 			sbg.enterState(lastID);
 		}
 		
-		if (sendButton.onClick()) {	
+		if (sendButton.onMouseClick()) {	
 			if(java.awt.Desktop.isDesktopSupported() ) {
 	              java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 	       

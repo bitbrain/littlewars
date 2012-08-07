@@ -83,7 +83,7 @@ public class PopupBox extends GUIObject {
 		super.update(delta);
 		
 		if (getParent() != null) {
-			if (getParent().isHover()) {
+			if (getParent().isMouseOver()) {
 				visible = true;
 				if (clrBackground.a < 0.5f) {
 					clrBackground.a += 0.005f * delta;					

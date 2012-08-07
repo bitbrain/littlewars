@@ -38,21 +38,11 @@ public abstract class UnitGenerator {
 		return ResourceManager.getInstance().getAllUnitResources(fraction.getKey()).size();
 	}
 	
-	public static int getUnitCredits(int id) {
-		switch (id) {
-			case 0: 
-				return 3500;
-			case 1: 
-				return 15000;
-		}
-		
-		return 0;
-	}
-	
 	public List<Pair<ArmyUnit, Integer> > generateDefaultUnits() {
 		List<Pair<ArmyUnit, Integer> > units = new ArrayList<Pair<ArmyUnit, Integer> >();
-		for (int i = 0; i < getUnitCount(); ++i) {			
-			units.add(new Pair<ArmyUnit, Integer>(generateUnitByID(i), getUnitCredits(i)));
+		for (int i = 0; i < getUnitCount(); ++i) {	
+			ArmyUnit unit = generateUnitByID(i);
+			units.add(new Pair<ArmyUnit, Integer>(generateUnitByID(i), unit.getPrice()));
 		}		
 		
 		return units;
@@ -63,7 +53,8 @@ public abstract class UnitGenerator {
 		List<Pair<ArmyUnit, Integer> > units = new ArrayList<Pair<ArmyUnit, Integer> >();
 		for (int i = 0; i < getUnitCount() - 1; ++i) {		
 			for (int count = 0; count < START_COUNT; ++count) {
-				units.add(new Pair<ArmyUnit, Integer>(generateUnitByID(i), getUnitCredits(i)));
+				ArmyUnit unit = generateUnitByID(i);
+				units.add(new Pair<ArmyUnit, Integer>(generateUnitByID(i), unit.getPrice()));
 			}
 		}		
 		return units;

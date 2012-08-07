@@ -118,7 +118,7 @@ public class CreditsState extends CustomGameState {
 		// Update the elements
 		animatedImages.update(delta);
 		backButton.update(delta);
-		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE) || backButton.onClick()) {
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE) || backButton.onMouseClick()) {
 			gc.getInput().clearMousePressedRecord();	
 			sbg.enterState(LittleWars.MAINMENU_STATE);
 		}

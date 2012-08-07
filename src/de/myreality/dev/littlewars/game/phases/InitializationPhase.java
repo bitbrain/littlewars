@@ -47,7 +47,7 @@ public class InitializationPhase extends BasicGamePhase {
 			} else if (!ArmyUnit.isUnitBusy()) {
 				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);
 				// Client Player
-				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
+				if (game.getTopMenu().getBtnPhaseQuit().onMouseClick()) {
 					// Show a warning, when there exist available units
 					if (currentPlayer.hasAvailableUnits()) {
 						ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 

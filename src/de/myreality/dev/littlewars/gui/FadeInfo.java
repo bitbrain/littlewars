@@ -1,4 +1,4 @@
-package de.myreality.dev.littlewars.gui.unit;
+package de.myreality.dev.littlewars.gui;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -6,8 +6,6 @@ import org.newdawn.slick.Graphics;
 import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.gui.GUIObject;
-import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.objects.GameObject;
 
 public class FadeInfo extends GUIObject {

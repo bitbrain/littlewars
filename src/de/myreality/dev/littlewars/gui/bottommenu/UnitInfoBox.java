@@ -3,6 +3,7 @@ package de.myreality.dev.littlewars.gui.bottommenu;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.GUIObject;
@@ -19,7 +20,7 @@ public class UnitInfoBox extends GUIObject {
 	private GameWorld targetWorld;
 	private GameText txtLife, txtExp, txtStrength, txtDefense, txtSpeed, txtStrengthAdd, txtDefenseAdd, txtSpeedAdd;
 	private GameText txtLifeDescription, txtExpDescription, txtStrengthDescription, txtDefenseDescription, txtSpeedDescription;
-	
+	private Image background;
 
 	public UnitInfoBox(GUIObject parent, GUIObject bottomMenu, GameContainer gc) {
 		super(-200, 0, gc);
@@ -64,6 +65,8 @@ public class UnitInfoBox extends GUIObject {
 		txtSpeedAdd = new GameText(0, 0, "", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		txtSpeedAdd.attachTo(txtSpeed);
 		txtSpeedAdd.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
+		
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
 		
 	}
 	
@@ -139,8 +142,7 @@ public class UnitInfoBox extends GUIObject {
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
-		g.drawRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
+		background.draw(getX(), getY(), getWidth(), getHeight());
 		// Life
 		txtLifeDescription.draw(g);
 		txtLife.draw(g);

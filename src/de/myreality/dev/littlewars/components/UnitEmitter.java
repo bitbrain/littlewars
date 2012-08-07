@@ -70,6 +70,7 @@ public class UnitEmitter {
 	}
 	
 	public void releaseFromSystem() {
+		ArmyUnit.emitterAdded = true;
 		system.removeEmitter(emitter);
 		Debugger.getInstance().write("Release emitter " + emitter);
 		emitter = null;

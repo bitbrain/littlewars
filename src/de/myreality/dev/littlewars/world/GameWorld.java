@@ -348,7 +348,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		//}
 		
 		// TODO: Top Menu camera moving
-		if (bottomMenu != null && !bottomMenu.isHover()/* && !cam.getTopMenu().isHover()*/) {
+		if (bottomMenu != null && !bottomMenu.isMouseOver()/* && !cam.getTopMenu().isHover()*/) {
 			if (input.getMouseY() < padding) {
 				cam.move(Movable.TOP, delta);			
 			} else {
@@ -358,7 +358,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 			}
 		} 
 		
-		if (bottomMenu != null && !bottomMenu.isHover()) {
+		if (bottomMenu != null && !bottomMenu.isMouseOver()) {
 			if (input.getMouseX() < padding) {
 				cam.move(Movable.LEFT, delta);
 			} else if (input.getMouseX() > gc.getWidth() - padding) {
@@ -410,22 +410,22 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 					break;
 				}
 				
-				if (unit.onClick()) {
+				if (unit.onMouseClick()) {
 					//unit.addDamage(6000);
 				}
-				
+			
 				if (!target.isTargetArrived()) {
 					movingObject = target;
 				}
 				
-				if (!bottomMenu.isHover()) {
-	    			if (target.isHover()) {
+				if (!bottomMenu.isMouseOver()) {
+	    			if (target.isMouseOver()) {
 	    				hoverObject = target;
 	    				hover = true;
 	    			}	    
 	    			
 	    			// Solved the attack problem: only focus, when target is NOT a potential enemy unit
-	    			if (!clicked && unit.onClick()
+	    			if (!clicked && unit.onMouseClick()
 	    			    && unit.getPlayer().equals(game.getClientPlayer())) {
 	    				clicked = true;
 	    				clickedObject = unit;
@@ -449,14 +449,22 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 						target.stop();
 					}
 				}
+				
+				/*if (!unit.getPlayer().equals(game.getClientPlayer())) {
+					if (target.onMouseOver()) {
+						gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"), 0, 0);
+					} else if (target.onMouseOut()) {
+						gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_ATTACK"), 0, 0);
+					}
+				}*/
 			}
 		}
 		
-		if (!hover && !bottomMenu.isHover()) {
+		if (!hover && !bottomMenu.isMouseOver()) {
 			hoverObject = null;    				
 		}	  
 		
-		if (clickedObject != null && !clicked && !bottomMenu.isHover()) {
+		if (clickedObject != null && !clicked && !bottomMenu.isMouseOver()) {
 			clickedObject = null;	    			
     	}
 		
@@ -547,7 +555,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    			}
 	    		}
 	    	} else if (i == 1) {
-	    		if (!bottomMenu.isHover() && !cam.isSmoothMoving() && !cam.hasMoved()) {
+	    		if (!bottomMenu.isMouseOver() && !cam.isSmoothMoving() && !cam.hasMoved()) {
 	    			int curX = tileIndexX(gc.getInput().getMouseX() - tileOffsetX);
 	    			int curY = tileIndexY(gc.getInput().getMouseY() - tileOffsetY);
 	    			int curTotalX = tileIndexX(cam.getX() + gc.getInput().getMouseX());
@@ -577,7 +585,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		    			}
 	    			}
 	    		}
-	    		if (!bottomMenu.isHover() && focusObject != null && game.getPhaseID() != IngameState.PREPERATION) {
+	    		if (!bottomMenu.isMouseOver() && focusObject != null && game.getPhaseID() != IngameState.PREPERATION) {
 	    			int xT = tileIndexX(gc.getInput().getMouseX() + cam.getX());
 	    			int yT = tileIndexY(gc.getInput().getMouseY() + cam.getY());
 	    			ArmyUnit obj = (ArmyUnit) focusObject;

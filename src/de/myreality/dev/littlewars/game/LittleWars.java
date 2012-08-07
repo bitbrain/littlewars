@@ -16,7 +16,6 @@ import java.io.IOException;
 import org.lwjgl.LWJGLException;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -97,7 +96,7 @@ public class LittleWars extends StateBasedGame {
 		ResourceManager.getInstance().loadDefaultResources();
 		AppGameContainer appgc = (AppGameContainer) gc;
 		appgc.setTitle(Debugger.getInstance().getFullGameInfo());
-		gc.setMouseCursor(new Image("res/cursors/pointer.png"), 0, 0);
+		gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"), 0, 0);
 		gc.setIcons(new String[] {"res/icon/32x32.tga", "res/icon/24x24.tga", "res/icon/16x16.tga"});
 		Debugger.getInstance().write("Starting Game " + Debugger.getInstance().getFullGameInfo() + "..");
 	}	

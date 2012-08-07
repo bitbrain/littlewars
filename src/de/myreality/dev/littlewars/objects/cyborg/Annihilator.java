@@ -96,6 +96,11 @@ public class Annihilator extends ArmyUnit {
 
 	@Override
 	protected int getRankExperienceValue(int rank) {
-		return rank * 150;
+		return 80  + 30 * rank;
+	}
+
+	@Override
+	public int getPrice() {
+		return 1900;
 	}
 }

@@ -217,12 +217,12 @@ public class MapSelector extends GUIObject {
 			for (MapConfig config: maps) {
 				config.update(delta);
 				
-				if (config.isHover()) {
+				if (config.isMouseOver()) {
 					hover = config;
 					hoverElement = true;					
 				}
 				
-				if (config.onClick()) {
+				if (config.onMouseClick()) {
 					selected = config;					
 					clicked = config;					
 				} 	

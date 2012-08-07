@@ -159,7 +159,7 @@ public class StateButton<T> extends ZoomButton {
 		super.update(delta);
 		
 		if (currentEntry != null) {
-			if (onClick()) {
+			if (onMouseClick()) {
 				currentEntry = getNextEntry();
 			}
 			

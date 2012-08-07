@@ -23,13 +23,14 @@ public class UnitAvatarInfo extends GUIObject {
 	private UnitStateBar unitState;
 	private Image topShadow;
 	private GameText unitRank;
+	private Image background;
 
 	public UnitAvatarInfo(BottomMenu parent, GameContainer gc) {
 		super(borderPadding + parent.getWidth() - parent.getHeight(), borderPadding, gc);
 		attachTo(parent);
 		width = parent.getHeight() - borderPadding * 2;
 		height = width;	
-		unitName = new GameText(5, 2, "Name", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
+		unitName = new GameText(5, 5, "Name", ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		unitName.attachTo(this);
 		unitState = new UnitStateBar(this, 15, 8, gc);
 		topShadow = ResourceManager.getInstance().getImage("GUI_TOPSHADOW");
@@ -37,6 +38,7 @@ public class UnitAvatarInfo extends GUIObject {
 		unitRank.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		unitRank.attachTo(this);
 		unitRank.setY(getHeight() - unitState.getHeight() - unitRank.getHeight() - 2);
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
 	}
 
 	@Override
@@ -81,8 +83,7 @@ public class UnitAvatarInfo extends GUIObject {
 			if (unit == null) {
 				unit = (ArmyUnit) targetWorld.getFocusObject();
 			}
-			g.setColor(Color.black);
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
+			background.draw(getX(), getY(), getWidth(), getHeight());
 			
 			if (unit != null) {
 				unit.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, unit.getPlayer().getColor());	

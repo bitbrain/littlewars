@@ -31,9 +31,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.GameSettings;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper;
-import de.myreality.dev.littlewars.components.helpers.UnitInfoHelper;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper.ContextMenuEvent;
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
+import de.myreality.dev.littlewars.components.helpers.UnitInfoHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.components.statistic.RoundTracker;
 import de.myreality.dev.littlewars.game.phases.BasicGamePhase;
@@ -42,8 +42,8 @@ import de.myreality.dev.littlewars.game.phases.InitializationPhase;
 import de.myreality.dev.littlewars.game.phases.PreperationPhase;
 import de.myreality.dev.littlewars.gui.PhaseInfo;
 import de.myreality.dev.littlewars.gui.TopMenu;
+import de.myreality.dev.littlewars.gui.UnitTileInfo;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
-import de.myreality.dev.littlewars.gui.unit.UnitTileInfo;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.world.Difficulty;
@@ -121,6 +121,7 @@ public class IngameState extends CustomGameState implements Serializable {
 
 	@Override
 	public void updateContent(GameContainer gc, StateBasedGame sbg, int delta) {
+		ArmyUnit.emitterAdded = false;
 		if (!isClosed()) {
 			try {
 				updateAll(gc, sbg, delta);
@@ -153,7 +154,7 @@ public class IngameState extends CustomGameState implements Serializable {
 			}
 		}
 		
-		ArmyUnit.updateParticles(delta);
+		ArmyUnit.updateParticles(delta);		
 	}
 
 	public List<Player> getPlayers() {
@@ -209,7 +210,7 @@ public class IngameState extends CustomGameState implements Serializable {
 			bottomMenu.update(delta);
 			topMenu.update(delta);
 			
-			if (topMenu.getBtnQuit().onClick()) {
+			if (topMenu.getBtnQuit().onMouseClick()) {
 				ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 
 												     ResourceManager.getInstance().getText("TXT_INFO_LEAVE"), new ContextMenuEvent() { 
 	

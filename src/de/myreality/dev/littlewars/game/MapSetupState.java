@@ -134,13 +134,13 @@ public class MapSetupState extends CustomGameState {
 			textMapInfo.setText("");
 		}				
 		
-		if (gc.getInput().isKeyDown(Input.KEY_ESCAPE) || btnBack.onClick()) {
+		if (gc.getInput().isKeyDown(Input.KEY_ESCAPE) || btnBack.onMouseClick()) {
 			GameSettings.getInstance().clear();
 			mapSelector.reset();
 			sbg.enterState(LittleWars.MAINMENU_STATE);
 		}
 		
-		if (btnNext.onClick()) {			
+		if (btnNext.onMouseClick()) {			
 			GameSettings.getInstance().setMapConfig(mapSelector.getSelected());
 			// TODO: Add map weather here
 			GameSettings.getInstance().setWeather(Weather.normal);

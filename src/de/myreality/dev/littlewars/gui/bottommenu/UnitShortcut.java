@@ -3,6 +3,7 @@ package de.myreality.dev.littlewars.gui.bottommenu;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Rectangle;
 
@@ -20,16 +21,17 @@ public class UnitShortcut extends GUIObject {
 	/**
 	 * 
 	 */
+	public static int BORDER = 3;
 	private static final long serialVersionUID = 1L;
 	private ArmyUnit sibling;
 	private GameWorld world;
-	private Color clrHover, clrFocus;
 	private GUIObject menu;
 	private ValueBar lifeBar;
 	private ValueBar expBar;
 	private GameText rankText;
 	@SuppressWarnings("unused")
 	private Sound hoverSound;
+	private Image background, backgroundHover;
 
 	public UnitShortcut(GUIObject menu, GameWorld world, ArmyUnit sibling, int x, int y, int width, int height, GameContainer gc) {
 		super(x, y, gc);
@@ -38,21 +40,19 @@ public class UnitShortcut extends GUIObject {
 		area = new Rectangle(getX(), getY(), getWidth(), getHeight());	
 		this.sibling = sibling;
 		this.world = world;
-		clrHover = Color.black;
-		clrFocus = ResourceManager.getInstance().getColor("COLOR_MAIN");
 		this.menu = menu;
 		// Life bar
-		lifeBar = new ValueBar(0, 0, getWidth(), 7, gc);
+		lifeBar = new ValueBar(BORDER - 1, 0, getWidth() - BORDER * 2 + 2, 7, gc);
 		lifeBar.attachTo(this);		
 		lifeBar.setBorder(1);
 		lifeBar.setColor(ResourceManager.getInstance().getColor("UNIT_LIFE_FULL"));
 		// Exp bar
-		expBar  = new ValueBar(0, lifeBar.getHeight() - lifeBar.getBorder(), getWidth(), 4, gc);
+		expBar  = new ValueBar(BORDER - 2, lifeBar.getHeight() - lifeBar.getBorder(), getWidth() - BORDER * 2 + 2, 4, gc);
 		expBar.attachTo(lifeBar);
 		expBar.setColor(ResourceManager.getInstance().getColor("UNIT_EXP"));
 		expBar.setBorder(1);
 		// Rank text
-		rankText = new GameText(0, height, "0",	ResourceManager.getInstance().getFont("FONT_TINY"), gc);
+		rankText = new GameText(BORDER, height, "0",	ResourceManager.getInstance().getFont("FONT_TINY"), gc);
 		rankText.setY(height - rankText.getHeight());
 		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		rankText.attachTo(this);
@@ -63,6 +63,8 @@ public class UnitShortcut extends GUIObject {
 		rankText.setColor(ResourceManager.getInstance().getColor("COLOR_LEVEL"));
 		hoverSound = ResourceManager.getInstance().getSound("SOUND_HOVER");
 		PopupHelper.getInstance().addPopup(this, sibling.getName(), gc);
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SHORTCUT");
+		backgroundHover = ResourceManager.getInstance().getImage("GUI_BOTTOM_SHORTCUT_HOVER");
 	}
 	
 	public void finalize() {
@@ -74,7 +76,7 @@ public class UnitShortcut extends GUIObject {
 		
 		boolean drawActive = false;
 		
-		drawActive = isHover();
+		drawActive = isMouseOver();
 		
 		if (!drawActive) {
 			if (world.getFocusObject() != null) {
@@ -88,31 +90,30 @@ public class UnitShortcut extends GUIObject {
 		Color drawColor = sibling.getPlayer().getColor();
 		
 		// Exceptions are Commando Centers, because they've to be generally gray
-		boolean isCenterInBattle = sibling.getGame().getPhaseID() == IngameState.BATTLE && sibling instanceof CommandoCenter;
+		boolean isCenterInBattle = sibling.getGame().getPhaseID() == IngameState.BATTLE && sibling instanceof CommandoCenter && sibling.getPlayer().isCurrentPlayer();
 		
 		if (sibling.getRemainingSpeed() < 1 && (!(sibling instanceof CommandoCenter)) || isCenterInBattle) {
 			drawColor = Color.gray;
 		}
 
-		if (isHover() && !sibling.equals(world.getFocusObject())) {
-			g.setColor(clrHover);
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
-			sibling.getImgAvatar().draw(getX() + 1, getY() + 1, getWidth() - 2, getHeight() - 2, drawColor);
+		if (isMouseOver() && !sibling.equals(world.getFocusObject())) {
+			backgroundHover.draw(getX(), getY(), getWidth(), getHeight());
+			sibling.getImgAvatar().draw(getX() + BORDER, getY() + BORDER, getWidth() - BORDER * 2, getHeight() - BORDER * 2, drawColor);
 		} else if (sibling.equals(world.getFocusObject())) {
-			g.setColor(Color.black);
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
-			g.setColor(clrFocus);
-			g.fillRoundRect(getX() + 1, getY() + 1, getWidth() - 2, getHeight() - 2, 2);
-			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, drawColor);
+			Color colorOriginal = ResourceManager.getInstance().getColor("COLOR_MAIN");
+			Color color = new Color(colorOriginal.r, colorOriginal.g, colorOriginal.b, (float) 0.2);
+			backgroundHover.draw(getX(), getY(), getWidth(), getHeight(), colorOriginal);
+			g.setColor(color);
+			g.drawRoundRect(getX(), getY(), getWidth(), getHeight(), 3);
+			sibling.getImgAvatar().draw(getX() + BORDER, getY() + BORDER, getWidth() - BORDER * 2, getHeight() - BORDER * 2, drawColor);
 		} else {
-			g.setColor(Color.black);
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 2);
-			sibling.getImgAvatar().draw(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, drawColor);
+			background.draw(getX(), getY(), getWidth(), getHeight());
+			sibling.getImgAvatar().draw(getX() + BORDER, getY() + BORDER, getWidth() - BORDER * 2, getHeight() - BORDER * 2, drawColor);
 		}
 		
 		if (!sibling.isDead()) {
-			expBar.draw(g);
 			lifeBar.draw(g);
+			expBar.draw(g);			
 		}
 		rankText.draw(g);
 	}
@@ -120,18 +121,18 @@ public class UnitShortcut extends GUIObject {
 	@Override
 	public void update(int delta) {
 		super.update(delta);
-		if (onClick()) {
+		if (onMouseClick()) {
 			world.focusCameraOnObject(sibling, gc);
 		}
 		
-		if (onHover()) {
+		if (onMouseOver()) {
 			// TODO: Find new sound
 			//hoverSound.play();
 		}
 		
-		if (isHover()) {
+		if (isMouseOver()) {
 			world.setHoverObject(sibling);
-		}  else if (menu.isHover()) {
+		}  else if (menu.isMouseOver()) {
 			if (world.getHoverObject() != null) {
 				if (world.getHoverObject().equals(sibling)) {
 					world.setHoverObject(null);
@@ -139,10 +140,10 @@ public class UnitShortcut extends GUIObject {
 			}
 		}
 		
-		if (onClick()) {
+		if (onMouseClick()) {
 			world.setClickedObject(sibling);
 			sibling.setOnClicked(true);
-		}  else if (menu.isHover()) {
+		}  else if (menu.isMouseOver()) {
 			if (world.getClickedObject() != null) {
 				if (world.getClickedObject().equals(sibling)) {
 					world.setClickedObject(null);					
@@ -152,7 +153,7 @@ public class UnitShortcut extends GUIObject {
 		
 		
 		// Fade popup out
-		if (onClick() && sibling instanceof CommandoCenter && world.getParentGame().getPhaseID() != IngameState.BATTLE) {
+		if (onMouseClick() && sibling instanceof CommandoCenter && world.getParentGame().getPhaseID() != IngameState.BATTLE) {
 			setVisible(false);
 		} else {
 			setVisible(true);

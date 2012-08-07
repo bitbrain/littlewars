@@ -18,7 +18,8 @@ import org.newdawn.slick.Graphics;
 
 import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.game.IngameState;
-import de.myreality.dev.littlewars.gui.unit.FadeInfo;
+import de.myreality.dev.littlewars.gui.FadeInfo;
+import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.GameObject;
 
 public class UnitInfoHelper {
@@ -71,6 +72,9 @@ public class UnitInfoHelper {
 				removeInfo(info);
 				break;
 			}
+		}
+		if (!infos.isEmpty()) {
+			ArmyUnit.setUnitBusy(true);
 		}
 	}
 }

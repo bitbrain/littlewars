@@ -73,7 +73,7 @@ public class ZoomButton extends Button {
 	public void draw(Graphics g) {
 		if (isVisible()) {
 			if (background != null) {
-				if (isHover() && clrFocus == null) {
+				if (isMouseOver() && clrFocus == null) {
 					background.draw(getX(), getY(), getWidth(), getHeight(), hoverColor);
 				} else if (isEnabled() ){
 					if (clrFocus != null) {
@@ -102,7 +102,7 @@ public class ZoomButton extends Button {
 		
 		super.update(delta);
 		
-		if (isHover()) {
+		if (isMouseOver()) {
 			zoomEffect(delta);
 		} else {
 			if (zoom != 0) {

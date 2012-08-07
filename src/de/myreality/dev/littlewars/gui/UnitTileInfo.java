@@ -1,4 +1,4 @@
-package de.myreality.dev.littlewars.gui.unit;
+package de.myreality.dev.littlewars.gui;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -6,8 +6,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.gui.GUIObject;
-import de.myreality.dev.littlewars.gui.GameText;
 import de.myreality.dev.littlewars.gui.bottommenu.ValueBar;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
 import de.myreality.dev.littlewars.objects.Camera;

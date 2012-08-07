@@ -80,7 +80,7 @@ public class StatisticState extends CustomGameState {
 			int delta) {
 		btnNext.update(delta);
 		graph.update(delta);
-		if (btnNext.onClick()) {
+		if (btnNext.onMouseClick()) {
 			tracker.clear();
 			sbg.enterState(LittleWars.MAINMENU_STATE);
 		}

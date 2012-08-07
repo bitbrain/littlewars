@@ -52,6 +52,6 @@ public class CyborgCommandoCenter extends CommandoCenter {
 
 	@Override
 	protected int getRankExperience(int rank) {
-		return 500 * rank;
+		return 1000  + 50 * rank;
 	}
 }

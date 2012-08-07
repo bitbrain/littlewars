@@ -19,12 +19,16 @@
     <file src="res\icon\24x24.tga" sum="984173" size="2348"></file>
     <file src="res\icon\32x32.ico" sum="1316617" size="4286"></file>
     <file src="res\icon\32x32.tga" sum="1283650" size="4140"></file>
-    <file src="res\images\artworks\artwork_01.png" sum="2931056" size="2031"></file>
-    <file src="res\images\artworks\artwork_02.png" sum="54665899" size="27817"></file>
-    <file src="res\images\artworks\artwork_03.png" sum="37918526" size="16326"></file>
+    <file src="res\images\artworks\artwork_01.png" sum="38879498" size="21288"></file>
+    <file src="res\images\artworks\artwork_02.png" sum="38879498" size="21288"></file>
+    <file src="res\images\artworks\artwork_03.png" sum="38879498" size="21288"></file>
     <file src="res\images\gui\bordershadow_bottom.png" sum="26977882" size="14098"></file>
     <file src="res\images\gui\bordershadow_top.png" sum="26053056" size="14291"></file>
-    <file src="res\images\gui\bottom_menu_background.png" sum="2774394" size="1911"></file>
+    <file src="res\images\gui\bottom_menu_background.png" sum="71848246" size="37479"></file>
+    <file src="res\images\gui\bottom_menu_separat_background.png" sum="55590455" size="28084"></file>
+    <file src="res\images\gui\bottom_menu_separat_background_dark.png" sum="37202229" size="21920"></file>
+    <file src="res\images\gui\bottom_menu_shortcut.png" sum="2279889" size="1181"></file>
+    <file src="res\images\gui\bottom_menu_shortcut_hover.png" sum="3109368" size="1872"></file>
     <file src="res\images\gui\button.png" sum="11008636" size="5074"></file>
     <file src="res\images\gui\checkicon.png" sum="1310394" size="935"></file>
     <file src="res\images\gui\game_header.png" sum="42422371" size="21121"></file>
@@ -38,9 +42,9 @@
     <file src="res\images\gui\paths\curve.png" sum="374961" size="272"></file>
     <file src="res\images\gui\paths\straight.png" sum="86200" size="239"></file>
     <file src="res\images\gui\topshadow.png" sum="1157128" size="707"></file>
-    <file src="res\images\gui\top_menu_background.png" sum="2150342" size="1874"></file>
-    <file src="res\images\gui\valuebar_light.png" sum="412303" size="345"></file>
-    <file src="res\images\images.xml" sum="202504" size="2372"></file>
+    <file src="res\images\gui\top_menu_background.png" sum="23583526" size="11777"></file>
+    <file src="res\images\gui\valuebar_light.png" sum="623711" size="351"></file>
+    <file src="res\images\images.xml" sum="259682" size="3022"></file>
     <file src="res\images\logos\java_logo.png" sum="79318812" size="47247"></file>
     <file src="res\images\logos\myreality_logo.png" sum="26113810" size="17289"></file>
     <file src="res\images\logos\slick_logo.png" sum="90751730" size="50665"></file>
@@ -48,15 +52,15 @@
     <file src="res\images\units\cyborg\annihilator\annihilator_default.png" sum="2278347" size="1162"></file>
     <file src="res\images\units\cyborg\annihilator\annihilator_die.png" sum="5928173" size="3233"></file>
     <file src="res\images\units\cyborg\annihilator\avatar.png" sum="121947455" size="63080"></file>
-    <file src="res\images\units\cyborg\commando_center\avatar.png" sum="35423815" size="18132"></file>
-    <file src="res\images\units\cyborg\commando_center\center_default.png" sum="2436806" size="1253"></file>
+    <file src="res\images\units\cyborg\commando_center\avatar.png" sum="48422825" size="26429"></file>
+    <file src="res\images\units\cyborg\commando_center\center_default.png" sum="3778680" size="2280"></file>
     <file src="res\images\units\cyborg\resources.xml" sum="149665" size="1786"></file>
     <file src="res\images\units\default.png" sum="2295540" size="1373"></file>
     <file src="res\images\units\human\resources.xml" sum="6250" size="82"></file>
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29447" size="356"></file>
+    <file src="res\meta.xml" sum="29448" size="356"></file>
     <file src="res\music\music.xml" sum="23347" size="273"></file>
     <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
@@ -109,5 +113,5 @@
     <file src="res\tilemaps\EX-035\tiles\tile_ground.png" sum="299187385" size="155297"></file>
     <file src="res\units\cyborg\units.xml" sum="132030" size="1811"></file>
     <file src="res\units\human\units.xml" sum="5323" size="66"></file>
-    <file src="config\settings.cfg" sum="30082" size="364"></file>
+    <file src="config\settings.cfg" sum="30084" size="364"></file>
 </files>

@@ -4,6 +4,10 @@
 	<resource type="image" id="GUI_BUTTON_NORMAL">res/images/gui/button.png</resource>
 	<resource type="image" id="GUI_ICON_CHECK">res/images/gui/checkicon.png</resource>
 	<resource type="image" id="GUI_BOTTOM_BACKGROUND">res/images/gui/bottom_menu_background.png</resource>
+	<resource type="image" id="GUI_BOTTOM_SEPERAT_BACKGROUND">res/images/gui/bottom_menu_separat_background.png</resource>
+	<resource type="image" id="GUI_BOTTOM_SEPERAT_BACKGROUND_DARK">res/images/gui/bottom_menu_separat_background_dark.png</resource>
+	<resource type="image" id="GUI_BOTTOM_SHORTCUT">res/images/gui/bottom_menu_shortcut.png</resource>
+	<resource type="image" id="GUI_BOTTOM_SHORTCUT_HOVER">res/images/gui/bottom_menu_shortcut_hover.png</resource>
 	<resource type="image" id="GUI_TOP_BACKGROUND">res/images/gui/top_menu_background.png</resource>
 	<resource type="image" id="GUI_VALUEBAR_LIGHT">res/images/gui/valuebar_light.png</resource>
 	<resource type="image" id="GUI_TOPSHADOW">res/images/gui/topshadow.png</resource>
@@ -13,6 +17,10 @@
 	<resource type="image" id="GUI_MAP_SELECTED">res/images/gui/map_selected.png</resource>
 	<resource type="image" id="GUI_SHADOW_TOP">res/images/gui/bordershadow_top.png</resource>
 	<resource type="image" id="GUI_SHADOW_BOTTOM">res/images/gui/bordershadow_bottom.png</resource>
+	
+	<!-- Cursors -->
+	<resource type="image" id="CURSOR_DEFAULT">res/cursors/pointer.png</resource>
+	<resource type="image" id="CURSOR_ATTACK">res/cursors/cur_target.png</resource>
 		
 	<!-- Intro -->
 	<resource type="image" id="INTRO_MYREALITY_LOGO">res/images/logos/myreality_logo.png</resource>

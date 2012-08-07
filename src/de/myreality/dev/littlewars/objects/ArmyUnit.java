@@ -12,6 +12,7 @@
 package de.myreality.dev.littlewars.objects;
 
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -105,11 +106,14 @@ public abstract class ArmyUnit extends TileObject {
 	// Directly attacking enemy
 	private ArmyUnit attackingEnemy;
 	
+	public static boolean emitterAdded;
+	
 	static {
 		unitMoving = false;
 		unitDying = false;
 		unitLoosingLife = false;
 		unitBusy = false;
+		emitterAdded = false;
 		try {
 			unitSystem = ParticleIO.loadConfiguredSystem("res/particles/system/default.xml");
 		} catch (IOException e) {
@@ -385,6 +389,7 @@ public abstract class ArmyUnit extends TileObject {
 	protected abstract int getRankDefense(int rank);
 	protected abstract int getRankSpeed(int rank);
 	protected abstract int getRankExperience(int rank);
+	public abstract int getPrice();
 	
 	
 	public int getStrength() {
@@ -470,7 +475,7 @@ public abstract class ArmyUnit extends TileObject {
 			}
 		}
 		
-		if (expSeq > 0 && !isDead()) {
+		if (lifeSeq == 0 && expSeq > 0 && !isDead()) {
 			if (expSeq >=  Math.ceil((getTotalExperience() * (changeFactor / 100) * delta))) {
 				currentExperience += Math.ceil((getTotalExperience() * (changeFactor / 100) * delta));
 			} else {
@@ -520,11 +525,11 @@ public abstract class ArmyUnit extends TileObject {
 			UnitInfoHelper.getInstance().addInfo(this, setting, gc, game);
 		}
 		
-		if (lifeSeq > 0 || expSeq > 0 || isDying()) {
+		if (lifeSeq > 0 || expSeq > 0 || isDying() || onDead() || !isTargetArrived()) {
 			unitBusy = true;
 		}
 		
-		if (player.isClientPlayer() && !isDead() && (instantClick || onClick())) {
+		if (player.isClientPlayer() && !isDead() && (instantClick || onMouseClick())) {
 			stopSound("onClick");
 			playRandomSound("onClick");
 		}
@@ -628,7 +633,13 @@ public abstract class ArmyUnit extends TileObject {
 	}
 	
 	public static void updateParticles(int delta) {
-		unitSystem.update(delta);
+		try {
+			if (!emitterAdded) {
+				unitSystem.update(delta);
+			}
+		} catch (ConcurrentModificationException e) {
+			Debugger.getInstance().write("Concurrent modification in particle system.");
+		}
 	}
 	
 	public boolean isDamageInProcess() {
@@ -776,17 +787,22 @@ public abstract class ArmyUnit extends TileObject {
 			// Damage calculation 
 			int damage = (int) ((int) (11 * (Math.random() * 30 + 1) - target.getDefense()) * getStrength() * (float)(getRank() + getStrength()) / 256.0f);
 			target.addDamage(damage);
-			if (!target.isDead()) {
+			if (!target.isDead()) {  
 				if (attackingBack) {
+					if (!(target instanceof CommandoCenter)) {
 					target.setAttackingEnemy(this);
+					}
+					// Add money to the player (10% of the price of the target unit)
+					player.getMoney().addCredits(target.getPrice() / 10);
+					
 				} else {
 					if (target.isDying() || target.isDead() || target.onDead()) {
 						addExperience(getExperienceValue() * (target.getRank() / getRank()));
 					} else {
-						addExperience((getExperienceValue() * (target.getRank() / getRank())) / 2);
+						addExperience((getExperienceValue() * (target.getRank() / getRank())) / 3);
 					}
-				}
-			}
+				}				
+			} 
 			movementCalculator.reset();
 			
 			// Set owner as new opponent
@@ -837,6 +853,7 @@ public abstract class ArmyUnit extends TileObject {
 			emitters.remove(type);
 			addUnitEmitter(type, ID);
 		}
+		emitterAdded = true;
 	}
 	
 	public UnitEmitter getUnitEmitter(Integer type) {

@@ -43,7 +43,7 @@ public class MiniMap extends GUIObject {
 	int mapWidth, mapHeight;
 	
 	// Map Content
-	private Image content;
+	private Image content, background;
 	
 	// Map graphics
 	//private Graphics mapGraphics;
@@ -57,6 +57,7 @@ public class MiniMap extends GUIObject {
 		width = parent.getHeight() - borderPadding * 2;
 		height = width;			
 		area = new Rectangle(getX() + padding, getY() + padding, getWidth() - padding * 2, getHeight() - padding * 2);
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
 	}
 	
 	private void init() throws SlickException {
@@ -77,8 +78,7 @@ public class MiniMap extends GUIObject {
 
 	@Override
 	public void draw(Graphics g) {		
-		g.setColor(Color.black);
-		g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
+		background.draw(getX(), getY(), getWidth(), getHeight());
 		
 		if (targetWorld != null) {
 			// Map background
@@ -149,7 +149,7 @@ public class MiniMap extends GUIObject {
 	public void update(int delta) {
 		super.update(delta);
 
-		if (targetWorld != null && isHover() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+		if (targetWorld != null && isMouseOver() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
 			
 			// Initialize variables
 			float scaleFactor = getScaleFactor();

@@ -128,24 +128,24 @@ public class MainMenuState extends CustomGameState {
 		btnCredits.update(delta);
 		btnEndGame.update(delta);
 		
-		if (btnNewGame.onClick()) {
+		if (btnNewGame.onMouseClick()) {
 			// Delete event
 			gc.getInput().clearKeyPressedRecord();
 			gc.getInput().clearMousePressedRecord();
 			GameSettings.getInstance().clear();
 			sbg.enterState(LittleWars.MAP_SETUP_STATE);
-		} else if (btnPreferences.onClick()) {
+		} else if (btnPreferences.onMouseClick()) {
 			// Delete event
 			gc.getInput().clearKeyPressedRecord();
 			gc.getInput().clearMousePressedRecord();
 			sbg.enterState(LittleWars.SETTINGS_STATE);
-		} else if (btnCredits.onClick()) {
+		} else if (btnCredits.onMouseClick()) {
 			music.stop();
 			// Delete event
 			gc.getInput().clearKeyPressedRecord();
 			gc.getInput().clearMousePressedRecord();
 			sbg.enterState(LittleWars.CREDITS_STATE);
-		} else if (btnEndGame.onClick()) {
+		} else if (btnEndGame.onMouseClick()) {
 			ContextMenuHelper.getInstance().show(gc, "Achtung", "Sie verlassen nun das Spiel.", new ContextMenuEvent() {
 
 				@Override

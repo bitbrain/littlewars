@@ -8,7 +8,7 @@
  * @version 	0.5.14
  * @author 		Miguel Gonzalez		
  */
-package de.myreality.dev.littlewars.gui.unit;
+package de.myreality.dev.littlewars.gui;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -16,7 +16,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
-import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.objects.CommandoCenter;
 import de.myreality.dev.littlewars.world.GameWorld;
 

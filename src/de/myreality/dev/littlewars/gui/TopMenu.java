@@ -143,7 +143,7 @@ public class TopMenu extends GUIObject {
 			txtPlayerCredits.setText(String.valueOf(game.getClientPlayer().getMoney().getCredits()) + "$");
 		}
 		
-		if (btnSave.onClick()) {
+		if (btnSave.onMouseClick()) {
 			if (game.saveToFile("save.dat")) {
 				FlashHelper.getInstance().flash("Game has been saved successfully.", 1000, gc);
 			} else {

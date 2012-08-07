@@ -3,10 +3,11 @@ package de.myreality.dev.littlewars.gui.bottommenu;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.ki.Player;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
@@ -21,6 +22,7 @@ public class UnitOverview extends GUIObject {
 	private Player player;
 	private GameWorld targetWorld;
 	private List<UnitShortcut> shortcuts;
+	private Image background;
 
 	public UnitOverview(GUIObject left, GUIObject right, GUIObject parent, GameContainer gc) {
 		super((int) (left.getX() + left.getWidth()) + 10, 12, gc);
@@ -28,6 +30,7 @@ public class UnitOverview extends GUIObject {
 		width = (int) (right.getX() - left.getX() - getX());
 		height = right.getHeight();
 		shortcuts = new ArrayList<UnitShortcut>();		
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
 	}
 	
 	private void reAlignList(int rows) {
@@ -61,9 +64,7 @@ public class UnitOverview extends GUIObject {
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
-		g.drawRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
-		
+		background.draw(getX(), getY(), getWidth(), getHeight());
 		for (UnitShortcut shortcut : shortcuts) {
 			shortcut.draw(g);
 		}

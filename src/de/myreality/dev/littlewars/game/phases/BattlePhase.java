@@ -35,7 +35,7 @@ public class BattlePhase extends BasicGamePhase {
 			} else if (!ArmyUnit.isUnitBusy()) {
 				// Client Player
 				game.getTopMenu().getBtnPhaseQuit().setEnabled(true);	
-				if (game.getTopMenu().getBtnPhaseQuit().onClick()) {
+				if (game.getTopMenu().getBtnPhaseQuit().onMouseClick()) {
 					// Show a warning, when there exist available units
 					if (currentPlayer.hasAvailableUnits()) {
 						ContextMenuHelper.getInstance().show(gc, ResourceManager.getInstance().getText("TXT_GAME_WARNING"), 

@@ -88,7 +88,7 @@ public class PlayerSetupState extends CustomGameState {
 		settings.update(delta);
 		btnBack.update(delta);
 		btnNext.update(delta);
-		if (gc.getInput().isKeyDown(Input.KEY_ESCAPE) || btnBack.onClick()) {
+		if (gc.getInput().isKeyDown(Input.KEY_ESCAPE) || btnBack.onMouseClick()) {
 			gc.getInput().clearKeyPressedRecord();
 			gc.getInput().clearMousePressedRecord();
 			settings.reset();
@@ -102,7 +102,7 @@ public class PlayerSetupState extends CustomGameState {
 			btnNext.setEnabled(false);
 		}
 		
-		if (btnNext.onClick()) {
+		if (btnNext.onMouseClick()) {
 			GameSettings.getInstance().setPlayers(settings.getPlayers());
 			sbg.addState(new LoadingState(LittleWars.LOADING_STATE));
 			try {

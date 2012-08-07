@@ -96,7 +96,7 @@ public class CommandoCenter extends ArmyUnit {
 
 	@Override
 	protected int getRankExperienceValue(int rank) {
-		return rank * 1500;
+		return 1000 + rank * 300;
 	}
 	
 	public int getSpawnRange() {
@@ -113,5 +113,12 @@ public class CommandoCenter extends ArmyUnit {
 
 	public void setFinalPosition(boolean finalPosition) {
 		this.finalPosition = finalPosition;
+	}
+
+
+
+	@Override
+	public int getPrice() {
+		return 10000;
 	}
 }

@@ -141,7 +141,7 @@ public abstract class TileObject extends GameObject implements Movable, Mover {
 	
 
 	@Override
-	public boolean isHover() {
+	public boolean isMouseOver() {
 		return area.contains(camera.getX() + gc.getInput().getMouseX(), camera.getY() + gc.getInput().getMouseY());
 	}
 	

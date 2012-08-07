@@ -177,7 +177,7 @@ public class TextBox extends GUIObject implements KeyListener {
 		// Background
 		g.setColor(currentBackground);
 		g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
-		if (isFocused() || isHover()) {
+		if (isFocused() || isMouseOver()) {
 			g.setColor(focusBorderColor);
 		} else {
 			g.setColor(borderColor);
@@ -199,7 +199,7 @@ public class TextBox extends GUIObject implements KeyListener {
 		super.update(delta);				
 		cursor.update(delta);		
 		
-		if (isHover()) {
+		if (isMouseOver()) {
 			currentBackground = backgroundColorHover;
 		} else {
 			currentBackground = backgroundColor;
@@ -209,7 +209,7 @@ public class TextBox extends GUIObject implements KeyListener {
 		for (Entry<Integer, GameText> entry : content.entrySet()) {
 			GUIObject element = entry.getValue();
 			element.update(delta);	
-			if (element.onClick() || element.isHover() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {				
+			if (element.onMouseClick() || element.isMouseOver() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {				
 				if (gc.getInput().getMouseX() < element.getX() + element.getWidth() / 2) {				
 					cursor.setX(element.getX() - getX());
 					cursor.setY(element.getY() - getY());

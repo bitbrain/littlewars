@@ -48,7 +48,7 @@ public abstract class GameObject implements Serializable {
 	protected List<GameObject> children;
 	
 	// Mouse states
-	boolean isHover, wasHover, onClicked, wasClicked, onHover, instantClick, visible;
+	boolean isHover, wasHover, onClicked, wasClicked, onHover, onOut, wasOut, instantClick, visible;
 	
 	// Collision area
 	protected Shape area;
@@ -235,17 +235,25 @@ public abstract class GameObject implements Serializable {
 		calculatePosition();
 	}
 	
-	public boolean onClick() {
+	public boolean onMouseClick() {
 		return onClicked && !lastMouseState;
 	}
 
-	public boolean onHover() {
+	public boolean onMouseOver() {
 		return onHover;
 	}
 	
-	public boolean isHover() {
+	public boolean isMouseOver() {
 		return isHover;
 	}	
+	
+	public boolean onMouseOut() {
+		return onOut;
+	}
+	
+	public boolean isMouseOut() {
+		return !isMouseOver();
+	}
 
 	
 	// TODO Create javadoc here
@@ -294,7 +302,7 @@ public abstract class GameObject implements Serializable {
 			}
 		}
 		
-		if (!isHover()) {
+		if (!isMouseOver()) {
 			if (wasHover) {
 				wasHover = false;
 			}
@@ -303,7 +311,16 @@ public abstract class GameObject implements Serializable {
 			}
 		}
 		
-		if (!wasClicked && isHover() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+		if (!isMouseOut()) {
+			if (wasOut) {
+				wasOut = false;
+			}
+			if (onOut) {
+				onOut = false;
+			}
+		}
+		
+		if (!wasClicked && isMouseOver() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
 			if (!wasClicked) {
 				wasClicked = true;
 			}
@@ -325,7 +342,16 @@ public abstract class GameObject implements Serializable {
 			}
 		}
 		
-		if (onClick()) {
+		if (!wasOut && !onOut && isMouseOut()) {
+			onOut = true;
+			wasOut = true;
+		} else if (wasOut) {
+			if (onOut) {
+				onOut = false;
+			}
+		}
+		
+		if (onMouseClick()) {
 			setFocused();
 		}
 		
@@ -334,7 +360,7 @@ public abstract class GameObject implements Serializable {
 		}
 		
 		if (focusObject != null) {
-			if (!focusObject.isHover() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+			if (!focusObject.isMouseOver() && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
 				focusObject = null;
 			}
 		}

@@ -13,13 +13,14 @@ package de.myreality.dev.littlewars.gui.bottommenu.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 
 import de.myreality.dev.littlewars.components.UnitGenerator;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
+import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.gui.GUIObject;
 import de.myreality.dev.littlewars.gui.bottommenu.BottomMenu;
@@ -41,6 +42,7 @@ public abstract class BasicUnitBuilder extends GUIObject {
 	protected boolean changedSize;
 	protected boolean popupsUnset;
 	protected BuyPreview selected;
+	private Image background;
 
 	public BasicUnitBuilder(GUIObject left, GUIObject right, BottomMenu parent, Player player, GameContainer gc) {
 		super((int) (left.getX() + left.getWidth()) + 10, 12, gc);
@@ -53,6 +55,7 @@ public abstract class BasicUnitBuilder extends GUIObject {
 		popupsUnset = false;
 		game = parent.getGame();
 		previews = new ArrayList<BuyPreview>();
+		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
 		switch (player.getFraction().getType()) {
 			case Fraction.CYBORG:
 				generator = new CyborgGenerator(gc, game, player);
@@ -67,12 +70,15 @@ public abstract class BasicUnitBuilder extends GUIObject {
 	public int size() {
 		return previews.size();
 	}
+	
+	public BuyPreview getSelected() {
+		return selected;
+	}
 
 	@Override
 	public void draw(Graphics g) {
 		if (isVisible()) {
-			g.setColor(Color.black);
-			g.drawRoundRect(getX(), getY(), getWidth(), getHeight(), 5);
+			background.draw(getX(), getY(), getWidth(), getHeight());
 			
 			for (BuyPreview preview : previews) {
 				preview.draw(g);
@@ -133,7 +139,7 @@ public abstract class BasicUnitBuilder extends GUIObject {
 		
 		for (BuyPreview preview : previews) {
 			preview.update(delta);
-			if (preview.onClick()) {
+			if (preview.onMouseClick()) {
 				selected = preview;
 			}
 		}
@@ -148,7 +154,7 @@ public abstract class BasicUnitBuilder extends GUIObject {
 			selected.getUnit().setY(game.getWorld().getTotalMouseY(gc));	
 			int curTotalX = game.getWorld().tileIndexX(game.getWorld().getCamera().getX() + gc.getInput().getMouseX());
 			int curTotalY = game.getWorld().tileIndexY(game.getWorld().getCamera().getY() + gc.getInput().getMouseY());
-			if (!game.getBottomMenu().isHover() && 
+			if (!game.getBottomMenu().isMouseOver() && 
 			    !game.getWorld().collisionExists(curTotalX, curTotalY) &&
 			     game.getCurrentPlayer().getSpawnArea().isInRange(curTotalX, curTotalY) // TODO: Fix tile position here
 			    && gc.getInput().isMouseButtonDown(Input.MOUSE_LEFT_BUTTON))	{
