@@ -324,7 +324,7 @@ public class MapSelector extends GUIObject {
 		private String slotCount;
 		
 		// Music of the map
-		private String mapMusic;
+		private String mapInitMusic, mapBattleMusic;
 		
 		// Sound of the map
 		private String mapSound;
@@ -368,13 +368,18 @@ public class MapSelector extends GUIObject {
     			if(item.getNodeType() == Node.ELEMENT_NODE){
             		Element elem = (Element)item;
             		
-            		if (elem.getTagName().equals("music")) {
-            			mapMusic = elem.getTextContent();
-            			if (mapMusic == null) {
+            		if (elem.getTagName().equals("music-init")) {
+            			mapInitMusic = elem.getTextContent();
+            			if (mapInitMusic == null) {
             				System.out.println("Error: Can't find music resource with ID '" + elem.getTextContent() + "'");
             			}
             		} else if(elem.getTagName().equals("sound")) {
             			mapSound = elem.getTextContent(); 
+            		} else if (elem.getTagName().equals("music-battle")) {
+            			mapBattleMusic = elem.getTextContent();
+            			if (mapBattleMusic == null) {
+            				System.out.println("Error: Can't find music resource with ID '" + elem.getTextContent() + "'");
+            			}
             		} 
     			}
     		}
@@ -422,8 +427,12 @@ public class MapSelector extends GUIObject {
 			return selected == this;
 		}
 
-		public String getMapMusic() {
-			return mapMusic;
+		public String getMapInitMusic() {
+			return mapInitMusic;
+		}
+		
+		public String getMapBattleMusic() {
+			return mapBattleMusic;
 		}
 
 		public String getMapSound() {

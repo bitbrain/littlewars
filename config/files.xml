@@ -3,7 +3,7 @@
     <file src="res\animations\cyborg\animations.xml" sum="164844" size="2721"></file>
     <file src="res\animations\human\animations.xml" sum="152631" size="3011"></file>
     <file src="res\colors\colors.xml" sum="90824" size="1148"></file>
-    <file src="res\credits\credits.xml" sum="53407" size="671"></file>
+    <file src="res\credits\credits.xml" sum="69073" size="902"></file>
     <file src="res\cursors\cur_target.png" sum="398778" size="391"></file>
     <file src="res\cursors\pointer.png" sum="2871643" size="1549"></file>
     <file src="res\fonts\caption.fnt" sum="1578715" size="23332"></file>
@@ -60,9 +60,10 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29448" size="356"></file>
-    <file src="res\music\music.xml" sum="23347" size="273"></file>
-    <file src="res\music\Tobias Mecklenfeld - Tactic Cross.ogg" sum="13236082234" size="7332907"></file>
+    <file src="res\meta.xml" sum="29450" size="356"></file>
+    <file src="res\music\littlewars-preperation.OGG" sum="1748909991" size="965524"></file>
+    <file src="res\music\lw-credits.OGG" sum="3362023834" size="1801414"></file>
+    <file src="res\music\music.xml" sum="37770" size="436"></file>
     <file src="res\music\Tobias Mecklenfeld - Untouched Shadows.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\desert_day.ogg" sum="9604614187" size="5430969"></file>
     <file src="res\music\worlds\desert\music.xml" sum="40296" size="463"></file>
@@ -79,7 +80,7 @@
     <file src="res\particles\system\default.xml" sum="8146" size="98"></file>
     <file src="res\particles\system\smoke.xml" sum="128965" size="1705"></file>
     <file src="res\patchnotes.xml" sum="248041" size="2787"></file>
-    <file src="res\sectors\trial_sector.xml" sum="29703" size="409"></file>
+    <file src="res\sectors\trial_sector.xml" sum="33988" size="462"></file>
     <file src="res\sounds\de\sounds.xml" sum="34343" size="395"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\attack\cyborg_annihilator_attack_1.wav" sum="184279603" size="194200"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\die\cyborg_annihilator_die_1.wav" sum="383067050" size="376780"></file>
@@ -105,8 +106,8 @@
     <file src="res\sounds\gui\unit_exp_up.wav" sum="8044196" size="6220"></file>
     <file src="res\sounds\worlds\desert\dark_desert.ogg" sum="8479897293" size="4772950"></file>
     <file src="res\sounds\worlds\desert\sounds.xml" sum="16548" size="198"></file>
-    <file src="res\text\de\text.xml" sum="544376" size="6647"></file>
-    <file src="res\text\en\text.xml" sum="523247" size="6445"></file>
+    <file src="res\text\de\text.xml" sum="551305" size="6727"></file>
+    <file src="res\text\en\text.xml" sum="529528" size="6519"></file>
     <file src="res\tilemaps\EX-035\burning_steps.tmx" sum="423253" size="5330"></file>
     <file src="res\tilemaps\EX-035\tiles\adds1.png" sum="657118940" size="345647"></file>
     <file src="res\tilemaps\EX-035\tiles\future1.png" sum="90882344" size="52248"></file>

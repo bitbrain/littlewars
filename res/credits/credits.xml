@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <credits>		
+     <credit caption="TXT_GAME_NAME">
+        <item>a 2D Strategy Game</item>  
+     </credit>
+    
 	<credit caption="TXT_CREDIT_PROGRAMMING">
 		<item>Miguel Gonzalez</item>
 	</credit>
@@ -7,12 +11,15 @@
 		<item>Miguel Gonzalez</item>
 	</credit>
 	<credit caption="TXT_CREDIT_MUSIC">
+	    <item>Miguel Gonzalez</item>
 		<item>Tobias Mecklenfeld</item>
 	</credit>
-	<credit caption="TXT_CREDIT_BETA">
-		<item>Tobias Mecklenfeld</item>
-		<item>Kevin Zywitzki</item>
-		<item>Mike Wappelhorst</item>
+	<credit caption="TXT_CREDIT_SOFTWARE">
+		<item>Java Slick (build229)</item>
+		<item>Blender 2.63</item>
+		<item>Magix Music Maker 17</item>
+		<item>Eclipse IDE (INDIGO)</item>
+		<item>Tiled2D</item>
 	</credit>
 	<credit caption="TXT_CREDIT_THANKS">
 		<item>The Slick Community</item>
@@ -20,5 +27,6 @@
 	</credit>	
 	<credit caption="TXT_CREDIT_DEV">
 		<item>www.dev.my-reality.de</item>
-	</credit>
+		<item>2012</item>
+	</credit>	
 </credits>

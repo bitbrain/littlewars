@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<resource type="music" id="MENU_MUSIC">res/music/Tobias Mecklenfeld - Untouched Shadows.OGG</resource>
-	<resource type="music" id="CREDITS_MUSIC">res/music/Tobias Mecklenfeld - Tactic Cross.OGG</resource>
+	<resource type="music" id="CREDITS_MUSIC">res/music/lw-credits.OGG</resource>
+	<resource type="music" id="INGAME_INIT_1">res/music/littlewars-preperation.OGG</resource>
+	<resource type="music" id="INGAME_BATTLE_1">res/music/littlewars-preperation.OGG</resource>
 </resources>

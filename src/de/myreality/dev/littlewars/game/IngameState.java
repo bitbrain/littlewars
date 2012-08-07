@@ -30,6 +30,8 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.GameSettings;
+import de.myreality.dev.littlewars.components.config.ConfigMusic;
+import de.myreality.dev.littlewars.components.config.ConfigSound;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper.ContextMenuEvent;
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
@@ -81,6 +83,12 @@ public class IngameState extends CustomGameState implements Serializable {
 	
 	// GameTracker
 	private RoundTracker tracker;
+	
+	// Musics
+	ConfigMusic initMusic, battleMusic;
+	
+	// Sounds
+	ConfigSound atmosSound;
 	
 	public IngameState(int stateID) {
 		super(stateID);
@@ -289,8 +297,7 @@ public class IngameState extends CustomGameState implements Serializable {
 		String name = GameSettings.getInstance().getMapConfig().getMapName();
 		
 		// Load the map
-		world = new GameWorld(name, mapPath, container, GameSettings.getInstance().getMapConfig().getMapMusic(), 
-				              GameSettings.getInstance().getMapConfig().getMapSound(), this);
+		world = new GameWorld(name, mapPath, container, this);
 		world.setWeather(mapWeather);
 		world.getCamera().setBottomMenu(bottomMenu);
 		world.getCamera().setTopMenu(topMenu);
@@ -313,10 +320,11 @@ public class IngameState extends CustomGameState implements Serializable {
 		}
 		
 		world.loadConfiguration(container);
-
-		// Clear the settings
-		GameSettings.getInstance().clear();	
 		
+		// Load music and sound
+		System.out.println(ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapInitMusic()));
+		initMusic = ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapInitMusic());
+		battleMusic = ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapBattleMusic());
 		// New game Tracker
 		tracker = new RoundTracker(this);
 		
@@ -326,8 +334,11 @@ public class IngameState extends CustomGameState implements Serializable {
 		phases.put(INIT, new InitializationPhase(this));
 		phases.put(BATTLE, new BattlePhase(this));		
 		
+		// Clear the settings
+		GameSettings.getInstance().clear();	
+		
 		// Set the current game phase
-		phase = PREPERATION;
+		setPhase(PREPERATION);
 		setCurrentPlayer(currentPlayer, container, true);
 	}
 	
@@ -380,7 +391,21 @@ public class IngameState extends CustomGameState implements Serializable {
 	}
 	
 	public void setPhase(int phase) {
-		this.phase = phase;
+		if (this.phase != phase) {
+			switch (phase) {
+			case PREPERATION:
+			case INIT:
+				battleMusic.stop();
+				initMusic.play();
+				break;
+			case BATTLE:
+				battleMusic.play();
+				initMusic.stop();
+				break;
+			}
+			this.phase = phase;
+		
+		}
 	}	
 	
 	public TopMenu getTopMenu() {

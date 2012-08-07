@@ -24,9 +24,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.tiled.TiledMap;
@@ -77,14 +75,6 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	// Game camera
 	private Camera cam;	
 	
-	// Background music
-	private Music music;
-	private String musicID;
-	
-	// Background sound
-	private Sound sound;
-	private String soundID;
-	
 	// Debug mode
 	private boolean debug;
 	
@@ -109,25 +99,14 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	// GameContainer
 	GameContainer gc;
 
-	public GameWorld(String name, String ref, GameContainer gc, String mapMusicID, String mapSoundID, IngameState game) throws SlickException {
+	public GameWorld(String name, String ref, GameContainer gc, IngameState game) throws SlickException {
 		super(ref);
 		setWeather(new Weather(Weather.NORMAL));
 		this.game = game;
 		this.cam = new Camera(this, gc);
-		this.musicID = mapMusicID;
-		this.soundID = mapSoundID;
 		this.name = name;
-		this.music = ResourceManager.getInstance().getMusic(mapMusicID);
-		this.sound = ResourceManager.getInstance().getSound(mapSoundID);
 		this.daytime = new Daytime(Daytime.DAY);
-		this.gc = gc;
-		if (music != null) {
-			this.music.loop();
-		}
-		
-		if (sound != null) {
-			sound.loop(1.0f, 0.5f);
-		}
+		this.gc = gc;		
 	
 		daytime.start();
 		pathFinder = new AStarPathFinder(this, 100, false);	
@@ -150,16 +129,6 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	
 	public void close() {
 		Debugger.getInstance().write("Release resources..");
-		if (music != null) {
-			music.stop();	
-			ResourceManager.getInstance().releaseMusic(musicID);
-		}
-		
-		if (sound != null) {
-			sound.stop();
-			ResourceManager.getInstance().releaseSound(soundID);
-		}
-		
 		ResourceManager.getInstance().releaseAnimationSource();
 	}
 	

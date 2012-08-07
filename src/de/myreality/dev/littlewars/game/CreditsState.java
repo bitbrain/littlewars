@@ -66,6 +66,7 @@ public class CreditsState extends CustomGameState {
 	public void enter(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		super.enter(container, game);
+		credits.reset();
 		if (!music.playing() && Configuration.getInstance().isMusicOn())
 			music.loop();
 	}
@@ -87,7 +88,7 @@ public class CreditsState extends CustomGameState {
 		animatedImages.addSequence(ResourceManager.getInstance().getImage("ARTWORK_03"), 9000);		
 		animatedImages.setLoop(true);
 		animatedImages.play();	
-		credits = new CreditsShow(gc.getWidth() - 320, 100, 100, 100, gc);
+		credits = new CreditsShow(gc.getWidth() - 320, gc.getHeight(), 100, 100, gc);
 		music = ResourceManager.getInstance().getMusic("CREDITS_MUSIC");
 		music.stop();
 		try {

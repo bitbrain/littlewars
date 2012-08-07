@@ -17,6 +17,7 @@
 	<resource type="text" id="TXT_CREDIT_BETA">Beta-Tester</resource>
 	<resource type="text" id="TXT_CREDIT_THANKS">Besonderen Dank an</resource>
 	<resource type="text" id="TXT_CREDIT_DEV">eine myReality Produktion</resource>
+	<resource type="text" id="TXT_CREDIT_SOFTWARE">Verwendete Software</resource>
 	
 	<!-- Setting Strings -->
 	<resource type="text" id="TXT_SETTINGS_RESOLUTION">Auflösung</resource>

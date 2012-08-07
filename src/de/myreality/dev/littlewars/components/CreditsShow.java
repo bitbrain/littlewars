@@ -59,6 +59,8 @@ public class CreditsShow extends GameObject {
 	private static final long serialVersionUID = 1L;
 	// List of all credits
 	List<Credit> credits;
+	private static final int PADDING = 10;
+	private static final int BLOCK_PADDING = 150;
 	
 	/**
 	 * Single credit (contains a caption and many content elements)
@@ -76,8 +78,7 @@ public class CreditsShow extends GameObject {
 		Caption caption;
 		
 		// List of all content elements
-		List<Content> names;
-		
+		List<Content> names;	
 		
 		/**
 		 * Caption of a single credit
@@ -235,7 +236,7 @@ public class CreditsShow extends GameObject {
 			if (!names.isEmpty()) {
 				for (Content c : names) {
 					c.setY(offset);
-					offset += c.getHeight();
+					offset += c.getHeight() + PADDING;
 				}
 			}
 			
@@ -252,7 +253,7 @@ public class CreditsShow extends GameObject {
 			
 			if (!names.isEmpty()) {
 				for (Content c : names) {
-					offset += c.getHeight() + 10;
+					offset += c.getHeight() + PADDING;
 				}
 			}
 			names.add(new Content((int)getX() + (getWidth() / 2 - ResourceManager.getInstance().getFont("FONT_MENU").getWidth(text) / 2), 
@@ -268,8 +269,8 @@ public class CreditsShow extends GameObject {
 		public int getWidth() {
 			return 100;
 		}
-
 		
+	
 		
 		/**
 		 * @return returns the height of the credit
@@ -398,7 +399,7 @@ public class CreditsShow extends GameObject {
         		float yOffset = getY();
         		
         		if (lastCredit != null) {
-        			yOffset = lastCredit.getY() + lastCredit.getHeight();
+        			yOffset = lastCredit.getY() + lastCredit.getHeight() + BLOCK_PADDING;
         		}
         		Credit tmpCredit = new Credit((int)getX(), (int)yOffset, caption, gc);
         		for (int i = 0; i != items.getLength(); ++i) {
@@ -500,4 +501,25 @@ public class CreditsShow extends GameObject {
 			}
 		}
 	}	
+	
+	
+	/**
+	 * Resets the position
+	 */
+	public void reset() {
+		
+		//if (lastCredit != null) {
+		//	yOffset = lastCredit.getY() + lastCredit.getHeight() + BLOCK_PADDING;
+		//}
+		Credit lastCredit = credits.get(0);
+	    for (int index = 0; index < credits.size(); ++index) {
+	    	if (index == 0) {
+	    		credits.get(index).setY(getY());
+	    	} else {
+	    		credits.get(index).setY(lastCredit.getY() + lastCredit.getHeight() + BLOCK_PADDING);
+	    	}
+	    	
+	    	lastCredit = credits.get(index);
+	    }
+	}
 }
