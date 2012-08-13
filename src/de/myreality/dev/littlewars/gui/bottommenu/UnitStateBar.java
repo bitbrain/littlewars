@@ -34,7 +34,7 @@ public class UnitStateBar extends GUIObject {
 	@Override
 	public void draw(Graphics g) {		
 		if (unit != null) {
-			//lifeBar.draw(g);
+			lifeBar.draw(g);
 			expBar.draw(g);
 		}
 	}

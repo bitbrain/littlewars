@@ -39,6 +39,15 @@ public class FadeInfo extends GUIObject {
 		content.setColor(setting.getColor());
 	}
 	
+	
+	
+	@Override
+	public float getOpacity() {
+		return content.getColor().a;
+	}
+
+
+
 	public GameObject getTarget() {
 		return target;
 	}

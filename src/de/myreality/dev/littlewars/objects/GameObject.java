@@ -134,6 +134,8 @@ public abstract class GameObject implements Serializable {
 			parent = object;
 			object.addChild(this);
 		}
+		
+		area = new Rectangle(getX(), getY(), getWidth(), getHeight());
 	}
 	
 	// TODO Create javadoc here

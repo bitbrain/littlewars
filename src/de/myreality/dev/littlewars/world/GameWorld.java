@@ -75,9 +75,6 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	// Game camera
 	private Camera cam;	
 	
-	// Debug mode
-	private boolean debug;
-	
 	// Zoom factor
 	private float zoom = 1f;
 	
@@ -131,11 +128,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		Debugger.getInstance().write("Release resources..");
 		ResourceManager.getInstance().releaseAnimationSource();
 	}
-	
-	public void setDebug(boolean debug) {
-		this.debug = debug;
-	}
-	
+
 	public float getZoom() {
 		return zoom;
 	}
@@ -274,8 +267,16 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 		game.getCurrentPlayer().getSpawnArea().draw(g);
 	}
 	
-	private void renderDebugInformation(Graphics g) {				
-			
+	private void renderDebugInformation(Graphics g) {		
+		
+		g.setColor(new Color(255, 0, 0, 0.5f));
+		for (int x = 0; x < collisions.length; ++x) {
+			for (int y = 0; y < collisions[x].length; ++y) {
+				if (collisions[x][y]) {
+					g.fillRect(x * 32 - cam.getX(), y * 32 - cam.getY(), 32, 32);
+				}
+			}
+		}
 	}
 	
 	public boolean isEnemyUnit(Player current, int tileX, int tileY) {
@@ -380,7 +381,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 				}
 				
 				if (unit.onMouseClick()) {
-					//unit.addDamage(6000);
+					//unit.rankUp();
 				}
 			
 				if (!target.isTargetArrived()) {
@@ -576,7 +577,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	    	}
 	    }
 	    
-	    if (debug) {
+	    if (Debugger.getInstance().isEnabled()) {
 	    	renderDebugInformation(g);
 	    	
 	    }
@@ -730,15 +731,27 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 	 * Check, if collision exists
 	 */
 	public boolean collisionExists(int x, int y) {
+		return collisionExists(x, y, false);
+	}
+	
+	public boolean collisionExists(int x, int y, boolean battle) {
 		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
-			return false;
+			return true;
 		}	
 		
-		if (game.getCurrentPlayer().isCPU()) {
-			return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y));
+		if (battle) {
+			if (game.getCurrentPlayer().isCPU()) {
+				return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y));
+			}
+			
+			return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y) && isTileMouseOver(x, y));
+		} else {
+			if (game.getCurrentPlayer().isCPU()) {
+				return collisions[x][y];
+			}
+			
+			return collisions[x][y] && isTileMouseOver(x, y);
 		}
-		
-		return collisions[x][y] && !(isEnemyUnit(game.getCurrentPlayer(), x, y) && isTileMouseOver(x, y));
 	}
 	
 	
@@ -757,7 +770,7 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 
 	@Override
 	public boolean blocked(PathFindingContext context, int tx, int ty) {
-		return collisionExists(tx, ty);
+		return collisionExists(tx, ty, true);
 	}
 
 

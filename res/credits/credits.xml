@@ -14,10 +14,14 @@
 	    <item>Miguel Gonzalez</item>
 		<item>Tobias Mecklenfeld</item>
 	</credit>
+	<credit caption="TXT_CREDIT_SYNCH">
+	    <item>Miguel Gonzalez (Vernichter)</item>
+	</credit>
 	<credit caption="TXT_CREDIT_SOFTWARE">
 		<item>Java Slick (build229)</item>
 		<item>Blender 2.63</item>
 		<item>Magix Music Maker 17</item>
+		<item>GIMP 2.8</item>
 		<item>Eclipse IDE (INDIGO)</item>
 		<item>Tiled2D</item>
 	</credit>

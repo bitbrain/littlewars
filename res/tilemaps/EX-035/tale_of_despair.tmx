@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="40" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tile_ground" tilewidth="32" tileheight="32">
+  <image source="tiles/tile_ground.png" width="320" height="320"/>
+ </tileset>
+ <tileset firstgid="101" source="tiles/desert-environment.tsx"/>
+ <layer name="Kachelebene 1" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VM4IFQBQAwb+2bdu2bdu4/xm2jrDZJC+orPPOymQy2eSQSx75FFBIEcVkJepKKKWMciqopIpqaqhN2NVRTwONNNFMC6200Z6w66CTLrrpoZc++hlgMGE3xDAjjDLGOBNMMsV0wm6GWeaYZ4FFllhmhdWE3RrrbLDJFtvssMse+wm7Aw454pgTTjnjnAsuE3ZXXHPDLXfc88AjTzwn7F545Y13Pvjki29++E3YpfpC/CP+Ef+If8Q/4h/xj/hH/CP+Ef+If8Q/4h/xj/hH/CP+8Z/uD2XJZ/oAGQAA
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC71YSW4EMQjs//+gH5DJcp9sP8j8IHlNmAMSIhQU2EpJXNqAWW3cx7GOM/j2LPQi9CV0A3IPQhehR6EnYh/VuQMfQp9C30I/gOcq9Cr0JvTe0Kno+meRxa0LlAvkXxZnXfNx0+9RLVhE6z4XVZ59nJm1TEaB8uXjhnQxNY/WmHyjfPlcIF1MzaO1LDfdvkS10635rJaqbx1EcUN1XsUi8nHa60zcvD1VLKL8Z/Vyh8bC9w/T18ozrYFO7fn+YfpaeZje8facQGcmY8H0tfKguFX5V7ksjmz/TM4VZI+Xy2xgfVdUd1SmG/lh+bx+1vcJ2DuT5bPYOYOwvmZ83vaqFyt5myfW14xv1z0TAd2ZFZ9F5SPSOTmb/ble6b4jst2uV7NdJF/NdCrbnRvVLrs+me2qmU5lu7rVLrtezXYTqGxXt9q1sncXnbMvs2vyxmH23nEfTJHtrf5Us8LO97kHc/agWSHqVb+WgeHp1DGaOyMfmZpYmTEjoLkz8tHaXJ21O2ZMxl60Vp21/s6yYHyIsNITPp7+zrKoah9hJe4+ntVb5Dj+xjGLueXfCaZefE/aOJ0Bv8VKzllZ35NMnNRuJufojpu+BVfOxw4y2c67L0NnzmRkWaz8T+7+y57gP/bYjV90cUyAABkAAA==
+  </data>
+ </layer>
+ <objectgroup name="Objektebene 1" width="40" height="40">
+  <object name="spawn" type="player1" x="288" y="160" width="32" height="32">
+   <properties>
+    <property name="money" value="15000"/>
+   </properties>
+  </object>
+  <object name="spawn" type="player2" x="1024" y="160" width="32" height="32">
+   <properties>
+    <property name="money" value="15000"/>
+   </properties>
+  </object>
+  <object name="spawn" type="player4" x="352" y="1088" width="32" height="32">
+   <properties>
+    <property name="money" value="15000"/>
+   </properties>
+  </object>
+  <object name="spawn" type="player3" x="992" y="864" width="32" height="32">
+   <properties>
+    <property name="money" value="15000"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

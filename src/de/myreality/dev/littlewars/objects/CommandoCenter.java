@@ -61,7 +61,7 @@ public class CommandoCenter extends ArmyUnit {
 	@Override
 	public void update(int delta) {
 		super.update(delta);	
-		if (game.getPhaseID() == IngameState.BATTLE && game.getCurrentPlayer().isClientPlayer()) {
+		if (game.getPhaseID() == IngameState.BATTLE && getPlayer().isCurrentPlayer() && getPlayer().isClientPlayer()) {
 			color = Color.gray;
 		} else {
 			color = player.getColor();
@@ -100,7 +100,11 @@ public class CommandoCenter extends ArmyUnit {
 	}
 	
 	public int getSpawnRange() {
-		return 9;		
+		return 6;		
+	}
+	
+	public int getRoundCredits() {
+		return 1000;
 	}
 
 
@@ -119,6 +123,6 @@ public class CommandoCenter extends ArmyUnit {
 
 	@Override
 	public int getPrice() {
-		return 10000;
+		return 15000;
 	}
 }

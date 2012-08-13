@@ -493,7 +493,7 @@ public class CreditsShow extends GameObject {
 			if (credits.get(i).getY() + credits.get(i).getHeight() < 0) {
 				
 				if (last.getY() + last.getHeight() > gc.getHeight()) {
-					credits.get(i).setY(last.getY() + last.getHeight());
+					credits.get(i).setY(last.getY() + last.getHeight() + BLOCK_PADDING);
 					
 				} else {
 					credits.get(i).setY(gc.getHeight());

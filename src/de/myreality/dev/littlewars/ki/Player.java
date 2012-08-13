@@ -19,8 +19,10 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Sound;
 
+import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.components.SpawnArea;
 import de.myreality.dev.littlewars.components.UnitGenerator;
+import de.myreality.dev.littlewars.components.helpers.UnitInfoHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
@@ -362,24 +364,30 @@ public class Player implements Serializable {
 	
 	public void addPeriodMoney() {
 		Money money = getMoney();
-		final int BASE_VALUE = 1000;
-		switch (difficulty.getState()) {
-			case Difficulty.PLAYER:
-				money.addCredits(BASE_VALUE);
-				break;
-			case Difficulty.EASY:
-				money.addCredits(BASE_VALUE / 2);
-				break;
-			case Difficulty.MEDIUM:
-				money.addCredits(BASE_VALUE);
-				break;
-			case Difficulty.HARD:
-				money.addCredits(BASE_VALUE * 2);
-				break;
-			case Difficulty.EXTREME:
-				money.addCredits(BASE_VALUE * 4);
-				break;
-		}
+		for (CommandoCenter center: centers) {
+			int value = center.getRoundCredits();
+			FadeInfoSetting setting = new FadeInfoSetting();
+			setting.setText("+" + value + "$");
+			setting.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
+			UnitInfoHelper.getInstance().addInfo(center, setting, gc, game);
+			switch (difficulty.getState()) {
+				case Difficulty.PLAYER:
+					money.addCredits(value);
+					break;
+				case Difficulty.EASY:
+					money.addCredits(value / 2);
+					break;
+				case Difficulty.MEDIUM:
+					money.addCredits(value);
+					break;
+				case Difficulty.HARD:
+					money.addCredits(value * 2);
+					break;
+				case Difficulty.EXTREME:
+					money.addCredits(value * 4);
+					break;
+		    }
+		}		
 	}
 	
 	public ArmyUnit getNextUnit(ArmyUnit current) {

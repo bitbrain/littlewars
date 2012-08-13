@@ -36,7 +36,7 @@ public class SpawnArea {
 		area = new SpawnCell[game.getWorld().getWidth()][game.getWorld().getHeight()];
 		this.game = game;
 		visible = false;
-		spawnColor = new Color(100, 255, 100, 80);
+		spawnColor = new Color(100, 255, 100, 60);
 		forbiddenColor = new Color(0, 0, 0, 100);
 		// Fill the area array with data
 		GameWorld world = game.getWorld();

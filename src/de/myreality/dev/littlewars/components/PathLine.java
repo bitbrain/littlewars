@@ -35,7 +35,7 @@ public class PathLine {
 		this(game, owner, obj1.getTileX(), obj1.getTileY(), obj2.getTileX(), obj2.getTileY());
 	}
 	
-	public void findPathPosition(TileObject object) {
+	public boolean findPathPosition(TileObject object) {
 		float param = 0.0f;
 		while (param < 1.0f) {
 			param += 0.001;
@@ -44,10 +44,16 @@ public class PathLine {
 			// Check position
 			GameWorld world = game.getWorld();
 
-			if (!world.collisionExists(tileX, tileY) && owner.getSpawnArea().isInRange(tileX, tileY)) {				
+			if (!world.collisionExists(tileX, tileY) && owner.getSpawnArea().isInRange(tileX, tileY)) {	
+				if (tileX < 1 && tileY < 1) {
+					return false;
+				}
+				
 				object.setX(tileX * world.getTileWidth());
-				object.setY(tileY * world.getTileHeight());
+				object.setY(tileY * world.getTileHeight());				
+				break;
 			}
 		}
+		return true;
 	}
 }

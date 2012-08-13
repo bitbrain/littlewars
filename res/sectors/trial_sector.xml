@@ -3,7 +3,12 @@
 	<world x="0" y="0" name="EX-035">
 		<image>SECTOR_TRIAL_WORLD_EX-035</image>		
 		<maps>
-			<map x="20" y ="35" src="res/tilemaps/EX-035/burning_steps.tmx" players="3" slots="1" name="TXT_MAP_DESERT_1">
+			<map x="16" y ="30" src="res/tilemaps/EX-035/burning_steps.tmx" players="2" slots="1" name="TXT_MAP_DESERT_1">
+				<music-init>INGAME_INIT_1</music-init>	
+				<music-battle>INGAME_BATTLE_1</music-battle>
+				<sound>SOUND_MAP_DESERT</sound>	
+			</map>
+			<map x="50" y ="50" src="res/tilemaps/EX-035/tale_of_despair.tmx" players="4" slots="1" name="TXT_MAP_DESERT_2">
 				<music-init>INGAME_INIT_1</music-init>	
 				<music-battle>INGAME_BATTLE_1</music-battle>
 				<sound>SOUND_MAP_DESERT</sound>	

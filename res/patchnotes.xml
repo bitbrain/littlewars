@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patchnotes>
-    <patch caption="Version 0.6 dev">
+    <patch caption="Version 0.7alpha">
+        <item>Einheiten bewegen sich jetzt viel schneller</item>
+        <item>Es wurde ein einfaches KI System implementiert</item>
+        <item>Einige Schriften wurden angepasst und verkleinert</item>
+        <item>Es wurden erste Partikelanimationen eingefügt</item>
+        <item>2 neue Welten wurden eingeführt</item>
+        <item>Es gibt jetzt um jede Zentrale einen Bau-Radius</item>
+        <item>Einheiten können jetzt kämpfen und auch zurückangreifen</item>
+        <item>Die einzelnen Phasen haben eine detaillierte Beschreibung</item>
+        <item>Die Musik ist jetzt an die Phasen angepasst</item>
+        <item>Das Aussehen der GUI wurde leicht abgeändert</item>
+        <item>Es wurden 2 neue Einheiten (Roboter) eingefügt: Vernichter, Zentrum</item>
+        <item>Gewinn-Mechanismus wurde implementiert</item>
+        <item>Weiterhin wurden 13 schwere Fehler behoben</item>
+    </patch>
+    <patch caption="Version 0.6dev">
         <item>"Melde Fehler"-Menü wurde eingefügt</item>
         <item>Spiel wird jetzt beim Spielstart automatisch auf Aktualisierungen geprüft</item>
         <item>Rundensystem wurde implementiert</item>
@@ -13,7 +28,7 @@
         <item>Radius wurde implementiert, in dem Einheiten gebaut werden können</item>
         <item>Weiterhin wurden 8 schwere Fehler behoben</item>
     </patch>
-    <patch caption="Version 0.5 dev">
+    <patch caption="Version 0.5dev">
 		<item>Ein neue Weltenauswahl wurde eingeführt</item>
 		<item>Es wird vor dem Start auf Aktualisierungen geprüft</item>
 		<item>Popup-Menüs können jetzt erscheinen, wenn man die Maus über ein Objekt bewegt</item>
@@ -25,7 +40,7 @@
 		<item>Erhält eine Einheit Erfahrungspunkte, wird dies ab sofort von einem Geräusch begleitet</item>
 		<item>Vorbereitungs- sowie Initialisierungsphase wurde implementiert</item>
 	</patch>
-	<patch caption="Version 0.4 dev">
+	<patch caption="Version 0.4dev">
 		<item>Menüs im Spiel wurden hinzugefügt</item>
 		<item>Man kann jetzt Karten laden und spielen</item>
 		<item>Lebensanzeige von Einheiten ist nun animiert</item>
@@ -33,16 +48,16 @@
 		<item>Ladebildschirm wurde eingeführt</item>
 		<item>Minimap mit implementierter Kamera-Steuerung wurde eingefügt</item>
 	</patch>
-	<patch caption="Version 0.3 dev">
+	<patch caption="Version 0.3dev">
 		<item>Kollisionsbug behoben</item>
 		<item>Jede Welt hat jetzt verschiedene Tageszeiten</item>		
 	</patch>
-	<patch caption="Version 0.2 dev">
+	<patch caption="Version 0.2dev">
 		<item>Schrift wurde implementiert</item>
 		<item>Einstellungen sind jetzt möglich</item>
 		<item>GUI-Elemente wurden erzeugt</item>
 	</patch>
-	<patch caption="Version 0.1 dev">
+	<patch caption="Version 0.1dev">
 		<item>Kollisionserkennung wurde eingefügt</item>
 		<item>Javadoc wurde erstellt</item>
 		<item>Menüstruktur wurde erstellt</item>

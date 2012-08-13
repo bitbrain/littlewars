@@ -325,6 +325,8 @@ public class IngameState extends CustomGameState implements Serializable {
 		System.out.println(ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapInitMusic()));
 		initMusic = ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapInitMusic());
 		battleMusic = ResourceManager.getInstance().getMusic(GameSettings.getInstance().getMapConfig().getMapBattleMusic());
+		initMusic.loop();
+		battleMusic.loop();
 		// New game Tracker
 		tracker = new RoundTracker(this);
 		
@@ -397,9 +399,11 @@ public class IngameState extends CustomGameState implements Serializable {
 			case INIT:
 				battleMusic.stop();
 				initMusic.play();
+				initMusic.loop();
 				break;
 			case BATTLE:
 				battleMusic.play();
+				battleMusic.loop();
 				initMusic.stop();
 				break;
 			}

@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Rectangle;
 
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.gui.GUIObject;
@@ -67,6 +68,7 @@ public class UnitInfoBox extends GUIObject {
 		txtSpeedAdd.setColor(ResourceManager.getInstance().getColor("COLOR_MAIN"));
 		
 		background = ResourceManager.getInstance().getImage("GUI_BOTTOM_SEPERAT_BACKGROUND_DARK");
+		area = new Rectangle(getX(), getY(), getWidth(), getHeight());
 		
 	}
 	
@@ -96,7 +98,7 @@ public class UnitInfoBox extends GUIObject {
 				// Strength
 				txtStrength.setText(String.valueOf(unit.getStrength() - unit.getStrengthAdd()));
 				if (unit.getStrengthAdd() > 0) {
-					txtStrengthAdd.setText("+" + String.valueOf(unit.getStrengthAdd()));
+					txtStrengthAdd.setText(" +" + String.valueOf(unit.getStrengthAdd()));
 					txtStrengthAdd.setX(txtStrength.getWidth());
 				} else {
 					txtStrengthAdd.setText("");
@@ -104,15 +106,15 @@ public class UnitInfoBox extends GUIObject {
 				// Defense
 				txtDefense.setText(String.valueOf(unit.getDefense() - unit.getDefenseAdd()));
 				if (unit.getDefenseAdd() > 0) {
-					txtDefenseAdd.setText("+" + String.valueOf(unit.getDefenseAdd()));
+					txtDefenseAdd.setText(" +" + String.valueOf(unit.getDefenseAdd()));
 					txtDefenseAdd.setX(txtDefense.getWidth());
 				} else {
 					txtDefenseAdd.setText("");
 				}
 				// Speed
-				txtSpeed.setText(String.valueOf(unit.getSpeed() - unit.getSpeedAdd()));
+				txtSpeed.setText(String.valueOf(unit.getRemainingSpeed()) + "/" + String.valueOf(unit.getSpeed() - unit.getSpeedAdd()));
 				if (unit.getSpeedAdd() > 0) {
-					txtSpeedAdd.setText("+" + String.valueOf(unit.getSpeedAdd()));
+					txtSpeedAdd.setText(" +" + String.valueOf(unit.getSpeedAdd()));
 					txtSpeedAdd.setX(txtSpeed.getWidth());
 				}else {
 					txtSpeedAdd.setText("");

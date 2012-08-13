@@ -1,171 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="50" height="30" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="40" height="20" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tile_ground" tilewidth="32" tileheight="32">
   <image source="tiles/tile_ground.png" width="320" height="320"/>
  </tileset>
- <tileset firstgid="101" name="adds1" tilewidth="32" tileheight="32">
-  <image source="tiles/adds1.png" width="512" height="512"/>
-  <tile id="26">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="58">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="88">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="159">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="357" name="future1" tilewidth="32" tileheight="32">
-  <image source="tiles/future1.png" width="512" height="512"/>
-  <tile id="161">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="162">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="166">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="176">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="177">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="178">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="179">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="204">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="205">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="206">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="220">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="221">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="222">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="223">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="235">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="237">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="238">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="239">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="252">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="253">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
-  <tile id="254">
-   <properties>
-    <property name="blocked" value="true"/>
-   </properties>
-  </tile>
- </tileset>
- <layer name="ground" width="50" height="30">
+ <tileset firstgid="101" source="tiles/desert-environment.tsx"/>
+ <layer name="Kachelebene 1" width="40" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3VQ5YFMAAAwT+2bdu2bdu4/xmmjpG8yaJ2ve+sTCaTTQ655JFPAYUUUUxW4F0JpZRRTgWVVFFNDbURdHXU00AjTTTTQitttEfQddBJF9300Esf/QwwGEE3xDAjjDLGOBNMMsV0BN0Ms8wxzwKLLLHMCqsRdGuss8EmW2yzwy577EfQHXDIEceccMoZ51xwGUF3xTU33HLHPQ888sRzBN0Lr7zxzgeffPHND78RdKF/Ov08rE+nn4f16fTzsD6dfh7Wp9PPw/p0+nlYn04/D+vT6edhfTr9PKxP/7ef/wGPESmwcBcAAA==
+   H4sIAAAAAAAAC+3VQ3JFARRAwfdj2/qxbdu2nex/Deld3ErVG/TszE8mSZIccskjnwIKKaKYEjJBXSlllFNBJVVUU0MtdYFdPQ000kQzLbTSRjsdgV2WTrropode+uhngMHAbohhRhhljHEmmGSK6cBuhlnmmGeBRZZYZoXVwG6NdTbYZIttdthlj/3A7oBDjjjmhFPOOOeCy8DuimtuuOWOex545InnwO6FV95454NPvvjmh9/ALuoL6T/Sf6T/SP+R/uN//+MPKEWyHoAMAAA=
   </data>
  </layer>
- <layer name="adds2" width="50" height="30">
+ <layer name="Kachelebene 2" width="40" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WzQqDMBCEtdgf8Nyf97/3EfpWWgu9dLwF0Wg2mzFJ88FCCDi7yQzBqiqYPAXffOv1tS89tN6oAfXZoPsS9GgP62tfjtA6oc6oi6Iumytmv6HuqEeAc7j6LcktA1e/JbllENrvlNB816Z63cK+ds8RzXdtqtfU8/vaPXMihMcszNy6esw499YejccsjGxLeqScK5MY3w6tu7XpMPzTypVNJ0b/RmKci5ErBlp3a9PZ+4xaxJjDJXK/825+Ozl8/mf2IPdcFQr/zA9MS5QdcBcAAA==
+   H4sIAAAAAAAAC72WxxHCMBBF3SyhAUIDhAZIBRDvxA5wB1ANn4NnPDvS8rVa8WfexdausfQkU1XpeYLaUBfKC7yNtVuwA3twIHrGxh/ByfgbZNq9zuACruBG1MbG38GDqI+9Xztsr5SwPjDzkevWJnAt5kNo7K/k+OoVi6+xd/V0v4mnYym9GP+/8Ty/Unqx54GnY//01bKfLOmALuiBvkM/7z0wAEMwAmOyRnNX2wOWuZiAKZiBOVmjuavtActcLMASrMBa3PM+s7W5kM8qcVbKyPXU5kKmxLddxrKeTTRP2LNbRq4R63boeZonmv8pXrDrmfrfUUuOF6Wd/wBoflOPgAwAAA==
   </data>
  </layer>
- <layer name="adds" width="50" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WS04CQRRFq5soDvGHDvktQIQFoLIAQTcArBxYgYDokMPgJYSEhnTXraSTOsmZ3lfdqZe6zkUi4Zknzi1wmZQz3/ghf4Vr3Aj0lX+OJHUuxUqq+U/q/D01sm/xDu/xwfMsdb7RILeJLWxjx/Mcdb7xQm4XX7GHfc9z1PnGgNw3fMcPHHqeo843Pskd4Ri/8NvzHHX+IROypzgTzVDnR07zy3u1xT/8F7/fSq64O9dYxZsS36NHzl7HJ3wu8XdE/JF3R1W9PG9u3h1V9f7j3EvJu6OqXh6i7xuqXh6q7xtFennWPobq+0aRXp61j6H6vlGkl2ftY6i+b6h6eci+b6h6eez7kRDsAMteXh5wFwAA
-  </data>
- </layer>
- <layer name="adds3" width="50" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3VwQ0AIAgEMPbfxRHczSGQEKX9k3DHgwgAgBqre4FLdnJeD/+ZctMpOQGo5Z/k6RDecQDrloK9cBcAAA==
-  </data>
- </layer>
- <objectgroup name="players" width="50" height="30">
-  <object name="spawn" type="player1" x="640" y="384" width="32" height="32">
+ <objectgroup name="Objektebene 1" width="40" height="20">
+  <object name="spawn" type="player1" x="160" y="480" width="32" height="32">
    <properties>
     <property name="money" value="10000"/>
    </properties>
   </object>
-  <object name="spawn" type="player2" x="320" y="800" width="32" height="32">
-   <properties>
-    <property name="money" value="10000"/>
-   </properties>
-  </object>
-  <object name="spawn" type="player3" x="1312" y="416" width="32" height="32">
+  <object name="spawn" type="player2" x="1056" y="224" width="32" height="32">
    <properties>
     <property name="money" value="10000"/>
    </properties>

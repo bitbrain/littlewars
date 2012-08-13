@@ -101,6 +101,6 @@ public class Annihilator extends ArmyUnit {
 
 	@Override
 	public int getPrice() {
-		return 1900;
+		return 2200;
 	}
 }

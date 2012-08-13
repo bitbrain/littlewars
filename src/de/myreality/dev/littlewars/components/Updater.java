@@ -268,7 +268,11 @@ public class Updater implements Runnable {
         if (!dirs.exists()) {
         	dirs.mkdirs();
         }
-		
+		// Delete the null file
+        if ((new File("null")).delete()) {
+        	Debugger.getInstance().write("null directory has been removed.");
+        }
+        
         URL url;        
         // TODO: Fix download problem
         Debugger.getInstance().write("Download file '" + sourceurl + "..");

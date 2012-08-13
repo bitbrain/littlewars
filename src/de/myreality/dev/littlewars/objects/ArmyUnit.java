@@ -351,8 +351,17 @@ public abstract class ArmyUnit extends TileObject {
 		this.currentExperience = currentExperience;
 	}
 	
-	public void setRemainingSpeed(int speed) {
+	public void setRemainingSpeed(int speed, boolean exception) {
+		if (((Integer)speed).equals(0)) { // Fixed movement bug on click
+			if (((Integer)getSpeed()).equals(getRemainingSpeed()) && !exception) {
+				return;
+			}
+		}
 		remainingSpeed = speed;
+	}
+	
+	public void setRemainingSpeed(int speed) {
+		setRemainingSpeed(speed, false);
 	}
 
 	public int getRank() {
@@ -393,7 +402,7 @@ public abstract class ArmyUnit extends TileObject {
 	
 	
 	public int getStrength() {
-		return getRankStrength(rank) + strengthAdd;
+		return getRankStrength(rank) + getStrengthAdd();
 	}
 	
 	
@@ -403,7 +412,7 @@ public abstract class ArmyUnit extends TileObject {
 	
 	
 	public int getLife() {
-		return getRankLife(rank) + lifeAdd;
+		return getRankLife(rank) + getLifeAdd();
 	}
 	
 	
@@ -437,7 +446,9 @@ public abstract class ArmyUnit extends TileObject {
 		ArmyUnit enemy = movementCalculator.getEnemy();
 		if (enemy != null) {
 			attack(enemy);
-			setRemainingSpeed(0);
+			setRemainingSpeed(0, true);
+		} else {
+			setRemainingSpeed(0, true);
 		}
 	}
 	
@@ -625,7 +636,7 @@ public abstract class ArmyUnit extends TileObject {
 	
 	
 	public int getSpeed() {
-		return getRankSpeed(rank) + speedAdd;
+		return getRankSpeed(rank) + getSpeedAdd();
 	}
 	
 	public static void renderParticles(Camera camera) {
@@ -670,7 +681,7 @@ public abstract class ArmyUnit extends TileObject {
 
 	public int getStrengthAdd() {
 		int add = 0;
-		if (player != null) {
+		if (player != null && !(this instanceof CommandoCenter)) {
 			for (ArmyUnit center : player.getCommandoCenters()) {
 				if (center != null && !equals(center)) {
 					add += center.getStrength();
@@ -776,7 +787,7 @@ public abstract class ArmyUnit extends TileObject {
 	}
 	
 	public void attack(ArmyUnit target) {
-		attack(target, true);
+		attack(target, true);		
 	}
 	
 	public void attack(ArmyUnit target, boolean attackingBack) {
@@ -803,13 +814,15 @@ public abstract class ArmyUnit extends TileObject {
 					}
 				}				
 			} 
-			movementCalculator.reset();
-			
+			movementCalculator.reset();			
 			// Set owner as new opponent
 			if (target.getPlayer() instanceof CPU) {
 				CPU cpu = (CPU)target.getPlayer();
 				cpu.setOpponent(getPlayer());
 			}
+		}
+		if (attackingBack) {
+			setRemainingSpeed(0, true);
 		}
 	}
 	

@@ -37,7 +37,7 @@ public class CPU extends Player {
 	private Timer timer;
 	
 	// Wait time
-	private final static long WAIT = 400;
+	private final static long WAIT = 200;
 	
 	// StartUnits
 	private List<Pair<ArmyUnit, Integer> > startUnits, defaultUnits;
@@ -202,7 +202,7 @@ public class CPU extends Player {
 				
 				if (currentUnit.getRealPathLength() == 0) {
 					currentUnit.attackTargetEnemy();
-					game.getWorld().focusCameraOnObject(currentUnit, gc);
+					game.getWorld().focusCameraOnObject(currentUnit, gc);					
 				}
 			} else {
 				// Enemy is not reachable, wait at the current position

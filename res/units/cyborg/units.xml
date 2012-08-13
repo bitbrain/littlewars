@@ -13,6 +13,7 @@
 	    </spriteAnimation>
 	    <name>UNIT_CYBORG_CENTER</name>
 	    <sounds>
+	         <sound type="onClick">CYBORG_CENTER_ONCLICK_1</sound>
 		</sounds>
     </resource>
     

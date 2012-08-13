@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 <!-- Cyborg -->		
+	<!-- Center -->
 	<!-- Annihilator -->
+	<!-- onClick -->		
+		<resource type="sound" id="CYBORG_CENTER_ONCLICK_1">res/sounds/de/units/cyborg/command_center/onclick/cyborg-center-click.ogg</resource>
 		<!-- Die -->
 		<resource type="sound" id="CYBORG_ANNIHILATOR_DIE_1">res/sounds/de/units/cyborg/annihilator/die/cyborg_annihilator_die_1.wav</resource>
 		<resource type="sound" id="CYBORG_ANNIHILATOR_DIE_2">res/sounds/de/units/cyborg/annihilator/die/cyborg_annihilator_die_2.wav</resource>

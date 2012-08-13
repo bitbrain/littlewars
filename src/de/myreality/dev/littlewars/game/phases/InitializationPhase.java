@@ -28,13 +28,12 @@ public class InitializationPhase extends BasicGamePhase {
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		final Player currentPlayer = game.getCurrentPlayer();
-		if (ArmyUnit.isUnitMoving() || ArmyUnit.isUnitBusy()) {			
+		if (ArmyUnit.isUnitBusy()) {			
 			game.setPhase(IngameState.BATTLE);
 			String message = "";
 			if (game.getCurrentPlayer().isClientPlayer()) {
 				message = "Die Schlacht beginnt!";
 			}
-			
 			FlashHelper.getInstance().flash(new PhaseInfo(currentPlayer, game.getPhase(), message, gc), 1200, gc);
 		} else {		
 			if (currentPlayer.isCPU()) {

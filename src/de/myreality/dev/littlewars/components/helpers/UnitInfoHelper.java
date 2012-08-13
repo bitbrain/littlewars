@@ -20,6 +20,7 @@ import de.myreality.dev.littlewars.components.FadeInfoSetting;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.gui.FadeInfo;
 import de.myreality.dev.littlewars.objects.ArmyUnit;
+import de.myreality.dev.littlewars.objects.CommandoCenter;
 import de.myreality.dev.littlewars.objects.GameObject;
 
 public class UnitInfoHelper {
@@ -45,7 +46,11 @@ public class UnitInfoHelper {
 		FadeInfo info = null;
 		if (!infos.isEmpty()) {
 			FadeInfo last = infos.get(infos.size() - 1);
-			info = new FadeInfo(target, setting, gc, last, game);
+			if (infos.get(0).getOpacity() > 0.1) {
+				info = new FadeInfo(target, setting, gc, last, game);
+			} else {				
+				info = new FadeInfo(target, setting, gc, null, game);
+			}
 		} else {
 			info = new FadeInfo(target, setting, gc, null, game);
 		}
@@ -65,15 +70,19 @@ public class UnitInfoHelper {
 	}
 	
 	public void update(int delta) {
+		boolean containsOnlyCenterInfo = true;
 		for (FadeInfo info: infos) {
 			info.update(delta);
+			if (!(info.getTarget() instanceof CommandoCenter)) {
+				containsOnlyCenterInfo = false;
+			}
 			if (info.isDone()) {
 				info.clear();
 				removeInfo(info);
 				break;
 			}
 		}
-		if (!infos.isEmpty()) {
+		if (!infos.isEmpty() && !containsOnlyCenterInfo) {
 			ArmyUnit.setUnitBusy(true);
 		}
 	}

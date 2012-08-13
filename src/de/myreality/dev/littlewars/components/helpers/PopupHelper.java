@@ -75,6 +75,7 @@ public class PopupHelper {
 		if (currentState != null && targets.get(currentState) != null) {
 			for (Entry<GameObject, PopupBox> target : targets.get(currentState).entrySet()) {
 				target.getValue().update(delta);
+				target.getValue().setVisible(target.getKey().isVisible());
 			}
 		}
 	}
