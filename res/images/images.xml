@@ -20,7 +20,8 @@
 	
 	<!-- Cursors -->
 	<resource type="image" id="CURSOR_DEFAULT">res/cursors/pointer.png</resource>
-	<resource type="image" id="CURSOR_ATTACK">res/cursors/cur_target.png</resource>
+	<resource type="image" id="CURSOR_ATTACK">res/cursors/pointer_attack.png</resource>
+	<resource type="image" id="CURSOR_HOVER">res/cursors/cur_target.png</resource>
 		
 	<!-- Intro -->
 	<resource type="image" id="INTRO_MYREALITY_LOGO">res/images/logos/myreality_logo.png</resource>

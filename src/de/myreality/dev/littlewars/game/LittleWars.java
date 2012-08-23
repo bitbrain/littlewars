@@ -23,6 +23,7 @@ import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.Updater;
 import de.myreality.dev.littlewars.components.config.Configuration;
 import de.myreality.dev.littlewars.components.config.Resolution;
+import de.myreality.dev.littlewars.components.helpers.CursorHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 
 /**
@@ -96,7 +97,9 @@ public class LittleWars extends StateBasedGame {
 		ResourceManager.getInstance().loadDefaultResources();
 		AppGameContainer appgc = (AppGameContainer) gc;
 		appgc.setTitle(Debugger.getInstance().getFullGameInfo());
-		gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"), 0, 0);
+		//gc.setMouseCursor(, 0, 0);
+		CursorHelper.getInstance().setCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"));
+		gc.setMouseGrabbed(true);
 		gc.setIcons(new String[] {"res/icon/32x32.tga", "res/icon/24x24.tga", "res/icon/16x16.tga"});
 		Debugger.getInstance().write("Starting Game " + Debugger.getInstance().getFullGameInfo() + "..");
 	}	

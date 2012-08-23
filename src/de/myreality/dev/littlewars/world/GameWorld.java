@@ -36,6 +36,7 @@ import org.newdawn.slick.util.pathfinding.TileBasedMap;
 import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.MovementCalculator;
 import de.myreality.dev.littlewars.components.SpawnArea;
+import de.myreality.dev.littlewars.components.helpers.CursorHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
 import de.myreality.dev.littlewars.game.IngameState;
 import de.myreality.dev.littlewars.gui.GUIObject;
@@ -420,13 +421,16 @@ public class GameWorld extends TiledMap implements TileBasedMap, Serializable {
 					}
 				}
 				
-				/*if (!unit.getPlayer().equals(game.getClientPlayer())) {
-					if (target.onMouseOver()) {
-						gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"), 0, 0);
-					} else if (target.onMouseOut()) {
-						gc.setMouseCursor(ResourceManager.getInstance().getImage("CURSOR_ATTACK"), 0, 0);
-					}
-				}*/
+				// Set the cursor that depends on the unit state
+				boolean isPlayerUnit = getFocusObject() != null && ((ArmyUnit)getFocusObject()).getPlayer().isClientPlayer() && !(getFocusObject() instanceof CommandoCenter);
+				if (game.getPhaseID() != IngameState.PREPERATION && !unit.getPlayer().equals(game.getClientPlayer()) && unit.isMouseOver() && isPlayerUnit) {
+					CursorHelper.getInstance().setCursor(ResourceManager.getInstance().getImage("CURSOR_ATTACK"));
+				} else if (unit.isMouseOver()) {
+					CursorHelper.getInstance().setCursor(ResourceManager.getInstance().getImage("CURSOR_HOVER"));
+				} else if (unit.onMouseOut()) {
+					CursorHelper.getInstance().setCursor(ResourceManager.getInstance().getImage("CURSOR_DEFAULT"));
+				}
+				
 			}
 		}
 		

@@ -4,8 +4,9 @@
     <file src="res\animations\human\animations.xml" sum="152631" size="3011"></file>
     <file src="res\colors\colors.xml" sum="90824" size="1148"></file>
     <file src="res\credits\credits.xml" sum="78527" size="1025"></file>
-    <file src="res\cursors\cur_target.png" sum="398778" size="391"></file>
+    <file src="res\cursors\cur_target.png" sum="2403207" size="1443"></file>
     <file src="res\cursors\pointer.png" sum="2871643" size="1549"></file>
+    <file src="res\cursors\pointer_attack.png" sum="2569861" size="1383"></file>
     <file src="res\fonts\caption.fnt" sum="1578715" size="23332"></file>
     <file src="res\fonts\caption.png" sum="367034566" size="194054"></file>
     <file src="res\fonts\fonts.xml" sum="32036" size="377"></file>
@@ -44,7 +45,7 @@
     <file src="res\images\gui\topshadow.png" sum="1157128" size="707"></file>
     <file src="res\images\gui\top_menu_background.png" sum="23583526" size="11777"></file>
     <file src="res\images\gui\valuebar_light.png" sum="583940" size="427"></file>
-    <file src="res\images\images.xml" sum="259682" size="3022"></file>
+    <file src="res\images\images.xml" sum="267278" size="3107"></file>
     <file src="res\images\logos\java_logo.png" sum="79318812" size="47247"></file>
     <file src="res\images\logos\myreality_logo.png" sum="26113810" size="17289"></file>
     <file src="res\images\logos\slick_logo.png" sum="90751730" size="50665"></file>
@@ -60,7 +61,7 @@
     <file src="res\images\units\testsheet.png" sum="360862" size="615"></file>
     <file src="res\locations\de\locations.xml" sum="12447" size="148"></file>
     <file src="res\locations\en\locations.xml" sum="12230" size="146"></file>
-    <file src="res\meta.xml" sum="29503" size="355"></file>
+    <file src="res\meta.xml" sum="29598" size="357"></file>
     <file src="res\music\littlewars-battle.OGG" sum="1075373373" size="582282"></file>
     <file src="res\music\littlewars-preperation.OGG" sum="1748909991" size="965524"></file>
     <file src="res\music\lw-credits.OGG" sum="3362023834" size="1801414"></file>
@@ -80,7 +81,7 @@
     <file src="res\particles\particles.xml" sum="47992" size="537"></file>
     <file src="res\particles\system\default.xml" sum="8146" size="98"></file>
     <file src="res\particles\system\smoke.xml" sum="128965" size="1705"></file>
-    <file src="res\patchnotes.xml" sum="330410" size="3748"></file>
+    <file src="res\patchnotes.xml" sum="348924" size="3960"></file>
     <file src="res\sectors\trial_sector.xml" sum="53584" size="723"></file>
     <file src="res\sounds\de\sounds.xml" sum="34343" size="395"></file>
     <file src="res\sounds\de\units\cyborg\annihilator\attack\cyborg_annihilator_attack_1.wav" sum="184279603" size="194200"></file>

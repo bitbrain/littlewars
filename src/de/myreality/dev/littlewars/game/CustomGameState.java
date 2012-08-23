@@ -24,6 +24,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import de.myreality.dev.littlewars.components.Debugger;
 import de.myreality.dev.littlewars.components.helpers.ContextMenuHelper;
+import de.myreality.dev.littlewars.components.helpers.CursorHelper;
 import de.myreality.dev.littlewars.components.helpers.FlashHelper;
 import de.myreality.dev.littlewars.components.helpers.PopupHelper;
 import de.myreality.dev.littlewars.components.resources.ResourceManager;
@@ -56,7 +57,8 @@ public abstract class CustomGameState extends BasicGameState {
 		}
 		ContextMenuHelper.getInstance().render(container, g);		
 		FlashHelper.getInstance().render(g);
-		Debugger.getInstance().drawGameInfo(container,  g);		
+		Debugger.getInstance().drawGameInfo(container,  g);	
+		CursorHelper.getInstance().draw(container, g);
 	}
 
 	@Override
