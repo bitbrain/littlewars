@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patchnotes>
-    <patch caption="Version 0.7alpha">
+    <patch caption="Version 0.7.1alpha">
         <item>Ein neues Cursor-System wurde implementiert. Der Cursor verändert jetzt sein Aussehen, wenn dieser auf bestimmte Einheiten bewegt wird</item>
     </patch>
     <patch caption="Version 0.7alpha">
